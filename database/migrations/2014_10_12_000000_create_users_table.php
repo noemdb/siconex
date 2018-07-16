@@ -15,10 +15,16 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('email')->unique();
+            $table->string('username')->unique();
+            $table->string('email',255)->unique();
             $table->string('password');
+            $table->enum('is_active', ['Activo', 'Desactivo'])->default('Activo');
+            // $table->enum('rango', ['root', 'user'])->default('user');
             $table->rememberToken();
+            $table->timestamp('last_login_at')->nullable();
+            $table->timestamp('last_loginout_at')->nullable();
+            $table->string('last_login_ip')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

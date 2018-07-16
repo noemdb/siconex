@@ -1,0 +1,32 @@
+tablas para la logica del sistema
+
+General (Info de cabeceras)
+php artisan make:model 'Models\poa\Institucion' -m
+php artisan make:model 'Models\poa\Direccion' -m
+php artisan make:model 'Models\poa\Responsable' -m
+php artisan make:model 'Models\poa\Poa' -m
+php artisan make:model 'Models\poa\Mlogico' -m
+
+Matriz del problema
+php artisan make:model 'Models\poa\problema\Mproblema' -m
+php artisan make:model 'Models\poa\problema\Pdeterminante' -m
+php artisan make:model 'Models\poa\problema\Pcausaefecto' -m
+
+Matriz de Objetivo
+php artisan make:model 'Models\poa\objetivo\Mobjetivo' -m
+
+Matriz de Producto
+php artisan make:model 'Models\poa\producto\Mproducto' -m
+php artisan make:model 'Models\poa\producto\Pindicador' -m
+php artisan make:model 'Models\poa\producto\Pverificador' -m
+php artisan make:model 'Models\poa\producto\Psupuesto' -m
+
+Matriz de Actividades
+
+php artisan make:model 'Models\poa\actividades\Mactividad' -m
+php artisan make:model 'Models\poa\actividades\Aestado' -m
+php artisan make:model 'Models\poa\actividades\Afrecuencia' -m
+php artisan make:model 'Models\poa\actividades\Funidad' -m
+
+Matriz de Presupuestaria
+php artisan make:model 'Models\poa\presupuestaria\Presupuestaria' -m

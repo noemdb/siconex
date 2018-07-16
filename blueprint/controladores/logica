@@ -1,0 +1,18 @@
+php artisan make:controller 'Poa\Crud\InstitucionController' --resource
+php artisan make:controller 'Poa\Crud\DireccionController' --resource
+php artisan make:controller 'Poa\Crud\PoaController' --resource
+php artisan make:controller 'Poa\Crud\MlogicoController' --resource
+php artisan make:controller 'Poa\Crud\ResponsableController' --resource
+
+php artisan make:controller 'Poa\Crud\problemas\MproblemaController' --resource
+php artisan make:controller 'Poa\Crud\problemas\PdeterminanteController' --resource
+php artisan make:controller 'Poa\Crud\problemas\PcausaefectoController' --resource
+php artisan make:controller 'Poa\Crud\objetivos\MobjetivoController' --resource
+php artisan make:controller 'Poa\Crud\presupuestarias\PresupuestariaController' --resource
+php artisan make:controller 'Poa\Crud\productos\MproductoController' --resource
+php artisan make:controller 'Poa\Crud\productos\PsupuestoController' --resource
+php artisan make:controller 'Poa\Crud\productos\PverificadorController' --resource
+php artisan make:controller 'Poa\Crud\productos\PindicadorController' --resource
+php artisan make:controller 'Poa\Crud\actividades\MactividadController' --resource
+php artisan make:controller 'Poa\Crud\actividades\AestadoController' --resource
+php artisan make:controller 'Poa\Crud\actividades\AfrecuenciaController' --resource

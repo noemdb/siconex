@@ -1,0 +1,75 @@
+php artisan make:seeder 'institucionTableSeeder'
+php artisan make:factory 'institucionFactory' --model='Models\poa\institucion'
+php artisan db:seed --class=institucionTableSeeder
+
+php artisan make:seeder 'DireccionTableSeeder'
+php artisan make:factory 'DireccionFactory' --model='Models\poa\Direccion'
+php artisan db:seed --class=DireccionTableSeeder
+
+php artisan make:seeder 'ResponsableTableSeeder'
+php artisan make:factory 'ResponsableFactory' --model='Models\poa\Responsable'
+php artisan db:seed --class=ResponsableTableSeeder
+
+php artisan make:seeder 'PoaTableSeeder'
+php artisan make:factory 'PoaFactory' --model='Models\poa\Poa'
+php artisan db:seed --class=PoaTableSeeder
+
+php artisan make:seeder 'MlogicoTableSeeder'
+php artisan make:factory 'MlogicoFactory' --model='Models\poa\Mlogico'
+php artisan db:seed --class=MlogicoTableSeeder
+
+php artisan make:seeder 'MlogicoTableSeeder'
+php artisan make:factory 'MlogicoFactory' --model='Models\poa\Mlogico'
+php artisan db:seed --class=MlogicoTableSeeder
+
+php artisan make:seeder 'MProblemaTableSeeder'
+php artisan make:factory 'MProblemaFactory' --model='Models\poa\problema\Mproblema'
+php artisan db:seed --class=MProblemaTableSeeder
+
+php artisan make:seeder 'PdeterminateTableSeeder'
+php artisan make:factory 'PdeterminateFactory' --model='Models\poa\problema\Pdeterminante'
+php artisan db:seed --class=PdeterminateTableSeeder
+
+php artisan make:seeder 'PcausaefectoTableSeeder'
+php artisan make:factory 'PcausaefectoFactory' --model='Models\poa\problema\Pcausaefecto'
+php artisan db:seed --class=PcausaefectoTableSeeder
+
+php artisan make:seeder 'MobjetivoTableSeeder'
+php artisan make:factory 'MobjetivoFactory' --model='Models\poa\objetivo\Mobjetivo'
+php artisan db:seed --class=MobjetivoTableSeeder
+
+php artisan make:seeder 'MproductoTableSeeder'
+php artisan make:factory 'MproductoFactory' --model='Models\poa\producto\Mproducto'
+php artisan db:seed --class=MproductoTableSeeder
+
+php artisan make:seeder 'PindicadorTableSeeder'
+php artisan make:factory 'PindicadorFactory' --model='Models\poa\producto\Pindicador'
+php artisan db:seed --class=PindicadorTableSeeder
+
+php artisan make:seeder 'PverificadorTableSeeder'
+php artisan make:factory 'PverificadorFactory' --model='Models\poa\producto\Pverificador'
+php artisan db:seed --class=PverificadorTableSeeder
+
+php artisan make:seeder 'PsupuestoTableSeeder'
+php artisan make:factory 'PsupuestoFactory' --model='Models\poa\producto\Psupuesto'
+php artisan db:seed --class=PsupuestoTableSeeder
+
+php artisan make:seeder 'PFrecuenciaTableSeeder'
+php artisan make:factory 'PFrecuenciaFactory' --model='Models\poa\producto\PFrecuencia'
+php artisan db:seed --class=PFrecuenciaTableSeeder
+
+php artisan make:seeder 'PunidadTableSeeder'
+php artisan make:factory 'PunidadFactory' --model='Models\poa\producto\Punidad'
+php artisan db:seed --class=PunidadTableSeeder
+
+php artisan make:seeder 'MactividadTableSeeder'
+php artisan make:factory 'MactividadFactory' --model='Models\poa\actividades\Mactividad'
+php artisan db:seed --class=MactividadTableSeeder
+
+php artisan make:seeder 'AestadoTableSeeder'
+php artisan make:factory 'AestadoFactory' --model='Models\poa\actividades\Aestado'
+php artisan db:seed --class=AestadoTableSeeder
+
+php artisan make:seeder 'PresupuestariaTableSeeder'
+php artisan make:factory 'PresupuestariaFactory' --model='Models\poa\presupuestaria\Presupuestaria'
+php artisan db:seed --class=PresupuestariaTableSeeder

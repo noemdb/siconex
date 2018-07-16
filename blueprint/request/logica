@@ -1,0 +1,51 @@
+Form Request Validation
+php artisan make:request 'Poa\CreateInstitucionRequest'
+php artisan make:request 'Poa\UpdateInstitucionRequest'
+
+php artisan make:request 'Poa\CreateDireccionRequest'
+php artisan make:request 'Poa\UpdateDireccionRequest'
+
+php artisan make:request 'Poa\CreateResponsableRequest'
+php artisan make:request 'Poa\UpdateResponsableRequest'
+
+php artisan make:request 'Poa\CreatePoaRequest'
+php artisan make:request 'Poa\UpdatePoaRequest'
+
+php artisan make:request 'Poa\CreateMlogicoRequest'
+php artisan make:request 'Poa\UpdateMlogicoRequest'
+
+php artisan make:request 'Poa\mproblemas\CreateMproblemaRequest'
+php artisan make:request 'Poa\mproblemas\UpdateMproblemaRequest'
+
+php artisan make:request 'Poa\mproblemas\CreatePdeterminanteRequest'
+php artisan make:request 'Poa\mproblemas\UpdatePdeterminanteRequest'
+
+php artisan make:request 'Poa\mproblemas\CreatePcausaefectoRequest'
+php artisan make:request 'Poa\mproblemas\UpdatePcausaefectoRequest'
+
+php artisan make:request 'Poa\mobjetivos\CreateMobjetivoRequest'
+php artisan make:request 'Poa\mobjetivos\UpdateMobjetivoRequest'
+
+php artisan make:request 'Poa\presupuestarias\CreatePresupuestariaRequest'
+php artisan make:request 'Poa\presupuestarias\UpdatePresupuestariaRequest'
+
+php artisan make:request 'Poa\productos\CreateMproductoRequest'
+php artisan make:request 'Poa\productos\UpdateMproductoRequest'
+
+php artisan make:request 'Poa\productos\CreatePsupuestoRequest'
+php artisan make:request 'Poa\productos\UpdatePsupuestoRequest'
+
+php artisan make:request 'Poa\productos\CreatePverificadorRequest'
+php artisan make:request 'Poa\productos\UpdatePverificadorRequest'
+
+php artisan make:request 'Poa\productos\CreatePindicadorRequest'
+php artisan make:request 'Poa\productos\UpdatePindicadorRequest'
+
+php artisan make:request 'Poa\actividades\CreateMactividadRequest'
+php artisan make:request 'Poa\actividades\UpdateMactividadRequest'
+
+php artisan make:request 'Poa\actividades\CreateAestadoRequest'
+php artisan make:request 'Poa\actividades\UpdateAestadoRequest'
+
+php artisan make:request 'Poa\actividades\CreateAfrecuenciaRequest'
+php artisan make:request 'Poa\actividades\UpdateAfrecuenciaRequest'
