@@ -53,7 +53,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','is_admin'],'namespace'=>'
     //FIN Route iniciales
 
     //INI CRUD modelos
-    // require (__DIR__ . '/admin/crud/resource.php');
+    require (__DIR__ . '/admin/crud/resource.php');
     // require (__DIR__ . '/admin/crud/showfull.php');
     // require (__DIR__ . '/admin/crud/createwithid.php');
     //FIN CRUD modelos
