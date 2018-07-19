@@ -21,6 +21,8 @@ class AppServiceProvider extends ServiceProvider
             'brand'=>'fas fa-archive',
             'user'=>'fas fa-user',
             'userplus'=>'fas fa-user-plus',
+            'profile'=>'fas fa-id-card',
+            'rol'=>'far fa-id-badge',
             'editar'=>'fas fa-edit',
             'nuevo'=>'fas fa-plus',
             'mostrar'=>'fas fa-info',

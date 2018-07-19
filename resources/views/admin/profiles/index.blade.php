@@ -11,7 +11,7 @@
                     <small class="text-default">
                         <strong><span id="profile_counter">{{$profiles->count()}}</span> Perfiles</strong>
                     </small>
-                    
+
                     {{-- INI Menu rapido --}}
                     <div class="btn-group float-right pt-2">
 
@@ -26,7 +26,7 @@
             <div class="card-body">
 
                 {{-- Mensaje session-flash sobre operaciones con base de datos --}}
-                @include('admin.elements.messeges.oper_ok')          
+                @include('admin.elements.messeges.oper_ok')
 
                 {{-- Partial con el listado de los usuarios --}}
                 @include('admin.profiles.table.list')

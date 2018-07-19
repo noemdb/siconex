@@ -3,7 +3,7 @@
     <table class="table table-striped table-bordered {{-- table-sm table-hover --}}">
       <tbody>
         <tr>
-            
+
             <th scope="col">Usuario</th>
 
             <th scope="col">
@@ -25,7 +25,7 @@
         <tr>
           <th scope="row">Rango</th>
           <td>
-            
+
             <span class="text-rols-rango-{{ $rol->id  or ''}}">
                 {{$rol->rango}}
             </span>
@@ -35,7 +35,7 @@
         <tr>
           <th scope="row">Descripción</th>
           <td>
-            
+
             <span class="text-rols-descripcion-{{ $rol->id  or ''}}">
                 {{$rol->descripcion}}
             </span>
@@ -50,7 +50,7 @@
                         {{ (isset($rol->finicial)) ? Carbon\Carbon::parse($rol->finicial)->format('d-m-Y') : '' }}
                         {{-- {{$rol->finicial->format('d-m-Y')}} --}}
                     @endif
-                </span>                
+                </span>
             </td>
         </tr>
         <tr>
@@ -80,14 +80,14 @@
                 @endif
             </td>
         </tr>
-        <tr>
+{{--         <tr>
             <th scope="row" colspan="2">
                 <a class="btn btn-dark w-100" href="{{ route('rols.edit',$rol->id)}}" role="button">
                     Actualizar
                     <i class="far fa-id-badge"></i>
                 </a>
             </th>
-        </tr>
+        </tr> --}}
       </tbody>
     </table>
 

@@ -5,7 +5,7 @@
       {{-- </thead> --}}
       <tbody>
         <tr>
-            
+
             <th scope="col">Usuario</th>
 
             <th scope="col">

@@ -55,7 +55,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        
+
         $is_active_list = SelectOpt::select('select_opts.*')
         ->where('table','users')
         ->where('name','is_active')
@@ -77,7 +77,7 @@ class UserController extends Controller
     {
 
         $user = User::create($request->all());
-        
+
         Session::flash('operp_ok','Registro guardado exitasamente');
 
         return redirect()->route('users.create');
@@ -92,14 +92,14 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        
+
         $user = User::findOrFail($id);
 
-        $profile = Profile::Where('user_id',$user->id)->first();
+        // $profile = Profile::Where('user_id',$user->id)->first();
 
-        $rols = Rol::Where('user_id',$user->id)->get();
+        // $rols = Rol::Where('user_id',$user->id)->get();
 
-        return view('admin.users.show',compact('user','profile','rols'));
+        return view('admin.users.show',compact('user'));
     }
 
     /**
@@ -136,9 +136,9 @@ class UserController extends Controller
      */
     public function update(UpdateUserRequest $request, $id)
     {
-        
+
         $user = User::findOrFail($id);
-        
+
         $user->fill($request->all());
 
         $user->save();
@@ -148,7 +148,7 @@ class UserController extends Controller
         Session::flash('operp_ok',$messenge);
 
         Session::flash('class_oper','success');
-        
+
         return redirect()->route('users.edit',$id);
     }
 
@@ -162,7 +162,7 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
 
-        $user->profile()->delete();        
+        $user->profile()->delete();
         $user->rols()->delete();
         $user->delete();
         $messenge = trans('db_oper_result.delete_ok');
@@ -176,7 +176,7 @@ class UserController extends Controller
             ]);
 
         }
-        
+
         Session::flash('operp_ok',$messenge.' -> ('.$user->username.')');
 
         return redirect()->route('users.index');

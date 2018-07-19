@@ -19,6 +19,11 @@
 
                         @include('admin.rols.show.rol')
 
+                        <a class="btn btn-warning w-100" href="{{ route('rols.edit',$rol->id)}}" role="button">
+                            Actualizar
+                            <i class="{{$icon_menus['rol'] or ''}}"></i>
+                        </a>
+
                     </div>
                 </div>
             </div>

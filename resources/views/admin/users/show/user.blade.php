@@ -1,9 +1,9 @@
 @isset($user)
 
-    <table class="table table-striped table-bordered table-sm  {{-- table-hover --}}">
+    <table class="table table-striped table-bordered {{-- table-sm  table-hover --}}">
       <tbody>
         <tr>
-            
+
             <th scope="col">Usuario</th>
 
             <th scope="col">
@@ -27,7 +27,7 @@
         <tr>
           <th scope="row">Estado</th>
           <td>
-            
+
             <span class="text-users-is_active-{{ $user->id  or ''}} text-{{ $user->is_active }}">
                 {{$user->is_active}}
             </span>

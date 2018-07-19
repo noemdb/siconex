@@ -9,7 +9,7 @@
         <center>
 
             {{-- <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> --}}
-            <img class="mb-4" src="{{ asset('images/brand/lg/512.png') }}" alt="" width="72" height="72">
+            <img class="mb-4" src="{{ asset('images/brand/lg/4.png') }}" alt="" width="72" height="72">
 
             <h2 class="form-signin-heading">Datos de Acceso</h2>
 
@@ -18,8 +18,8 @@
         <div class="form-label-group">
             <input type="text" id="inputUser" name="username" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" placeholder="Nombre de Usuario" value="{{ old('username') }}" required>
             <label for="inputUser">Nombre de Usuario</label>
-            
-            
+
+
             @if ($errors->has('username'))
 
                 <span class="invalid-feedback">
@@ -46,13 +46,13 @@
             @endif
 
         </div>
-                      
+
         <div class="checkbox mb-2" align="right">
 
             <label>
                 <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Recordarme
             </label>
-            
+
         </div>
 
         @component('elements.widgets.button')
@@ -60,7 +60,7 @@
             @slot('value','Ingresar')
             @slot('class','primary btn-block')
         @endcomponent
-        
+
         <br>
         <a class="btn-link" href="{{ route('password.request') }}">
             Olvidaste tu Contraseña?

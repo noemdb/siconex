@@ -12,20 +12,22 @@
 <div class="tab-content" id="myTabContent">
 
   <div class="tab-pane fade show active pt-2" id="home" role="tabpanel" aria-labelledby="home-tab">
-
       @include('admin.users.show.user')
-
-      <a class="btn btn-dark w-100" href="{{ route('users.edit',$user->id) }}" role="button">
+      <a class="btn btn-warning w-100" href="{{ route('users.edit',$user->id) }}" role="button">
         Actualzar
         <i class="{{$icon_menus['user'] or ''}}"></i>
       </a>
-
   </div>
 
   <div class="tab-pane fade pt-2" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-      {{-- @include('admin.profiles.show.profile') --}}
+      @php ($profile = $user->profile)
+      @include('admin.profiles.show.profile')
+      <a class="btn btn-warning w-100" href="{{ route('profiles.edit',$profile->id) }}" role="button">
+        Actualzar
+        <i class="{{$icon_menus['profile'] or ''}}"></i>
+      </a>
   </div>
   <div class="tab-pane fade pt-2" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-      {{-- @include('admin.rols.show.rols') --}}
+      @include('admin.rols.show.rols')
   </div>
-</div> 
+</div>

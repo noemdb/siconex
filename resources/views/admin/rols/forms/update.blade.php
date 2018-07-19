@@ -6,7 +6,7 @@
 
       {{-- INI form --}}
       {!! Form::model($rol,['route' => ['rols.update', $rol->id], 'method' => 'PUT', 'id'=>'form-update-rol_'.$rol->id, 'role'=>'form']) !!}
-            
+
             {{-- partial con el formulario y campos --}}
             @include('admin.rols.forms.fields')
 
@@ -19,26 +19,21 @@
 
             {{-- INI Menu modelos realcionados --}}
             <div class="btn-group d-flex pt-2" style="width: 100%;" role="group" aria-label="Basic example">
-              
-              <a class="btn btn-dark w-100" href="{{ route('users.show',$user->id) }}" role="button">
+
+              <a class="btn btn-info w-100" href="{{ route('users.show',$user->id) }}" role="button">
                 Mostrar
-                <i class="fas fa-user"></i>
+                <i class="{{ $icon_menus['user'] or '' }}"></i>
               </a>
 
-              <a class="btn btn-secondary w-100" href="{{ isset($user->id) ? route('users.edit',$user->id) : route('users.create')}}" role="button">
-                {{ isset($user->id) ? 'Actualizar' : 'Crear'}}
-                <i class="far fa-user"></i> 
-              </a>
-
-              <a class="btn btn-secondary w-100" href="{{ ($profile->count() > 0) ? route('profiles.edit',$profile->id) : route('profiles.create')}}" role="button">
-                {{ ($profile->count() > 0) ? 'Actualizar' : 'Crear'}}
-                <i class="far fa-id-card"></i>
+              <a class="btn btn-info w-100" href="{{ route('profiles.show',$profile->id) }}" role="button">
+                Mostrar
+                <i class="{{ $icon_menus['profile'] or '' }}"></i>
               </a>
 
             </div>
             {{-- FIN Menu modelos realcionados --}}
 
-      {!! Form::close() !!}    
+      {!! Form::close() !!}
       {{-- FIN form --}}
 
   </div>

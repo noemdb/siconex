@@ -31,10 +31,6 @@
   <div class="tab-pane fade pt-2" id="contact" role="tabpanel" aria-labelledby="contact-tab">
       @php ($rols = $profile->user->rols)
       @include('admin.rols.show.rols')
-      <a class="btn btn-warning w-100" href="{{ route('users.edit',$user->id) }}" role="button">
-        Actualizar
-        <i class="{{$icon_menus['user'] or ''}}"></i>
-      </a>
   </div>
 
-</div> 
+</div>

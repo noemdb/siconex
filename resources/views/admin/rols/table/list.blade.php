@@ -25,7 +25,7 @@
 
             @php ($user = $rol->user)
             @php ($profile = $rol->profile)
-            
+
             <tr data-rol="{{$rol->id}}" data-user="{{$user->id or ''}}">
 
                 <td class="{{$class_N}}">
@@ -40,7 +40,7 @@
 
                 <td  id="td-rols-rol-{{$rol->id or ''}}" title="{{ $rol->descripcion or ''}} ">
                     <span class="text-rols-rol-{{$rol->id}} rol-{{ $rol->rol or '' }}">
-                        {{$rol->rol}}       
+                        {{$rol->rol}}
                     </span>
                 </td>
 
@@ -68,7 +68,7 @@
 
 
                     <div class="btn-group btn-group-sm">
-                    
+
                         {{-- boton para mostrar en un modal de info de regsitro --}}
 
                         <a title="Mostrar detalles" class="btn btn-info btn-xs" href="{{ route('rols.show',$rol->id) }}">
@@ -84,10 +84,10 @@
                         </a>
 
                     </div>
-                    
+
                 </td>
 
-                
+
             </tr>
         @endforeach
     </tbody>

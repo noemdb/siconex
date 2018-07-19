@@ -13,7 +13,7 @@
             <th class="{{ $class_user }}">Usuario</th>
             <th class="{{ $class_email }}">Email</th>
             <th class="{{ $class_state }}">Estado</th>
-            <th class="{{ $class_rols }}"><strong>Roles</strong></th>
+            <th class="{{ $class_rols }}"><strong>Rol</strong></th>
             <th class="{{ $class_range }}" title="Rango">Rango</th>
             <th class="{{ $class_action }}">Aciones</th>
         </tr>
@@ -22,11 +22,11 @@
     <tbody id="tdatos">
     @php ($n=1)
     @foreach($users as $user)
-        
+
         @php ($profile = $user->profile)
 
         @php ($rol = $user->rols->last())
-        
+
         <tr data-user="{{$user->id}}" data-profile="{{$profile->id or ''}}">
             <td id="td-count" class="{{ $class_N }}">
                 {{$n++}}
@@ -59,14 +59,14 @@
             <td id="td-rango-{{$user->id}}" class="{{ $class_range }}">
                 @isset($rol)
                     <span class="text-rols-rango-{{ $rol['id'] }} rango-{{ $rol['rango'] or '' }}">
-                        {{$rol['rango']}}                
+                        {{$rol['rango']}}
                     </span>
                 @endisset
             </td>
 
             <td class="{{ $class_action }}" id="btn-action-{{ $user->id }}">
                 <div class="btn-group btn-group-sm">
-                    
+
                     <a title="Mostrar detalles" class="btn btn-info btn-xs" href="{{ route('users.show',$user->id) }}">
                         <i class="fas fa-info"></i>
                     </a>
@@ -78,11 +78,11 @@
                     <a title="Eliminar {{(isset($user->deleted_at) ? 'DEFINITIVAMENTE':'')}}" class="btn-delete btn btn-danger btn-xs" href="{{ route('users.destroy',$user->id) }}" id="btn-delete-userid_{{$user->id}}">
                         <i class="fas fa-trash"></i>
                     </a>
-                    
+
                 </div>
             </td>
 
-            
+
         </tr>
         @endforeach
     </tbody>
