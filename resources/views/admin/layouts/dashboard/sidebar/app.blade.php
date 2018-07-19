@@ -22,74 +22,90 @@
           <div class="accordion_panel">
 
               <ul class="nav flex-column">
-                  <li class="nav-item">
-                      <a class="accordion nav-link" href="#">
-                        <span data-feather="home"></span>
-                        Usuarios {{-- <span class="sr-only">(current)</span> --}}
-                      </a>
-                      <div class="accordion_panel">
-                          <ul class="nav flex-column">
-                              <li class="nav-item">
-                                  <a class="nav-link" href="{{ route('users.index') }}">
-                                    <span data-feather="home"></span>
-                                    CRUD {{-- <span class="sr-only">(current)</span> --}}
-                                  </a>                                                        
-                              </li>
-                              <li class="nav-item">
-                                  <a class="nav-link" href="#">
-                                    <span data-feather="home"></span>
-                                    Gráficas {{-- <span class="sr-only">(current)</span> --}}
-                                  </a>                                                        
-                              </li>                                            
-                          </ul>
-                      </div>   
-                  </li>
 
-                  <li class="nav-item">
-                      <a class="accordion nav-link" href="#">
-                        <span data-feather="home"></span>
-                        Perfiles {{-- <span class="sr-only">(current)</span> --}}
-                      </a>
-                      <div class="accordion_panel">
-                          <ul class="nav flex-column">
-                              <li class="nav-item">
-                                  <a class="nav-link" href="{{ route('profiles.index') }}">
-                                    <span data-feather="home"></span>
-                                    CRUD {{-- <span class="sr-only">(current)</span> --}}
-                                  </a>                                                        
-                              </li>
-                              <li class="nav-item">
-                                  <a class="nav-link" href="#">
-                                    <span data-feather="home"></span>
-                                    Gráficas {{-- <span class="sr-only">(current)</span> --}}
-                                  </a>                                                        
-                              </li>                                            
-                          </ul>
-                      </div>   
-                  </li>
+                  {{-- INI User --}}
+                  @component('admin.layouts.dashboard.sidebar.elements.models')
+                      @slot('nombre', 'Usuarios')
+                      @slot('rcrud', route('users.index'))
+                      @slot('rchart', '#')
+                      @slot('icon', $icon_menus['user'])
+                  @endcomponent
+                  {{-- FIN profiles --}}
 
-                  <li class="nav-item">
-                      <a class="accordion nav-link" href="#">
-                        <span data-feather="home"></span>
-                        Roles {{-- <span class="sr-only">(current)</span> --}}
-                      </a>
-                      <div class="accordion_panel">
-                          <ul class="nav flex-column">
-                              <li class="nav-item">
-                                  <a class="nav-link" href="{{ route('rols.index') }}">
-                                    <span data-feather="home"></span>
-                                    CRUD {{-- <span class="sr-only">(current)</span> --}}
-                                  </a>                                                        
-                              </li>
-                              <li class="nav-item">
-                                  <a class="nav-link" href="#">
-                                    <span data-feather="home"></span>
-                                    Gráficas {{-- <span class="sr-only">(current)</span> --}}
-                                  </a>                                                        
-                              </li>                                            
-                          </ul>
-                      </div>   
-                  </li>
+
+                  {{-- INI profiles --}}
+                  @component('admin.layouts.dashboard.sidebar.elements.models')
+                      @slot('nombre', 'Perfiles')
+                      @slot('rcrud', route('profiles.index'))
+                      @slot('rchart', '#')
+                      @slot('icon', $icon_menus['profile'])
+                  @endcomponent
+                  {{-- FIN profiles --}}
+
+
+                  {{-- INI Rols --}}
+                  @component('admin.layouts.dashboard.sidebar.elements.models')
+                      @slot('nombre', 'Roles')
+                      @slot('rcrud', route('rols.index'))
+                      @slot('rchart', '#')
+                      @slot('icon', $icon_menus['rol'])
+                  @endcomponent
+                  {{-- FIN Rols --}}
+
+                  {{-- INI Tasks --}}
+                  @component('admin.layouts.dashboard.sidebar.elements.models')
+                      @slot('nombre', 'Tasks')
+                      @slot('rcrud', route('tasks.index'))
+                      @slot('rchart', '#')
+                      @slot('icon', $icon_menus['user'])
+                  @endcomponent
+                  {{-- FIN Tasks --}}
+
+                  {{-- INI Alertas --}}
+                  @component('admin.layouts.dashboard.sidebar.elements.models')
+                      @slot('nombre', 'Alertas')
+                      @slot('rcrud', route('alerts.index'))
+                      @slot('rchart', '#')
+                      @slot('icon', $icon_menus['user'])
+                  @endcomponent
+                  {{-- FIN Alertas --}}
+
+                  {{-- INI Loginout --}}
+                  @component('admin.layouts.dashboard.sidebar.elements.models')
+                      @slot('nombre', 'Loginout')
+                      @slot('rcrud', route('loginouts.index'))
+                      @slot('rchart', '#')
+                      @slot('icon', $icon_menus['user'])
+                  @endcomponent
+                  {{-- FIN Loginout --}}
+
+                  {{-- INI Logdb --}}
+                  @component('admin.layouts.dashboard.sidebar.elements.models')
+                      @slot('nombre', 'Logdb')
+                      @slot('rcrud', route('logdbs.index'))
+                      @slot('rchart', '#')
+                      @slot('icon', $icon_menus['user'])
+                  @endcomponent
+                  {{-- FIN Logdb --}}
+
+                  {{-- INI settings --}}
+                  @component('admin.layouts.dashboard.sidebar.elements.models')
+                      @slot('nombre', 'Settings')
+                      @slot('rcrud', route('settings.index'))
+                      @slot('rchart', '#')
+                      @slot('icon', $icon_menus['user'])
+                  @endcomponent
+                  {{-- FIN settings --}}
+
+                  {{-- INI SelectOpts --}}
+                  @component('admin.layouts.dashboard.sidebar.elements.models')
+                      @slot('nombre', 'SelectOpts')
+                      @slot('rcrud', route('selectopts.index'))
+                      @slot('rchart', '#')
+                      @slot('icon', $icon_menus['user'])
+                  @endcomponent
+                  {{-- FIN SelectOpts --}}
+
               </ul>                                    
 
           </div>

@@ -34,26 +34,28 @@
 
           </td>
         </tr>
-        <tr>
-            <th scope="row">Último Ingreso</th>
-            <td>
-                @if(!empty($user->last_login_at) && $user->last_login_at !='')
-                    {{ date_format(new DateTime($user->last_login_at), 'd-m-Y  h:i:s') }}
-                @endif
-            </td>
-        </tr>
-        <tr>
-            <th scope="row">Última Salíada</th>
-            <td>
-                @if(!empty($user->last_loginout_at) && $user->last_loginout_at !='')
-                    {{ date_format(new DateTime($user->last_loginout_at), 'd-m-Y  h:i:s') }}
-                @endif
-            </td>
-        </tr>
-        <tr>
-            <th scope="row">Última IP</th>
-            <td>{{$user->last_login_ip or ''}}</td>
-        </tr>
+        {{-- @if(Auth::user()->isAdmin()) --}}
+            <tr>
+                <th scope="row">Último Ingreso</th>
+                <td>
+                    @if(!empty($user->last_login_at) && $user->last_login_at !='')
+                        {{ date_format(new DateTime($user->last_login_at), 'd-m-Y  h:i:s') }}
+                    @endif
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">Última Salída</th>
+                <td>
+                    @if(!empty($user->last_loginout_at) && $user->last_loginout_at !='')
+                        {{ date_format(new DateTime($user->last_loginout_at), 'd-m-Y  h:i:s') }}
+                    @endif
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">Última IP</th>
+                <td>{{$user->last_login_ip or ''}}</td>
+            </tr>
+        {{-- @endif --}}
         <tr>
             <th scope="row">Creado</th>
             <td>

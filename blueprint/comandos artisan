@@ -90,7 +90,7 @@ php artisan make:factory 'SettingFactory' --model='App\Models\sys\Setting'
 php artisan db:seed --class=SettingTableSeeder
 
 php artisan make:seeder SelectOptTableSeeder
-php artisan make:factory 'SelectOptFactory' --model='App\Models\sys\Setting'
+php artisan make:factory 'SelectOptFactory' --model='App\Models\sys\SelectOpt'
 php artisan db:seed --class=SelectOptTableSeeder
 
 
@@ -111,6 +111,15 @@ php artisan make:controller 'Admin\Json\Navbar\TopController'
 php artisan make:controller 'Admin\Crud\UserController' --resource
 php artisan make:controller 'Admin\Crud\ProfileController' --resource
 php artisan make:controller 'Admin\Crud\RolController' --resource
+
+php artisan make:controller 'Admin\Crud\TaskController' --resource
+php artisan make:controller 'Admin\Crud\MessegeController' --resource
+php artisan make:controller 'Admin\Crud\AlertController' --resource
+
+php artisan make:controller 'Admin\Crud\LoginoutController' --resource
+php artisan make:controller 'Admin\Crud\LogdbController' --resource
+php artisan make:controller 'Admin\Crud\SettingController' --resource
+php artisan make:controller 'Admin\Crud\SelectoOptController' --resource
 
 
 #######################################################################################################

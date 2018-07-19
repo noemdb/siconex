@@ -25,3 +25,24 @@
         <!-- /.nav-third-level -->
     </li>
 {{-- @endif --}}
+
+<a class="accordion nav-link" href="#">
+<span data-feather="home"></span>
+Tasks {{-- <span class="sr-only">(current)</span> --}}
+</a>
+<div class="accordion_panel">
+  <ul class="nav flex-column">
+      <li class="nav-item">
+          <a class="nav-link" href="{{ route('tasks.index') }}">
+            <span data-feather="home"></span>
+            CRUD {{-- <span class="sr-only">(current)</span> --}}
+          </a>                                                        
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="#">
+            <span data-feather="home"></span>
+            Gráficas {{-- <span class="sr-only">(current)</span> --}}
+          </a>                                                        
+      </li>                                            
+  </ul>
+</div> 
