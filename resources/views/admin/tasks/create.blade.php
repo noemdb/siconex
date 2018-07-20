@@ -2,7 +2,7 @@
 
 @section('main')
 
-    <main role="main" class="col-md-10 ml-sm-auto col-lg-10 px-4">
+    <main taske="main" class="col-md-10 ml-sm-auto col-lg-10 px-4">
 
         <div class="card bd-callout bd-callout-primary mt-2 ">
 
@@ -10,12 +10,12 @@
 
                 <h2>
 
-                    Nuevo Rol
+                    Nuevo Tarea
 
                         {{-- INI Menu rapido --}}
                     <div class="btn-group float-right pt-2">
 
-                        @include('admin.rols.menus.create')
+                        @include('admin.tasks.menus.create')
 
                     </div>
                     {{-- FIN Menu rapido --}}
@@ -26,7 +26,7 @@
 
             <div class="card-body">
 
-                @include('admin.rols.forms.create')
+                @include('admin.tasks.forms.create')
 
             </div>
 

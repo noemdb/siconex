@@ -1,4 +1,4 @@
-@isset($rol)
+@isset($task)
 
     <table class="table table-striped table-bordered {{-- table-sm table-hover --}}">
       <tbody>
@@ -15,10 +15,10 @@
             </th>
         </tr>
         <tr>
-            <th scope="row">Rol</th>
+            <th scope="row">Tarea</th>
             <td>
-                <span class="text-rols-rol-{{ $rol->id  or ''}}">
-                    {{$rol->rol}}
+                <span class="text-tasks-task-{{ $task->id  or ''}}">
+                    {{$task->task}}
                 </span>
             </td>
         </tr>
@@ -26,8 +26,8 @@
           <th scope="row">Rango</th>
           <td>
 
-            <span class="text-rols-rango-{{ $rol->id  or ''}}">
-                {{$rol->rango}}
+            <span class="text-tasks-rango-{{ $task->id  or ''}}">
+                {{$task->rango}}
             </span>
 
           </td>
@@ -36,8 +36,8 @@
           <th scope="row">Descripción</th>
           <td>
 
-            <span class="text-rols-descripcion-{{ $rol->id  or ''}}">
-                {{$rol->descripcion}}
+            <span class="text-tasks-descripcion-{{ $task->id  or ''}}">
+                {{$task->descripcion}}
             </span>
 
           </td>
@@ -45,10 +45,10 @@
         <tr>
             <th scope="row">Fecha Inicial</th>
             <td>
-                <span class="text-rols-finicial-{{ $rol->id  or ''}}">
-                    @if(isset($rol->finicial))
-                        {{ (isset($rol->finicial)) ? Carbon\Carbon::parse($rol->finicial)->format('d-m-Y') : '' }}
-                        {{-- {{$rol->finicial->format('d-m-Y')}} --}}
+                <span class="text-tasks-finicial-{{ $task->id  or ''}}">
+                    @if(isset($task->finicial))
+                        {{ (isset($task->finicial)) ? Carbon\Carbon::parse($task->finicial)->format('d-m-Y') : '' }}
+                        {{-- {{$task->finicial->format('d-m-Y')}} --}}
                     @endif
                 </span>
             </td>
@@ -56,10 +56,10 @@
         <tr>
             <th scope="row">Fecha Final</th>
             <td>
-                <span class="text-rols-ffinal-{{ $rol->id  or ''}}">
-                    @if(isset($rol->ffinal))
-                        {{ (isset($rol->ffinal)) ? Carbon\Carbon::parse($rol->ffinal)->format('d-m-Y') : '' }}
-                        {{-- {{$rol->ffinal->format('d-m-Y')}} --}}
+                <span class="text-tasks-ffinal-{{ $task->id  or ''}}">
+                    @if(isset($task->ffinal))
+                        {{ (isset($task->ffinal)) ? Carbon\Carbon::parse($task->ffinal)->format('d-m-Y') : '' }}
+                        {{-- {{$task->ffinal->format('d-m-Y')}} --}}
                     @endif
                 </span>
             </td>
@@ -67,22 +67,22 @@
         <tr>
             <th scope="row">Creado</th>
             <td>
-                @if(isset($rol->created_at))
-                    {{$rol->created_at->format('d-m-Y h:m:s')}}
+                @if(isset($task->created_at))
+                    {{$task->created_at->format('d-m-Y h:m:s')}}
                 @endif
             </td>
         </tr>
         <tr>
             <th scope="row">Actualizado</th>
             <td>
-                @if(isset($rol->updated_at))
-                    {{$rol->updated_at->format('d-m-Y h:m:s')}}
+                @if(isset($task->updated_at))
+                    {{$task->updated_at->format('d-m-Y h:m:s')}}
                 @endif
             </td>
         </tr>
 {{--         <tr>
             <th scope="row" colspan="2">
-                <a class="btn btn-dark w-100" href="{{ route('rols.edit',$rol->id)}}" role="button">
+                <a class="btn btn-dark w-100" href="{{ route('tasks.edit',$task->id)}}" taske="button">
                     Actualizar
                     <i class="far fa-id-badge"></i>
                 </a>

@@ -16,7 +16,7 @@ class Task extends Model
 {
 	//usada para el softdelete
  	protected $dates = ['deleted_at'];
-    
+
   // Para obtener los getAttribute
 	// protected $appends = ['userlist'];
 
@@ -46,12 +46,12 @@ class Task extends Model
 
     return ($userstasks) ? $userstasks : 0;
   }
-  
+
   public static function getCountTotal($arr_user_id,$finicial,$ffinal, $estado)
   {
     //INI array con los totales de las tasks
     foreach ($arr_user_id as $key => $value) {
-      $tasks = 
+      $tasks =
         Task::where('created_at', '>=', $finicial)
           ->where('created_at', '<=', $ffinal)
           ->where('estado', 'like', '%'.$estado.'%')
@@ -67,5 +67,19 @@ class Task extends Model
     //FIN array con los totales de las tasks
 
     return (isset($arr_total)) ? $arr_total : 0;
+  }
+
+  public function getTruncDescripcionAttribute()
+  {
+    $string = $this->descripcion;
+    $length = 4;
+    $ellipsis = "...";
+    $words = explode(' ', $string);
+    if (count($words) > $length){
+        return implode(' ', array_slice($words, 0, $length)) ." ". $ellipsis;
+    }
+    else{
+        return $string;
+    }
   }
 }

@@ -4,12 +4,12 @@
 
 @section('main')
 
-    @php ($user = $rol->user)
+    @php ($user = $task->user)
     @isset($user->profile)
         @php ($profile = $user->profile)
     @endisset
 
-    <main role="main" class="col-md-10 ml-sm-auto col-lg-10 px-4">
+    <main taske="main" class="col-md-10 ml-sm-auto col-lg-10 px-4">
 
         <div class="card mt-2 bd-callout bd-callout-info">
 
@@ -17,12 +17,12 @@
 
                 <h2>
 
-                    Información del Rol
+                    Información del Tarea
 
                     {{-- INI Menu rapido --}}
                     <div class="btn-group float-right pt-2">
 
-                        @include('admin.rols.menus.show')
+                        @include('admin.tasks.menus.show')
 
                     </div>
                     {{-- FIN Menu rapido --}}
@@ -47,9 +47,9 @@
 
                         <div class="col-sm-8">
 
-                            {{-- Partial con los tabs de usuario (perfiles, roles) --}}
+                            {{-- Partial con los tabs de usuario (perfiles, Tareas) --}}
 
-                            @include('admin.rols.show.tabs')
+                            @include('admin.tasks.show.tabs')
 
                         </div>
                     </div>

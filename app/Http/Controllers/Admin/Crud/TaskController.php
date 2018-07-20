@@ -5,6 +5,21 @@ namespace App\Http\Controllers\Admin\Crud;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+//validation request
+// use App\Http\Requests\Admin\CreateTaskRequest;
+// use App\Http\Requests\Admin\UpdateTaskRequest;
+
+//Helpers
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Session;
+
+//models
+use App\User;
+use App\Models\sys\Task;
+// use App\Models\sys\Profile;
+// use App\Models\sys\Rol;
+use App\Models\sys\SelectOpt;
+
 class TaskController extends Controller
 {
     /**
@@ -14,7 +29,12 @@ class TaskController extends Controller
      */
     public function index()
     {
-        //
+        $tasks = Task::OrderBy('id','DESC')
+            ->with('User')
+            // ->with('Profile')
+            ->get();
+
+        return view('admin.tasks.index', compact('tasks'));
     }
 
     /**

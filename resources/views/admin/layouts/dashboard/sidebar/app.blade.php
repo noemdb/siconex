@@ -15,7 +15,7 @@
       <li class="nav-item">
 
           <a class="accordion nav-link" href="#">
-            <span data-feather="home"></span>
+            {{-- <span data-feather="home"></span> --}}
             Modelos {{-- <span class="sr-only">(current)</span> --}}
           </a>
 
@@ -57,7 +57,7 @@
                       @slot('nombre', 'Tasks')
                       @slot('rcrud', route('tasks.index'))
                       @slot('rchart', '#')
-                      @slot('icon', $icon_menus['user'])
+                      @slot('icon', $icon_menus['task'])
                   @endcomponent
                   {{-- FIN Tasks --}}
 
@@ -66,7 +66,7 @@
                       @slot('nombre', 'Alertas')
                       @slot('rcrud', route('alerts.index'))
                       @slot('rchart', '#')
-                      @slot('icon', $icon_menus['user'])
+                      @slot('icon', $icon_menus['alert'])
                   @endcomponent
                   {{-- FIN Alertas --}}
 
@@ -75,7 +75,7 @@
                       @slot('nombre', 'Loginout')
                       @slot('rcrud', route('loginouts.index'))
                       @slot('rchart', '#')
-                      @slot('icon', $icon_menus['user'])
+                      @slot('icon', $icon_menus['loginout'])
                   @endcomponent
                   {{-- FIN Loginout --}}
 
@@ -84,7 +84,7 @@
                       @slot('nombre', 'Logdb')
                       @slot('rcrud', route('logdbs.index'))
                       @slot('rchart', '#')
-                      @slot('icon', $icon_menus['user'])
+                      @slot('icon', $icon_menus['logdb'])
                   @endcomponent
                   {{-- FIN Logdb --}}
 
@@ -93,7 +93,7 @@
                       @slot('nombre', 'Settings')
                       @slot('rcrud', route('settings.index'))
                       @slot('rchart', '#')
-                      @slot('icon', $icon_menus['user'])
+                      @slot('icon', $icon_menus['setting'])
                   @endcomponent
                   {{-- FIN settings --}}
 
@@ -102,11 +102,11 @@
                       @slot('nombre', 'SelectOpts')
                       @slot('rcrud', route('selectopts.index'))
                       @slot('rchart', '#')
-                      @slot('icon', $icon_menus['user'])
+                      @slot('icon', $icon_menus['selectopt'])
                   @endcomponent
                   {{-- FIN SelectOpts --}}
 
-              </ul>                                    
+              </ul>
 
           </div>
 

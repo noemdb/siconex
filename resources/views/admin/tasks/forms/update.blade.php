@@ -1,31 +1,31 @@
 <div class="card bd-callout bd-callout-{{ Session::get('class_oper') }}">
   <div class="card-header">
-    Formulario para la actualización del rol del usuario <strong>{{ $user->username or '' }}</strong>
+    Formulario para la actualización del task del usuario <strong>{{ $user->username or '' }}</strong>
   </div>
   <div class="card-body">
 
       {{-- INI form --}}
-      {!! Form::model($rol,['route' => ['rols.update', $rol->id], 'method' => 'PUT', 'id'=>'form-update-rol_'.$rol->id, 'role'=>'form']) !!}
+      {!! Form::model($task,['route' => ['tasks.update', $task->id], 'method' => 'PUT', 'id'=>'form-update-task_'.$task->id, 'taske'=>'form']) !!}
 
             {{-- partial con el formulario y campos --}}
-            @include('admin.rols.forms.fields')
+            @include('admin.tasks.forms.fields')
 
-            <button type="submit" class="btn-user-update btn btn-primary btn-block" value="update" data-id="update" id="btn-update-rol-{{$rol->id}}">
+            <button type="submit" class="btn-user-update btn btn-primary btn-block" value="update" data-id="update" id="btn-update-task-{{$task->id}}">
 
                 <i class="far fa-save"></i>
-                Actualizar Rol
+                Actualizar Tarea
 
             </button>
 
             {{-- INI Menu modelos realcionados --}}
-            <div class="btn-group d-flex pt-2" style="width: 100%;" role="group" aria-label="Basic example">
+            <div class="btn-group d-flex pt-2" style="width: 100%;" taske="group" aria-label="Basic example">
 
-              <a class="btn btn-info w-100" href="{{ route('users.show',$user->id) }}" role="button">
+              <a class="btn btn-info w-100" href="{{ route('users.show',$user->id) }}" taske="button">
                 Mostrar
                 <i class="{{ $icon_menus['user'] or '' }}"></i>
               </a>
 
-              <a class="btn btn-info w-100" href="{{ route('profiles.show',$profile->id) }}" role="button">
+              <a class="btn btn-info w-100" href="{{ route('profiles.show',$profile->id) }}" taske="button">
                 Mostrar
                 <i class="{{ $icon_menus['profile'] or '' }}"></i>
               </a>

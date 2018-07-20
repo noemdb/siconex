@@ -2,20 +2,20 @@
 
 @section('main')
 
-    <main role="main" class="col-md-10 ml-sm-auto col-lg-10">
+    <main taske="main" class="col-md-10 ml-sm-auto col-lg-10">
 
         <div class="card card-primary">
             <div class="card-header">
                 <h3>
-                    Listados de Roles Registrados<br>
+                    Listados de Tareas Registrados<br>
                     <small class="text-default">
-                        <strong><span id="rol_counter">{{$rols->count()}}</span> Roles</strong>
+                        <strong><span id="task_counter">{{$tasks->count()}}</span> Tareas</strong>
                     </small>
 
                     {{-- INI Menu rapido --}}
                     <div class="btn-group float-right pt-2">
 
-                        @include('admin.rols.menus.index')
+                        @include('admin.tasks.menus.index')
 
                     </div>
                     {{-- FIN Menu rapido --}}
@@ -23,19 +23,19 @@
                 </h3>
             </div>
 
-            <div class="card-body">
+            <div class="card-body p-1">
 
                 {{-- Mensaje session-flash sobre operaciones con base de datos --}}
-                @include('admin.elements.messeges.oper_ok')
+                {{-- @include('admin.elements.messeges.oper_ok') --}}
 
                 {{-- Partial con el listado de los usuarios --}}
-                @include('admin.rols.table.list')
+                @include('admin.tasks.table.list')
 
             </div>
         </div>
     </main>
 
-    {!! Form::open(['route' => ['rols.destroy',':ROL_ID'], 'method' => 'DELETE', 'id'=>'form-delete', 'role'=>'form']) !!}
+    {!! Form::open(['route' => ['tasks.destroy',':ROL_ID'], 'method' => 'DELETE', 'id'=>'form-delete', 'taske'=>'form']) !!}
     {!! Form::close() !!}
 
 @endsection
@@ -44,7 +44,7 @@
     @parent
 
     {{-- INI script ajax json models --}}
-    <script src="{{ asset("js/models/rols/delete.js") }}"></script>
+    <script src="{{ asset("js/models/tasks/delete.js") }}"></script>
     {{-- FIN script ajax json models --}}
 
 @endsection

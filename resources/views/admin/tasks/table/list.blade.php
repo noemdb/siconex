@@ -1,32 +1,37 @@
-{{-- @php ($class_N="d-none d-sm-block") --}}
-@php ($class_N="d-none d-md-block")
-@php ($class_range="d-none d-lg-block")
-@php ($class_name="")
-@php ($class_finicial="")
-@php ($class_ffinal="")
+@php ($class_N="")
+@php ($class_codigo="d-none d-lg-table-cell")
+{{-- @php ($class_tipo="d-none d-xl-table-cell") --}}
+{{-- @php ($class_evento="d-none d-xl-table-cell") --}}
+@php ($class_finicial="d-none d-xl-table-cell")
+@php ($class_ffinal="d-none d-xl-table-cell")
+@php ($class_username="d-none d-xl-table-cell")
+@php ($class_created_at="d-none d-md-table-cell")
+@php ($class_updated_at="d-none d-lg-table-cell")
 @php ($class_action="nosort")
 
-<table width="100%" class="table table-striped table-hover table-sm" id="table-data-rols">
+<table width="100%" class="table table-striped table-hover table-sm" id="table-data-tasks">
     <thead>
         <tr>
             <th class="{{ $class_N }}">N</th>
             <th>Usuario</th>
-            <th>Rol</th>
-            <th class="{{$class_range}}">Rango</th>
-            <th class="hidden-xs hidden-sm">F.Inicial</th>
-            <th class="hidden-xs hidden-sm">F.Final</th>
+            <th class="{{ $class_codigo or ''}}">Código</th>
+            <th class="">Descripción</th>
+            {{-- <th class="{{ $class_tipo or ''}}">Tipo</th> --}}
+            {{-- <th class="{{ $class_evento or ''}}">Evento</th> --}}
+            <th class="">Estado</th>
+            <th class="{{ $class_finicial or ''}}">F.Inicial</th>
+            <th class="{{ $class_ffinal or '' }}">F.Final</th>
             <th align="right" class="{{$class_action}}"><strong>Aciones</strong></th>
         </tr>
     </thead>
 
     <tbody id="tdatos">
 
-        @foreach($rols as $rol)
+        @foreach($tasks as $task)
 
-            @php ($user = $rol->user)
-            @php ($profile = $rol->profile)
+            @php ($user = $task->user)
 
-            <tr data-rol="{{$rol->id}}" data-user="{{$user->id or ''}}">
+            <tr data-task="{{$task->id}}" data-user="{{$user->id or ''}}">
 
                 <td class="{{$class_N}}">
                     {{ ($loop->index + 1) }}
@@ -38,48 +43,49 @@
                     </span>
                 </td>
 
-                <td  id="td-rols-rol-{{$rol->id or ''}}" title="{{ $rol->descripcion or ''}} ">
-                    <span class="text-rols-rol-{{$rol->id}} rol-{{ $rol->rol or '' }}">
-                        {{$rol->rol}}
-                    </span>
+                <td  id="td-tasks-codigo-{{$task->id or ''}}" title="{{ $task->codigo or ''}} " class="{{ $class_codigo or ''}}">
+                    {{$task->codigo or ''}}
                 </td>
 
-                <td id="td-rols-rango-{{$rol->id or ''}}" class="{{$class_range}}">
-                    <span class="text-rols-rango-{{$rol->id}} rol-{{ $rol->rango or '' }}">
-                        {{$rol->rango}}
-                    </span>
+                <td  id="td-tasks-descripcion-{{$task->id or ''}}" title="{{ $task->descripcion or ''}} ">
+                    {{$task->truncdescripcion}}
                 </td>
 
-                <td id="td-rols-finicial-{{ $rol->id or ''}}" class="{{$class_finicial}}">
-                    <span class="text-rols-finicial-{{$rol->id}}">
-                        {{ (isset($rol->finicial)) ? Carbon\Carbon::parse($rol->finicial)->format('d-m-Y') : '' }}
-                    </span>
+                {{-- <td  id="td-tasks-tipo-{{$task->id or ''}}" title="{{ $task->tipo or ''}}" class="{{ $class_tipo or ''}}" > --}}
+                    {{-- {{$task->tipo or ''}} --}}
+                {{-- </td> --}}
+
+                {{-- <td  id="td-tasks-evento-{{$task->id or ''}}" title="{{ $task->evento or ''}} " class="{{ $class_evento or ''}}"> --}}
+                    {{-- {{$task->evento or ''}} --}}
+                {{-- </td> --}}
+
+                <td  id="td-tasks-estado-{{$task->id or ''}}" title="{{ $task->estado or ''}} ">
+                    {{$task->estado or ''}}
                 </td>
 
-                <td id="td-rols-ffinal-{{ $rol->id or ''}}" class="{{$class_ffinal}}">
-                    <span class="text-rols-ffinal-{{$rol->id}}">
-                        {{ (isset($rol->ffinal)) ? Carbon\Carbon::parse($rol->ffinal)->format('d-m-Y') : '' }}
-                    </span>
+                <td id="td-tasks-finicial-{{ $task->id or ''}}" class="{{ $class_finicial or ''}}">
+                    {{ (isset($task->finicial)) ? Carbon\Carbon::parse($task->finicial)->format('d-m-Y') : '' }}
                 </td>
 
+                <td id="td-tasks-ffinal-{{ $task->id or ''}}" class="{{ $class_ffinal or ''}}">
+                    {{ (isset($task->ffinal)) ? Carbon\Carbon::parse($task->ffinal)->format('d-m-Y') : '' }}
+                </td>
 
-                <td style="padding: 2px; vertical-align: middle;" id="btn-action-{{ $rol->id }}">
-
-
+                <td style="padding: 2px; vertical-align: middle;" id="btn-action-{{ $task->id }}">
 
                     <div class="btn-group btn-group-sm">
 
                         {{-- boton para mostrar en un modal de info de regsitro --}}
 
-                        <a title="Mostrar detalles" class="btn btn-info btn-xs" href="{{ route('rols.show',$rol->id) }}">
+                        <a title="Mostrar detalles" class="btn btn-info btn-xs" href="{{ route('tasks.show',$task->id) }}">
                             <i class="fas fa-info"></i>
                         </a>
 
-                        <a title="Editar resgistro" class="btn btn-warning btn-xs btn-action-group-{{ $rol->id }}" href="{{ route('rols.edit',$rol->id) }}" id="btn-edituser_{{$rol->id}}">
+                        <a title="Editar resgistro" class="btn btn-warning btn-xs btn-action-group-{{ $task->id }}" href="{{ route('tasks.edit',$task->id) }}" id="btn-edituser_{{$task->id}}">
                             <i class="fas fa-pencil-alt"></i>
                         </a>
 
-                        <a title="Eliminar {{(isset($rol->deleted_at) ? 'DEFINITIVAMENTE':'')}}" class="btn-delete btn btn-danger btn-xs" href="{{ route('rols.destroy',$rol->id) }}" id="btn-delete-rolid_{{$rol->id}}">
+                        <a title="Eliminar {{(isset($task->deleted_at) ? 'DEFINITIVAMENTE':'')}}" class="btn-delete btn btn-danger btn-xs" href="{{ route('tasks.destroy',$task->id) }}" id="btn-delete-taskid_{{$task->id}}">
                             <i class="fas fa-trash"></i>
                         </a>
 
@@ -109,7 +115,7 @@
    <script type="text/javascript" class="init">
 
         $(document).ready(function() {
-            $('#table-data-rols').DataTable( {
+            $('#table-data-tasks').DataTable( {
                 "pageLength": 10,
                 "responsive": false,
                 // "searching": false,

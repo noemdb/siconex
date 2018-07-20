@@ -1,7 +1,7 @@
 @component('elements.buttons.default')
-    @slot('title', 'Crear nuevo Rol')
+    @slot('title', 'Crear nuevo Tarea')
     @slot('class_bt', 'primary')
-    @slot('route', route('rols.create'))
+    @slot('route', route('tasks.create'))
     @slot('icon', $icon_menus['nuevo'])
 @endcomponent
 
@@ -11,10 +11,10 @@
     @slot('icon', $icon_menus['crud'])
     @slot('dropdown')
          @component('elements.buttons.dropdown')
-            @slot('title', 'CRUD Roles')
+            @slot('title', 'CRUD Tareas')
             @slot('class_bt', 'info')
-            @slot('route', route('rols.index'))
-            @slot('icon', $icon_menus['rol'])
+            @slot('route', route('tasks.index'))
+            @slot('icon', $icon_menus['task'])
         @endcomponent
         @component('elements.buttons.dropdown')
             @slot('title', 'CRUD Usuarios')

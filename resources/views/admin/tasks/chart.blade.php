@@ -1,13 +1,13 @@
 @extends('admin.layouts.dashboard.app')
 
-{{-- 
+{{--
 @section('page_heading')
     <div class="col-lg-12">
         <h1 class="page-header">
             Gráficas
         </h1>
     </div>
-@endsection 
+@endsection
 --}}
 
 @section('section')
@@ -32,16 +32,16 @@
 
                     {{-- INI Content pill --}}
                     <div class="tab-content">
-                        
+
                         <div id="tabchart1" class="tab-pane fade in active">
                             {{-- <h3>Tab 1</h3> --}}
-                        
+
                             {{-- INI row chart1 --}}
                             <div class="row">
 
                                 {{-- INI chart perfiles registrados por Mes --}}
                                 <div class="col-lg-6 col-md-6 col-sm-12">
-                                    @php ($chart = ['range'=>'Todos','id_chart'=>'chartrolsmonth','urlapi'=>route('rolsmonth'),'tipo'=>'line','limit'=>8 ])
+                                    @php ($chart = ['range'=>'Todos','id_chart'=>'charttasksmonth','urlapi'=>route('tasksmonth'),'tipo'=>'line','limit'=>8 ])
                                     @section('scripts')
                                         @parent
                                         {{-- Llamado a la funcion responsable de inicilizar el Chart --}}
@@ -49,9 +49,9 @@
                                     @endsection
                                     @component('elements.widgets.panel')
                                         @slot('class', 'danger')
-                                        @slot('panelControls', 'true')
+                                        @slot('panelConttasks', 'true')
                                         @slot('id', $chart['id_chart'] )
-                                        @slot('panelTitle', 'N. Roles registrados por Mes')
+                                        @slot('panelTitle', 'N. Tareas registrados por Mes')
                                         @slot('iconTitle', 'fa fa-line-chart fa-lg')
                                         @slot('panelBody')
                                             @component('elements.charts.widgets.canvas')
@@ -72,9 +72,9 @@
                                 </div>
                                 {{-- FIN chart perfiles registrados por Mes --}}
 
-                                {{-- INI chart Tipos de rol registrados --}}
+                                {{-- INI chart Tipos de task registrados --}}
                                 <div class="col-lg-6 col-md-6 col-sm-12">
-                                    @php ($chart = ['range'=>'Todos','id_chart'=>'chartrolestipos','urlapi'=>route('rolestipos'),'tipo'=>'bar','limit'=>8 ])
+                                    @php ($chart = ['range'=>'Todos','id_chart'=>'chartTareastipos','urlapi'=>route('Tareastipos'),'tipo'=>'bar','limit'=>8 ])
                                     @section('scripts')
                                         @parent
                                         {{-- Llamado a la funcion responsable de inicilizar el Chart --}}
@@ -82,9 +82,9 @@
                                     @endsection
                                     @component('elements.widgets.panel')
                                         @slot('class', 'success')
-                                        @slot('panelControls', 'true')
+                                        @slot('panelConttasks', 'true')
                                         @slot('id', $chart['id_chart'] )
-                                        @slot('panelTitle', 'Tipos de Roles')
+                                        @slot('panelTitle', 'Tipos de Tareas')
                                         @slot('iconTitle', 'fa fa-bar-chart fa-lg')
                                         @slot('panelBody')
                                             @component('elements.charts.widgets.canvas')
@@ -103,7 +103,7 @@
                                         @endslot
                                     @endcomponent
                                 </div>
-                                {{-- FIN chart Tipos de rol registrados --}}
+                                {{-- FIN chart Tipos de task registrados --}}
 
                             </div>
                             {{-- FIN row chart1 --}}
@@ -119,7 +119,7 @@
                                     @endsection
                                     @component('elements.widgets.panel')
                                         @slot('class', 'info')
-                                        @slot('panelControls', 'true')
+                                        @slot('panelConttasks', 'true')
                                         @slot('id', $chart['id_chart'] )
                                         @slot('panelTitle', 'Tipos de Rangos')
                                         @slot('iconTitle', 'fa fa-bar-chart fa-lg')
@@ -140,7 +140,7 @@
                                         @endslot
                                     @endcomponent
                                 </div>
-                                {{-- FIN chart Tipos de rol registrados --}}
+                                {{-- FIN chart Tipos de task registrados --}}
 
                                 <div class="col-lg-6 col-md-6 col-sm-12"></div>
 
@@ -150,10 +150,10 @@
 
                         {{-- <div id="tabchart2" class="tab-pane fade"> --}}
                             {{-- <h3>Tab 1</h3> --}}
-                        
+
                             {{-- INI row chart2 --}}
                             {{-- <div class="row"> --}}
-                                
+
                             {{-- </div> --}}
                             {{-- FIN row chart2 --}}
 
@@ -185,7 +185,7 @@
 
     {{-- INI funciones para generar los Chart --}}
     <script>
- 
+
         //Evento clic para el panel de tab nav-tabs (menu con las opciones)
         $('ul.ranges a').click(function(e){
             e.preventDefault();
