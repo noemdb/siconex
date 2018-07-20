@@ -29,10 +29,10 @@
             @slot('icon', $icon_menus['profile'])
         @endcomponent
         @component('elements.buttons.dropdown')
-            @slot('title', 'CRUD Roles')
+            @slot('title', 'CRUD Alertas')
             @slot('class_bt', 'info')
-            @slot('route', route('tasks.index'))
-            @slot('icon', $icon_menus['task'])
+            @slot('route', route('alerts.index'))
+            @slot('icon', $icon_menus['alert'])
         @endcomponent
     @endslot
 @endcomponent

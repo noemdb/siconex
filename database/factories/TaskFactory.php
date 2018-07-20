@@ -6,7 +6,7 @@ use Illuminate\Support\Carbon;
 $factory->define(App\Models\sys\Task::class, function (Faker $faker) {
 
 	$arr_tipo = ['primary'=>'primary','success'=>'success','info'=>'info','warning'=>'warning','danger'=>'danger','default'=>'default'];
-	$arr_estado = ['iniciada'=>'iniciada','reprogramda'=>'reprogramda','finalizada'=>'finalizada'];
+	$arr_estado = ['INICIADA'=>'INICIADA','REPROGRAMADA'=>'REPROGRAMADA','FINALIZADA'=>'FINALIZADA'];
     $created_at = $faker->dateTimeBetween('2017-01-01','2017-12-31');
     $ffinal = $faker->dateTimeBetween('2017-01-01', Carbon::now());
     $finicial = $faker->dateTimeBetween('2017-01-01',$ffinal);

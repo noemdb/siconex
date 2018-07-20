@@ -1,5 +1,5 @@
 @component('elements.buttons.default')
-    @slot('title', 'Crear nuevo Tarea')
+    @slot('title', 'Crear nueva Tarea')
     @slot('class_bt', 'primary')
     @slot('route', route('tasks.create'))
     @slot('icon', $icon_menus['nuevo'])
@@ -10,7 +10,7 @@
     @slot('class', 'info')
     @slot('icon', $icon_menus['crud'])
     @slot('dropdown')
-         @component('elements.buttons.dropdown')
+        @component('elements.buttons.dropdown')
             @slot('title', 'CRUD Tareas')
             @slot('class_bt', 'info')
             @slot('route', route('tasks.index'))
@@ -27,6 +27,12 @@
             @slot('class_bt', 'info')
             @slot('route', route('profiles.index'))
             @slot('icon', $icon_menus['profile'])
+        @endcomponent
+        @component('elements.buttons.dropdown')
+            @slot('title', 'CRUD Alertas')
+            @slot('class_bt', 'info')
+            @slot('route', route('alerts.index'))
+            @slot('icon', $icon_menus['alert'])
         @endcomponent
     @endslot
 @endcomponent

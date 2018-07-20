@@ -59,7 +59,7 @@
                     {{-- {{$task->evento or ''}} --}}
                 {{-- </td> --}}
 
-                <td  id="td-tasks-estado-{{$task->id or ''}}" title="{{ $task->estado or ''}} ">
+                <td  id="td-tasks-estado-{{$task->id or ''}}" title="{{ $task->estado or ''}}"  class="text-uppercase">
                     {{$task->estado or ''}}
                 </td>
 

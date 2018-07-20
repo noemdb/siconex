@@ -2,7 +2,7 @@
   <div class="card-header">
     Formulario para la actualización del rol del usuario <strong>{{ $user->username or '' }}</strong>
   </div>
-  <div class="card-body">
+  <div class="card-body p-1">
 
       {{-- INI form --}}
       {!! Form::model($rol,['route' => ['rols.update', $rol->id], 'method' => 'PUT', 'id'=>'form-update-rol_'.$rol->id, 'role'=>'form']) !!}

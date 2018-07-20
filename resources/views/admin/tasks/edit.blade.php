@@ -2,7 +2,7 @@
 {{-- @section('page_heading','Listado de Usuarios') --}}
 @section('main')
 
-    <main taske="main" class="col-md-10 ml-sm-auto col-lg-10 px-4">
+    <main role="main" class="col-md-10 ml-sm-auto col-lg-10 px-2">
 
         <div class="card bd-callout bd-callout-warning mt-2">
 
@@ -24,7 +24,7 @@
 
             </div>
 
-            <div class="card-body">
+            <div class="card-body p-1">
 
                 @include('admin.tasks.forms.update')
 

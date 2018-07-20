@@ -9,7 +9,7 @@
         @php ($profile = $user->profile)
     @endisset
 
-    <main taske="main" class="col-md-10 ml-sm-auto col-lg-10 px-4">
+    <main taske="main" class="col-md-10 ml-sm-auto col-lg-10 px-2">
 
         <div class="card mt-2 bd-callout bd-callout-info">
 
@@ -17,7 +17,7 @@
 
                 <h2>
 
-                    Información del Tarea
+                    Información de la Tarea
 
                     {{-- INI Menu rapido --}}
                     <div class="btn-group float-right pt-2">
@@ -33,19 +33,21 @@
 
 
 
-            <div class="card-body">
+            <div class="card-body p-1">
 
-                <div class="container">
+                <div class="container p-1">
 
                     <div class="row">
 
+                        {{-- 
                         <div class="col-sm-4">
 
                             <img alt="{{$user->username or ''}}" class="img-thumbnail img-rounded" src="{{ (isset($profile->url_img)) ? asset($profile->url_img) : asset('images/avatar/user_default.png') }}">
 
-                        </div>
+                        </div> 
+                        --}}
 
-                        <div class="col-sm-8">
+                        <div class="col-sm-12">
 
                             {{-- Partial con los tabs de usuario (perfiles, Tareas) --}}
 

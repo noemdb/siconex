@@ -24,7 +24,7 @@
 
             </div>
 
-            <div class="card-body">
+            <div class="card-body p-1">
 
                 @include('admin.rols.forms.update')
 

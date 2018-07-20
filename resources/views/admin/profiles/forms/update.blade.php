@@ -2,7 +2,7 @@
   <div class="card-header">
     Formulario para la actualización del perfíl del usuario <strong>{{ $user->username or '' }}</strong>
   </div>
-  <div class="card-body">
+  <div class="card-body p-1">
 
       {{-- INI form --}}
       {!! Form::model($profile,['route' => ['profiles.update', $profile->id], 'method' => 'PUT', 'id'=>'form-update-profile_'.$profile->id, 'role'=>'form']) !!}

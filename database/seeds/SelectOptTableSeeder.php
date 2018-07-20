@@ -42,15 +42,28 @@ class SelectOptTableSeeder extends Seeder
             ]);
         }
 
-        $aestados = ['INICIADA', 'REPROGRAMADA', 'FINALIZADA'];
-        foreach ($aestados as $key => $value) {
+        // INI tasks
+        $testados = ['INICIADA', 'REPROGRAMADA', 'FINALIZADA'];
+        foreach ($testados as $key => $value) {
             DB::table('select_opts')->insert([
-                'table' => "aestados",
+                'table' => "tasks",
                 'name' => "estado",
                 'value' => $value,
-                'view' => "aestados.create",
+                'view' => "tasks.create",
             ]);
         }
+
+        $ttipo = ['primary'=>'Primaria', 'secondary'=>'Secundaria', 'success'=>'Alternativa', 'info'=>'Informativa', 'warning'=>'De alerta', 'danger'=>'Importante'];
+        foreach ($ttipo as $key => $value) {
+            DB::table('select_opts')->insert([
+                'table' => "tasks",
+                'name' => "tipo",
+                'key' => $key,
+                'value' => $value,
+                'view' => "tasks.create",
+            ]);
+        }
+        // FIN tasks
 
         $afrecuencias = ["Mensual"=>"12", "Bimensual"=>"6", "Trimestral"=>"4", "Cuatrimestral"=>"3", "Semestral"=>"2", "Anual"=>"1"];
         foreach ($afrecuencias as $name => $value) {

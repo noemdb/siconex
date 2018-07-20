@@ -11,15 +11,6 @@
 
             {{ Form::hidden('user_id', $user->id) }}
 
-          @else
-
-            <div class="form-label-group pb-1">
-
-                {!! Form::select('user_id',$user_list,old('user_id'),['class' => 'form-conttask','placeholder' => 'Usuario']); !!}
-                {{-- <label for="is_active">{{ trans('validation.attributes.is_active') }}</label> --}}
-
-            </div>
-
           @endif
 
           {{-- partial con el formulario y campos --}}

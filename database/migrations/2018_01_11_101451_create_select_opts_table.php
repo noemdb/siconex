@@ -16,6 +16,7 @@ class CreateSelectOptsTable extends Migration
         Schema::create('select_opts', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('key')->nullable();
             $table->string('value');
             $table->string('table');
             $table->string('view');
