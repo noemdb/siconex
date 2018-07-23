@@ -1,3 +1,13 @@
+Listener (añadir los listener en el array en App/Provider/EventServiceProvider)
+php artisan event:generate
+php artisan make:listener 'Admin\LogSuccessfulLogin' --event=Login
+php artisan make:listener 'Admin\LogSuccessfulLogout' --event=Logout
+
+
+Ejemplo App/Provider/EventServiceProvider:
+
+Aquí se registran los login y logout de usuarios y las consultas a la base de datos
+
 <?php
 
 namespace App\Providers;

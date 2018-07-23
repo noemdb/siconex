@@ -5,6 +5,19 @@ namespace App\Http\Controllers\Admin\Crud;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+//validation request
+// use App\Http\Requests\Admin\CreateSelectOptRequest;
+// use App\Http\Requests\Admin\UpdateSelectOptRequest;
+
+//Helpers
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Session;
+
+//models
+use App\User;
+// use App\Models\sys\SelectOpt;
+use App\Models\sys\Logdb;
+
 class LogdbController extends Controller
 {
     /**
@@ -14,7 +27,10 @@ class LogdbController extends Controller
      */
     public function index()
     {
-        //
+        $logdbs = Logdb::OrderBy('id','DESC')
+            ->get();
+
+        return view('admin.logdbs.index', compact('logdbs'));
     }
 
     /**
@@ -46,7 +62,9 @@ class LogdbController extends Controller
      */
     public function show($id)
     {
-        //
+        $logdb = Logdb::findOrFail($id);
+
+        return view('admin.logdbs.show',compact('logdb'));
     }
 
     /**

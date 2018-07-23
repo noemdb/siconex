@@ -125,6 +125,8 @@ php artisan make:controller 'Admin\Crud\SelectoOptController' --resource
 #######################################################################################################
 Listener (añadir los listener en el array en EventServiceProvider)
 php artisan event:generate
+php artisan make:listener 'Admin\LogSuccessfulLogin' --event=Login
+php artisan make:listener 'Admin\LogSuccessfulLogout' --event=Logout
 
 
 #######################################################################################################

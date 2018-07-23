@@ -58,4 +58,12 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','is_admin'],'namespace'=>'
     // require (__DIR__ . '/admin/crud/createwithid.php');
     //FIN CRUD modelos
 
+    //INI Charts modelos
+    require (__DIR__ . '/admin/charts.php');
+    //FIN Charts modelos
+
+    //INI rutas para los json
+    require (__DIR__ . '/admin/json/index.php');
+    //FIN rutas para los json   
+
 });
