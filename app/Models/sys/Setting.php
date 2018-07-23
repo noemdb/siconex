@@ -8,7 +8,7 @@ use Cache;
 class Setting extends Model
 {
 
-	protected $fillable = ['name','value'];
+	protected $fillable = ['user_id','name','value'];
 	
 	/*INI relaciones entre modelos*/
 	public function user()

@@ -5,6 +5,21 @@ namespace App\Http\Controllers\Admin\Crud;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+//validation request
+use App\Http\Requests\Admin\CreateAlertRequest;
+use App\Http\Requests\Admin\UpdateAlertRequest;
+
+//Helpers
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Session;
+
+//models
+use App\User;
+use App\Models\sys\Alert;
+// use App\Models\sys\Profile;
+// use App\Models\sys\Rol;
+use App\Models\sys\SelectOpt;
+
 class AlertController extends Controller
 {
     /**
@@ -14,7 +29,12 @@ class AlertController extends Controller
      */
     public function index()
     {
-        //
+        $alerts = Alert::OrderBy('id','DESC')
+            ->with('User')
+            // ->with('Profile')
+            ->get();
+
+        return view('admin.alerts.index', compact('alerts'));
     }
 
     /**
@@ -24,7 +44,28 @@ class AlertController extends Controller
      */
     public function create()
     {
-        //
+        $user_list = User::OrderBy('id','DESC')
+            ->pluck('username','id'); 
+
+        //lista para los estados
+        $estado_list = SelectOpt::select('select_opts.*')
+            ->where('table','alerts')
+            ->where('view','alerts.create')
+            ->where('name','estado')
+            ->orderby('value')
+            ->pluck('value','value');
+        
+        //lista para los tipo
+        $tipo_list = SelectOpt::select('select_opts.*')
+            ->where('table','alerts')
+            ->where('view','alerts.create')
+            ->where('name','tipo')
+            ->orderby('value')
+            ->pluck('value','key');
+
+        // dd($user_list,$estado_list,$tipo_list);
+
+        return view('admin.alerts.create',compact('user_list','tipo_list','estado_list'));
     }
 
     /**
@@ -33,9 +74,18 @@ class AlertController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateAlertRequest $request)
     {
-        //
+
+        $alert = Alert::create($request->all());
+
+        $messenge = trans('db_oper_result.create_ok');
+
+        Session::flash('operp_ok',$messenge);
+
+        Session::flash('class_oper','success');
+
+        return redirect()->route('alerts.index');
     }
 
     /**
@@ -46,7 +96,11 @@ class AlertController extends Controller
      */
     public function show($id)
     {
-        //
+        $alert = Alert::findOrFail($id);
+
+        // dd($task);
+
+        return view('admin.alerts.show',compact('alert'));
     }
 
     /**
@@ -57,7 +111,31 @@ class AlertController extends Controller
      */
     public function edit($id)
     {
-        //
+        $alert = Alert::findOrFail($id);
+
+        $user_list = User::OrderBy('id','DESC')
+            ->pluck('username','id'); 
+
+        //lista para los estados
+        $estado_list = SelectOpt::select('select_opts.*')
+            ->where('table','alerts')
+            ->where('view','alerts.create')
+            ->where('name','estado')
+            ->orderby('value')
+            ->pluck('value','value');
+        
+        //lista para los tipo
+        $tipo_list = SelectOpt::select('select_opts.*')
+            ->where('table','alerts')
+            ->where('view','alerts.create')
+            ->where('name','tipo')
+            ->orderby('value')
+            ->pluck('value','key');
+
+        // dd($user_list,$estado_list,$tipo_list);
+
+        return view('admin.alerts.edit',compact('alert','user_list','tipo_list','estado_list'));
+
     }
 
     /**
@@ -67,9 +145,21 @@ class AlertController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateAlertRequest $request, $id)
     {
-        //
+        $alert = Alert::findOrFail($id);
+
+        $alert->fill($request->all());
+
+        $alert->save();
+
+        $messenge = trans('db_oper_result.update_ok');
+
+        Session::flash('operp_ok',$messenge);
+
+        Session::flash('class_oper','success');
+
+        return redirect()->route('alerts.edit',$id);
     }
 
     /**
@@ -78,8 +168,22 @@ class AlertController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
-        //
+        $alert = Alert::findOrFail($id);
+
+        $alert->delete();
+
+        $messenge = 'Operación completada correctamente';
+
+        if($request->ajax()){
+
+            return $messenge;
+
+        }
+
+        Session::flash('operp_ok',$messenge);
+
+        return redirect()->route('alerts.index');
     }
 }

@@ -30,7 +30,7 @@
                       @slot('rchart', '#')
                       @slot('icon', $icon_menus['user'])
                   @endcomponent
-                  {{-- FIN profiles --}}
+                  {{-- FIN user --}}
 
 
                   {{-- INI profiles --}}
@@ -70,24 +70,6 @@
                   @endcomponent
                   {{-- FIN Alertas --}}
 
-                  {{-- INI Loginout --}}
-                  @component('admin.layouts.dashboard.sidebar.elements.models')
-                      @slot('nombre', 'Loginout')
-                      @slot('rcrud', route('loginouts.index'))
-                      @slot('rchart', '#')
-                      @slot('icon', $icon_menus['loginout'])
-                  @endcomponent
-                  {{-- FIN Loginout --}}
-
-                  {{-- INI Logdb --}}
-                  @component('admin.layouts.dashboard.sidebar.elements.models')
-                      @slot('nombre', 'Logdb')
-                      @slot('rcrud', route('logdbs.index'))
-                      @slot('rchart', '#')
-                      @slot('icon', $icon_menus['logdb'])
-                  @endcomponent
-                  {{-- FIN Logdb --}}
-
                   {{-- INI settings --}}
                   @component('admin.layouts.dashboard.sidebar.elements.models')
                       @slot('nombre', 'Settings')
@@ -105,6 +87,24 @@
                       @slot('icon', $icon_menus['selectopt'])
                   @endcomponent
                   {{-- FIN SelectOpts --}}
+
+                  {{-- INI Loginout --}}
+                  @component('admin.layouts.dashboard.sidebar.elements.models')
+                      @slot('nombre', 'Loginout')
+                      @slot('rcrud', route('loginouts.index'))
+                      @slot('rchart', '#')
+                      @slot('icon', $icon_menus['loginout'])
+                  @endcomponent
+                  {{-- FIN Loginout --}}
+
+                  {{-- INI Logdb --}}
+                  @component('admin.layouts.dashboard.sidebar.elements.models')
+                      @slot('nombre', 'Logdb')
+                      @slot('rcrud', route('logdbs.index'))
+                      @slot('rchart', '#')
+                      @slot('icon', $icon_menus['logdb'])
+                  @endcomponent
+                  {{-- FIN Logdb --}}
 
               </ul>
 

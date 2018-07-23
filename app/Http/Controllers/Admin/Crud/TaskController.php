@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 //validation request
-// use App\Http\Requests\Admin\CreateTaskRequest;
+use App\Http\Requests\Admin\CreateTaskRequest;
 use App\Http\Requests\Admin\UpdateTaskRequest;
 
 //Helpers
@@ -44,7 +44,28 @@ class TaskController extends Controller
      */
     public function create()
     {
-        //
+        $user_list = User::OrderBy('id','DESC')
+            ->pluck('username','id'); 
+
+        //lista para los estados
+        $estado_list = SelectOpt::select('select_opts.*')
+            ->where('table','tasks')
+            ->where('view','tasks.create')
+            ->where('name','estado')
+            ->orderby('value')
+            ->pluck('value','value');
+        
+        //lista para los tipo
+        $tipo_list = SelectOpt::select('select_opts.*')
+            ->where('table','tasks')
+            ->where('view','tasks.create')
+            ->where('name','tipo')
+            ->orderby('value')
+            ->pluck('value','key');
+
+        // dd($user_list,$estado_list,$tipo_list);
+
+        return view('admin.tasks.create',compact('user_list','tipo_list','estado_list'));
     }
 
     /**
@@ -53,11 +74,25 @@ class TaskController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateTaskRequest $request)
     {
-        //
-    }
 
+        $ntask = Task::where('user_id',$request->user_id)->count();
+
+        $data = $request->all();
+
+        $data['codigo'] = date('Y').$ntask;
+
+        $task = Task::create($data);
+
+        $messenge = trans('db_oper_result.create_ok');
+
+        Session::flash('operp_ok',$messenge);
+
+        Session::flash('class_oper','success');
+
+        return redirect()->route('tasks.index');
+    }
     /**
      * Display the specified resource.
      *
@@ -86,7 +121,7 @@ class TaskController extends Controller
         $user_list = User::OrderBy('id','DESC')
             ->pluck('username','id');     
 
-        //lista para los tipo
+        //lista para los estados
         $estado_list = SelectOpt::select('select_opts.*')
             ->where('table','tasks')
             ->where('view','tasks.create')
@@ -102,11 +137,10 @@ class TaskController extends Controller
             ->orderby('value')
             ->pluck('value','key');
 
-        // dd($user_list,$rango_list);
+        // dd($user_list,$estado_list,$tipo_list);
 
         return view('admin.tasks.edit',compact('task','user_list','tipo_list','estado_list'));
 
-        // return view('admin.rols.edit',compact('profile','user'));
     }
 
     /**
@@ -122,7 +156,7 @@ class TaskController extends Controller
 
         $task->fill($request->all());
 
-        $task->codigo = '000';
+        // $task->codigo = '000';
 
         $task->save();
 
@@ -132,7 +166,7 @@ class TaskController extends Controller
 
         Session::flash('class_oper','success');
 
-        return redirect()->route('rols.edit',$id);
+        return redirect()->route('tasks.edit',$id);
     }
 
     /**
@@ -141,8 +175,22 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
-        //
+        $task = Task::findOrFail($id);
+
+        $task->delete();
+
+        $messenge = 'Operación completada correctamente';
+
+        if($request->ajax()){
+
+            return $messenge;
+
+        }
+
+        Session::flash('operp_ok',$messenge);
+
+        return redirect()->route('tasks.index');
     }
 }

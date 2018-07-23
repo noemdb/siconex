@@ -35,7 +35,7 @@ class UpdateTaskRequest extends FormRequest
         //FIN validando que finicial no esté vacio
 
         return [
-            // 'codigo' => 'required|max:32',
+            'user_id' => 'required',
             'descripcion' => 'required|max:255',
             'tipo' => 'required',
             'estado' => 'required',

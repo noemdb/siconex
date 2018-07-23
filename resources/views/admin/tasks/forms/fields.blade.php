@@ -30,14 +30,19 @@
     <label for="evento">Evento</label>
 </div>
 
-<div class="form-label-group pb-1">
-        {!! Form::text('finicial', old('finicial'), ['class' => 'form-control datepicker','placeholder'=>'Fecha Inicial','id'=>'finicial','required','readonly','maxlength'=>"10"]); !!}
-    <label for="finicial">Fecha Inicial</label>
-</div>
-
-<div class="form-label-group pb-1">
-    {!! Form::text('ffinal', old('ffinal'), ['class' => 'form-control datepicker','placeholder'=>'Fecha Final','id'=>'ffinal','required','readonly','maxlength'=>"10"]); !!}
-    <label for="ffinal">Fecha Final</label>
+<div class="row">
+    <div class="col">
+        <div class="form-label-group pb-1">
+            {!! Form::text('finicial', old('finicial'), ['class' => 'form-control datepicker','placeholder'=>'Fecha Inicial','id'=>'finicial','required','readonly','maxlength'=>"10"]); !!}
+            <label for="finicial">Fecha Inicial</label>
+        </div>
+    </div>
+    <div class="col">
+        <div class="form-label-group pb-1">
+            {!! Form::text('ffinal', old('ffinal'), ['class' => 'form-control datepicker','placeholder'=>'Fecha Final','id'=>'ffinal','required','readonly','maxlength'=>"10"]); !!}
+            <label for="ffinal">Fecha Final</label>
+        </div>
+    </div>
 </div>
 
 @section('stylesheet')

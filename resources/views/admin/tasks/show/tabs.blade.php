@@ -1,61 +1,73 @@
-<ul class="nav nav-tabs" id="myTab" taske="tablist">
-  <li class="nav-item">
-    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" taske="tab" aria-conttasks="home" aria-selected="true">General</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" id="user-tab" data-toggle="tab" href="#user" taske="tab" aria-conttasks="user" aria-selected="false">Usuario</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" taske="tab" aria-conttasks="profile" aria-selected="false">Perfíl</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" id="alert-tab" data-toggle="tab" href="#alert" taske="tab" aria-conttasks="alert" aria-selected="false">Alertas</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" id="messege-tab" data-toggle="tab" href="#messege" taske="tab" aria-conttasks="messege" aria-selected="false">Mensages</a>
-  </li>
-</ul>
-
-<div class="tab-content" id="myTabContent">
-
-  <div class="tab-pane fade show active pt-2" id="home" taske="tabpanel" aria-labelledby="home-tab">
-      @includeIf('admin.tasks.show.task')
-      <a class="btn btn-warning w-100" href="{{ route('tasks.edit',$task->id) }}" taske="button">
-        Actualizar
-        <i class="{{$icon_menus['task'] or ''}}"></i>
-      </a>
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-general-tab" data-toggle="tab" href="#nav-general" role="tab" aria-controls="nav-general" aria-selected="true">General</a>
+    <a class="nav-item nav-link" id="nav-user-tab" data-toggle="tab" href="#nav-user" role="tab" aria-controls="nav-user" aria-selected="false">Usuario</a>
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-general" role="tabpanel" aria-labelledby="nav-general-tab">
+    @includeIf('admin.tasks.show.task')
+    <a class="btn btn-warning w-100" href="{{ route('tasks.edit',$task->id) }}" taske="button">
+      Actualizar
+      <i class="{{$icon_menus['task'] or ''}}"></i>
+    </a>
   </div>
 
-  <div class="tab-pane fade pt-2" id="user" taske="tabpanel" aria-labelledby="user-tab">
+  <div class="tab-pane fade" id="nav-user" role="tabpanel" aria-labelledby="nav-user-tab">
+   
     @isset($user)
-      @includeIf('admin.users.show.user')
-      <a class="btn btn-warning w-100" href="{{ route('users.edit',$user->id) }}" taske="button">
-        Actualizar
-        <i class="{{$icon_menus['user'] or ''}}"></i>
-      </a>
+
+      <div class="card m-2">
+        <div class="card-body">
+
+          <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+              <a class="nav-item nav-link active" id="nav-guser-tab" data-toggle="tab" href="#nav-guser" role="tab" aria-controls="nav-guser" aria-selected="true">General</a>
+              <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Perfil</a>
+              <a class="nav-item nav-link" id="nav-messege-tab" data-toggle="tab" href="#nav-messege" role="tab" aria-controls="nav-messege" aria-selected="false">Mensajes</a>
+              <a class="nav-item nav-link" id="nav-alert-tab" data-toggle="tab" href="#nav-alert" role="tab" aria-controls="nav-alert" aria-selected="false">Alertas</a>
+            </div>
+          </nav>
+
+          <div class="tab-content" id="nav-tabContent">
+
+            <div class="tab-pane fade show active m-1 p-1" id="nav-guser" role="tabpanel" aria-labelledby="nav-guser-tab">
+              @include('admin.users.show.user')
+              <a class="btn btn-info w-100" href="{{ route('users.show',$user->id) }}" taske="button">
+                Mostrar
+                <i class="{{$icon_menus['user'] or ''}}"></i>
+              </a>
+            </div>
+
+            <div class="tab-pane fade m-1 p-1" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+              @isset($profile)
+                @include('admin.profiles.show.profile')
+                <a class="btn btn-info w-100" href="{{ route('profiles.show',$profile->id) }}" taske="button">
+                  Actualizar
+                  <i class="{{$icon_menus['profile'] or ''}}"></i>
+                </a>
+              @endisset         
+            </div>
+
+            <div class="tab-pane fade m-1 p-1" id="nav-messege" role="tabpanel" aria-labelledby="nav-messege-tab">
+              @isset($messeges)
+                @includeIf('admin.messeges.show.messeges')
+              @endisset
+            </div>
+
+            <div class="tab-pane fade m-1 p-1" id="nav-alert" role="tabpanel" aria-labelledby="nav-alert-tab">       
+              @isset($alerts)
+                @includeIf('admin.alerts.show.alerts')
+              @endisset
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
     @endisset
+    
   </div>
-
-  <div class="tab-pane fade pt-2" id="profile" taske="tabpanel" aria-labelledby="profile-tab">
-    @isset($profile)
-      @include('admin.profiles.show.profile')
-      <a class="btn btn-warning w-100" href="{{ route('profiles.edit',$profile->id) }}" taske="button">
-        Actualizar
-        <i class="{{$icon_menus['profile'] or ''}}"></i>
-      </a>
-      @endisset
-  </div>
-
-  <div class="tab-pane fade pt-2" id="alert" taske="tabpanel" aria-labelledby="alert-tab">
-    @isset($alerts)
-      @includeIf('admin.alerts.show.alerts')
-    @endisset
-  </div>
-
-  <div class="tab-pane fade pt-2" id="messege" taske="tabpanel" aria-labelledby="messege-tab">
-    @isset($messeges)
-      @includeIf('admin.messeges.show.messeges')
-    @endisset
-  </div>
-
 </div>

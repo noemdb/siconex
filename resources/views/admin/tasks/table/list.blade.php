@@ -9,7 +9,7 @@
 @php ($class_updated_at="d-none d-lg-table-cell")
 @php ($class_action="nosort")
 
-<table width="100%" class="table table-striped table-hover table-sm" id="table-data-tasks">
+<table width="100%" class="table {{-- table-striped table-hover --}} table-sm" id="table-data-tasks">
     <thead>
         <tr>
             <th class="{{ $class_N }}">N</th>
@@ -31,7 +31,7 @@
 
             @php ($user = $task->user)
 
-            <tr data-task="{{$task->id}}" data-user="{{$user->id or ''}}">
+            <tr data-task="{{$task->id}}" data-user="{{$user->id or ''}}" class="table-{{ $task->tipo or '' }} p-0 m-0">
 
                 <td class="{{$class_N}}">
                     {{ ($loop->index + 1) }}
@@ -71,7 +71,7 @@
                     {{ (isset($task->ffinal)) ? Carbon\Carbon::parse($task->ffinal)->format('d-m-Y') : '' }}
                 </td>
 
-                <td style="padding: 2px; vertical-align: middle;" id="btn-action-{{ $task->id }}">
+                <td style="padding: 2px; vertical-align: middle;" id="btn-action-{{ $task->id }}" class="text-center">
 
                     <div class="btn-group btn-group-sm">
 

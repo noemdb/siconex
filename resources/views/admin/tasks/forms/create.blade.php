@@ -6,7 +6,9 @@
 
       {{-- <form> --}}
       {!! Form::open(['route' => 'tasks.store', 'method' => 'POST', 'id'=>'form-task-create-'. (isset($user->id)? $user->id : 'create')]) !!}
-
+          
+          {{ Form::hidden('codigo') }}    
+          
           @if(isset($user->id))
 
             {{ Form::hidden('user_id', $user->id) }}

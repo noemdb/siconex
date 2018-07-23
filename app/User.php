@@ -120,4 +120,14 @@ class User extends Authenticatable
 
     }
 
+    public static function getUsernameId($id)
+    {
+      
+      $user = User::findOrFail($id);
+
+      // dd($user);
+
+      return $user->username;
+    }
+
 }

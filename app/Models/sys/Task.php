@@ -17,6 +17,10 @@ class Task extends Model
 	//usada para el softdelete
  	protected $dates = ['deleted_at'];
 
+  protected $fillable = [
+        'user_id','codigo', 'descripcion','tipo', 'evento','estado','finicial','ffinal'
+    ];
+
   // Para obtener los getAttribute
 	// protected $appends = ['userlist'];
 
