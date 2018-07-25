@@ -1,1 +1,2 @@
-php artisan make:controller 'Admin\ChartController'
+php artisan make:controller 'Admin\Chart\ChartController'
+php artisan make:controller 'Admin\Chart\UsersController'

@@ -4,51 +4,28 @@
 
     <main role="main" class="col-md-10 ml-sm-auto col-lg-10">
 
-        @component('admin.elements.card.default')
-            @slot('class', 'info')
-            @slot('header', 'Gráfica N1')
-            @slot('body')
-
-                <nav>
-                  <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
-                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
-                    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
-                  </div>
-                </nav>
-                <div class="tab-content" id="nav-tabContent">
-                  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                  </div>
-                  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                  </div>
-                  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                  </div>
-                </div>
-
-            @endslot
-            @slot('buttomtext', 'Ver Más')
-            @slot('buttomurl', '#')
-            @slot('footertext', 'Gráfica N1')
-
-    @endcomponent
+      @component('admin.elements.card.panel')
+          @slot('class', 'info')
+          @slot('panelControls', 'true')
+          @slot('id', 'id_chart' )
+          @slot('header', 'Usuarios Act/Des')
+          @slot('iconTitle', 'fas fa-chart-pie')
+          @slot('body')
+              @component('admin.elements.canvas.chart')
+                  @slot('class', 'borderRBL')
+                  @slot('nav')                      
+                      <nav class="nav nav-tabs range" id="nav-tab" role="tablist" data-canvas="{{ $chart['id_chart'] or ''}}" data-urlapi="{{ $chart['urlapi'] or ''}}" data-tipo="{{ $chart['tipo'] or ''}}" data-limit="{{ $chart['limit'] or ''}}">
+                        <a data-range="Todos" class="nav-item nav-link active" id="nav-todos-tab" data-toggle="tab" href="#nav-todos" role="tab" aria-controls="nav-todos" aria-selected="false">Todos</a>
+                        <a data-range="365" class="nav-item nav-link" id="nav-365-tab" data-toggle="tab" href="#nav-365" role="tab" aria-controls="nav-365" aria-selected="false">365D</a>
+                        <a data-range="90" class="nav-item nav-link" id="nav-90-tab" data-toggle="tab" href="#nav-90" role="tab" aria-controls="nav-90" aria-selected="false">90D</a>
+                        <a data-range="30" class="nav-item nav-link" id="nav-30-tab" data-toggle="tab" href="#nav-30" role="tab" aria-controls="nav-30" aria-selected="false">30D</a>
+                        <a data-range="7" class="nav-item nav-link" id="nav-7-tab" data-toggle="tab" href="#nav-7" role="tab" aria-controls="nav-7" aria-selected="false">7D</a>
+                      </nav>
+                  @endslot
+                  @slot('id', 'id_chart')
+              @endcomponent
+          @endslot
+      @endcomponent
 
     </main>
 
@@ -56,9 +33,34 @@
 
 @section('scripts')
     @parent
+    <script src="{{ asset("js/Chart.js") }}"></script>
+    {{-- <script src="{{ asset("js/utils.js") }}"></script> --}}
+    <script src="{{ asset("js/ChartFunction.js") }}"></script>{{-- Funciones para generar los Chart --}}
 
-    {{-- INI script ajax json models --}}
-    <script src="{{ asset("js/models/users/delete.js") }}"></script>
-    {{-- FIN script ajax json models --}}
+    {{-- INI funciones para generar los Chart --}}
+    <script>
+ 
+        //Evento clic para el panel de tab nav-tabs (menu con las opciones)
+        $('nav.ranges a').click(function(e){
+            e.preventDefault();
+            // Get the number of range from the data attribute
+            var el = $(this);
+            var range = $(this).data('range'); alert('123');
+            var nav = $(this).parents('nav');
+            var canvas = nav.data('canvas'); //alert(canvas);
+            var api = nav.data('urlapi'); //alert(urlapi);
+            var tipo = nav.data('tipo'); //alert(tipo);
+            var limit = nav.data('limit'); //alert(limit);
+
+            // Request the data and render the chart using our handy function
+            requestData(range,canvas,api,tipo,limit);
+            // Make things pretty to show which button/tab the user clicked
+            el.parent().addClass('active');
+            el.parent().siblings().removeClass('active');
+
+        });
+
+    </script>
+    {{-- FIN funciones para generar los Chart --}}
 
 @endsection
