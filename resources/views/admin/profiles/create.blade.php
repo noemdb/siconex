@@ -12,21 +12,13 @@
 
                     Nuevos Perfiles
 
-                        {{-- INI Menu rapido --}}
-                        <div class="btn-group float-right">
+                    {{-- INI Menu rapido --}}
+                    <div class="btn-group float-right pt-2">
 
-                            @include('admin.elements.buttons.user-index')
+                        @include('admin.profiles.menus.create')
 
-                            @include('admin.elements.buttons.profile-index')
-
-                            @include('admin.elements.buttons.rol-index') 
-
-                            @include('admin.elements.buttons.goback')      
-
-                            @include('admin.elements.buttons.url-refresh')
-
-                        </div>
-                        {{-- FIN Menu rapido --}}
+                    </div>
+                    {{-- FIN Menu rapido --}}
 
                 </h2>
 

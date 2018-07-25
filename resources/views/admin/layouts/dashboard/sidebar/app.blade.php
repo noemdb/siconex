@@ -27,7 +27,7 @@
                   @component('admin.layouts.dashboard.sidebar.elements.models')
                       @slot('nombre', 'Usuarios')
                       @slot('rcrud', route('users.index'))
-                      @slot('rchart', '#')
+                      @slot('rchart', route('users.chart'))
                       @slot('icon', $icon_menus['user'])
                   @endcomponent
                   {{-- FIN user --}}
