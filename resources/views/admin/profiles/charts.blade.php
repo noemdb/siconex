@@ -7,7 +7,7 @@
       <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-12">
 
-            @php ($chart = ['range'=>'Todos','id_chart'=>'usersactivechart','urlapi'=>route('users.actives.chart'),'tipo'=>'pie','limit'=>6 ])
+            @php ($chart = ['range'=>'Todos','id_chart'=>'profilesmonthchart','urlapi'=>route('profiles.month.chart'),'tipo'=>'line','limit'=>6 ])
             @section('scripts')
                 @parent
                 {{-- Llamado a la funcion responsable de inicilizar el Chart --}}
@@ -18,7 +18,8 @@
                 @slot('class', 'info')
                 @slot('panelControls', 'true')
                 @slot('id', $chart['id_chart'])
-                @slot('header', 'Usuarios Act/Des')
+                {{-- @slot('header', 'Usuarios Act/Des') --}}
+                @slot('header', 'Reg. Perfiles por Mes')
                 @slot('iconTitle', 'fas fa-chart-pie')
                 @slot('body')
                     @component('admin.elements.canvas.chart')

@@ -160,3 +160,15 @@ registrar Middleware en kernel.php (variable: protected $routeMiddleware)
 Controller para vista home
 php artisan make:controller 'Admin\HomeController'
 php artisan make:controller 'Poa\HomeController'
+
+#######################################################################################################
+manejo de fechas en español
+
+$composer require jenssegers/dateb
+
+And add the service provider in config/app.php:
+
+Jenssegers\Date\DateServiceProvider::class,
+
+You can also add it as a aliases in config/app.php:
+'Date' => Jenssegers\Date\Date::class,

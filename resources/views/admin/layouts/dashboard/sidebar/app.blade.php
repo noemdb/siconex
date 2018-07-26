@@ -37,7 +37,7 @@
                   @component('admin.layouts.dashboard.sidebar.elements.models')
                       @slot('nombre', 'Perfiles')
                       @slot('rcrud', route('profiles.index'))
-                      @slot('rchart', '#')
+                      @slot('rchart', route('profiles.chart'))
                       @slot('icon', $icon_menus['profile'])
                   @endcomponent
                   {{-- FIN profiles --}}
