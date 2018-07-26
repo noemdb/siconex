@@ -12,6 +12,11 @@
 // Create a function that will handle AJAX requests
 function requestData(range,canvas,urlapi,tipo,limit){
     // var url = urlapi; alert(url);
+    console.log('range: '+range);
+    console.log('canvas: '+canvas);
+    console.log('urlapi: '+urlapi);
+    console.log('tipo: '+tipo);
+    console.log('limit: '+limit);    
     $.ajax({
       type: "GET",
       url: urlapi, // This is the URL to the API
@@ -21,9 +26,9 @@ function requestData(range,canvas,urlapi,tipo,limit){
 
         //INI asegurar dibujar en un canvas nuevo para evitar solapamiento de chart
         $('#'+canvas).remove(); // elimina el canvas antiguo                   
-        var newcanvas = document.createElement('canvas'); //console.log(newcanvas); //crea
-        newcanvas.id  = canvas; // console.log(newcanvas); // 
-        div = document.getElementById('div'+canvas); //console.log(div); //este div contiene el canvas para el chart
+        var newcanvas = document.createElement('canvas'); console.log(newcanvas); //crea
+        newcanvas.id  = canvas;  console.log(newcanvas); // 
+        div = document.getElementById('div-'+canvas); console.log(div); //este div contiene el canvas para el chart
         div.appendChild(newcanvas); // asignando el canvas al div
         //FIN asegurar dibujar en un canvas nuevo para evitar solapamiento de chart
 

@@ -23,6 +23,12 @@ use App\User;
 class UsersController extends Controller
 {
 
+    public function index()
+    {
+        
+        return view('admin.users.charts');
+    }
+
     public function UserActive(Request $request)
     {
 
