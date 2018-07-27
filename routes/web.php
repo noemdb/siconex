@@ -61,6 +61,8 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','is_admin'],'namespace'=>'
     //INI Charts modelos
     require (__DIR__ . '/admin/charts/users.php');
     require (__DIR__ . '/admin/charts/profiles.php');
+    require (__DIR__ . '/admin/charts/rols.php');
+    require (__DIR__ . '/admin/charts/tasks.php');
     //FIN Charts modelos
 
     //INI rutas para los json

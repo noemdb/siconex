@@ -47,7 +47,7 @@
                   @component('admin.layouts.dashboard.sidebar.elements.models')
                       @slot('nombre', 'Roles')
                       @slot('rcrud', route('rols.index'))
-                      @slot('rchart', '#')
+                      @slot('rchart', route('rols.chart'))
                       @slot('icon', $icon_menus['rol'])
                   @endcomponent
                   {{-- FIN Rols --}}
@@ -56,7 +56,7 @@
                   @component('admin.layouts.dashboard.sidebar.elements.models')
                       @slot('nombre', 'Tasks')
                       @slot('rcrud', route('tasks.index'))
-                      @slot('rchart', '#')
+                      @slot('rchart', route('tasks.chart'))
                       @slot('icon', $icon_menus['task'])
                   @endcomponent
                   {{-- FIN Tasks --}}

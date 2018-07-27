@@ -40,6 +40,11 @@ class AppServiceProvider extends ServiceProvider
             'crud'=>'fas fa-align-justify',
             'tline'=>'fas fa-history',
             'info'=>'fas fa-info',
+
+            'chartpie'=>'fas fa-chart-pie',
+            'chartbar'=>'fas fa-chart-bar',
+            'chartarea'=>'far fa-chart-area',
+            'chartline'=>'fas fa-chart-line',
         ]);
     }
 

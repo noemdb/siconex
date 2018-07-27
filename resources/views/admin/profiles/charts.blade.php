@@ -53,12 +53,13 @@
                 @slot('class', 'info')
                 @slot('panelControls', 'true')
                 @slot('id', $chart['id_chart'])
-                @slot('header', 'Usuarios y Perfiles')
+                @slot('header', 'Perfiles y Usuarios')
                 @slot('iconTitle', 'fas fa-chart-pie')
                 @slot('body')
                     @component('admin.elements.canvas.chart')
                         @slot('class', 'borderRBL')                  
-                        @slot('nav')                      
+                        @slot('nav') 
+                            <strong>Todos los registros</strong>                     
                             {{-- <nav class="nav nav-tabs ranges" id="nav-tab" role="tablist" data-canvas="{{ $chart['id_chart'] or ''}}" data-urlapi="{{ $chart['urlapi'] or ''}}" data-tipo="{{ $chart['tipo'] or ''}}" data-limit="{{ $chart['limit'] or ''}}">
                               <a data-range="Todos" class="nav-item nav-link active" id="nav-todos-tab" data-toggle="tab" href="#nav-todos" role="tab" aria-controls="nav-todos" aria-selected="false">Todos</a>
                               <a data-range="365" class="nav-item nav-link" id="nav-365-tab" data-toggle="tab" href="#nav-365" role="tab" aria-controls="nav-365" aria-selected="false">365D</a>
@@ -73,6 +74,7 @@
             @endcomponent
 
         </div>
+        
       </div>
 
     </main>
