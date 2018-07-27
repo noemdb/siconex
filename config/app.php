@@ -163,7 +163,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         /*custome*/
         Collective\Html\HtmlServiceProvider::class,
-        Jenssegers\Date\DateServiceProvider::class,
+        // Jenssegers\Date\DateServiceProvider::class,
 
     ],
 
@@ -217,7 +217,7 @@ return [
         /*custome*/
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
-        'Date' => Jenssegers\Date\Date::class,
+        // 'Date' => Jenssegers\Date\Date::class,
 
     ],
 

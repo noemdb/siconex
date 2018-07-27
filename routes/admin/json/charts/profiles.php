@@ -10,7 +10,7 @@
 
 Route::group(['prefix'=>'profiles'], function(){
     Route::get('/profilesmonth', 'ProfileController@ProfilesMonth')->name('profilesmonth');
-    Route::get('/profilesdominio', 'ProfileController@ProfilesDominio')->name('profilesdominio');
+    Route::get('/userwithprofile', 'ProfileController@ProfilesUsers')->name('userwithprofile');
 });
 
 

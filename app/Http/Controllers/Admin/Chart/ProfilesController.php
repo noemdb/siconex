@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 
 // Modelos adicionadas
 use App\User;
-use App\Models\sys\Profiles;
+use App\Models\sys\Profile;
 
 
 class ProfilesController extends Controller
@@ -71,6 +71,59 @@ class ProfilesController extends Controller
                 ]
             ]
         ];
+
+        return json_encode($ChartDataSQL);
+    }
+
+    public function ProfilesUsers(Request $request)
+    {
+
+        $range = ($request->input('range')!=null) ? $request->input('range') : 'Todos';
+        $limit = ($request->input('limit')!=null) ? $request->input('limit') : 8;
+
+        if($range=='Todos'){
+            $fecha = Carbon::now();
+        }else{
+            $fecha = Carbon::now()->subDays($range);
+        }
+
+        
+        $users_wo_profile = User::select('users.id')
+                ->leftJoin('profiles', 'users.id', '=', 'profiles.user_id')
+                ->whereNull('profiles.user_id')
+                // ->Where('profiles.created_at', '<=', $fecha)
+                // ->whereNotNull('profiles.deleted_at')
+                ->orderby('users.username','asc')
+                ->count();
+                // ->pluck('username', 'id');
+
+        $tot_user = User::count();
+
+        $users_w_profile = $tot_user - $users_wo_profile;
+
+        // dd($users_wo_profile,$tot_user);
+
+        $labels =['Usuarios con Perfíl', 'Usuarios sin Perfíl'];
+        $values = [$users_w_profile, $users_wo_profile];
+        for ($i=0; $i < count($labels) ; $i++) { 
+            $colors[] = 'rgba('.rand(0,255).', '.rand(0,255).', '.rand(0,255).', 1)';
+        }
+
+        // dd($labels , $values, $colors);
+
+        unset($ChartDataSQL);
+        $ChartDataSQL = [
+            'labels'=>$labels,
+            'datasets'=>[
+                [
+                    "label"=>"Usuarios Act/Des",
+                    "backgroundColor"=>$colors,
+                    "data"=>$values
+                ]
+            ]
+        ];
+
+        // dd($tasks);
 
         return json_encode($ChartDataSQL);
     }
