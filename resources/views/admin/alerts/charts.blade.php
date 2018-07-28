@@ -20,13 +20,13 @@
                 
                 <div class="col-lg-6 col-md-6 col-sm-12">
 
-                    @include('admin.rols.chart.rolsmonthchart')
+                    @include('admin.alerts.chart.alertsmonthchart')
                   
                 </div>
 
                 <div class="col-lg-6 col-md-6 col-sm-12">
 
-                    @include('admin.rols.chart.rolsuserschart')
+                  @include('admin.alerts.chart.alertstypeschart')                    
 
                 </div>
 
@@ -42,13 +42,13 @@
                 
                 <div class="col-lg-6 col-md-6 col-sm-12">
 
-                    @include('admin.rols.chart.rolstypeschart')
+                  @include('admin.alerts.chart.alertsuserschart')
                   
                 </div>
 
                 <div class="col-lg-6 col-md-6 col-sm-12">
 
-                    @include('admin.rols.chart.rolsrangeschart')
+                    {{-- @include('admin.rols.chart.rolsrangeschart') --}}
 
                 </div>
 

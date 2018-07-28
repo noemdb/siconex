@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin\Chart;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
 // Helpers
 use Illuminate\Support\Carbon;
 use Jenssegers\Date\Date;
@@ -12,17 +11,15 @@ use Illuminate\Support\Facades\DB;
 
 // Modelos adicionadas
 use App\User;
-use App\Models\sys\Task;
-
-class TasksController extends Controller
+use App\Models\sys\Alert;
+class AlertsController extends Controller
 {
-
     public function index()
     {        
-        return view('admin.tasks.charts');
+        return view('admin.alerts.charts');
     }
 
-	public function TasksMonth(Request $request)
+	public function AlertsMonth(Request $request)
     {
 
         $range = ($request->input('range')!=null) ? $request->input('range') : 'Todos';
@@ -37,7 +34,7 @@ class TasksController extends Controller
 
         // $range = Carbon::now()->subMonth($months);
 
-        $usersmonth = Task::select(DB::raw('count(id) as value'),DB::raw('MONTH(created_at) as month'))
+        $usersmonth = Alert::select(DB::raw('count(id) as value'),DB::raw('MONTH(created_at) as month'))
             ->Where('created_at', '>=', $finicial)
             ->Where('created_at', '<=', $ffinal)
             ->groupby('month')
@@ -62,7 +59,7 @@ class TasksController extends Controller
             'labels'=>$label_month,
             'datasets'=>[
                 [
-                    "label"=>"Tareas Registrados",
+                    "label"=>"Alertas Registradas",
                     "backgroundColor"=>"rgba(192, 57, 43,0.2)",
                     "borderColor"=>"rgba(192, 57, 43,1)",
                     "borderWidth"=>2,
@@ -74,7 +71,7 @@ class TasksController extends Controller
         return json_encode($ChartDataSQL);
     }
 
-    public function TasksUsers(Request $request)
+    public function AlertsUsers(Request $request)
 	{
 
 		$range = ($request->input('range')!=null) ? $request->input('range') : 'Todos';
@@ -88,53 +85,46 @@ class TasksController extends Controller
 			$ffinal = Carbon::now();
 		}		
 
-		$userstasks = Task::getUserTasks($finicial,$ffinal,$limit); // return username,user_id,value
+		$usersalerts = Alert::getUserAlerts($finicial,$ffinal,$limit); // return username,user_id,value
 
 		// dd($userstasks);
 
-        $labels = $userstasks->pluck('username');
-		$users_id = $userstasks->pluck('user_id');
+        $labels = $usersalerts->pluck('username');
+		$users_id = $usersalerts->pluck('user_id');
 
-        // dd($userstasks->toarray(),$labels , $users_id);
+        // dd($usersalerts->toarray(),$labels , $users_id);
 
-        $tasks_iniciadas = Task::getCountTotal($users_id,$finicial,$ffinal,'INICIADA');
-        $tasks_finalizadas = Task::getCountTotal($users_id,$finicial,$ffinal,'FINALIZADA');
-        $tasks_reprogramadas = Task::getCountTotal($users_id,$finicial,$ffinal,'REPROGRAMADA');
-        $tasks_asignadas = Task::getCountTotal($users_id,$finicial,$ffinal,'');
+        $alerts_enviada = Alert::getCountTotal($users_id,$finicial,$ffinal,'Enviada');
+        $alerts_entregada = Alert::getCountTotal($users_id,$finicial,$ffinal,'Entregada');
+        $alerts_asignadas = Alert::getCountTotal($users_id,$finicial,$ffinal,'');
 
-		// dd($tasks_iniciadas,$tasks_finalizadas,$tasks_asignadas);
+
+		// dd($alerts_enviada,$alerts_entregada,$alerts_asignadas);
 
 		unset($ChartDataSQL);
 		$ChartDataSQL = [
 			'labels'=>$labels,
 			'datasets'=>[
 				[
-	                "label"=>"Iniciadas",
+	                "label"=>"Enviadas",
 	                "backgroundColor"=>"rgba(245,105,84,1)",
 	                "borderColor"=>"rgba(245,105,84,1)",
                     "borderWidth"=>1,
-	                "data"=>$tasks_iniciadas
+	                "data"=>$alerts_enviada
                 ],
                 [
-	                "label"=>"Finalizadas",
+	                "label"=>"Entregadas",
 	                "backgroundColor"=>"rgba(0,166,90,1)",
 	                "borderColor"=>"rgba(0,166,90,1)",
                     "borderWidth"=>1,
-	                "data"=>$tasks_finalizadas
-                ],
-                [
-	                "label"=>"Reprogramadas",
-	                "backgroundColor"=>"rgba(0,50,100,1)",
-	                "borderColor"=>"rgba(0,50,100,1)",
-                    "borderWidth"=>1,
-	                "data"=>$tasks_reprogramadas
+	                "data"=>$alerts_entregada
                 ],
                 [
 	                "label"=>"Asignadas",
 	                "backgroundColor"=>"rgba(0,192,239,1)",
 	                "borderColor"=>"rgba(0,192,239,1)",
                     "borderWidth"=>1,
-	                "data"=>$tasks_asignadas
+	                "data"=>$alerts_asignadas
                 ]
             ]
         ];
@@ -144,7 +134,7 @@ class TasksController extends Controller
 		return json_encode($ChartDataSQL);
 	}
 
-    public function TasksTypes(Request $request)
+    public function AlertsTypes(Request $request)
     {
 
         $range = ($request->input('range')!=null) ? $request->input('range') : 'Todos';
@@ -158,7 +148,7 @@ class TasksController extends Controller
             $ffinal = Carbon::now();
         }       
 
-        $rols = Task::select('tipo', DB::raw('count(tipo) as value'))
+        $rols = Alert::select('tipo', DB::raw('count(tipo) as value'))
             ->Where('created_at', '>=', $finicial)
             ->Where('created_at', '<=', $ffinal)
             ->groupby('tipo')
@@ -185,5 +175,4 @@ class TasksController extends Controller
 
         return json_encode($ChartDataSQL);
     }
-
 }

@@ -2,4 +2,5 @@
 php artisan make:controller 'Admin\Chart\UsersController'
 php artisan make:controller 'Admin\Chart\ProfilesController'
 php artisan make:controller 'Admin\Chart\RolesController'
-php artisan make:controller 'Admin\Chart\TaskController'
+php artisan make:controller 'Admin\Chart\TasksController'
+php artisan make:controller 'Admin\Chart\AlertsController'

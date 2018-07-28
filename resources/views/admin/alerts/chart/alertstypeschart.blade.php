@@ -1,4 +1,4 @@
-@php ($chart = ['range'=>'Todos','id_chart'=>'taskstypeschart','urlapi'=>route('tasks.types.chart'),'tipo'=>'line','limit'=>6 ])
+@php ($chart = ['range'=>'Todos','id_chart'=>'alertstypeschart','urlapi'=>route('alerts.types.chart'),'tipo'=>'line','limit'=>6 ])
 @section('scripts')
     @parent
     {{-- Llamado a la funcion responsable de inicilizar el Chart --}}
@@ -9,7 +9,7 @@
     @slot('class', 'success')
     @slot('panelControls', 'true')
     @slot('id', $chart['id_chart'])
-    @slot('header', 'Tareas por Tipo')
+    @slot('header', 'Alertas por Tipo')
     @slot('iconTitle', $icon_menus['chartline'])
     @slot('body')
         @component('admin.elements.canvas.chart')

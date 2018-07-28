@@ -19,7 +19,7 @@ class CreateAlertsTable extends Migration
             $table->integer('destino_user_id')->unsigned();
             $table->string('mensaje');
             $table->enum('tipo', ['primary','secondary', 'success', 'info', 'warning', 'danger','default'])->default('default');
-            $table->enum('estado',['Visto','No Visto'])->default('No Visto');
+            $table->enum('estado',['Enviada','Entregada'])->default('Enviada');
             $table->date('finicial');
             $table->date('ffinal');
             

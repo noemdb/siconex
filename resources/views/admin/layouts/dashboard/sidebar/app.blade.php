@@ -65,7 +65,7 @@
                   @component('admin.layouts.dashboard.sidebar.elements.models')
                       @slot('nombre', 'Alertas')
                       @slot('rcrud', route('alerts.index'))
-                      @slot('rchart', '#')
+                      @slot('rchart', route('alerts.chart'))
                       @slot('icon', $icon_menus['alert'])
                   @endcomponent
                   {{-- FIN Alertas --}}

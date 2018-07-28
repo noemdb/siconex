@@ -11,12 +11,7 @@
 
 // Create a function that will handle AJAX requests
 function requestData(range,canvas,urlapi,tipo,limit){
-    // var url = urlapi; alert(url);
-    console.log('range: '+range);
-    console.log('canvas: '+canvas);
-    console.log('urlapi: '+urlapi);
-    console.log('tipo: '+tipo);
-    console.log('limit: '+limit);    
+
     $.ajax({
       type: "GET",
       url: urlapi, // This is the URL to the API

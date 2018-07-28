@@ -5,7 +5,7 @@
     <main role="main" class="col-md-10 ml-sm-auto col-lg-10">
 
         {{-- ini tab --}}
-        <nav>
+        <nav class="pt-1 mt-1">
           <div class="nav nav-tabs" id="nav-tab" role="tablist">
             <a class="nav-item nav-link active" id="nav-tab01-tab" data-toggle="tab" href="#nav-tab01" role="tab" aria-controls="nav-tab01" aria-selected="true">Gráficas 1</a>
             <a class="nav-item nav-link" id="nav-tab02-tab" data-toggle="tab" href="#nav-tab02" role="tab" aria-controls="nav-tab02" aria-selected="false">Gráficas 2</a>
@@ -70,31 +70,8 @@
     {{-- <script src="{{ asset("js/utils.js") }}"></script> --}}
     <script src="{{ asset("js/ChartFunction.js") }}"></script>{{-- Funciones para generar los Chart --}}
 
-    {{-- INI funciones para generar los Chart --}}
-    <script>
- 
-        //Evento clic para el panel de tab nav-tabs (menu con las opciones)
-        $('nav.ranges a').click(function(e){
-            e.preventDefault();
-            // alert('123');
-            // Get the number of range from the data attribute
-            var el = $(this);
-            var range = $(this).data('range'); //console.log('Entro a la funcion');
-            var nav = $(this).parents('nav'); //console.log('nav: '+nav);
-            var canvas = nav.data('canvas'); //console.log('canvas: '+canvas);
-            var api = nav.data('urlapi'); //console.log('urlapi: '+api);
-            var tipo = nav.data('tipo'); //console.log('tipo: '+tipo);
-            var limit = nav.data('limit'); //console.log('limit: '+limit);
-
-            // Request the data and render the chart using our handy function
-            requestData(range,canvas,api,tipo,limit);
-            // Make things pretty to show which button/tab the user clicked
-            el.parent().addClass('active');
-            el.parent().siblings().removeClass('active');
-
-        });
-
-    </script>
-    {{-- FIN funciones para generar los Chart --}}
+    {{-- INI Evento clic para generar los Chart por rango--}}
+    <script src="{{ asset("js/ChartEvent.js") }}"></script>{{-- Funciones para generar los Chart --}}
+    {{-- FIN Evento clic para generar los Chart por rango --}}
 
 @endsection
