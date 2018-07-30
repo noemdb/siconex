@@ -5,6 +5,16 @@ namespace App\Http\Controllers\Admin\Crud;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+//Helpers
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Session;
+
+//models
+use App\User;
+use App\Models\sys\Messege;
+// use App\Models\sys\Profile;
+// use App\Models\sys\Rol;
+
 class MessegeController extends Controller
 {
     /**
@@ -14,7 +24,12 @@ class MessegeController extends Controller
      */
     public function index()
     {
-        //
+        $messeges = Messege::OrderBy('id','DESC')
+            // ->with('User')
+            // ->with('Profile')
+            ->get();
+
+        return view('admin.messeges.index', compact('messeges'));
     }
 
     /**
@@ -46,7 +61,9 @@ class MessegeController extends Controller
      */
     public function show($id)
     {
-        //
+        $messege = Messege::findOrFail($id);
+
+        return view('admin.messeges.show',compact('messege'));
     }
 
     /**

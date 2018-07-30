@@ -14,20 +14,20 @@
 
       <li class="nav-item">
 
-          <a class="accordion nav-link" href="#">
+          <a class="accordion nav-link {{ (Request::is('*models*') ? ' accordion_active' : '') }}"  href="#">
             {{-- <span data-feather="home"></span> --}}
-            Modelos {{-- <span class="sr-only">(current)</span> --}}
+            Sistema {{-- <span class="sr-only">(current)</span> --}}
           </a>
 
-          <div class="accordion_panel">
+          <div class="accordion_panel" style="display: {{ (Request::is('*models*') ? ' block' : 'none') }}">
 
               <ul class="nav flex-column">
 
                   {{-- INI User --}}
                   @component('admin.layouts.dashboard.sidebar.elements.models')
                       @slot('nombre', 'Usuarios')
-                      @slot('rcrud', route('users.index'))
-                      @slot('rchart', route('users.chart'))
+                      @slot('nrcrud', 'users.index')
+                      @slot('nrchart', 'users.chart')
                       @slot('icon', $icon_menus['user'])
                   @endcomponent
                   {{-- FIN user --}}
@@ -36,8 +36,8 @@
                   {{-- INI profiles --}}
                   @component('admin.layouts.dashboard.sidebar.elements.models')
                       @slot('nombre', 'Perfiles')
-                      @slot('rcrud', route('profiles.index'))
-                      @slot('rchart', route('profiles.chart'))
+                      @slot('nrcrud', 'profiles.index')
+                      @slot('nrchart', 'profiles.chart')
                       @slot('icon', $icon_menus['profile'])
                   @endcomponent
                   {{-- FIN profiles --}}
@@ -46,8 +46,8 @@
                   {{-- INI Rols --}}
                   @component('admin.layouts.dashboard.sidebar.elements.models')
                       @slot('nombre', 'Roles')
-                      @slot('rcrud', route('rols.index'))
-                      @slot('rchart', route('rols.chart'))
+                      @slot('nrcrud', 'rols.index')
+                      @slot('nrchart', 'rols.chart')
                       @slot('icon', $icon_menus['rol'])
                   @endcomponent
                   {{-- FIN Rols --}}
@@ -55,8 +55,8 @@
                   {{-- INI Tasks --}}
                   @component('admin.layouts.dashboard.sidebar.elements.models')
                       @slot('nombre', 'Tasks')
-                      @slot('rcrud', route('tasks.index'))
-                      @slot('rchart', route('tasks.chart'))
+                      @slot('nrcrud', 'tasks.index')
+                      @slot('nrchart', 'tasks.chart')
                       @slot('icon', $icon_menus['task'])
                   @endcomponent
                   {{-- FIN Tasks --}}
@@ -64,17 +64,26 @@
                   {{-- INI Alertas --}}
                   @component('admin.layouts.dashboard.sidebar.elements.models')
                       @slot('nombre', 'Alertas')
-                      @slot('rcrud', route('alerts.index'))
-                      @slot('rchart', route('alerts.chart'))
+                      @slot('nrcrud', 'alerts.index')
+                      @slot('nrchart', 'alerts.chart')
                       @slot('icon', $icon_menus['alert'])
                   @endcomponent
                   {{-- FIN Alertas --}}
 
+                  {{-- INI Mensajes --}}
+                  @component('admin.layouts.dashboard.sidebar.elements.models')
+                      @slot('nombre', 'Mensajes')
+                      @slot('nrcrud', 'messeges.index')
+                      @slot('nrchart', 'messeges.chart')
+                      @slot('icon', $icon_menus['messege'])
+                  @endcomponent
+                  {{-- FIN Mensajes --}}
+
                   {{-- INI settings --}}
                   @component('admin.layouts.dashboard.sidebar.elements.models')
                       @slot('nombre', 'Settings')
-                      @slot('rcrud', route('settings.index'))
-                      @slot('rchart', '#')
+                      @slot('nrcrud', 'settings.index')
+                      {{-- @slot('nrchart', 'settings.chart') --}}
                       @slot('icon', $icon_menus['setting'])
                   @endcomponent
                   {{-- FIN settings --}}
@@ -82,8 +91,8 @@
                   {{-- INI SelectOpts --}}
                   @component('admin.layouts.dashboard.sidebar.elements.models')
                       @slot('nombre', 'SelectOpts')
-                      @slot('rcrud', route('selectopts.index'))
-                      @slot('rchart', '#')
+                      @slot('nrcrud', 'selectopts.index')
+                      {{-- @slot('nrchart', 'selectopts.chart') --}}
                       @slot('icon', $icon_menus['selectopt'])
                   @endcomponent
                   {{-- FIN SelectOpts --}}
@@ -91,8 +100,8 @@
                   {{-- INI Loginout --}}
                   @component('admin.layouts.dashboard.sidebar.elements.models')
                       @slot('nombre', 'Loginout')
-                      @slot('rcrud', route('loginouts.index'))
-                      @slot('rchart', '#')
+                      @slot('nrcrud', 'loginouts.index')
+                      @slot('nrchart', 'loginouts.chart')
                       @slot('icon', $icon_menus['loginout'])
                   @endcomponent
                   {{-- FIN Loginout --}}
@@ -100,8 +109,8 @@
                   {{-- INI Logdb --}}
                   @component('admin.layouts.dashboard.sidebar.elements.models')
                       @slot('nombre', 'Logdb')
-                      @slot('rcrud', route('logdbs.index'))
-                      @slot('rchart', '#')
+                      @slot('nrcrud', 'logdbs.index')
+                      @slot('nrchart', 'logdbs.chart')
                       @slot('icon', $icon_menus['logdb'])
                   @endcomponent
                   {{-- FIN Logdb --}}

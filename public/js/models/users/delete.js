@@ -18,7 +18,9 @@ $('.btn-delete').click(function (e) {
             var user_counter = $("#user_counter").text() - 1;
             $("#user_counter").text(user_counter);
 
-            $(text_user_delete).removeClass("text-danger").addClass("text-success show").text(result.messenge);
+            // $(text_user_delete).removeClass("text-danger").addClass("text-success show").text(result.messenge);
+
+            toastr.info(result.messenge);
             
         }).fail(function () {
             // alert('El usuario no fué eliminado');

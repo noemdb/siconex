@@ -5,7 +5,7 @@
     <main role="main" class="col-md-10 ml-sm-auto col-lg-10">
 
       <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-12">
+        <div class="col-sm-12 col-md-12 col-lg-6 ">
 
             @php ($chart = ['range'=>'Todos','id_chart'=>'usersactivechart','urlapi'=>route('users.actives.chart'),'tipo'=>'pie','limit'=>6 ])
             @section('scripts')
@@ -39,7 +39,7 @@
           
         </div>
         
-        <div class="col-lg-6 col-md-6 col-sm-12">
+        <div class="col-sm-12 col-md-12 col-lg-6 ">
 
             @php ($chart = ['range'=>'Todos','id_chart'=>'usersmonthschart','urlapi'=>route('users.months.chart'),'tipo'=>'line','limit'=>6 ])
             @section('scripts')
