@@ -10,13 +10,12 @@ $('.btn-delete').click(function (e) {
         var data = form.serialize(); //console.log(data);
 
         $.post(url, data, function (result){
-            console.log(result.messenge);
+            // console.log(result.messenge);
             row.fadeOut();
             // row_info.fadeOut();
             var rol_counter = $("#rol_counter").text() - 1;
             $("#rol_counter").text(rol_counter);
-            $("#msg_modal_admin_operok").text('Registro eliminado');
-            $("#admin_operok").modal('show');
+            toastr.info(result.messenge);
         }).fail(function () {
             // alert('El usuario no fué eliminado');
             $("#admin_oper_nook").modal('toggle');

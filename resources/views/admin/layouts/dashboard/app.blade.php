@@ -19,9 +19,7 @@
                 {{-- </li> --}}
                 <li class="nav-item text-nowrap">
                     <a class="nav-link" href="{{ route('logout') }}"
-                       onclick="event.preventDefault();
-                                     document.getElementById('logout-form').submit();">
-                        {{-- {{ __('Logout') }} --}}
+                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         Salir
                     </a>
 
@@ -43,12 +41,11 @@
         {{-- INI page-wrappe --}}
         <div class="container-fluid">
 
-
             <div class="row">
-
 
                 {{-- INI sidebar --}}
                 {{-- <nav class="col-md-2 d-md-block bg-light sidebar"> --}}
+                
                 <nav id="sidebar" class="col-md-2 d-none d-md-block bg-light sidebar">
 
                     @include('admin.layouts.dashboard.sidebar.app')
@@ -59,7 +56,6 @@
                 @yield('main')
 
             </div>
-
 
         </div>
 

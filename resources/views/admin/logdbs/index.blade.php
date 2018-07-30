@@ -44,7 +44,7 @@
     @parent
 
     {{-- INI script ajax json models --}}
-    <script src="{{ asset("js/models/logdbs/delete.js") }}"></script>
+    {{-- <script src="{{ asset("js/models/logdbs/delete.js") }}"></script> --}}
     {{-- FIN script ajax json models --}}
 
 @endsection

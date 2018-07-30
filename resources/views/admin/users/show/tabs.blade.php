@@ -20,14 +20,19 @@
   </div>
 
   <div class="tab-pane fade pt-2" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-      @php ($profile = $user->profile)
-      @include('admin.profiles.show.profile')
-      <a class="btn btn-warning w-100" href="{{ route('profiles.edit',$profile->id) }}" role="button">
-        Actualzar
-        <i class="{{$icon_menus['profile'] or ''}}"></i>
-      </a>
+      @isset($user->profile)
+        @php ($profile = $user->profile)
+        @include('admin.profiles.show.profile')
+        <a class="btn btn-warning w-100" href="{{ route('profiles.edit',$profile->id) }}" role="button">
+          Actualzar
+          <i class="{{$icon_menus['profile'] or ''}}"></i>
+        </a>
+      @endisset
   </div>
+  
   <div class="tab-pane fade pt-2" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+    @if($user->rols->count()>0)
       @include('admin.rols.show.rols')
+    @endif
   </div>
 </div>

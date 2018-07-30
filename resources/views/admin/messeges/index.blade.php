@@ -7,9 +7,9 @@
         <div class="card card-primary">
             <div class="card-header">
                 <h3>
-                    Listados de Tareas Registrados<br>
+                    Listados de Mensajes Registrados<br>
                     <small class="text-default">
-                        <strong><span id="task_counter">{{$messeges->count()}}</span> Tareas</strong>
+                        <strong><span id="task_counter">{{$messeges->count()}}</span> Mensajes</strong>
                     </small>
 
                     {{-- INI Menu rapido --}}

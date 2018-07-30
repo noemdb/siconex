@@ -1,32 +1,43 @@
 tablas para la logica del sistema
 
 General (Info de cabeceras)
-php artisan make:model 'Models\poa\Institucion' -m
-php artisan make:model 'Models\poa\Direccion' -m
-php artisan make:model 'Models\poa\Responsable' -m
-php artisan make:model 'Models\poa\Poa' -m
-php artisan make:model 'Models\poa\Mlogico' -m
+php artisan make:model 'Models\expedientes\Estudiante' -m
+php artisan make:model 'Models\expedientes\Expediente' -m
+php artisan make:model 'Models\expedientes\Almacen' -m
 
-Matriz del problema
-php artisan make:model 'Models\poa\problema\Mproblema' -m
-php artisan make:model 'Models\poa\problema\Pdeterminante' -m
-php artisan make:model 'Models\poa\problema\Pcausaefecto' -m
+Detalles del Estudiante
+php artisan make:model 'Models\expedientes\Documento' -m
+php artisan make:model 'Models\expedientes\Carrera' -m
+php artisan make:model 'Models\expedientes\Estado' -m
+
+Detalles del Expediente
+php artisan make:model 'Models\expedientes\Movimiento' -m
+php artisan make:model 'Models\expedientes\Nivel' -m
+php artisan make:model 'Models\expedientes\Ruta' -m
+
+Detalles del Almacenes
+php artisan make:model 'Models\expedientes\Movimiento' -m
+php artisan make:model 'Models\expedientes\Nivel' -m
+php artisan make:model 'Models\expedientes\Ruta' -m
+
+Detalles del Expediente
+php artisan make:model 'Models\expedientes\Movimiento' -m
 
 Matriz de Objetivo
-php artisan make:model 'Models\poa\objetivo\Mobjetivo' -m
+php artisan make:model 'Models\expedientes\objetivo\Mobjetivo' -m
 
 Matriz de Producto
-php artisan make:model 'Models\poa\producto\Mproducto' -m
-php artisan make:model 'Models\poa\producto\Pindicador' -m
-php artisan make:model 'Models\poa\producto\Pverificador' -m
-php artisan make:model 'Models\poa\producto\Psupuesto' -m
+php artisan make:model 'Models\expedientes\producto\Mproducto' -m
+php artisan make:model 'Models\expedientes\producto\Pindicador' -m
+php artisan make:model 'Models\expedientes\producto\Pverificador' -m
+php artisan make:model 'Models\expedientes\producto\Psupuesto' -m
 
 Matriz de Actividades
 
-php artisan make:model 'Models\poa\actividades\Mactividad' -m
-php artisan make:model 'Models\poa\actividades\Aestado' -m
-php artisan make:model 'Models\poa\actividades\Afrecuencia' -m
-php artisan make:model 'Models\poa\actividades\Funidad' -m
+php artisan make:model 'Models\expedientes\actividades\Mactividad' -m
+php artisan make:model 'Models\expedientes\actividades\Aestado' -m
+php artisan make:model 'Models\expedientes\actividades\Afrecuencia' -m
+php artisan make:model 'Models\expedientes\actividades\Funidad' -m
 
 Matriz de Presupuestaria
-php artisan make:model 'Models\poa\presupuestaria\Presupuestaria' -m
+php artisan make:model 'Models\expedientes\presupuestaria\Presupuestaria' -m

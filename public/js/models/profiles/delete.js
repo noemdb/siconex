@@ -16,8 +16,7 @@ $('.btn-delete').click(function (e) {
             // row_info.fadeOut();
             var profile_counter = $("#profile_counter").text() - 1;
             $("#profile_counter").text(profile_counter);
-            $("#msg_modal_admin_operok").text('Registro eliminado');
-            $("#admin_operok").modal('show');
+            toastr.info(result.messenge);
         }).fail(function () {
             // alert('El usuario no fué eliminado');
             $("#admin_oper_nook").modal('toggle');

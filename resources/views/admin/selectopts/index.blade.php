@@ -44,7 +44,7 @@
     @parent
 
     {{-- INI script ajax json models --}}
-    <script src="{{ asset("js/models/selectopts/delete.js") }}"></script>
+    {{-- <script src="{{ asset("js/models/selectopts/delete.js") }}"></script> --}}
     {{-- FIN script ajax json models --}}
 
 @endsection
