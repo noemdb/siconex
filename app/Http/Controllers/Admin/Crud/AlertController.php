@@ -174,11 +174,15 @@ class AlertController extends Controller
 
         $alert->delete();
 
-        $messenge = 'Operación completada correctamente';
+        $messenge = trans('db_oper_result.delete_ok');
+        $operation= 'delete';
 
         if($request->ajax()){
 
-            return $messenge;
+            return response()->json([
+                "messenge"=>$messenge,
+                "operation"=>$operation,
+            ]);
 
         }
 

@@ -1,8 +1,21 @@
 // script para realizar el borrado del registro
 $('.btn-delete').click(function (e) {
     e.preventDefault();
+
     // r = confirm("Estas seguro de realizar esta acción?");
-    if (confirm("Estas seguro de realizar esta acción?")) {
+    swal({
+        title: 'Estas seguro de realizar esta acción?',
+        text: "No podrás revertir esta acción",
+        type: 'warning',
+        showCancelButton: true,
+        cancelButtonText: 'No, cancelar!',
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, borrar!'
+    }).then((result) => {
+
+    if (result.value) {
+
         var row = $(this).parents('tr'); //console.log(row); //fila contentiva de la data
         var id = row.data('alert');  //console.log(id);
         var form = $('#form-delete'); //console.log(form.attr('action'));
@@ -10,20 +23,30 @@ $('.btn-delete').click(function (e) {
         var data = form.serialize(); //console.log(data);
 
         $.post(url, data, function (result){
-            console.log(result.messenge);
+            
             row.fadeOut();
-            // row_info.fadeOut();
-            var rol_counter = $("#alert_counter").text() - 1;
-            $("#alert_counter").text(rol_counter);
-            toastr.info(result.messenge);
+
+            var alert_counter = $("#alert_counter").text() - 1;
+            
+            $("#alert_counter").text(alert_counter);
+
+            swal({
+                title: result.messenge,
+                type: 'success'
+            });
+            
         }).fail(function () {
             // alert('El usuario no fué eliminado');
             $("#admin_oper_nook").modal('toggle');
             $.each(result.responseJSON.errors,function(index,valor){
                 //console.log('Index: '+index+' - Valor: '+valor);
-                $("#msg_"+index+"_"+id_profile).html(valor);
-                $("#error_msg_"+index+"_"+id_profile).fadeIn();
+                $("#msg_"+index+"_"+id_user).html(valor);
+                $("#error_msg_"+index+"_"+id_user).fadeIn();
             });                    
         });
-    }
+
+        }
+    })
+
+
 });//fin del evento clic

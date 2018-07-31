@@ -31,5 +31,12 @@
 
 @section('scripts')
     @parent
+    <script type="text/javascript">
+        // swal(
+        //   'Good job!',
+        //   'You clicked the button!',
+        //   'success'
+        // )
+    </script>
 
 @endsection

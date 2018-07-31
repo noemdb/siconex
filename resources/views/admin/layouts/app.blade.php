@@ -17,7 +17,8 @@
     <link href="{{ asset('vendor/fontawesome/5.0.8/css/fontawesome-all.css') }}" rel="stylesheet">
     {{-- <script defer src="{{ asset('vendor/fontawesome/5.0.8/svg-with-js/js/fontawesome-all.js') }}"></script> --}}
 
-    <link href="{{ asset('vendor/toastr/2.1.4/css/toastr.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('vendor/toastr/2.1.4/css/toastr.css') }}" rel="stylesheet"> --}}
+    {{-- <link href="{{ asset('vendor/sweetalert/7.26.9/css/sweetalert2.min.css') }}" rel="stylesheet"> --}}
 
     <!-- stylesheet for page -->
     @yield('stylesheet')
@@ -42,7 +43,8 @@
     <script src="{{ asset('vendor/jquery/3.3.1/jquery.js') }}"></script>
     <script src="{{ asset('vendor/ajax/popper/1.12.9/js/popper.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap/4.1.2/js/bootstrap.js') }}"></script>
-    <script src="{{ asset('vendor/toastr/2.1.4/js/toastr.min.js') }}"></script>
+    {{-- <script src="{{ asset('vendor/toastr/2.1.4/js/toastr.min.js') }}"></script> --}}
+    <script src="{{ asset('vendor/sweetalert/7.26.9/js/sweetalert2.all.min.js') }}"></script>
 
     <!-- scripts for page -->
     @yield('scripts')

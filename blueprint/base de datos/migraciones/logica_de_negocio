@@ -1,43 +1,21 @@
 tablas para la logica del sistema
 
 General (Info de cabeceras)
-php artisan make:model 'Models\expedientes\Estudiante' -m
-php artisan make:model 'Models\expedientes\Expediente' -m
-php artisan make:model 'Models\expedientes\Almacen' -m
+php artisan make:model 'Models\expedientes\Estudiante' -m -a
+php artisan make:model 'Models\expedientes\Expediente' -m -a
+php artisan make:model 'Models\expedientes\Almacen' -m -a
 
 Detalles del Estudiante
-php artisan make:model 'Models\expedientes\Documento' -m
-php artisan make:model 'Models\expedientes\Carrera' -m
-php artisan make:model 'Models\expedientes\Estado' -m
+php artisan make:model 'Models\expedientes\Documento' -m -a
+php artisan make:model 'Models\expedientes\Carrera' -m -a
+php artisan make:model 'Models\expedientes\Estado' -m -a
 
 Detalles del Expediente
-php artisan make:model 'Models\expedientes\Movimiento' -m
-php artisan make:model 'Models\expedientes\Nivel' -m
-php artisan make:model 'Models\expedientes\Ruta' -m
+php artisan make:model 'Models\expedientes\Movimiento' -m -a
+php artisan make:model 'Models\expedientes\Nivel' -m -a
+php artisan make:model 'Models\expedientes\Ruta' -m -a
 
 Detalles del Almacenes
-php artisan make:model 'Models\expedientes\Movimiento' -m
-php artisan make:model 'Models\expedientes\Nivel' -m
-php artisan make:model 'Models\expedientes\Ruta' -m
-
-Detalles del Expediente
-php artisan make:model 'Models\expedientes\Movimiento' -m
-
-Matriz de Objetivo
-php artisan make:model 'Models\expedientes\objetivo\Mobjetivo' -m
-
-Matriz de Producto
-php artisan make:model 'Models\expedientes\producto\Mproducto' -m
-php artisan make:model 'Models\expedientes\producto\Pindicador' -m
-php artisan make:model 'Models\expedientes\producto\Pverificador' -m
-php artisan make:model 'Models\expedientes\producto\Psupuesto' -m
-
-Matriz de Actividades
-
-php artisan make:model 'Models\expedientes\actividades\Mactividad' -m
-php artisan make:model 'Models\expedientes\actividades\Aestado' -m
-php artisan make:model 'Models\expedientes\actividades\Afrecuencia' -m
-php artisan make:model 'Models\expedientes\actividades\Funidad' -m
-
-Matriz de Presupuestaria
-php artisan make:model 'Models\expedientes\presupuestaria\Presupuestaria' -m
+php artisan make:model 'Models\expedientes\Movimiento' -m -a
+php artisan make:model 'Models\expedientes\Nivel' -m -a
+php artisan make:model 'Models\expedientes\Ruta' -m -a

@@ -15,7 +15,7 @@
             @endsection
 
             @component('admin.elements.card.panel')
-                @slot('class', 'info')
+                @slot('class', 'danger')
                 @slot('panelControls', 'true')
                 @slot('id', $chart['id_chart'])
                 {{-- @slot('header', 'Usuarios Act/Des') --}}
