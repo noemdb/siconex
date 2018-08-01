@@ -1,5 +1,5 @@
 tablas para la logica del sistema
-
+ 
 General (Info de cabeceras)
 php artisan make:model 'Models\expedientes\Estudiante' -m -a
 php artisan make:model 'Models\expedientes\Expediente' -m -a

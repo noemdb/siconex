@@ -16,10 +16,10 @@ class CreateDocumentosTable extends Migration
         Schema::create('documentos', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->integer('estudiante_id')->unsigned();
-            $table->foreign('estudiante_id')
+            $table->integer('expediente_id')->unsigned();
+            $table->foreign('expediente_id')
                   ->references('id')
-                  ->on('estudiantes')
+                  ->on('expedientes')
                   ->onDelete('cascade')
                   ->onUpdate('cascade');
 
