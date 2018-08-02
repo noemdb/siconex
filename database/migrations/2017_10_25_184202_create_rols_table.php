@@ -16,7 +16,7 @@ class CreateRolsTable extends Migration
         Schema::create('rols', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->enum('rol', ['CONTRA', 'DIRCP', 'CORCP','COMCP', 'ADMIN', 'USUARIO'])->default('USUARIO');
+            $table->enum('rol', ['ADMINISTRADOR','SUPERVISOR','AUDITOR','INIVITADO','USUARIO'])->default('USUARIO');
             $table->enum('rango', ['ADMIN','MASTER', 'USER'])->default('USER');
             $table->string('descripcion');
             $table->date('finicial');

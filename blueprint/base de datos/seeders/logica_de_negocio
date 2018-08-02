@@ -29,3 +29,11 @@ php artisan db:seed --class=EstadoTableSeeder
 php artisan make:seeder 'MovimientoTableSeeder'
 php artisan make:factory 'MovimientoFactory' --model='Models\expedientes\Movimiento'
 php artisan db:seed --class=MovimientoTableSeeder
+
+php artisan make:seeder 'NivelTableSeeder'
+php artisan make:factory 'NivelFactory' --model='Models\expedientes\Nivel'
+php artisan db:seed --class=NivelTableSeeder
+
+php artisan make:seeder 'RutaTableSeeder'
+php artisan make:factory 'RutaFactory' --model='Models\expedientes\Ruta'
+php artisan db:seed --class=RutaTableSeeder

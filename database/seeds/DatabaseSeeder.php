@@ -30,6 +30,9 @@ class DatabaseSeeder extends Seeder
         $this->call(DocumentoTableSeeder::class);
         $this->call(CarreraTableSeeder::class);
         $this->call(EstadoTableSeeder::class);
+        $this->call(MovimientoTableSeeder::class);
+        $this->call(NivelTableSeeder::class);
+        $this->call(RutaTableSeeder::class);
 
     }
 }

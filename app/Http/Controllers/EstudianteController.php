@@ -5,8 +5,33 @@ namespace App\Http\Controllers;
 use App\Models\expedientes\Estudiante;
 use Illuminate\Http\Request;
 
+//validation request
+// use App\Http\Requests\Admin\CreateEstudianteRequest;
+// use App\Http\Requests\Admin\UpdateEstudianteRequest;
+
+//Helpers
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Session;
+
+//models
+use App\Estudiante;
+use App\Models\expedientes\Carrera;
+use App\Models\expedientes\Estado;
+use App\Models\expedientes\Expediente;
+
 class EstudianteController extends Controller
 {
+
+
+    /*
+        Constructor, verifica login del usuario - puede añadirse mas middleware
+    */
+    public function __construct(){
+
+        $this->middleware(['auth']);
+
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +39,10 @@ class EstudianteController extends Controller
      */
     public function index()
     {
-        //
+        $estudiantes = Estudiante::OrderBy('estudiantes.id','DESC')
+            ->get();
+
+        return view('admin.expediente.estudiantes.index', compact('estudiantes'));
     }
 
     /**

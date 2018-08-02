@@ -74,3 +74,26 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','is_admin'],'namespace'=>'
     //FIN rutas para los json   
 
 });
+
+//rutas para expediente
+Route::group(['prefix'=>'expediente','middleware'=>['auth','is_expediente'],'namespace'=>'Expediente'], function(){
+
+    //INI Route iniciales
+    require (__DIR__ . '/expediente/iniciales.php');
+    //FIN Route iniciales
+
+    //INI CRUD modelos
+    require (__DIR__ . '/expediente/crud/resource.php');
+    // require (__DIR__ . '/admin/crud/showfull.php');
+    // require (__DIR__ . '/admin/crud/createwithid.php');
+    //FIN CRUD modelos
+
+    //INI Charts modelos
+    // require (__DIR__ . '/expediente/charts/users.php');
+    //FIN Charts modelos
+
+    //INI rutas para los json
+    // require (__DIR__ . '/admin/json/index.php');
+    //FIN rutas para los json   
+
+});

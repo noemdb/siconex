@@ -98,26 +98,38 @@ class User extends Authenticatable
 
     //is admin
     public function isAdmin()
-    {
-        
+    {        
         $fecha = Carbon::now();
-
-        $is_admin = $this->rols->where('rol', 'ADMIN')
+        $is_admin = $this->rols->where('rango', 'ADMIN')
                 ->Where('finicial', '<=', $fecha)
                 ->Where('ffinal', '>=', $fecha)
                 ->count();
-
         if($is_admin>0){
-
             return true;
-
         }
         else{
-
-            return false;
-            
+            return false;            
         }
+    }
 
+    public function IsExpediente()
+    {        
+        $fecha = Carbon::now();
+        $IsExpediente = $this->rols
+                ->rols->where('rango', 'ADMIN')
+                ->orwhere('rol', 'ADMINISTRADOR')
+                ->orWhere('rol', 'SUPERVISOR')
+                ->orWhere('rol', 'AUDITOR')
+                ->orWhere('rol', 'AUDITOR')
+                ->Where('finicial', '<=', $fecha)
+                ->Where('ffinal', '>=', $fecha)
+                ->count();
+        if($IsExpediente>0){
+            return true;
+        }
+        else{
+            return false;            
+        }
     }
 
     public static function getUsernameId($id)

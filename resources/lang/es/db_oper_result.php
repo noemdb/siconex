@@ -51,6 +51,7 @@ return [
     'user_is_active' => 'Activo',
     'user_no_active' => 'Desactivo',
     'you_not_are_admin'=>'Has sido redirigido, No estas autorizado.',
+    'you_not_are_expediente'=>'Has sido redirigido, No estas autorizado.',
 
 
 ];

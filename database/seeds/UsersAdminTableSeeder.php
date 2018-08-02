@@ -32,8 +32,8 @@ class UsersAdminTableSeeder extends Seeder
         ]);
 
         DB::table('rols')->insert([
-            'rol' => "ADMIN",
-            'rango' => "admin",
+            'rol' => "ADMINISTRADOR",
+            'rango' => "ADMIN",
             'descripcion' => "webmaster del sistema",
             'finicial' => "20000101",
             'ffinal' => "20200101",

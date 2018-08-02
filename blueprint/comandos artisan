@@ -150,10 +150,10 @@ php artisan make:trait UserSettingsTrait
 #######################################################################################################
 Implementacion de Middleware
 php artisan make:middleware 'Admin\IsAdmin'
-php artisan make:middleware 'Poa\IsPoa'
+php artisan make:middleware 'Expediente\IsExpediente'
 registrar Middleware en kernel.php (variable: protected $routeMiddleware)
-'IsAdmin'=> 'App\Http\Middleware\Admin\IsAdmin',
-'IsPoa'=> 'App\Http\Middleware\Poa\IsPoa',
+'is_admin'=> 'App\Http\Middleware\Admin\IsAdmin',
+'is_expediente'=> 'App\Http\Middleware\Expediente\IsExpediente',
 
 
 #######################################################################################################

@@ -23,13 +23,6 @@ class CreateRutasTable extends Migration
                   ->onDelete('cascade')
                   ->onUpdate('cascade');
 
-            $table->integer('almacen_id')->unsigned();
-            $table->foreign('almacen_id')
-                  ->references('id')
-                  ->on('almacens')
-                  ->onDelete('cascade')
-                  ->onUpdate('cascade');
-
             $table->integer('nivel_id')->unsigned();
             $table->foreign('nivel_id')
                   ->references('id')
