@@ -3,9 +3,14 @@
 namespace App\Models\expedientes;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Carbon;
 
 class Estudiante extends Model
 {
+    use Notifiable;
     /**
      * The attributes that are mass assignable.
      *

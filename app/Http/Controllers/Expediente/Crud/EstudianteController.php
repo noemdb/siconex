@@ -14,12 +14,22 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Session;
 
 //models
-use App\User;
 use App\Models\expedientes\Estudiante;
+use App\Models\expedientes\Estado;
 use App\Models\sys\SelectOpt;
 
 class EstudianteController extends Controller
 {
+
+    /*
+        Constructor, verifica login del usuario - Profile
+    */
+    public function __construct(){
+
+        $this->middleware(['auth']);
+
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -27,9 +37,12 @@ class EstudianteController extends Controller
      */
     public function index()
     {
-        $estudiantes = Estudiante::OrderBy('id','DESC')
-            // ->with('User')
+        $estudiantes = Estudiante::OrderBy('estudiantes.id','DESC')
+            ->with('estados')
+            // ->with('expedientes')
             ->get();
+
+        // dd($estudiantes);
 
         return view('expediente.estudiantes.index', compact('estudiantes'));
     }

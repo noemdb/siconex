@@ -27,7 +27,8 @@
 
         @foreach($estudiantes as $estudiante)
 
-            @php ($estado = $estudiante->estados->sortBy('created_ad')->last())
+            {{-- @php ($estado = $estudiante->estados->orderBy('created_at','DESC')->first()) --}}
+            @php ($estado = $estudiante->estados->latest())
 
             <tr data-estudiante="{{$estudiante->id}}" data-estudiante="{{$estudiante->id or ''}}" class="table-{{ $estado->estado or '' }} p-0 m-0">
 

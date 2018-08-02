@@ -39,13 +39,13 @@ class UserController extends Controller
     public function index()
     {
         $users = User::OrderBy('users.id','DESC')
-            // ->withTrashed()
-            // ->username($arr_get)
             ->with('profile')
             ->with('rols')
             ->get();
 
-        return view('admin.users.index', compact('users','is_active_list'));
+        dd($users);
+
+        return view('admin.users.index', compact('users'));
     }
 
     /**

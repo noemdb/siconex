@@ -81,12 +81,12 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\sys\Setting');
     }
-    ////////////////////INI POA///////////////////////////
-    public function poas()
-    {
-        return $this->hasMany('App\Models\poa\Poa');
-    }
-    ////////////////////FIN POA///////////////////////////
+    ////////////////////INI logica del negocio///////////////////////////
+    // public function poas()
+    // {
+        // return $this->hasMany('App\Models\poa\Poa');
+    // }
+    ////////////////////FIN logica del negocio///////////////////////////
     /*FIN relaciones entre modelos*/
 
 

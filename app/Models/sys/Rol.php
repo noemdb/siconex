@@ -26,10 +26,10 @@ class Rol extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function profile()
-    {
-        return $this->belongsTo('App\Models\sys\Profile','user_id','user_id');
-    }
+    // public function profile()
+    // {
+    //     return $this->belongsTo('App\Models\sys\Profile','user_id','user_id');
+    // }
     /*FIN relaciones entre modelos*/
 
 }
