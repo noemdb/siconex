@@ -25,7 +25,6 @@ class IsAdmin
      */
     public function handle($request, Closure $next)
     {
-
         if(!$this->auth->user()->IsAdmin()){
             
             Session::flash('operp_ok',trans('db_oper_result.you_not_are_admin'));

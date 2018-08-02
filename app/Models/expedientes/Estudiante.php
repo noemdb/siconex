@@ -33,4 +33,14 @@ class Estudiante extends Model
 
     /*FIN relaciones entre modelos*/
 
+    public function getFullNameAttribute()
+    {
+      return $this->firstname .' ' . $this->lastname;
+    }
+
+    // public function getEstadoAttribute()
+    // {
+    //   return $this->estados->last();
+    // }
+
 }

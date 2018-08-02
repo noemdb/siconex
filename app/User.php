@@ -115,12 +115,8 @@ class User extends Authenticatable
     public function IsExpediente()
     {        
         $fecha = Carbon::now();
-        $IsExpediente = $this->rols
-                ->rols->where('rango', 'ADMIN')
-                ->orwhere('rol', 'ADMINISTRADOR')
-                ->orWhere('rol', 'SUPERVISOR')
-                ->orWhere('rol', 'AUDITOR')
-                ->orWhere('rol', 'AUDITOR')
+        $IsExpediente = $this->rols->where('rango', 'ADMIN')
+                ->whereIn('rol', ['ADMINISTRADOR','SUPERVISOR','AUDITOR','USUARIO'])
                 ->Where('finicial', '<=', $fecha)
                 ->Where('ffinal', '>=', $fecha)
                 ->count();

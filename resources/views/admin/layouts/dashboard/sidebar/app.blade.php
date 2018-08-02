@@ -42,7 +42,7 @@
 
               <ul class="nav flex-column">
 
-                  @include('admin.layouts.dashboard.sidebar.partials.expedientes')
+                  @include('expediente.layouts.dashboard.sidebar.partials.expedientes')
 
               </ul>
 

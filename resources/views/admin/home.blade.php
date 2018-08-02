@@ -10,11 +10,11 @@
 @endsection
 
 
-@section('section')
+@section('main')
 
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
         <h1 class="page-header">
-                Dashboard
+                Panel de Administración del Sistema
         </h1>
     </main>
 
@@ -32,11 +32,11 @@
 @section('scripts')
     @parent
     <script type="text/javascript">
-        // swal(
-        //   'Good job!',
-        //   'You clicked the button!',
-        //   'success'
-        // )
+        swal({
+          type: 'success',
+          title: 'Excelente! Bienvenido',
+          html: '<i class="{{ $icon_menus['brand'] }} text-warning"></i> Administración del Sistema',
+        })
     </script>
 
 @endsection

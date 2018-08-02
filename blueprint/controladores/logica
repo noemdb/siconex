@@ -1,3 +1,4 @@
+php artisan make:controller 'Expediente\HomeController'
 php artisan make:controller 'Expediente\Crud\AlmacenController' --resource
 php artisan make:controller 'Expediente\Crud\CarreraController' --resource
 php artisan make:controller 'Expediente\Crud\DocumentoController' --resource

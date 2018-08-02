@@ -21,7 +21,7 @@
             <td>
 
                 <span class="text-profile-email-{{ $profile->id  or ''}}">
-                    {{$user->profile->fullname or ''}}
+                    {{$profile->fullname or ''}}
                 </span>
 
             </td>

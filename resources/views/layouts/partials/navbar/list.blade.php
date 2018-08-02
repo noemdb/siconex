@@ -4,13 +4,19 @@
 </a>
 
 {{-- <a class="dropdown-item" href="{{ route('admin.home') }}"> --}}
-<a class="dropdown-item" href="#">
+{{-- <a class="dropdown-item" href="#">
     <i class="{{ $icon_menus['sistema'] }} text-info"></i>
+    Sistema
+</a> --}}
+
+<a class="dropdown-item" href="{{ route('admin.home') }}" title="Administracion del Sistema">
+    <i class="{{ $icon_menus['sistema'] }} text-warning"></i>
     Sistema
 </a>
 
+
 {{-- <a class="dropdown-item" href="{{ route('poa.home') }}"> --}}
-<a class="dropdown-item" href="{{ route('admin.home') }}" title="Control de Expedientes">
+<a class="dropdown-item" href="{{ route('expediente.home') }}" title="Control de Expedientes">
     <i class="{{ $icon_menus['brand'] }} text-success"></i>
     Control de Expedientes
 </a>
