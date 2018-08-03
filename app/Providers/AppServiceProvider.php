@@ -35,6 +35,7 @@ class AppServiceProvider extends ServiceProvider
 
             'editar'=>'fas fa-edit',
             'nuevo'=>'fas fa-plus',
+            'guardado'=>'fas fa-save',
             'mostrar'=>'fas fa-info',
             'btn_ctr'=>'fas fa-bullseye',
             'crud'=>'fas fa-align-justify',

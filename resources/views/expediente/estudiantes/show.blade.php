@@ -4,14 +4,6 @@
 
 @section('main')
 
-    @php ($user = $estudiante->user)
-    @isset($user->profile)
-        @php ($profile = $user->profile)
-    @endisset
-    @isset($user->tasks)
-        @php ($tasks = $user->tasks)
-    @endisset
-
     <main taske="main" class="col-md-10 ml-sm-auto col-lg-10 px-2">
 
         <div class="card mt-2 bd-callout bd-callout-info">
@@ -20,7 +12,7 @@
 
                 <h2>
 
-                    Información de la Alerta
+                    Información del Estudientte
 
                     {{-- INI Menu rapido --}}
                     <div class="btn-group float-right pt-2">
@@ -42,19 +34,28 @@
 
                     <div class="row">
 
-                        {{-- 
+                        
                         <div class="col-sm-4">
 
-                            <img alt="{{$user->username or ''}}" class="img-thumbnail img-rounded" src="{{ (isset($profile->url_img)) ? asset($profile->url_img) : asset('images/avatar/user_default.png') }}">
+                            {{-- <img alt="{{$estudiante->id or ''}}" class="img-thumbnail img-rounded" src="{{ (isset($estudiante->urlimg)) ? asset($estudiante->url_img) : asset('images/avatar/user_default.png') }}"> --}}
+                            <img alt="{{$estudiante->id or ''}}" class="img-thumbnail img-rounded" src="{{ asset('images/avatar/user_default.png') }}">
 
                         </div> 
-                        --}}
+                       
 
-                        <div class="col-sm-12">
+                        <div class="col-sm-8">
 
                             {{-- Partial con los tabs de usuario (perfiles, Estudiantes) --}}
+                            {{-- @php ($user = $estudiante->user)
+                            @isset($user->profile)
+                                @php ($profile = $user->profile)
+                            @endisset
+                            @isset($user->tasks)
+                                @php ($tasks = $user->tasks)
+                            @endisset --}}
 
-                            @include('expediente.estudiantes.show.tabs')
+                            {{-- @include('expediente.estudiantes.show.tabs') --}}
+                            @include('expediente.estudiantes.show.estudiante')
 
                         </div>
                     </div>

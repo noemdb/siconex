@@ -15,20 +15,11 @@
 
       <li class="nav-item">
 
-          <a class="accordion nav-link {{ (Request::is('*models*') ? ' accordion_active' : '') }}"  href="#">
-            {{-- <span data-feather="home"></span> --}}
-            Expedientes {{-- <span class="sr-only">(current)</span> --}}
-          </a>
+        <ul class="nav flex-column">
 
-          <div class="accordion_panel" style="display: {{ (Request::is('*models*') ? ' block' : 'none') }}">
+            @include('expediente.layouts.dashboard.sidebar.partials.expedientes')
 
-              <ul class="nav flex-column">
-
-                  @include('expediente.layouts.dashboard.sidebar.partials.expedientes')
-
-              </ul>
-
-          </div>
+        </ul>
 
       </li>
 

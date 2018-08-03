@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 //validation request
-// use App\Http\Requests\Expediente\CreateEstudianteRequest;
-// use App\Http\Requests\Expediente\UpdateEstudianteRequest;
+use App\Http\Requests\Expediente\CreateEstudianteRequest;
+use App\Http\Requests\Expediente\UpdateEstudianteRequest;
 
 //Helpers
 use Illuminate\Support\Carbon;
@@ -21,13 +21,9 @@ use App\Models\sys\SelectOpt;
 class EstudianteController extends Controller
 {
 
-    /*
-        Constructor, verifica login del usuario - Profile
-    */
+    /* Constructor, verifica login del usuario - agregar middleware para verificar el rol */
     public function __construct(){
-
         $this->middleware(['auth']);
-
     }
 
     /**
@@ -38,11 +34,7 @@ class EstudianteController extends Controller
     public function index()
     {
         $estudiantes = Estudiante::OrderBy('estudiantes.id','DESC')
-            ->with('estados')
-            // ->with('expedientes')
             ->get();
-
-        // dd($estudiantes);
 
         return view('expediente.estudiantes.index', compact('estudiantes'));
     }
@@ -54,7 +46,7 @@ class EstudianteController extends Controller
      */
     public function create()
     {
-        //
+        return view('expediente.estudiantes.create');
     }
 
     /**
@@ -63,9 +55,17 @@ class EstudianteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateEstudianteRequest $request)
     {
-        //
+        $estudiante = Estudiante::create($request->all());
+
+        $messenge = trans('db_oper_result.create_ok');
+
+        Session::flash('operp_ok',$messenge);
+
+        Session::flash('class_oper','success');
+
+        return redirect()->route('estudiantes.index');
     }
 
     /**
@@ -76,7 +76,9 @@ class EstudianteController extends Controller
      */
     public function show($id)
     {
-        //
+        $estudiante = Estudiante::findOrFail($id);
+
+        return view('expediente.estudiantes.show',compact('estudiante'));
     }
 
     /**
@@ -87,7 +89,9 @@ class EstudianteController extends Controller
      */
     public function edit($id)
     {
-        //
+        $estudiante = Estudiante::findOrFail($id);
+
+        return view('expediente.estudiantes.edit',compact('estudiante'));
     }
 
     /**
@@ -97,9 +101,21 @@ class EstudianteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateEstudianteRequest $request, $id)
     {
-        //
+        $estudiante = Estudiante::findOrFail($id);
+
+        $estudiante->fill($request->all());
+
+        $estudiante->save();
+
+        $messenge = trans('db_oper_result.update_ok');
+
+        Session::flash('operp_ok',$messenge);
+
+        Session::flash('class_oper','success');
+
+        return redirect()->route('estudiantes.edit',$id);
     }
 
     /**

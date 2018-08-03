@@ -1,8 +1,15 @@
 @component('elements.buttons.default')
-    @slot('title', 'Crear nueva Alerta')
+    @slot('title', 'Crear Nuevo Estudiante')
     @slot('class_bt', 'primary')
     @slot('route', route('estudiantes.create'))
     @slot('icon', $icon_menus['nuevo'])
+@endcomponent
+
+@component('elements.buttons.default')
+    @slot('title', 'CRUD')
+    @slot('class_bt', 'info')
+    @slot('route', route('estudiantes.index'))
+    @slot('icon', $icon_menus['crud'])
 @endcomponent
 
 {{-- @component('elements.menus.dropdown')

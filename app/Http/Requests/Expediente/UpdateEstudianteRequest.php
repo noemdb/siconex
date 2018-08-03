@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests\Admin;
+namespace App\Http\Requests\Expediente;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Routing\Route;
 use Illuminate\Http\Request;
 
-class UpdateUserRequest extends FormRequest
+class UpdateEstudianteRequest extends FormRequest
 {
 
     private $route;
@@ -16,7 +16,6 @@ class UpdateUserRequest extends FormRequest
         $this->route = $route;
 
     }
-
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -35,17 +34,10 @@ class UpdateUserRequest extends FormRequest
     public function rules()
     {
 
-        // dd($request);
-
-        $request = Request::All();
-        
-        $rule_pass = (! empty($request['password'])) ? 'required|min:6' : '' ;
-
         return [
-            'username' => 'required|max:255|unique:users,username,'.$this->route->parameter('user'),
-            'password' => $rule_pass,
-            'email' => 'required|max:255|unique:users,email,'.$this->route->parameter('user'),
-            'is_active' => 'required',
+            'firstname' => 'required|max:255|min:3',
+            'lastname' => 'required|max:255|min:3',
+            'email' => 'required|max:255|unique:estudiantes,email,'.$this->route->parameter('estudiante'),
         ];
     }
 }

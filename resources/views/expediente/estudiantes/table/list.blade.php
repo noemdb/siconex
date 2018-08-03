@@ -27,9 +27,6 @@
 
         @foreach($estudiantes as $estudiante)
 
-            {{-- @php ($estado = $estudiante->estados->orderBy('created_at','DESC')->first()) --}}
-            @php ($estado = $estudiante->estados->latest())
-
             <tr data-estudiante="{{$estudiante->id}}" data-estudiante="{{$estudiante->id or ''}}" class="table-{{ $estado->estado or '' }} p-0 m-0">
 
                 <td class="{{ $class['N'] or ''}}">
@@ -44,18 +41,15 @@
                     {{$estudiante->email or ''}}
                 </td>
 
-                <td  id="td-estudiantes-estado-{{$estudiante->id or ''}}" title="{{$estado->estado or ''}}"  class="text-uppercase {{ $class['estado'] or ''}}">
+                @php ($estado = $estudiante->estados->last())
+                <td  id="td-estudiantes-estado-{{$estudiante->id or ''}}" class="text-uppercase {{ $class['estado'] or ''}}">                    
                     {{$estado->estado or ''}}
                 </td>
 
                 <td id="td-estudiantes-created_at-{{ $estudiante->id or ''}}" class="{{ $class['created_at'] or ''}}">
                     {{ (isset($estudiante->created_at)) ? Carbon\Carbon::parse($estudiante->created_at)->format('d-m-Y') : '' }}
                 </td>
-{{-- 
-                <td id="td-estudiantes-updated_at-{{ $estudiante->id or ''}}" class="{{ $class['updated_at'] or ''}}">
-                    {{ (isset($estudiante->updated_at)) ? Carbon\Carbon::parse($estudiante->updated_at)->format('d-m-Y') : '' }}
-                </td>
- --}}
+
                 <td style="padding: 2px; vertical-align: middle;" id="btn-action-{{ $estudiante->id }}" class="text-center">
 
                     <div class="btn-group btn-group-sm">
@@ -66,13 +60,13 @@
                             <i class="{{$icon_menus['info']}}"></i>
                         </a>
 
-                        {{-- <a title="Editar resgistro" class="btn btn-warning btn-xs btn-action-group-{{ $estudiante->id }}" href="{{ route('estudiantes.edit',$estudiante->id) }}" id="btn-edituser_{{$estudiante->id}}"> --}}
-                            {{-- <i class="fas fa-pencil-alt"></i> --}}
-                        {{-- </a> --}}
+                        <a title="Editar resgistro" class="btn btn-warning btn-xs btn-action-group-{{ $estudiante->id }}" href="{{ route('estudiantes.edit',$estudiante->id) }}" id="btn-edituser_{{$estudiante->id}}">
+                            <i class="fas fa-pencil-alt"></i>
+                        </a>
 
-                        {{-- <a title="Eliminar {{(isset($estudiante->deleted_at) ? 'DEFINITIVAMENTE':'')}}" class="btn-delete btn btn-danger btn-xs" href="{{ route('estudiantes.destroy',$estudiante->id) }}" id="btn-delete-taskid_{{$estudiante->id}}"> --}}
-                            {{-- <i class="fas fa-trash"></i> --}}
-                        {{-- </a> --}}
+                        <a title="Eliminar {{(isset($estudiante->deleted_at) ? 'DEFINITIVAMENTE':'')}}" class="btn-delete btn btn-danger btn-xs" href="{{ route('estudiantes.destroy',$estudiante->id) }}" id="btn-delete-taskid_{{$estudiante->id}}">
+                            <i class="fas fa-trash"></i>
+                        </a>
 
                     </div>
 

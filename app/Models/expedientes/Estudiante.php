@@ -21,19 +21,17 @@ class Estudiante extends Model
     ];
 
     /*INI relaciones entre modelos*/
-    public function expedientes()
+    public function expediente()
     {
         return $this->hasOne('App\Models\expedientes\Expediente');
     }
-
     public function estados()
     {
-        return $this->hasOne('App\Models\expedientes\Estado');
+        return $this->hasMany('App\Models\expedientes\Estado');
     }
-
     public function carreras()
     {
-        return $this->hasOne('App\Models\expedientes\Carrera');
+        return $this->hasMany('App\Models\expedientes\Carrera');
     }
 
     /*FIN relaciones entre modelos*/

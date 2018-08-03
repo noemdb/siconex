@@ -10,7 +10,7 @@
 
                 <h2>
 
-                    Actualizar Alerta
+                    Actualizar Estudiante
 
                         {{-- INI Menu rapido --}}
                     <div class="btn-group float-right pt-2">

@@ -1,4 +1,5 @@
 @php ($model = strstr($nrcrud,'.',true))
+
 <li class="nav-item" title="{{$title or $nombre}}">
   <a class="accordion nav-link  {{ (Request::is('*'.$model.'*') ? ' accordion_active' : '') }}" href="#">
     {{-- <span data-feather="home"></span> --}}

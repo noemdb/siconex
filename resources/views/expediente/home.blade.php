@@ -38,5 +38,4 @@
           html: '<i class="{{ $icon_menus['brand'] }} text-success"></i> Control de Expediente',
         })
     </script>
-
 @endsection

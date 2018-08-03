@@ -1,11 +1,11 @@
 <div class="card bd-callout bd-callout-{{ $class_form_create_task or 'form' }}">
   <div class="card-header font-weight-bold">
-    Formulario para el Registro de una nueva Alerta.
+    Formulario para el Registro de una Nuevo Estudiante.
   </div>
   <div class="card-body">
 
       {{-- <form> --}}
-      {!! Form::open(['route' => 'estudiantes.store', 'method' => 'POST', 'id'=>'form-estudiante-create-'. (isset($user->id)? $user->id : 'create')]) !!}    
+      {!! Form::open(['route' => 'estudiantes.store', 'method' => 'POST', 'id'=>'form-estudiante-create']) !!}    
 
           {{-- partial con el formulario y campos --}}
           @include('expediente.estudiantes.forms.fields')

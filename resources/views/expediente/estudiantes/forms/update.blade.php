@@ -1,6 +1,6 @@
 <div class="card bd-callout bd-callout-{{ Session::get('class_oper') or "" }}">
   <div class="card-header font-weight-bold">
-    Formulario para la actualización del estudiante del usuario <strong>{{ $user->username or '' }}</strong>
+    Formulario para la actualización del estudiante<strong>{{ $user->username or '' }}</strong>
   </div>
   <div class="card-body p-1">
 
@@ -12,8 +12,8 @@
 
             <button type="submit" class="btn-user-update btn btn-primary btn-block" value="update" data-id="update" id="btn-update-estudiante-{{$estudiante->id}}">
 
-                <i class="far fa-save"></i>
-                Actualizar Alerta
+                <i class="{{$icon_menus['guardado']}}"></i>
+                Actualizar Estudiante
 
             </button>
 

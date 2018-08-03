@@ -17,7 +17,7 @@ $factory->define(App\Models\expedientes\Estado::class, function (Faker $faker) {
         	DB::table('estudiantes')
 				->select('estudiantes.*','estados.id as estado_id')
 				->leftJoin('estados', 'estados.estudiante_id', '=', 'estudiantes.id')
-				->whereNull('estados.id')
+				// ->whereNull('estados.id')
                 ->inRandomOrder()
 				->first()->id;
         },

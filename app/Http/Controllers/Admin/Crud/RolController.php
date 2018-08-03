@@ -80,7 +80,6 @@ class RolController extends Controller
      */
     public function store(CreateRolRequest $request)
     {
-
         $rol = Rol::create($request->all());
 
         $messenge = trans('db_oper_result.create_ok');
