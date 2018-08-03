@@ -7,16 +7,14 @@
         <div class="card card-primary">
             <div class="card-header">
                 <h3>
-                    Listados de Estudiantes Registradas<br>
+                    Listados de Estudiantes Registrados<br>
                     <small class="text-default">
-                        <strong><span id="alert_counter">{{$estudiantes->count()}}</span> Estudiantes</strong>
+                        <strong><span id="estudiante_counter">{{$estudiantes->count()}}</span> Estudiantes</strong>
                     </small>
 
                     {{-- INI Menu rapido --}}
                     <div class="btn-group float-right pt-2">
-
                         @include('expediente.estudiantes.menus.index')
-
                     </div>
                     {{-- FIN Menu rapido --}}
 
@@ -44,7 +42,7 @@
     @parent
 
     {{-- INI script ajax json models --}}
-    <script src="{{ asset("js/models/estudiantes/delete.js") }}"></script>
+    <script src="{{ asset("js/models/expediente/estudiantes/delete.js") }}"></script>
     {{-- FIN script ajax json models --}}
 
 @endsection

@@ -1,14 +1,14 @@
-@isset($user->estudiantes)
+@isset($estudiantes)
 
     <div id="accordion">
 
-        @foreach($user->estudiantes as $estudiante)
+        @foreach($estudiantes as $estudiante)
 
             <div class="card">
                 <div class="card-header" id="heading_task_{{ $estudiante->id or '' }}">
                     <h5 class="mb-0">
                         <button class="btn btn-link btn-sm" data-toggle="collapse" data-target="#accordion_task_{{ $estudiante->id or '' }}" aria-expanded="true" aria-conttasks="accordion_task_{{ $estudiante->id or '' }}">
-                            <span class="text text-{{ $estudiante->tipo or '' }}">{{ $estudiante->truncmensaje }}</span>
+                            <span class="text text-{{ $estudiante->tipo or '' }}">{{ $estudiante->fullname }}</span>
                         </button>
                     </h5>
                 </div>

@@ -25,7 +25,7 @@
             @php ($estado = $estudiante->estados->last())
             <tr>
                 <th scope="row">Estado</th>
-                <td id="text-estudiantes-estado-{{ $estudiante->id  or ''}}" class="text-uppercase">
+                <td id="text-estudiantes-estado-{{ $estudiante->id  or ''}}" class="text-uppercase text-{{$estado->class or ''}}">
                     {{$estado->estado or ''}}  
                 </td>
             </tr>

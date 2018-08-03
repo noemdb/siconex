@@ -25,5 +25,22 @@ class Estado extends Model
         return $this->belongsTo('App\Models\expedientes\Estudiante');
     }
     /*FIN relaciones entre modelos*/
+
+    public function getClassAttribute()
+    {      
+      switch ($this->estado) {
+        case '1':
+            $class = 'primary'; break;
+        case '2':
+            $class = 'danger'; break;
+        case '3':
+            $class = 'infon'; break;
+        case '4':
+            $class = 'warning'; break;          
+        default:
+            $class = 'default'; break;
+      }
+      return $class;
+    }
     
 }

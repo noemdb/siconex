@@ -6,7 +6,7 @@
         'estado'=>'d-none d-md-table-cell',
         'created_at'=>'d-none d-lg-table-cell',
         // 'updated_at'=>'d-none d-lg-table-cell'
-        'btn_accion'=>'nosort',
+        'btn_accion'=>'nosort text-center',
     ];
 @endphp
 
@@ -16,7 +16,7 @@
             <th class="{{ $class['N'] or ''}}">N</th>
             <th class="{{ $class['fullname'] or ''}}">Nombre</th>
             <th class="{{ $class['email'] or ''}}">Email</th>
-            <th class="{{ $class['estado'] or ''}}">Estado</th>
+            {{-- <th class="{{ $class['estado'] or ''}}">Estado</th> --}}
             <th class="{{ $class['created_at'] or ''}}">Creado</th>
             {{-- <th class="{{ $class['updated_at'] or '' }}">F.Final</th> --}}
             <th align="right" class="{{ $class['btn_accion'] or ''}}"><strong>Aciones</strong></th>
@@ -27,7 +27,8 @@
 
         @foreach($estudiantes as $estudiante)
 
-            <tr data-estudiante="{{$estudiante->id}}" data-estudiante="{{$estudiante->id or ''}}" class="table-{{ $estado->estado or '' }} p-0 m-0">
+            @php ($estado = $estudiante->estados->last())
+            <tr data-estudiante="{{$estudiante->id}}" data-estudiante="{{$estudiante->id or ''}}" class="table-{{ $estado->estado or '' }} p-0 m-0 alert-{{$estado->class or ''}}">
 
                 <td class="{{ $class['N'] or ''}}">
                     {{ ($loop->index + 1) }}
@@ -41,10 +42,10 @@
                     {{$estudiante->email or ''}}
                 </td>
 
-                @php ($estado = $estudiante->estados->last())
-                <td  id="td-estudiantes-estado-{{$estudiante->id or ''}}" class="text-uppercase {{ $class['estado'] or ''}}">                    
-                    {{$estado->estado or ''}}
-                </td>
+                
+                {{-- <td  id="td-estudiantes-estado-{{$estudiante->id or ''}}" class="text-center text-uppercase {{ $class['estado'] or ''}}">                     --}}
+                    {{-- {{$estado->estado or ''}} --}}
+                {{-- </td> --}}
 
                 <td id="td-estudiantes-created_at-{{ $estudiante->id or ''}}" class="{{ $class['created_at'] or ''}}">
                     {{ (isset($estudiante->created_at)) ? Carbon\Carbon::parse($estudiante->created_at)->format('d-m-Y') : '' }}
@@ -71,7 +72,6 @@
                     </div>
 
                 </td>
-
 
             </tr>
         @endforeach

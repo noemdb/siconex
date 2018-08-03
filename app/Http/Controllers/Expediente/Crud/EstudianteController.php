@@ -124,8 +124,25 @@ class EstudianteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
-        //
+        $estudiante = Estudiante::findOrFail($id);
+
+        // $estudiante->profile()->delete();
+        // $estudiante->rols()->delete();
+        $estudiante->delete();
+        $messenge = trans('db_oper_result.delete_ok');
+        $operation= 'delete';
+
+        if($request->ajax()){
+            return response()->json([
+                "messenge"=>$messenge,
+                "operation"=>$operation,
+            ]);
+        }
+
+        Session::flash('operp_ok',$messenge.' -> ('.$estudiante->fullname.')');
+
+        return redirect()->route('estudiantes.index');
     }
 }

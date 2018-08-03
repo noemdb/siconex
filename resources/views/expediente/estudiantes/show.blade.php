@@ -55,7 +55,7 @@
                             @endisset --}}
 
                             {{-- @include('expediente.estudiantes.show.tabs') --}}
-                            @include('expediente.estudiantes.show.estudiante')
+                            @include('expediente.estudiantes.show.tabs')
 
                         </div>
                     </div>
