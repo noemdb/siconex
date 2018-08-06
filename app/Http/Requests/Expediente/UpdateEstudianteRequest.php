@@ -35,8 +35,9 @@ class UpdateEstudianteRequest extends FormRequest
     {
 
         return [
-            'firstname' => 'required|max:255|min:3',
-            'lastname' => 'required|max:255|min:3',
+            'firstname' => 'required|min:3|max:255',
+            'lastname' => 'required|min:3|max:255',
+            'ci' => 'required|min:6|max:10|integer',
             'email' => 'required|max:255|unique:estudiantes,email,'.$this->route->parameter('estudiante'),
         ];
     }

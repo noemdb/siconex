@@ -9,7 +9,7 @@
 */
 
 Route::get('models/charts/almacens', 'Chart\AlmacensController@index')->name('almacens.chart');
-Route::get('models/charts/almacensmonths', 'Chart\AlmacensController@AlmacenMonth')->name('almacens.months.chart');
+Route::get('models/charts/almacensmovsmonths', 'Chart\AlmacensController@AlmacenMovsMonths')->name('almacens.movsmonths.chart');
 Route::get('models/charts/almacensmovs', 'Chart\AlmacensController@AlmacensMovs')->name('almacens.movs.chart');
 Route::get('models/charts/almacensexps', 'Chart\AlmacensController@AlmacensExps')->name('almacens.exps.chart');
 Route::get('models/charts/almacensdocs', 'Chart\AlmacensController@AlmacensDocs')->name('almacens.docs.chart');

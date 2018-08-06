@@ -14,13 +14,13 @@
 
         <div class="col-lg-6 col-md-6 col-sm-12">
 
-            @include('expediente.almacens.chart.almacensmovs')
+            @include('expediente.carreras.chart.almacensmovs')
 
         </div>
 
         <div class="col-lg-6 col-md-6 col-sm-12">
 
-          @include('expediente.almacens.chart.almacensexps')
+          @include('expediente.carreras.chart.almacensexps')
 
         </div>
 
@@ -36,13 +36,13 @@
 
         <div class="col-lg-6 col-md-6 col-sm-12">
 
-          @include('expediente.almacens.chart.almacensdocs')
+          @include('expediente.carreras.chart.almacensdocs')
 
         </div>
 
         <div class="col-lg-6 col-md-6 col-sm-12">
 
-          @include('expediente.almacens.chart.almacensmovsmonths')
+          @include('expediente.carreras.chart.almacensmonths')
 
         </div>
 

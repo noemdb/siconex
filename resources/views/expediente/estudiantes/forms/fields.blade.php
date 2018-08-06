@@ -17,6 +17,13 @@
 </div>
 
 <div class="form-label-group pb-1">
+    {!! Form::text('ci', old('ci'), ['class' => 'form-control','placeholder'=>'CI','id'=>'ci','required','autofocus']); !!}
+    {{-- <input type="text" id="username" name="username" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" placeholder="Nombre de Usuario" value="{{ old('username') }}"> --}}
+    <label for="ci">CI</label>
+
+</div>
+
+<div class="form-label-group pb-1">
 
     {!! Form::text('email', old('email'), ['class' => 'form-control','id'=>'email','placeholder'=>'Email']); !!}
     {{-- <input type="text" id="email" name="email" class="form-control{{ $errors->has('email') ? ' is-invalid ' : '' }}" placeholder="Email" value="{{ old('email') }}"> --}}

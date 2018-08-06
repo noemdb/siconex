@@ -17,7 +17,7 @@ class Estudiante extends Model
      * @var array
      */
     protected $fillable = [
-        'firstname', 'lastname', 'email', 'urlimg'
+        'firstname', 'lastname','ci', 'email', 'urlimg'
     ];
 
     /*INI relaciones entre modelos*/

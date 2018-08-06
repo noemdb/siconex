@@ -25,7 +25,7 @@ class AlmacensController extends Controller
         return view('expediente.almacens.charts');
     }
 
-    public function AlmacenMonth(Request $request)
+    public function AlmacenMovsMonths(Request $request)
     {
 
         $range = ($request->input('range')!=null) ? $request->input('range') : 'Todos';
@@ -38,12 +38,25 @@ class AlmacensController extends Controller
             $ffinal = Carbon::now();
         }
 
-        $month = Almacen::select(DB::raw('count(id) as value'),DB::raw('MONTH(created_at) as month'))
-            ->Where('created_at', '>=', $finicial)
-            ->Where('created_at', '<=', $ffinal)
+
+        $month = Movimiento::select(DB::raw('MONTH(movimientos.created_at) as month'), DB::raw('count(movimientos.id) as value'))
+            ->join('nivels','nivels.id','=','movimientos.nivel_id')
+            ->join('almacens','almacens.id','=','nivels.almacen_id')
+            ->Where('movimientos.created_at', '>=', $finicial)
+            ->Where('movimientos.created_at', '<=', $ffinal)
             ->groupby('month')
             ->orderBy('month', 'asc')
             ->get();
+            // ->take($limit);
+
+        // dd($dataSQL);
+
+        // $month = Almacen::select(DB::raw('count(id) as value'),DB::raw('MONTH(created_at) as month'))
+        //     ->Where('created_at', '>=', $finicial)
+        //     ->Where('created_at', '<=', $ffinal)
+        //     ->groupby('month')
+        //     ->orderBy('month', 'asc')
+        //     ->get();
 
         //INI nombre de los meses en español
         $labels = $month->pluck('month');
@@ -58,7 +71,7 @@ class AlmacensController extends Controller
             'labels'=>$label_month,
             'datasets'=>[
                 [
-                    "label"=>"Almacenes Registrados",
+                    "label"=>"Movimientos Mensuales",
                     "backgroundColor"=>"rgba(100, 200, 43,0.2)",
                     "borderColor"=>"rgba(100, 200, 43,1)",
                     "borderWidth"=>2,
@@ -96,9 +109,9 @@ class AlmacensController extends Controller
         $labels = $dataSQL->pluck('nombre');
         $values = $dataSQL->pluck('value');
 
-        // for ($i=0; $i < count($labels) ; $i++) {
-        	// $colors[] = 'rgba('.rand(0,255).', '.rand(0,255).', '.rand(0,255).', 1)';
-        // }
+        for ($i=0; $i < count($labels) ; $i++) {
+        	$colors[] = 'rgba('.rand(0,255).', '.rand(0,255).', '.rand(0,255).', 1)';
+        }
 
         unset($ChartDataSQL);
         //tipo pie
@@ -107,7 +120,7 @@ class AlmacensController extends Controller
             'datasets'=>[
                 [
                     "label"=>"Expedientes por Almacenes",
-                    "backgroundColor"=>$labels,
+                    "backgroundColor"=>$colors,
                     "borderColor"=>"rgba(0, 0, 0,0.2)",
                     "data"=>$values
                 ]
@@ -145,9 +158,9 @@ class AlmacensController extends Controller
         $labels = $dataSQL->pluck('nombre');
         $values = $dataSQL->pluck('value');
 
-        // for ($i=0; $i < count($labels) ; $i++) {
-        	// $colors[] = 'rgba('.rand(0,255).', '.rand(0,255).', '.rand(0,255).', 1)';
-        // }
+        for ($i=0; $i < count($labels) ; $i++) {
+        	$colors[] = 'rgba('.rand(0,255).', '.rand(0,255).', '.rand(0,255).', 1)';
+        }
         unset($ChartDataSQL);
         //tipo pie
         $ChartDataSQL = [
@@ -155,7 +168,7 @@ class AlmacensController extends Controller
             'datasets'=>[
                 [
                     "label"=>"Expedientes por Almacenes",
-                    "backgroundColor"=>$labels,
+                    "backgroundColor"=>$colors,
                     "borderColor"=>"rgba(0, 0, 0,0.2)",
                     "data"=>$values
                 ]
@@ -201,9 +214,9 @@ class AlmacensController extends Controller
 
         // dd($labels,$values);
 
-        // for ($i=0; $i < count($labels) ; $i++) {
-        	// $colors[] = 'rgba('.rand(0,255).', '.rand(0,255).', '.rand(0,255).', 1)';
-        // }
+        for ($i=0; $i < count($labels) ; $i++) {
+        	$colors[] = 'rgba('.rand(0,255).', '.rand(0,255).', '.rand(0,255).', 1)';
+        }
         unset($ChartDataSQL);
         //tipo pie
         $ChartDataSQL = [
@@ -211,7 +224,7 @@ class AlmacensController extends Controller
             'datasets'=>[
                 [
                     "label"=>"Documentos por Almacenes",
-                    "backgroundColor"=>$labels,
+                    "backgroundColor"=>$colors,
                     "borderColor"=>"rgba(0, 0, 0,0.2)",
                     "data"=>$values
                 ]

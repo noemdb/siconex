@@ -11,22 +11,10 @@
 
 // INI resource
 
-	//INI SYS
+	//INI LOGICA DEL NEGOCIO
 		Route::resource('models/crud/estudiantes','Crud\EstudianteController');
 		Route::resource('models/crud/almacens','Crud\AlmacenController');
-		// Route::resource('models/crud/rols','Crud\RolController');
-
-		// Route::resource('models/crud/tasks','Crud\TaskController');
-		// Route::resource('models/crud/messeges','Crud\MessegeController');
-		// Route::resource('models/crud/alerts','Crud\AlertController');
-
-		// Route::resource('models/crud/loginouts','Crud\LoginoutController');
-		// Route::resource('models/crud/logdbs','Crud\LogdbController');
-		// Route::resource('models/crud/settings','Crud\SettingController');
-		// Route::resource('models/crud/selectopts','Crud\SelectoOptController');
-	//FIN SYS
-
-	//INI LOGICA DEL NEGOCIO
+		Route::resource('models/crud/carreras','Crud\CarreraController');
 
 	//FIN LOGICA DEL NEGOCIO
 

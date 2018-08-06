@@ -7,6 +7,15 @@
 @endcomponent
 {{-- FIN Estudiantes --}}
 
+{{-- INI Carreras --}}
+@component('expediente.layouts.dashboard.sidebar.elements.models')
+    @slot('nombre', 'Carreras')
+    @slot('nrcrud', 'carreras.index')
+    @slot('nrchart', 'carreras.chart')
+    @slot('icon', $icon_menus['carrera'])
+@endcomponent
+{{-- FIN Carreras --}}
+
 {{-- INI Estudiantes --}}
 @component('expediente.layouts.dashboard.sidebar.elements.models')
     @slot('nombre', 'Estudiantes')

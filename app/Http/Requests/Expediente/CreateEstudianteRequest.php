@@ -24,8 +24,9 @@ class CreateEstudianteRequest extends FormRequest
     public function rules()
     {
         return [
-            'firstname' => 'required|max:255|min:3',
-            'lastname' => 'required|max:255|min:3',
+            'firstname' => 'required|min:3|max:255',
+            'lastname' => 'required|min:3|max:255',
+            'ci' => 'required|min:1000000|numeric',
             'email' => 'required|unique:estudiantes,email|email',
         ];
     }

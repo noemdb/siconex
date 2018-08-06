@@ -1,4 +1,4 @@
-@php ($chart = ['range'=>'Todos','id_chart'=>'almacensmonthschart','urlapi'=>route('almacens.months.chart'),'tipo'=>'line','limit'=>6 ])
+@php ($chart = ['range'=>'Todos','id_chart'=>'almacensmovsmonthschart','urlapi'=>route('almacens.movsmonths.chart'),'tipo'=>'line','limit'=>6 ])
 @section('scripts')
     @parent
     {{-- Llamado a la funcion responsable de inicilizar el Chart --}}
@@ -9,7 +9,7 @@
     @slot('class', 'info')
     @slot('panelControls', 'true')
     @slot('id', $chart['id_chart'])
-    @slot('header', 'Reg. Almacenes por Mes')
+    @slot('header', 'Reg. Movimientos por Mes')
     @slot('iconTitle', $icon_menus['chartline'])
     @slot('body')
         @component('expediente.elements.chart.canvas')

@@ -2,6 +2,7 @@
     $class=[
         'N'=>'',
         'fullname'=>'',
+        'ci'=>'',
         'email'=>'d-none d-md-table-cell',
         'estado'=>'d-none d-md-table-cell',
         'created_at'=>'d-none d-lg-table-cell',
@@ -14,6 +15,7 @@
     <thead>
         <tr>
             <th class="{{ $class['N'] or ''}}">N</th>
+            <th class="{{ $class['ci'] or ''}}">CI</th>
             <th class="{{ $class['fullname'] or ''}}">Nombre</th>
             <th class="{{ $class['email'] or ''}}">Email</th>
             {{-- <th class="{{ $class['estado'] or ''}}">Estado</th> --}}
@@ -34,14 +36,17 @@
                     {{ ($loop->index + 1) }}
                 </td>
 
-                <td id="td-estudiantes-{{ $estudiante->id or '' }}" class="{{ $class['fullname'] or ''}}">
-                    {{$estudiante->fullname or ''}} 
+                <td id="td-estudiantes-ci-{{ $estudiante->id or '' }}" class="{{ $class['ci'] or ''}}">
+                    {{$estudiante->ci or ''}} 
                 </td>
+
+                <td id="td-estudiantes-fullname-{{ $estudiante->id or '' }}" class="{{ $class['fullname'] or ''}}">
+                    {{$estudiante->fullname or ''}} 
+                </td>                
 
                 <td id="td-estudiantes-email-{{$estudiante->email or ''}}" class="{{ $class['email'] or ''}}">
                     {{$estudiante->email or ''}}
                 </td>
-
                 
                 {{-- <td  id="td-estudiantes-estado-{{$estudiante->id or ''}}" class="text-center text-uppercase {{ $class['estado'] or ''}}">                     --}}
                     {{-- {{$estado->estado or ''}} --}}

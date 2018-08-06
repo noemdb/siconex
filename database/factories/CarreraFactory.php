@@ -8,6 +8,13 @@ $factory->define(App\Models\expedientes\Carrera::class, function (Faker $faker) 
     $fakerES = \Faker\Factory::create('es_ES');
     $fcreated = $faker->dateTimeBetween('2017-01-01',Carbon::now());
     $fupdated = $faker->dateTimeBetween($fcreated,Carbon::now());
+    $fegreso = $faker->dateTimeBetween($fcreated,$fupdated );
+    $carrera = DB::table('select_opts')
+                    ->where('table','carreras')
+                    ->where('view','carreras.create')
+                    ->where('name','nombre')
+                    ->inRandomOrder()
+                    ->first()->value;
 
     return [
     	'estudiante_id' => function () { 
@@ -19,9 +26,10 @@ $factory->define(App\Models\expedientes\Carrera::class, function (Faker $faker) 
                 ->inRandomOrder()
 				->first()->id;
         },
-        'nombre' => $fakerES->word(),
+        'nombre' => $carrera ,
         'padminsion' => rand(1, 2),
         'fingreso'=>$fcreated,
+        'fegreso'=>$fegreso,
         'created_at' => $fcreated,
         'updated_at' => $fupdated,
     ];

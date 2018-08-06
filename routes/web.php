@@ -91,6 +91,7 @@ Route::group(['prefix'=>'expediente','middleware'=>['auth','is_expediente'],'nam
     //INI Charts modelos
     require (__DIR__ . '/expediente/charts/estudiantes.php');
     require (__DIR__ . '/expediente/charts/almacens.php');
+    require (__DIR__ . '/expediente/charts/carreras.php');
     //FIN Charts modelos  
 
 });

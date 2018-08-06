@@ -148,6 +148,7 @@ class SelectOptTableSeeder extends Seeder
                 'view' => "settings.create",
             ]);
         }
+        // FIN settings
 
         $arr_settvalue = ['true'=>'Habilitado', 'false'=>'Deshabilitado'];
         foreach ($arr_settvalue as $key => $value) {
@@ -159,7 +160,29 @@ class SelectOptTableSeeder extends Seeder
                 'view' => "settings.create",
             ]);
         }
-        // FIN settings
+
+        $carreras = ['Físcica'=>'Físcica', 'Quimica'=>'Quimica', 'Matemática'=>'Matemática', 'Educación'=>'Educación', 'Medicina'=>'Medicina', 'Ingeniería'=>'Ingeniería'];
+        foreach ($carreras as $key => $value) {
+            DB::table('select_opts')->insert([
+                'table' => "carreras",
+                'name' => "nombre",
+                'key' => $key,
+                'value' => $value,
+                'view' => "carreras.create",
+            ]);
+        }
+
+        $almacens = ['Almacen N1'=>'Almacen N1', 'Almacen N2'=>'Almacen N2', 'Almacen N3'=>'Almacen N3', 'Almacen N4'=>'Almacen N4', 'Almacen N5'=>'Almacen N5'];
+        foreach ($almacens as $key => $value) {
+            DB::table('select_opts')->insert([
+                'table' => "almacens",
+                'name' => "nombre",
+                'key' => $key,
+                'value' => $value,
+                'view' => "almacens.create",
+            ]);
+        }
+        
         
     }
 }
