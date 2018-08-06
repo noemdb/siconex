@@ -40,7 +40,7 @@
     <div class="col">
         <div class="form-label-group pb-1">
             {!! Form::text('fegreso', old('fegreso'), ['class' => 'form-control datepicker','placeholder'=>'Fecha Egreso','id'=>'fegreso','readonly','maxlength'=>"10"]); !!}
-            <label for="fegreso">Fecha Final</label>
+            <label for="fegreso">Fecha Egreso</label>
         </div>
     </div>
 </div>
@@ -55,7 +55,7 @@
     <div class="col">
         <div class="form-label-group pb-1">
             {!! Form::text('fdescongelar', old('fdescongelar'), ['class' => 'form-control datepicker','placeholder'=>'Fecha Descongelar','id'=>'fdescongelar','readonly','maxlength'=>"10"]); !!}
-            <label for="fegreso">Fecha Descongelar</label>
+            <label for="fdescongelar">Fecha Descongelar</label>
         </div>
     </div>
 </div>

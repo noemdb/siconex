@@ -18,7 +18,7 @@
             <th class="{{ $class['estudiante_id'] or ''}}">Estudiante</th>
             <th class="{{ $class['nombre'] or ''}}">Nombre</th>
             <th class="{{ $class['padminsion'] or ''}}">Período Adm.</th>
-            <th class="{{ $class['fegreso'] or ''}}">F.Egreso</th>
+            <th class="{{ $class['fingreso'] or ''}}">F.Ingreso</th>
             <th class="{{ $class['created_at'] or ''}}">Creado</th>
             {{-- <th class="{{ $class['updated_at'] or '' }}">Actualizado</th> --}}
             <th align="right" class="{{ $class['btn_accion'] or ''}}"><strong>Aciones</strong></th>
@@ -48,8 +48,8 @@
                     {{$carrera->padminsion or ''}}
                 </td>
 
-                <td id="td-carreras-fegreso-{{$carrera->fegreso or ''}}" class="{{ $class['fegreso'] or ''}}">
-                    {{ (isset($carrera->fegreso)) ? Carbon\Carbon::parse($carrera->fegreso)->format('d-m-Y') : '' }}
+                <td id="td-carreras-fingreso-{{$carrera->fingreso or ''}}" class="{{ $class['fingreso'] or ''}}">
+                    {{ (isset($carrera->fingreso)) ? Carbon\Carbon::parse($carrera->fingreso)->format('d-m-Y') : '' }}
                 </td>
 
                 <td id="td-carreras-created_at-{{ $carrera->id or ''}}" class="{{ $class['created_at'] or ''}}">

@@ -9,6 +9,14 @@
           <tbody>
             <tr>
 
+                <th scope="col">Estudiante</th>
+
+                <th scope="col">
+                    {{$carrera->estudiante->fullname or ''}}
+                </th>
+            </tr>
+            <tr>
+
                 <th scope="col">Nombre</th>
 
                 <th scope="col">
@@ -16,23 +24,37 @@
                 </th>
             </tr>
             <tr>
-                <th scope="row">Responsable</th>
+                <th scope="row">Período de Adminisión</th>
                 <td>
-                    {{$carrera->responsable}}
+                    {{$carrera->padminsion}}
                 </td>
             </tr>
 
             <tr>
-                <th scope="row">Descripción</th>
+                <th scope="row">Fecha de Ingeso</th>
                 <td>
-                    {{$carrera->descripcion}}
+                    {{$carrera->fingreso}}
                 </td>
             </tr>
 
             <tr>
-                <th scope="row">Dirección</th>
+                <th scope="row">Fecha de Egreso</th>
                 <td>
-                    {{$carrera->direccion}}
+                    {{$carrera->fegreso}}
+                </td>
+            </tr>
+
+            <tr>
+                <th scope="row">Fecha Congelar</th>
+                <td>
+                    {{$carrera->fcongelar}}
+                </td>
+            </tr>
+
+            <tr>
+                <th scope="row">Fecha Descongelar</th>
+                <td>
+                    {{$carrera->fdescongelar}}
                 </td>
             </tr>
 
@@ -58,10 +80,8 @@
 
         </table>
 
-
       </div>
+
     </div>
-
-
 
 @endisset

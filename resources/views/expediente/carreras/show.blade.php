@@ -12,7 +12,7 @@
 
                 <h2>
 
-                    Información del Almacen
+                    Información de la Carrera
 
                     {{-- INI Menu rapido --}}
                     <div class="btn-group float-right pt-2">
