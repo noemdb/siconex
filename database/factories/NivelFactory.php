@@ -10,8 +10,8 @@ $factory->define(App\Models\expedientes\Nivel::class, function (Faker $faker) {
     $fupdated = $faker->dateTimeBetween($fcreated,Carbon::now());
 
     return [
-        'almacen_id' => function () { 
-        	return 
+        'almacen_id' => function () {
+        	return
         	DB::table('almacens')
 				->select('almacens.*','nivels.id as nivels_id')
 				->leftJoin('nivels', 'nivels.almacen_id', '=', 'almacens.id')
@@ -19,7 +19,7 @@ $factory->define(App\Models\expedientes\Nivel::class, function (Faker $faker) {
                 ->inRandomOrder()
 				->first()->id;
         },
-        'numero' => rand(1, 10),
+        'codigo' => $faker->isbn10,
         'descripcion' => $fakerES->sentence(10),
         'created_at' => $fcreated,
         'updated_at' => $fupdated,

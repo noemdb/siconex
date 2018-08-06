@@ -20,14 +20,17 @@ class Movimiento extends Model
     ];
 
     /*INI relaciones entre modelos*/
-    public function rutas()
-    {
-        return $this->hasOne('App\Models\expedientes\Ruta');
-    }
-
     public function expediente()
     {
         return $this->belongsTo('App\Models\expedientes\Expediente');
+    }
+    public function almacen()
+    {
+        return $this->belongsTo('App\Models\expedientes\Almacen');
+    }
+    public function nivel()
+    {
+        return $this->belongsTo('App\Models\expedientes\Nivel');
     }
     /*FIN relaciones entre modelos*/
 }

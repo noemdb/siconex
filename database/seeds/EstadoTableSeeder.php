@@ -11,7 +11,7 @@ class EstadoTableSeeder extends Seeder
      */
     public function run()
     {
-        for ($i=0; $i < 300; $i++) { 
+        for ($i=0; $i < 200; $i++) { 
             factory(App\Models\expedientes\Estado::class)->times(1)->create();
         }
     }

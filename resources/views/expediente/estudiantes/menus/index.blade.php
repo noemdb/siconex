@@ -5,11 +5,18 @@
     @slot('icon', $icon_menus['nuevo'])
 @endcomponent
 
-@component('elements.buttons.default')
+{{-- @component('elements.buttons.default')
     @slot('title', 'CRUD')
     @slot('class_bt', 'info')
     @slot('route', route('estudiantes.index'))
     @slot('icon', $icon_menus['crud'])
+@endcomponent --}}
+
+@component('elements.buttons.default')
+    @slot('title', 'Gráficas')
+    @slot('class_bt', 'success')
+    @slot('route', route('estudiantes.chart'))
+    @slot('icon', $icon_menus['chartpie'])
 @endcomponent
 
 {{-- @component('elements.menus.dropdown')

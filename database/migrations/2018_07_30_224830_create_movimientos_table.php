@@ -23,9 +23,30 @@ class CreateMovimientosTable extends Migration
                   ->onDelete('cascade')
                   ->onUpdate('cascade');
 
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')
+                  ->references('id')
+                  ->on('users')
+                  ->onDelete('cascade')
+                  ->onUpdate('cascade');
+
+            // $table->integer('almacen_id')->unsigned();
+            // $table->foreign('almacen_id')
+            //       ->references('id')
+            //       ->on('almacens')
+            //       ->onDelete('cascade')
+            //       ->onUpdate('cascade');
+
+            $table->integer('nivel_id')->unsigned();
+            $table->foreign('nivel_id')
+                  ->references('id')
+                  ->on('nivels')
+                  ->onDelete('cascade')
+                  ->onUpdate('cascade');
+
             $table->string('descripcion',255);
             $table->string('observacion',255);
-            
+
             $table->timestamps();
         });
     }

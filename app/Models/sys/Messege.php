@@ -71,4 +71,21 @@ class Messege extends Model
 
     return (isset($arr_total)) ? $arr_total : 0;
   }
+
+  public function getClassAttribute()
+  {      
+    switch ($this->tipo) {
+      case 'Conversación':
+          $class = 'primary'; break;
+      case 'Información':
+          $class = 'info'; break;
+      case 'Solicitud':
+          $class = 'success'; break;
+      case 'Alerta':
+          $class = 'warning'; break;          
+      default:
+          $class = 'secondary'; break;
+    }
+    return $class;
+  }
 }

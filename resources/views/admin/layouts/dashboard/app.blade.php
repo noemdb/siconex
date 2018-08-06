@@ -2,7 +2,7 @@
 
 @section('body')
 
-    
+
         {{-- @include('admin.layouts.dashboard.navbar.app') --}}
 
         {{-- INI navbar --}}
@@ -31,7 +31,7 @@
                 </li>
             </ul>
 
-            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidebar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -45,8 +45,8 @@
 
                 {{-- INI sidebar --}}
                 {{-- <nav class="col-md-2 d-md-block bg-light sidebar"> --}}
-                
-                <nav id="sidebar" class="col-md-2 d-none d-md-block bg-light sidebar">
+
+                <nav class="col-md-2 d-none d-md-block bg-light sidebar">
 
                     @include('admin.layouts.dashboard.sidebar.app')
 
@@ -77,8 +77,8 @@
 
      @parent
      <script src="{{ asset("js/accordion.js") }}"></script>
-     
-     {{-- 
+
+     {{--
      <script type="text/javascript">
          $(document).ready(function () {
              $('#sidebarCollapse').on('click', function () {
@@ -86,7 +86,7 @@
                  $("#page-wrapper").toggleClass("active");
              });
          });
-     </script> 
+     </script>
      --}}
 
      {{-- <script src="{{ asset("js/admin.js") }}"></script> --}}

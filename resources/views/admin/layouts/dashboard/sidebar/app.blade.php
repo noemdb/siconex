@@ -1,4 +1,4 @@
-<div class="sidebar-sticky">
+<div class="sidebar-sticky" >
     <ul class="nav flex-column">
 
       {{-- INI Sistema --}}
@@ -31,24 +31,25 @@
 
       </li>
 
-      <li class="nav-item">
+      {{-- <li class="nav-item"> --}}
 
-          <a class="accordion nav-link {{ (Request::is('*models*') ? ' accordion_active' : '') }}"  href="#">
+          {{-- <a class="accordion nav-link {{ (Request::is('*models*') ? ' accordion_active' : '') }}"  href="#"> --}}
             {{-- <span data-feather="home"></span> --}}
-            Expedientes {{-- <span class="sr-only">(current)</span> --}}
-          </a>
+            {{-- Expedientes --}}
+            {{-- <span class="sr-only">(current)</span> --}}
+          {{-- </a> --}}
 
-          <div class="accordion_panel" style="display: {{ (Request::is('*models*') ? ' block' : 'none') }}">
+          {{-- <div class="accordion_panel" style="display: {{ (Request::is('*models*') ? ' block' : 'none') }}"> --}}
 
-              <ul class="nav flex-column">
+              {{-- <ul class="nav flex-column"> --}}
 
-                  @include('expediente.layouts.dashboard.sidebar.partials.expedientes')
+                  {{-- @include('expediente.layouts.dashboard.sidebar.partials.expedientes') --}}
 
-              </ul>
+              {{-- </ul> --}}
 
-          </div>
+          {{-- </div> --}}
 
-      </li>
+      {{-- </li> --}}
 
     </ul>
 

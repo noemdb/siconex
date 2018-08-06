@@ -8,6 +8,7 @@ $factory->define(App\Models\expedientes\Documento::class, function (Faker $faker
     $fakerES = \Faker\Factory::create('es_ES');
     $fcreated = $faker->dateTimeBetween('2017-01-01',Carbon::now());
     $fupdated = $faker->dateTimeBetween($fcreated,Carbon::now());
+    $arr_tipo = ['primary'=>'primary','success'=>'success','info'=>'info','warning'=>'warning','danger'=>'danger','default'=>'default'];
 
     $arr_SINO = ['SI'=>'SI','NO'=>'NO'];
 
@@ -21,6 +22,7 @@ $factory->define(App\Models\expedientes\Documento::class, function (Faker $faker
                 ->inRandomOrder()
 				->first()->id;
         },
+        'tipo' => array_rand($arr_tipo,1),
         'descripcion' => $fakerES->sentence(10),
         'observacion' => $fakerES->sentence(10),
         'original' => array_rand($arr_SINO,1),

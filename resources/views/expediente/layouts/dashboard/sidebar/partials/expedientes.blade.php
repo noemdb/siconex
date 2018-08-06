@@ -1,8 +1,17 @@
-{{-- INI User --}}
+{{-- INI Estudiantes --}}
+@component('expediente.layouts.dashboard.sidebar.elements.models')
+    @slot('nombre', 'Almacenes')
+    @slot('nrcrud', 'almacens.index')
+    @slot('nrchart', 'almacens.chart')
+    @slot('icon', $icon_menus['almacen'])
+@endcomponent
+{{-- FIN Estudiantes --}}
+
+{{-- INI Estudiantes --}}
 @component('expediente.layouts.dashboard.sidebar.elements.models')
     @slot('nombre', 'Estudiantes')
     @slot('nrcrud', 'estudiantes.index')
-    {{-- @slot('nrchart', 'estudiantes.chart') --}}
-    {{-- @slot('icon', $icon_menus['user']) --}}
+    @slot('nrchart', 'estudiantes.chart')
+    @slot('icon', $icon_menus['estudiante'])
 @endcomponent
-{{-- FIN user --}}
+{{-- FIN Estudiantes --}}

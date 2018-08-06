@@ -16,18 +16,17 @@ class Nivel extends Model
      * @var array
      */
     protected $fillable = [
-        'almacen_id', 'numero', 'descripcion'
+        'almacen_id', 'codigo', 'descripcion'
     ];
 
     /*INI relaciones entre modelos*/
-    public function rutas()
-    {
-        return $this->hasOne('App\Models\expedientes\Ruta');
-    }
-
     public function almacen()
     {
         return $this->belongsTo('App\Models\expedientes\Almacen');
+    }
+    public function movimiento()
+    {
+        return $this->hasOne('App\Models\expedientes\Movimiento');
     }
     /*FIN relaciones entre modelos*/
 }

@@ -4,7 +4,7 @@
         'user_id'=>'',
         'destino_user_id'=>'d-none d-md-table-cell',
         'mensaje'=>'',
-        'tipo'=>'d-none d-md-table-cell',
+        // 'tipo'=>'d-none d-md-table-cell',
         'estado'=>'d-none d-md-table-cell',
         'created_at'=>'d-none d-lg-table-cell',
         // 'updated_at'=>'d-none d-lg-table-cell'
@@ -19,7 +19,7 @@
             <th class="{{ $class['user_id'] or ''}}">Usuario</th>
             <th class="{{ $class['destino_user_id'] or ''}}">Destino</th>
             <th class="{{ $class['mensaje'] or ''}}">Mensaje</th>
-            <th class="{{ $class['tipo'] or ''}}">Tipo</th>
+            {{-- <th class="{{ $class['tipo'] or ''}}">Tipo</th> --}}
             <th class="{{ $class['estado'] or ''}}">Estado</th>
             <th class="{{ $class['created_at'] or ''}}">Creado</th>
             {{-- <th class="{{ $class['updated_at'] or '' }}">F.Final</th> --}}
@@ -33,7 +33,7 @@
 
             @php ($user = $messege->user)
 
-            <tr data-messege="{{$messege->id}}" data-user="{{$user->id or ''}}" class="table-{{ $messege->tipo or '' }} p-0 m-0">
+            <tr data-messege="{{$messege->id}}" data-user="{{$user->id or ''}}" class="text-{{ $messege->class or '' }} p-0 m-0">
 
                 <td class="{{ $class['N'] or ''}}">
                     {{ ($loop->index + 1) }}
@@ -54,9 +54,9 @@
                     {{$messege->truncmensaje}}
                 </td>
 
-                <td  id="td-messeges-tipo-{{$messege->id or ''}}" title="{{ $messege->tipo or ''}}"  class="text-uppercase {{ $class['tipo'] or ''}}">
-                    {{$messege->tipo or ''}}
-                </td>
+                {{-- <td  id="td-messeges-tipo-{{$messege->id or ''}}" title="{{ $messege->tipo or ''}}"  class="text-uppercase {{ $class['tipo'] or ''}}"> --}}
+                    {{-- {{$messege->tipo or ''}} --}}
+                {{-- </td> --}}
 
                 <td  id="td-messeges-estado-{{$messege->id or ''}}" title="{{ $messege->estado or ''}}"  class="text-uppercase {{ $class['estado'] or ''}}">
                     {{$messege->estado or ''}}

@@ -4,9 +4,26 @@ namespace App\Http\Controllers\Expediente\Crud;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+//validation request
+use App\Http\Requests\Expediente\CreateAlmacenRequest;
+use App\Http\Requests\Expediente\UpdateAlmacenRequest;
+
+//Helpers
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Session;
+
+//models
+use App\Models\expedientes\Almacen;
+// use App\Models\expedientes\Estado;
+// use App\Models\sys\SelectOpt;
 
 class AlmacenController extends Controller
 {
+    /* Constructor, verifica login del usuario - agregar middleware para verificar el rol */
+    public function __construct(){
+        $this->middleware(['auth']);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +31,10 @@ class AlmacenController extends Controller
      */
     public function index()
     {
-        //
+        $almacens = Almacen::OrderBy('almacens.id','DESC')
+            ->get();
+
+        return view('expediente.almacens.index', compact('almacens'));
     }
 
     /**
@@ -24,7 +44,7 @@ class AlmacenController extends Controller
      */
     public function create()
     {
-        //
+        return view('expediente.almacens.create');
     }
 
     /**
@@ -33,9 +53,17 @@ class AlmacenController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateAlmacenRequest $request)
     {
-        //
+        $almacen = Almacen::create($request->all());
+
+        $messenge = trans('db_oper_result.create_ok');
+
+        Session::flash('operp_ok',$messenge);
+
+        Session::flash('class_oper','success');
+
+        return redirect()->route('almacens.index');
     }
 
     /**
@@ -46,7 +74,9 @@ class AlmacenController extends Controller
      */
     public function show($id)
     {
-        //
+        $almacen = Almacen::findOrFail($id);
+
+        return view('expediente.almacens.show',compact('almacen'));
     }
 
     /**
@@ -57,7 +87,9 @@ class AlmacenController extends Controller
      */
     public function edit($id)
     {
-        //
+        $almacen = Almacen::findOrFail($id);
+
+        return view('expediente.almacens.edit',compact('almacen'));
     }
 
     /**
@@ -67,9 +99,21 @@ class AlmacenController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateAlmacenRequest $request, $id)
     {
-        //
+        $almacen = Almacen::findOrFail($id);
+
+        $almacen->fill($request->all());
+
+        $almacen->save();
+
+        $messenge = trans('db_oper_result.update_ok');
+
+        Session::flash('operp_ok',$messenge);
+
+        Session::flash('class_oper','success');
+
+        return redirect()->route('almacens.edit',$id);
     }
 
     /**
@@ -78,8 +122,25 @@ class AlmacenController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
-        //
+        $almacen = Almacen::findOrFail($id);
+
+        // $estudiante->profile()->delete();
+        // $estudiante->rols()->delete();
+        $almacen->delete();
+        $messenge = trans('db_oper_result.delete_ok');
+        $operation= 'delete';
+
+        if($request->ajax()){
+            return response()->json([
+                "messenge"=>$messenge,
+                "operation"=>$operation,
+            ]);
+        }
+
+        Session::flash('operp_ok',$messenge);
+
+        return redirect()->route('almacens.index');
     }
 }

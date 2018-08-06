@@ -12,6 +12,14 @@
     @slot('icon', $icon_menus['crud'])
 @endcomponent
 
+@component('elements.buttons.default')
+    @slot('title', 'Gráficas')
+    @slot('class_bt', 'success')
+    @slot('route', route('estudiantes.chart'))
+    @slot('icon', $icon_menus['chartpie'])
+@endcomponent
+
+
 {{-- @component('elements.menus.dropdown')
     @slot('title', 'CRUD relacionados')
     @slot('class', 'info')

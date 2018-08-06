@@ -18,8 +18,7 @@ class UsersController extends Controller
 {
 
     public function index()
-    {
-        
+    {        
         return view('admin.users.charts');
     }
 
@@ -70,7 +69,6 @@ class UsersController extends Controller
 
         return json_encode($ChartDataSQL);
     }
-
 
     public function UsersMonth(Request $request)
     {

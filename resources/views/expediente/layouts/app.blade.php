@@ -14,8 +14,10 @@
     <link href="{{ asset('css/docs.min.css') }}" rel="stylesheet">
 
     {{-- <link href="{{ asset('css/floating-labels.css') }}" rel="stylesheet"> --}}
-    <link href="{{ asset('vendor/fontawesome/5.0.8/css/fontawesome-all.css') }}" rel="stylesheet">
-    {{-- <script defer src="{{ asset('vendor/fontawesome/5.0.8/svg-with-js/js/fontawesome-all.js') }}"></script> --}}
+    {{-- <link href="{{ asset('vendor/fontawesome/5.0.8/css/fontawesome-all.css') }}" rel="stylesheet"> --}}
+    {{-- <script defer src="{{ asset('vendor/fontawesome/5.2.0/svg-with-js/js/fontawesome-all.js') }}"></script> --}}
+    <link href="{{ asset('vendor/fontawesome/5.2.0/css/all.css') }}" rel="stylesheet">
+    {{-- <script defer src="{{ asset('vendor/fontawesome/5.2.0/js/all.js') }}"></script> --}}
 
     {{-- <link href="{{ asset('vendor/toastr/2.1.4/css/toastr.css') }}" rel="stylesheet"> --}}
     {{-- <link href="{{ asset('vendor/sweetalert/7.26.9/css/sweetalert2.min.css') }}" rel="stylesheet"> --}}

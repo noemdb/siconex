@@ -15,16 +15,14 @@ class CreateEstadosTable extends Migration
     {
         Schema::create('estados', function (Blueprint $table) {
             $table->increments('id');
-
             $table->integer('estudiante_id')->unsigned();
             $table->foreign('estudiante_id')
                   ->references('id')
                   ->on('estudiantes')
                   ->onDelete('cascade')
                   ->onUpdate('cascade');
-
-            $table->enum('estado', ['1','2','3','4'])->default('1');
-            
+            $table->enum('estado', ['Regular','Suspendido','Preinscrito','Egresado'])->default('Regular');            
+            $table->softDeletes();
             $table->timestamps();
         });
     }

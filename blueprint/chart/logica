@@ -1,0 +1,2 @@
+php artisan make:controller 'Expediente\Chart\EstudiantesController'
+php artisan make:controller 'Expediente\Chart\AlmacensController'

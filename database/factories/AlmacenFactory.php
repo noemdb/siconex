@@ -10,7 +10,8 @@ $factory->define(App\Models\expedientes\Almacen::class, function (Faker $faker) 
     $fupdated = $faker->dateTimeBetween($fcreated,Carbon::now());
 
     return [
-        'responsable' => $fakerES->firstName.' '.$fakerES->lastName,
+        'nombre' => $faker->safeColorName(),
+        'responsable' => $fakerES->name,
         'descripcion' => $fakerES->sentence(10),
         'direccion' => $fakerES->address,
         'created_at' => $fcreated,

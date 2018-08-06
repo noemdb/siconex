@@ -12,7 +12,7 @@
 
                 <h2>
 
-                    Información del Estudientte
+                    Información del Estudiante
 
                     {{-- INI Menu rapido --}}
                     <div class="btn-group float-right pt-2">
@@ -35,7 +35,7 @@
                     <div class="row">
 
                         
-                        <div class="col-sm-4">
+                        <div class="col-sm-4 text-center">
 
                             {{-- <img alt="{{$estudiante->id or ''}}" class="img-thumbnail img-rounded" src="{{ (isset($estudiante->urlimg)) ? asset($estudiante->url_img) : asset('images/avatar/user_default.png') }}"> --}}
                             <img alt="{{$estudiante->id or ''}}" class="img-thumbnail img-rounded" src="{{ asset('images/avatar/user_default.png') }}">

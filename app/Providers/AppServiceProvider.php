@@ -46,6 +46,16 @@ class AppServiceProvider extends ServiceProvider
             'chartbar'=>'fas fa-chart-bar',
             'chartarea'=>'far fa-chart-area',
             'chartline'=>'fas fa-chart-line',
+
+            'estudiante'=>'fas fa-user-edit',
+            'almacen'=>'fas fa-warehouse',
+            'ruta'=>'fas fa-random',
+            'nivel'=>'fas fa-project-diagram',
+            'expediente'=>'far fa-folder',
+            'documento'=>'far fa-file-alt',
+            'carrera'=>'fas fa-grip-vertical',
+            'movimiento'=>'fas fa-exchange-alt',
+            'estado'=>'fas fa-door-closed'
         ]);
     }
 

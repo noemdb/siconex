@@ -16,13 +16,17 @@ class Almacen extends Model
      * @var array
      */
     protected $fillable = [
-        'responsable', 'descripcion', 'direccion'
+        'nombre','responsable', 'descripcion', 'direccion'
     ];
 
     /*INI relaciones entre modelos*/
     public function nivels()
     {
         return $this->hasOne('App\Models\expedientes\Nivel');
+    }
+    public function movimientos()
+    {
+        return $this->hasOne('App\Models\expedientes\Movimiento');
     }
     /*FIN relaciones entre modelos*/
 }

@@ -158,7 +158,7 @@ class TasksController extends Controller
             $ffinal = Carbon::now();
         }       
 
-        $rols = Task::select('tipo', DB::raw('count(tipo) as value'))
+        $tipos = Task::select('tipo', DB::raw('count(tipo) as value'))
             ->Where('created_at', '>=', $finicial)
             ->Where('created_at', '<=', $ffinal)
             ->groupby('tipo')
@@ -166,8 +166,8 @@ class TasksController extends Controller
             ->get()
             ->take($limit);
 
-        $labels = $rols->pluck('tipo');
-        $values = $rols->pluck('value');
+        $labels = $tipos->pluck('tipo');
+        $values = $tipos->pluck('value');
 
         unset($ChartDataSQL);
         $ChartDataSQL = [

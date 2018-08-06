@@ -23,6 +23,7 @@ class CreateDocumentosTable extends Migration
                   ->onDelete('cascade')
                   ->onUpdate('cascade');
 
+            $table->enum('tipo', ['primary','secondary', 'success', 'info', 'warning', 'danger','default'])->default('default');
             $table->string('descripcion',255);
             $table->string('observacion',255);
             $table->enum('original', ['SI','NO'])->default('NO');

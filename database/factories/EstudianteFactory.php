@@ -10,6 +10,7 @@ $factory->define(App\Models\expedientes\Estudiante::class, function (Faker $fake
     return [
         'firstname' => $fakerES->firstName,
         'lastname' => $fakerES->lastName,
+        'ci' => substr($faker->imei,0,9),
         'email' => $fakerES->unique()->safeEmail,
         'urlimg' => 'img/profile_'.rand().'.png',
         'created_at' => $fcreated,

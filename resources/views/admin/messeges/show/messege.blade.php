@@ -35,7 +35,7 @@
 
             <tr>
                 <th scope="row">Tipo</th>
-                <td id="text-alerts-tipo-{{ $messege->id  or ''}}" class="text-uppercase">
+                <td id="text-alerts-tipo-{{ $messege->id  or ''}}" class="text-uppercase text-{{ $messege->class or '' }}">
                     {{$messege->tipo or ''}}  
                 </td>
             </tr>

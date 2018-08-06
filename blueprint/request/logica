@@ -1,3 +1,4 @@
 Form Request Validation
-php artisan make:request 'Expediente\CreateEstudianteRequest'
-php artisan make:request 'Expediente\UpdateEstudianteRequest'
+php artisan make:request 'Expediente\CreateEstudianteRequest' && php artisan make:request 'Expediente\UpdateEstudianteRequest'
+
+php artisan make:request 'Expediente\CreateAlmacenRequest' && php artisan make:request 'Expediente\UpdateAlmacenRequest'

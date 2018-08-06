@@ -86,4 +86,21 @@ class Task extends Model
         return $string;
     }
   }
+
+  public function getClassAttribute()
+  {      
+    switch ($this->estado) {
+      case 'Regular':
+          $class = 'primary'; break;
+      case 'Suspendido':
+          $class = 'danger'; break;
+      case 'Preinscrito':
+          $class = 'info'; break;
+      case 'Egresado':
+          $class = 'success'; break;          
+      default:
+          $class = 'secondary'; break;
+    }
+    return $class;
+  }
 }

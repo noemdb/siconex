@@ -9,8 +9,8 @@ $factory->define(App\Models\expedientes\Expediente::class, function (Faker $fake
     $fupdated = $faker->dateTimeBetween($fcreated,Carbon::now());
 
     return [
-    	'estudiante_id' => function () { 
-        	return 
+    	'estudiante_id' => function () {
+        	return
         	DB::table('estudiantes')
 				->select('estudiantes.*','expedientes.id as expediente_id')
 				->leftJoin('expedientes', 'expedientes.estudiante_id', '=', 'estudiantes.id')
@@ -18,6 +18,7 @@ $factory->define(App\Models\expedientes\Expediente::class, function (Faker $fake
                 ->inRandomOrder()
 				->first()->id;
         },
+        'codigo' => $faker->isbn10,
         'descripcion' => $fakerES->sentence(10),
         'observacion' => $fakerES->sentence(10),
         'created_at' => $fcreated,

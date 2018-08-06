@@ -2,6 +2,8 @@
 
 namespace App\Models\expedientes;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Http\Request;
@@ -10,6 +12,9 @@ use Illuminate\Support\Carbon;
 
 class Estado extends Model
 {
+
+    use SoftDeletes;
+    
     /**
      * The attributes that are mass assignable.
      *
@@ -29,16 +34,16 @@ class Estado extends Model
     public function getClassAttribute()
     {      
       switch ($this->estado) {
-        case '1':
+        case 'Regular':
             $class = 'primary'; break;
-        case '2':
+        case 'Suspendido':
             $class = 'danger'; break;
-        case '3':
-            $class = 'infon'; break;
-        case '4':
-            $class = 'warning'; break;          
+        case 'Preinscrito':
+            $class = 'info'; break;
+        case 'Egresado':
+            $class = 'success'; break;          
         default:
-            $class = 'default'; break;
+            $class = 'secondary'; break;
       }
       return $class;
     }

@@ -4,7 +4,7 @@
 
     <main taske="main" class="col-md-10 ml-sm-auto col-lg-10">
 
-        <div class="card card-primary">
+        <div class="card mt-2 bd-callout bd-callout-primary">
             <div class="card-header">
                 <h3>
                     Listados de Estudiantes Registrados<br>

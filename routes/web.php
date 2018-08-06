@@ -89,11 +89,8 @@ Route::group(['prefix'=>'expediente','middleware'=>['auth','is_expediente'],'nam
     //FIN CRUD modelos
 
     //INI Charts modelos
-    // require (__DIR__ . '/expediente/charts/users.php');
-    //FIN Charts modelos
-
-    //INI rutas para los json
-    // require (__DIR__ . '/admin/json/index.php');
-    //FIN rutas para los json   
+    require (__DIR__ . '/expediente/charts/estudiantes.php');
+    require (__DIR__ . '/expediente/charts/almacens.php');
+    //FIN Charts modelos  
 
 });

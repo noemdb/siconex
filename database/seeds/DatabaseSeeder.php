@@ -25,14 +25,18 @@ class DatabaseSeeder extends Seeder
         $this->call(SelectOptTableSeeder::class);
 
         $this->call(EstudianteTableSeeder::class);
-        $this->call(ExpedienteTableSeeder::class);
-        $this->call(AlmacenTableSeeder::class);
-        $this->call(DocumentoTableSeeder::class);
         $this->call(CarreraTableSeeder::class);
         $this->call(EstadoTableSeeder::class);
-        $this->call(MovimientoTableSeeder::class);
+
+        $this->call(AlmacenTableSeeder::class);
         $this->call(NivelTableSeeder::class);
-        $this->call(RutaTableSeeder::class);
+
+        $this->call(ExpedienteTableSeeder::class);
+        $this->call(DocumentoTableSeeder::class);
+        $this->call(MovimientoTableSeeder::class);
+
+
+
 
     }
 }

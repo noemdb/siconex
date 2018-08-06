@@ -1,6 +1,6 @@
 <div class="card bd-callout bd-callout-{{ $class_form_create_task or 'form' }}">
   <div class="card-header font-weight-bold">
-    Formulario para el Registro de una Nuevo Estudiante.
+    Formulario para el registro de una nuevo Estudiante.
   </div>
   <div class="card-body">
 

@@ -13,7 +13,7 @@
 
 	//INI SYS
 		Route::resource('models/crud/estudiantes','Crud\EstudianteController');
-		// Route::resource('models/crud/profiles','Crud\ProfileController');
+		Route::resource('models/crud/almacens','Crud\AlmacenController');
 		// Route::resource('models/crud/rols','Crud\RolController');
 
 		// Route::resource('models/crud/tasks','Crud\TaskController');

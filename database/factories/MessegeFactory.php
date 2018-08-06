@@ -3,7 +3,7 @@
 use Faker\Generator as Faker;
 
 $factory->define(App\Models\sys\Messege::class, function (Faker $faker) {
-	$arr_tipo = ['success'=>'success','info'=>'info','warning'=>'warning','danger'=>'danger','default'=>'default'];
+	$arr_tipo = ['Conversación'=>'Conversación','Información'=>'Información','Alerta'=>'Alerta','Solicitud'=>'Solicitud'];
 	$arr_estado = ['Enviado'=>'Enviado','Entregado'=>'Entregado'];
     $created_at = $faker->dateTimeBetween('2017-01-01','now');
 
