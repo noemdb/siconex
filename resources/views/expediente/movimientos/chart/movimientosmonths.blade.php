@@ -1,8 +1,8 @@
-@php ($chart = ['range'=>'Todos','id_chart'=>'documentosmonthchart','urlapi'=>route('movimientos.months.chart'),'tipo'=>'line','limit'=>6 ])
+@php ($chart = ['range'=>'Todos','id_chart'=>'movimientosmonthschart','urlapi'=>route('movimientos.months.chart'),'tipo'=>'bar','limit'=>8, 'legend'=>false ])
 @section('scripts')
     @parent
     {{-- Llamado a la funcion responsable de inicilizar el Chart --}}
-    <script> requestData('{{ $chart['range'] }}','{{ $chart['id_chart'] }}','{{ $chart['urlapi'] }}','{{ $chart['tipo'] }}','{{ $chart['limit'] }}'); </script>
+     <script> requestData('{{ $chart['range'] }}','{{ $chart['id_chart'] }}','{{ $chart['urlapi'] }}','{{ $chart['tipo'] }}','{{ $chart['limit'] }}','{{ $chart['legend'] }}'); </script>
 @endsection
 
 @component('expediente.elements.card.panel')
@@ -20,6 +20,7 @@
                 @slot('urlapi', $chart['urlapi'])
                 @slot('tipo', $chart['tipo'])
                 @slot('limit', $chart['limit'])
+                @slot('legend', $chart['legend'])
               @endcomponent
             @endslot
             @slot('id', $chart['id_chart'])

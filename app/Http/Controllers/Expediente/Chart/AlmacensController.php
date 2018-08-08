@@ -27,7 +27,6 @@ class AlmacensController extends Controller
 
     public function AlmacenMovsMonths(Request $request)
     {
-
         $range = ($request->input('range')!=null) ? $request->input('range') : 'Todos';
 
         if ($range=='Todos') {
@@ -38,25 +37,12 @@ class AlmacensController extends Controller
             $ffinal = Carbon::now();
         }
 
-
-        $month = Movimiento::select(DB::raw('MONTH(movimientos.created_at) as month'), DB::raw('count(movimientos.id) as value'))
-            ->join('nivels','nivels.id','=','movimientos.nivel_id')
-            ->join('almacens','almacens.id','=','nivels.almacen_id')
-            ->Where('movimientos.created_at', '>=', $finicial)
-            ->Where('movimientos.created_at', '<=', $ffinal)
+        $month = Movimiento::select(DB::raw('count(id) as value'),DB::raw('MONTH(created_at) as month'))
+            ->Where('created_at', '>=', $finicial)
+            ->Where('created_at', '<=', $ffinal)
             ->groupby('month')
             ->orderBy('month', 'asc')
             ->get();
-            // ->take($limit);
-
-        // dd($dataSQL);
-
-        // $month = Almacen::select(DB::raw('count(id) as value'),DB::raw('MONTH(created_at) as month'))
-        //     ->Where('created_at', '>=', $finicial)
-        //     ->Where('created_at', '<=', $ffinal)
-        //     ->groupby('month')
-        //     ->orderBy('month', 'asc')
-        //     ->get();
 
         //INI nombre de los meses en español
         $labels = $month->pluck('month');

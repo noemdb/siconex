@@ -5,33 +5,34 @@
 {{ Form::hidden('user_id',Auth::user()->id) }}
 
 @if(isset($movimiento->expediente_id))
-{{ Form::hidden('expediente_id', $movimiento->expediente_id) }}
+    {{ Form::hidden('expediente_id', $movimiento->expediente_id) }}
+    <div class="form-label-group pb-1">
+        {!! Form::text('expcodigo', $movimiento->expediente->codigo, ['readonly'=>'readonly','class' => 'form-control','placeholder'=>'Expediente','id'=>'expcodigo','required']); !!}
+        <label for="descripcion">Expediente</label>
+    </div>
 @else
-<div class="form-label-group pb-1">
-    {!! Form::select('expediente_id',$expedientes,old('expediente_id'),['class' => 'form-control','placeholder' => 'Expedientes']); !!}
-    {{-- <label for="is_active">{{ trans('validation.attributes.is_active') }}</label> --}}
-</div>
+    <div class="form-label-group pb-1">
+        {!! Form::select('expediente_id',$expedientes,old('expediente_id'),['class' => 'form-control','placeholder' => 'Expedientes']); !!}
+        {{-- <label for="is_active">{{ trans('validation.attributes.is_active') }}</label> --}}
+    </div>
 @endif
 
 @if(isset($movimiento->nivel_id))
-{{ Form::hidden('nivel_id', $movimiento->nivel_id) }}
+    {{ Form::hidden('nivel_id', $movimiento->nivel_id) }}
+    <div class="form-label-group pb-1">
+        {!! Form::text('nivelcodigo', $movimiento->nivel->codigo, ['readonly'=>'readonly','class' => 'form-control','placeholder'=>'Nivel','id'=>'nivelcodigo','required']); !!}
+        <label for="descripcion">Nivel</label>
+    </div>
 @else
-
-{{-- <div class="form-label-group pb-1">
-    {!! Form::select('almacens',$nivels,old('almacens'),['class' => 'form-control','placeholder' => 'Almacenes']); !!}
-</div> --}}
-
-<div class="form-label-group pb-1">
-    {!! Form::select('nivel_id',$nivels,old('nivel_id'),['class' => 'form-control','placeholder' => 'Niveles']); !!}
-    {{-- <label for="is_active">{{ trans('validation.attributes.is_active') }}</label> --}}
-</div>
+    <div class="form-label-group pb-1">
+        {!! Form::select('nivel_id',$nivels,old('nivel_id'),['class' => 'form-control','placeholder' => 'Niveles']); !!}
+        {{-- <label for="is_active">{{ trans('validation.attributes.is_active') }}</label> --}}
+    </div>
 @endif
 
 <div class="form-label-group pb-1">
-    {!! Form::text('descripcion', old('descripcion'), ['class' => 'form-control','placeholder'=>'descripcion','id'=>'descripcion','required']); !!}
-    {{-- <input type="text" id="username" name="username" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" placeholder="Nombre de Usuario" value="{{ old('username') }}"> --}}
+    {!! Form::text('descripcion', old('descripcion'), ['class' => 'form-control','placeholder'=>'Descripción','id'=>'descripcion','required']); !!}
     <label for="descripcion">Descripción</label>
-
 </div>
 
 <div class="form-label-group pb-1">

@@ -33,7 +33,7 @@
         </div>
     </main>
 
-    {!! Form::open(['route' => ['movimientos.destroy',':DOCUMENTO_ID'], 'method' => 'DELETE', 'id'=>'form-delete', 'movimiento'=>'form']) !!}
+    {!! Form::open(['route' => ['movimientos.destroy',':MOVIMIENTO_ID'], 'method' => 'DELETE', 'id'=>'form-delete', 'movimiento'=>'form']) !!}
     {!! Form::close() !!}
 
 @endsection

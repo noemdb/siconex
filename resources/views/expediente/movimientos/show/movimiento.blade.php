@@ -14,9 +14,23 @@
             </tr>
 
             <tr>
-                <th scope="col">Tipo</th>
-                <td>
-                    {{$movimiento->tipo or ''}}
+                <th scope="col">Usuario</th>
+                <td scope="col">
+                    {{$movimiento->user->username or ''}}
+                </td>
+            </tr>
+
+            <tr>
+                <th scope="col">Almacen</th>
+                <td scope="col">
+                    {{$movimiento->nivel->almacen->nombre or ''}}
+                </td>
+            </tr>
+
+            <tr>
+                <th scope="col">Nivel</th>
+                <td scope="col">
+                    {{$movimiento->nivel->codigo or ''}}
                 </td>
             </tr>
 
@@ -32,20 +46,6 @@
                 <td>
                     {{$movimiento->observacion or ''}}
                 </td>
-            </tr>
-
-            <tr>
-                <th scope="col">Original</th>
-                <td>
-                    {{$movimiento->original or ''}}
-                </td>
-            </tr>
-
-            <tr>
-                <th scope="col">Copia</th>
-                <td>
-                    {{$movimiento->copia or ''}}
-                </th>
             </tr>
 
             <tr>

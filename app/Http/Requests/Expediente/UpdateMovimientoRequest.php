@@ -13,7 +13,7 @@ class UpdateMovimientoRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,22 @@ class UpdateMovimientoRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'expediente_id' => 'required',
+            'user_id' => 'required',
+            'nivel_id' => 'required',
+            'descripcion' => 'required|min:3|max:255',
+            // 'observacion' => 'required|min:3|max:255',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'expediente_id.required' => trans('validation.form.request.expediente_id'),
+            'nivel_id.required' => trans('validation.form.request.nivel_id'),
+            'descripcion.required' => trans('validation.form.request.descripcion'),
+            'descripcion.max' => trans('validation.form.request.descripcionmax'),
+            'descripcion.min' => trans('validation.form.request.descripcionmin'),
         ];
     }
 }

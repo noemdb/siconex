@@ -14,13 +14,13 @@
 
         <div class="col-lg-6 col-md-6 col-sm-12">
 
-            @include('expediente.movimientos.chart.documentosmonth')
+            @include('expediente.movimientos.chart.movimientosmonths')
 
         </div>
 
         <div class="col-lg-6 col-md-6 col-sm-12">
 
-          @include('expediente.movimientos.chart.documentostipos')
+          @include('expediente.almacens.chart.almacensmovs')
 
         </div>
 

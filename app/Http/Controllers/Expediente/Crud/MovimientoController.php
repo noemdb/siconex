@@ -92,7 +92,9 @@ class MovimientoController extends Controller
      */
     public function show($id)
     {
-        //
+        $movimiento = Movimiento::findOrFail($id);
+
+        return view('expediente.movimientos.show',compact('movimiento'));
     }
 
     /**
@@ -103,7 +105,22 @@ class MovimientoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $movimiento = Movimiento::findOrFail($id);
+
+        $expedientes = Expediente::select('expedientes.*')
+                ->orderby('expedientes.id','asc')
+                ->pluck('codigo', 'id');
+
+        $almacens = Almacen::select('nombre', 'id')
+                ->orderby('id','asc')
+                ->pluck('nombre', 'id');
+
+        $nivels = Nivel::select('codigo', 'id')
+                ->orderby('id','asc')
+                ->pluck('codigo', 'id');
+                // ->prepend('Seleccionar','');
+
+        return view('expediente.movimientos.edit',compact('movimiento','expedientes','almacens','nivels'));
     }
 
     /**
@@ -113,9 +130,21 @@ class MovimientoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateMovimientoRequest $request, $id)
     {
-        //
+        $movimiento = Movimiento::findOrFail($id);
+
+        $movimiento->fill($request->all());
+
+        $movimiento->save();
+
+        $messenge = trans('db_oper_result.update_ok');
+
+        Session::flash('operp_ok',$messenge);
+
+        Session::flash('class_oper','success');
+
+        return redirect()->route('movimientos.edit',$id);
     }
 
     /**
@@ -124,8 +153,23 @@ class MovimientoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
-        //
+        $movimiento = Movimiento::findOrFail($id);
+        $movimiento->delete();
+
+        $messenge = trans('db_oper_result.delete_ok');
+        $operation= 'delete';
+
+        if($request->ajax()){
+            return response()->json([
+                "messenge"=>$messenge,
+                "operation"=>$operation,
+            ]);
+        }
+
+        Session::flash('operp_ok',$messenge);
+
+        return redirect()->route('movimientos.index');
     }
 }
