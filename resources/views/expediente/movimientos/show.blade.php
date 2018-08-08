@@ -12,12 +12,12 @@
 
                 <h2>
 
-                    Información del Expediente
+                    Información del Movimiento
 
                     {{-- INI Menu rapido --}}
                     <div class="btn-group float-right pt-2">
 
-                        @include('expediente.expedientes.menus.show')
+                        @include('expediente.movimientos.menus.show')
 
                     </div>
                     {{-- FIN Menu rapido --}}
@@ -34,21 +34,10 @@
 
                     <div class="row">
 
-
-                        {{-- <div class="col-sm-4 text-center"> --}}
-
-                            {{-- <img alt="{{$expediente->id or ''}}" class="img-thumbnail img-rounded" src="{{ (isset($expediente->urlimg)) ? asset($expediente->url_img) : asset('images/avatar/user_default.png') }}"> --}}
-                            {{-- <img alt="{{$expediente->id or ''}}" class="img-thumbnail img-rounded" src="{{ asset('images/avatar/user_default.png') }}"> --}}
-
-                        {{-- </div> --}}
-
-
                         <div class="col-sm-12">
 
-                            {{-- Partial con los tabs --}}
-                            @include('expediente.expedientes.show.tabs')
-
-                            {{-- @include('expediente.expedientes.show.expediente') --}}
+                            @include('expediente.movimientos.show.movimiento')
+                            {{-- @include('expediente.movimientos.show.tabs') --}}
 
                         </div>
                     </div>

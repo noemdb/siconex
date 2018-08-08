@@ -10,3 +10,7 @@ php artisan make:request 'Expediente\CreateDocumentoRequest' && php artisan make
 php artisan make:request 'Expediente\CreateEstadoRequest' && php artisan make:request 'Expediente\UpdateEstadoRequest'
 
 php artisan make:request 'Expediente\CreateExpedienteRequest' && php artisan make:request 'Expediente\UpdateExpedienteRequest'
+
+php artisan make:request 'Expediente\CreateMovimientoRequest' && php artisan make:request 'Expediente\UpdateMovimientoRequest'
+
+php artisan make:request 'Expediente\CreateNivelRequest' && php artisan make:request 'Expediente\UpdateNivelRequest'

@@ -16,10 +16,16 @@ class Movimiento extends Model
      * @var array
      */
     protected $fillable = [
-        'expediente_id', 'descripcion', 'observacion'
+        'expediente_id','user_id','nivel_id', 'descripcion', 'observacion'
     ];
 
     /*INI relaciones entre modelos*/
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
+
     public function expediente()
     {
         return $this->belongsTo('App\Models\expedientes\Expediente');

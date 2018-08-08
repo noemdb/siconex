@@ -38,7 +38,7 @@ class CreateMovimientosTable extends Migration
                   ->onUpdate('cascade');
 
             $table->string('descripcion',255);
-            $table->string('observacion',255);
+            $table->string('observacion',255)->nullable();
 
             $table->timestamps();
         });

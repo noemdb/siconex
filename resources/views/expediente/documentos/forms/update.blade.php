@@ -1,6 +1,6 @@
 <div class="card bd-callout bd-callout-{{ Session::get('class_oper') or "" }}">
   <div class="card-header font-weight-bold">
-    Formulario para la actualización de la Documento<strong>{{ $user->username or '' }}</strong>
+    Formulario para la actualización del Documento<strong>{{ $user->username or '' }}</strong>
   </div>
   <div class="card-body p-1">
 

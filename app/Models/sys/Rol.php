@@ -21,7 +21,7 @@ class Rol extends Model
     ];
 
 	/*INI relaciones entre modelos*/
-	public function user()
+	public function users()
     {
         return $this->belongsTo('App\User');
     }

@@ -1,7 +1,7 @@
 @isset($expediente)
 
 
-    <div class="card bd-callout bd-callout-{{ $expediente->tipo or '' }} p-2 m-2">
+    <div class="card bd-callout bd-callout-{{ $expediente->tipo or 'info' }} p-2 m-2">
 
       <div class="card-body pt-1">
 
@@ -9,24 +9,30 @@
           <tbody>
             <tr>
 
-                <th scope="col">Nombre</th>
+                <th scope="col">Estudiante</th>
 
                 <th scope="col">
-                    {{$expediente->fullname or ''}}
+                    {{$expediente->estudiante->fullname or ''}}
                 </th>
             </tr>
             <tr>
-                <th scope="row">Email</th>
+                <th scope="row">Codigo</th>
                 <td>
-                    {{$expediente->email}}
+                    {{$expediente->codigo or ''}}
                 </td>
             </tr>
 
-            @php ($estado = $expediente->estados->last())
             <tr>
-                <th scope="row">Estado</th>
-                <td id="text-estudiantes-estado-{{ $expediente->id  or ''}}" class="text-uppercase text-{{$estado->class or ''}}">
-                    {{$estado->estado or ''}}
+                <th scope="row">Descripción</th>
+                <td>
+                    {{$expediente->descripcion or ''}}
+                </td>
+            </tr>
+
+            <tr>
+                <th scope="row">Observación</th>
+                <td>
+                    {{$expediente->observacion or ''}}
                 </td>
             </tr>
 

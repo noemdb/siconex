@@ -26,7 +26,7 @@ class Alert extends Model
 	];
 
 
-    public function getTruncMensajeAttribute()
+  public function getTruncMensajeAttribute()
 	{
 		$string = $this->mensaje;
 		$length = 4;

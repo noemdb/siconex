@@ -28,9 +28,9 @@ class UpdateCarreraRequest extends FormRequest
             'nombre' => 'required|min:3|max:255',
             'padminsion' => 'required|min:1|max:2',
             'fingreso' => 'required|date',
-            // 'fegreso' => 'date',
-            // 'fcongelar' => 'date',
-            // 'fdescongelar' => 'date',
+            'fegreso' => 'nullable|date',
+            'fcongelar' => 'nullable|date',
+            'fdescongelar' => 'nullable|date',
         ];
     }
 }

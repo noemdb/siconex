@@ -4,7 +4,7 @@ namespace App\Http\Requests\Expediente;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateExpedienteRequest extends FormRequest
+class CreateMovimientoRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,18 +24,19 @@ class CreateExpedienteRequest extends FormRequest
     public function rules()
     {
         return [
-            'estudiante_id' => 'required',
-            'codigo' => 'required|unique:expedientes,codigo',
+            'expediente_id' => 'required',
+            'user_id' => 'required',
+            'nivel_id' => 'required',
             'descripcion' => 'required',
+            // 'observacion' => 'required|min:3|max:255',
         ];
     }
 
     public function messages()
     {
         return [
-            // 'estudiante_id.required' => 'El estudiante :attribute es obligatorio',
-            'estudiante_id.required' => trans('validation.form.request.estudiante_id'),
-            'codigo.required' => trans('validation.form.request.codigo'),
+            'expediente_id.required' => trans('validation.form.request.expediente_id'),
+            'nivel_id.required' => trans('validation.form.request.nivel_id'),
             'descripcion.required' => trans('validation.form.request.descripcion'),
         ];
     }

@@ -94,7 +94,12 @@ class ExpedienteController extends Controller
      */
     public function edit($id)
     {
-        //
+        $expediente = Expediente::findOrFail($id);
+
+        $estudiantes = Estudiante::where('id',$expediente->estudiante_id )
+                ->pluck('ci', 'id');
+
+        return view('expediente.expedientes.edit',compact('expediente','estudiantes'));
     }
 
     /**
@@ -104,9 +109,21 @@ class ExpedienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateExpedienteRequest $request, $id)
     {
-        //
+        $expediente = Expediente::findOrFail($id);
+
+        $expediente->fill($request->all());
+
+        $expediente->save();
+
+        $messenge = trans('db_oper_result.update_ok');
+
+        Session::flash('operp_ok',$messenge);
+
+        Session::flash('class_oper','success');
+
+        return redirect()->route('expedientes.edit',$id);
     }
 
     /**
@@ -115,8 +132,24 @@ class ExpedienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
-        //
+        $expediente = Expediente::findOrFail($id);
+
+        $expediente->delete();
+
+        $messenge = trans('db_oper_result.delete_ok');
+        $operation= 'delete';
+
+        if($request->ajax()){
+            return response()->json([
+                "messenge"=>$messenge,
+                "operation"=>$operation,
+            ]);
+        }
+
+        Session::flash('operp_ok',$messenge.' -> ('.$expediente->codigo.')');
+
+        return redirect()->route('expedientes.index');
     }
 }

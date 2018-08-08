@@ -36,21 +36,21 @@
 
 {{-- INI Estudiantes --}}
 @component('expediente.layouts.dashboard.sidebar.elements.models')
-    @slot('nombre', 'Expedientes')
-    @slot('nrcrud', 'expedientes.index')
-    @slot('nrchart', 'estudiantes.chart')
-    @slot('icon', $icon_menus['expediente'])
-@endcomponent
-{{-- FIN Estudiantes --}}
-
-{{-- INI Estudiantes --}}
-@component('expediente.layouts.dashboard.sidebar.elements.models')
     @slot('nombre', 'Estudiantes')
     @slot('nrcrud', 'estudiantes.index')
     @slot('nrchart', 'estudiantes.chart')
     @slot('icon', $icon_menus['estudiante'])
 @endcomponent
 {{-- FIN Estudiantes --}}
+
+{{-- INI expediente --}}
+@component('expediente.layouts.dashboard.sidebar.elements.models')
+    @slot('nombre', 'Expedientes')
+    @slot('nrcrud', 'expedientes.index')
+    @slot('nrchart', 'estudiantes.chart')
+    @slot('icon', $icon_menus['expediente'])
+@endcomponent
+{{-- FIN expediente --}}
 
 {{-- INI Movimientos --}}
 @component('expediente.layouts.dashboard.sidebar.elements.models')

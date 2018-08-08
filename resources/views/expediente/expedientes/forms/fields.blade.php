@@ -2,28 +2,27 @@
 
 @include('expediente.elements.messeges.oper_ok')
 
-{{-- {{ Form::hidden('codigo', old('codigo')), ["id"=>"codigo","class"=>"codigo"] }} --}}
-
-<input name="codigo" type="hidden" value="{{ old('codigo') or ''}}" id="codigo">
-
 @if(isset($estudiante->id))
-{{ Form::hidden('estudiante_id', $estudiante->id) }}
+    {{ Form::hidden('estudiante_id', $estudiante->id) }}
 @else
-<div class="form-label-group pb-1">
-    {!! Form::select('estudiante_id',$estudiantes,old('estudiante_id'),['class' => 'form-control','placeholder' => 'Estudiante', 'id'=>'estudiante_id']); !!}
-</div>
+    <div class="form-label-group pb-1">
+        {!! Form::select('estudiante_id',$estudiantes,old('estudiante_id'),['class' => 'form-control','placeholder' => 'Estudiante', 'id'=>'estudiante_id']); !!}
+    </div>
 @endif
+
+<div class="form-label-group pb-1">
+    {!! Form::text('codigo', old('codigo'), ['class' => 'form-control','placeholder'=>'Código','id'=>'codigo', 'readonly'=>'readonly']); !!}
+    <label for="codigo">Código</label>
+</div>
 
 <div class="form-label-group pb-1">
     {!! Form::text('descripcion', old('descripcion'), ['class' => 'form-control','placeholder'=>'descripcion','id'=>'descripcion']); !!}
     <label for="descripcion">Descripción</label>
-
 </div>
 
 <div class="form-label-group pb-1">
     {!! Form::text('observacion', old('observacion'), ['class' => 'form-control','placeholder'=>'Observación','id'=>'observacion']); !!}
     <label for="observacion">Observación</label>
-
 </div>
 
 @section('stylesheet')

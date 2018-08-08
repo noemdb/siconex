@@ -8,11 +8,11 @@
                 <div class="card-header" id="heading_task_{{ $documento->id or '' }}">
                     <h5 class="mb-0">
                         <button class="btn btn-link btn-sm nounderline" style="text-decoration: none" data-toggle="collapse" data-target="#accordion_task_{{ $documento->id or '' }}" aria-expanded="true" aria-conttasks="accordion_task_{{ $documento->id or '' }}">
-                            {{ $documento->nombre or '' }}
-                            @if(isset($documento->fingreso))
-                                [{{ (isset($documento->fingreso)) ? Carbon\Carbon::parse($documento->fingreso)->format('Y') : '' }}
-                                {{$documento->padminsion or ''}}]
+                            @if(isset($documento->created_at))
+                                [{{ (isset($documento->created_at)) ? Carbon\Carbon::parse($documento->created_at)->format('Ym') : '' }}]
                             @endif
+                            [{{ $documento->tipo or '' }}]
+                            {{ $documento->truncdescripcion or '' }}
                         </button>
                     </h5>
                 </div>
@@ -23,7 +23,7 @@
 
                         @include('expediente.documentos.show.documento')
 
-                        <a class="btn btn-warning w-100" href="{{ route('documentos.edit',$documento->id)}}" taske="button">
+                        <a class="btn btn-warning w-100 p-0 m-0" href="{{ route('documentos.edit',$documento->id)}}" taske="button">
                             Actualizar
                             <i class="{{$icon_menus['documento'] or ''}}"></i>
                         </a>

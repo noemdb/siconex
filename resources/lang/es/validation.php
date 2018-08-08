@@ -133,4 +133,21 @@ return [
     ],
 
 
+    /*
+    |--------------------------------------------------------------------------
+    | Custom Validation Messeges for form request
+    |--------------------------------------------------------------------------
+    */
+
+    'form' => [
+        'request' => [
+            'estudiante_id'=>'El Estudiante es requerido',
+            'codigo'=>'El Codigo es requerido',
+            'expediente_id'=>'El Expediente es requerido',
+            'nivel_id'=>'El Nivel es requerido',
+            'descripcion'=>'La Descripción es requerida',
+        ],
+    ],
+
+
 ];

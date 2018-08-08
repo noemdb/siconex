@@ -81,7 +81,7 @@
                             <i class="{{$icon_menus['info']}}"></i>
                         </a>
 
-                        <a title="Editar resgistro" class="btn btn-warning btn-xs btn-action-group-{{ $expediente->id }}" href="{{ route('estudiantes.edit',$expediente->id) }}" id="btn-edituser_{{$expediente->id}}">
+                        <a title="Editar resgistro" class="btn btn-warning btn-xs btn-action-group-{{ $expediente->id }}" href="{{ route('expedientes.edit',$expediente->id) }}" id="btn-edituser_{{$expediente->id}}">
                             <i class="fas fa-pencil-alt"></i>
                         </a>
 
