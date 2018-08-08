@@ -5,8 +5,27 @@ namespace App\Http\Controllers\Expediente\Crud;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+//validation request
+use App\Http\Requests\Expediente\CreateExpedienteRequest;
+use App\Http\Requests\Expediente\UpdateExpedienteRequest;
+
+//Helpers
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Session;
+
+//models
+use App\Models\expedientes\Expediente;
+use App\Models\expedientes\Estudiante;
+use App\Models\sys\SelectOpt;
+
+
 class ExpedienteController extends Controller
 {
+    /* Constructor, verifica login del usuario - agregar middleware para verificar el rol */
+    public function __construct(){
+        $this->middleware(['auth']);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +33,9 @@ class ExpedienteController extends Controller
      */
     public function index()
     {
-        //
+        $expedientes = Expediente::OrderBy('id','DESC')->get();
+
+        return view('expediente.expedientes.index', compact('expedientes'));
     }
 
     /**
@@ -24,18 +45,32 @@ class ExpedienteController extends Controller
      */
     public function create()
     {
-        //
-    }
+        $estudiantes = Estudiante::select('estudiantes.*')
+                ->leftJoin('expedientes', 'estudiantes.id', '=', 'expedientes.estudiante_id')
+                ->whereNull('expedientes.estudiante_id')
+                ->orderby('estudiantes.ci','asc')
+                ->pluck('ci', 'id');
 
+        return view('expediente.expedientes.create',compact('estudiantes'));
+    }
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateExpedienteRequest $request)
     {
-        //
+
+        $expediente = Expediente::create($request->all());
+
+        $messenge = trans('db_oper_result.create_ok');
+
+        Session::flash('operp_ok',$messenge);
+
+        Session::flash('class_oper','success');
+
+        return redirect()->route('expedientes.index');
     }
 
     /**
@@ -46,7 +81,9 @@ class ExpedienteController extends Controller
      */
     public function show($id)
     {
-        //
+        $expediente = Expediente::findOrFail($id);
+
+        return view('expediente.expedientes.show',compact('expediente'));
     }
 
     /**

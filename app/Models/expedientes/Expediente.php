@@ -16,18 +16,18 @@ class Expediente extends Model
      * @var array
      */
     protected $fillable = [
-        'firstname', 'lastname', 'email', 'urlimg'
+        'estudiante_id', 'codigo', 'descripcion', 'observacion'
     ];
 
     /*INI relaciones entre modelos*/
-    public function nivels()
-    {
-        return $this->hasOne('App\Models\expedientes\Nivel');
-    }
-
     public function documentos()
     {
-        return $this->hasOne('App\Models\expedientes\Documento');
+        return $this->hasMany('App\Models\expedientes\Documento');
+    }
+
+    public function movimientos()
+    {
+        return $this->hasMany('App\Models\expedientes\Movimiento');
     }
 
     public function estudiante()

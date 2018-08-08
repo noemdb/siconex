@@ -17,7 +17,6 @@ use App\Models\sys\SelectOpt;
 
 class CarreraController extends Controller
 {
-
     /* Constructor, verifica login del usuario - agregar middleware para verificar el rol */
     public function __construct(){
         $this->middleware(['auth']);
@@ -41,7 +40,7 @@ class CarreraController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {        
+    {
         $carreras = SelectOpt::select('select_opts.*')
                     ->where('table','carreras')
                     ->where('view','carreras.create')
@@ -145,7 +144,6 @@ class CarreraController extends Controller
     public function destroy($id, Request $request)
     {
         $carrera = Carrera::findOrFail($id);
-        // $carrera = Carrera::findOrFail($id);
         $carrera->delete();
 
         $messenge = trans('db_oper_result.delete_ok');

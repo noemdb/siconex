@@ -1,6 +1,5 @@
 @isset($carrera)
 
-
     <div class="card bd-callout bd-callout-{{ $carrera->tipo or '' }} p-2 m-2">
 
       <div class="card-body pt-1">
@@ -33,30 +32,38 @@
             <tr>
                 <th scope="row">Fecha de Ingeso</th>
                 <td>
-                    {{$carrera->fingreso}}
+                    @if(isset($carrera->fingreso))
+                        {{ (isset($carrera->fingreso)) ? Carbon\Carbon::parse($carrera->fingreso)->format('d-m-Y') : '' }}
+                    @endif
                 </td>
             </tr>
 
             <tr>
                 <th scope="row">Fecha de Egreso</th>
                 <td>
-                    {{$carrera->fegreso}}
+                    @if(isset($carrera->fegreso))
+                        {{ (isset($carrera->fegreso)) ? Carbon\Carbon::parse($carrera->fegreso)->format('d-m-Y') : '' }}
+                    @endif
                 </td>
             </tr>
 
+            @if(isset($carrera->fcongelar))
             <tr>
                 <th scope="row">Fecha Congelar</th>
                 <td>
-                    {{$carrera->fcongelar}}
+                    {{ (isset($carrera->fcongelar)) ? Carbon\Carbon::parse($carrera->fcongelar)->format('d-m-Y') : '' }}
                 </td>
             </tr>
+            @endif
 
+            @if(isset($carrera->fdescongelar))
             <tr>
                 <th scope="row">Fecha Descongelar</th>
                 <td>
-                    {{$carrera->fdescongelar}}
+                    {{ (isset($carrera->fdescongelar)) ? Carbon\Carbon::parse($carrera->fdescongelar)->format('d-m-Y') : '' }}
                 </td>
             </tr>
+            @endif
 
             <tr>
                 <th scope="row">Creado</th>
@@ -67,14 +74,14 @@
                 </td>
             </tr>
 
+            @if(isset($carrera->updated_at))
             <tr>
                 <th scope="row">Actualizado</th>
                 <td>
-                    @if(isset($carrera->updated_at))
-                        {{$carrera->updated_at->format('d-m-Y h:m:s')}}
-                    @endif
+                    {{$carrera->updated_at->format('d-m-Y h:m:s')}}
                 </td>
             </tr>
+            @endif
 
           </tbody>
 

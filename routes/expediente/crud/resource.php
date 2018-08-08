@@ -1,4 +1,4 @@
-<?php 
+<?php
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,7 +15,11 @@
 		Route::resource('models/crud/estudiantes','Crud\EstudianteController');
 		Route::resource('models/crud/almacens','Crud\AlmacenController');
 		Route::resource('models/crud/carreras','Crud\CarreraController');
-
+		Route::resource('models/crud/documentos','Crud\DocumentoController');
+		Route::resource('models/crud/estados','Crud\EstadoController');
+		Route::resource('models/crud/expedientes','Crud\ExpedienteController');
+		Route::resource('models/crud/movimientos','Crud\MovimientoController');
+		Route::resource('models/crud/nivels','Crud\NivelController');
 	//FIN LOGICA DEL NEGOCIO
 
 // FIN resource

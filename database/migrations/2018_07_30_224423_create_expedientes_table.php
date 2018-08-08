@@ -24,8 +24,8 @@ class CreateExpedientesTable extends Migration
                   ->onUpdate('cascade');
 
             $table->string('codigo',32);
-            $table->string('descripcion',255);
-            $table->string('observacion',255);
+            $table->string('descripcion',255)->nullable();
+            $table->string('observacion',255)->nullable();
 
             $table->timestamps();
         });

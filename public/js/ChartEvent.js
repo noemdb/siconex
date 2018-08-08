@@ -20,9 +20,10 @@ $('nav.ranges a').click(function(e){
     var api = nav.data('urlapi'); //console.log('urlapi: '+api);
     var tipo = nav.data('tipo'); //console.log('tipo: '+tipo);
     var limit = nav.data('limit'); //console.log('limit: '+limit);
+    var legend = nav.data('legend'); //console.log('legend: '+legend);
 
     // Request the data and render the chart using our handy function
-    requestData(range,canvas,api,tipo,limit);
+    requestData(range,canvas,api,tipo,limit,legend);
     // Make things pretty to show which button/tab the user clicked
     el.parent().addClass('active');
     el.parent().siblings().removeClass('active');

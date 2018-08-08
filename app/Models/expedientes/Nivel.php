@@ -24,9 +24,9 @@ class Nivel extends Model
     {
         return $this->belongsTo('App\Models\expedientes\Almacen');
     }
-    public function movimiento()
+    public function movimientos()
     {
-        return $this->hasOne('App\Models\expedientes\Movimiento');
+        return $this->hasMany('App\Models\expedientes\Movimiento');
     }
     /*FIN relaciones entre modelos*/
 }

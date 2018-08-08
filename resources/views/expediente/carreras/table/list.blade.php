@@ -4,8 +4,9 @@
         'estudiante_id'=>'',
         'nombre'=>'',
         'padminsion'=>'d-none d-md-table-cell',
-        'fegreso'=>'d-none d-md-table-cell',
-        'created_at'=>'d-none d-lg-table-cell',
+        'fingreso'=>'d-none d-md-table-cell',
+        'fegreso'=>'d-none d-lg-table-cell',
+        // 'created_at'=>'d-none d-lg-table-cell',
         // 'updated_at'=>'d-none d-xl-table-cell',
         'btn_accion'=>'nosort text-center',
     ];
@@ -19,7 +20,8 @@
             <th class="{{ $class['nombre'] or ''}}">Nombre</th>
             <th class="{{ $class['padminsion'] or ''}}">Período Adm.</th>
             <th class="{{ $class['fingreso'] or ''}}">F.Ingreso</th>
-            <th class="{{ $class['created_at'] or ''}}">Creado</th>
+            <th class="{{ $class['fegreso'] or ''}}">F.Ingreso</th>
+            {{-- <th class="{{ $class['created_at'] or ''}}">Creado</th> --}}
             {{-- <th class="{{ $class['updated_at'] or '' }}">Actualizado</th> --}}
             <th align="right" class="{{ $class['btn_accion'] or ''}}"><strong>Aciones</strong></th>
         </tr>
@@ -37,11 +39,11 @@
                 </td>
 
                 <td id="td-carreras-estudiante_id-{{ $carrera->id or '' }}" class="{{ $class['estudiante_id'] or ''}}">
-                    {{$carrera->estudiante->fullname or ''}} 
+                    {{$carrera->estudiante->fullname or ''}}
                 </td>
 
                 <td id="td-carreras-nombre-{{ $carrera->id or '' }}" class="{{ $class['nombre'] or ''}}">
-                    {{$carrera->nombre or ''}} 
+                    {{$carrera->nombre or ''}}
                 </td>
 
                 <td id="td-carreras-padminsion-{{$carrera->padminsion or ''}}" class="{{ $class['padminsion'] or ''}}">
@@ -52,9 +54,13 @@
                     {{ (isset($carrera->fingreso)) ? Carbon\Carbon::parse($carrera->fingreso)->format('d-m-Y') : '' }}
                 </td>
 
-                <td id="td-carreras-created_at-{{ $carrera->id or ''}}" class="{{ $class['created_at'] or ''}}">
-                    {{ (isset($carrera->created_at)) ? Carbon\Carbon::parse($carrera->created_at)->format('d-m-Y') : '' }}
+                <td id="td-carreras-fegreso-{{$carrera->fegreso or ''}}" class="{{ $class['fegreso'] or ''}}">
+                    {{ (isset($carrera->fegreso)) ? Carbon\Carbon::parse($carrera->fegreso)->format('d-m-Y') : '' }}
                 </td>
+
+                {{-- <td id="td-carreras-created_at-{{ $carrera->id or ''}}" class="{{ $class['created_at'] or ''}}">
+                    {{ (isset($carrera->created_at)) ? Carbon\Carbon::parse($carrera->created_at)->format('d-m-Y') : '' }}
+                </td> --}}
 
                 {{-- <td id="td-carreras-updated_at-{{ $carrera->id or ''}}" class="{{ $class['updated_at'] or ''}}"> --}}
                     {{-- {{ (isset($carrera->updated_at)) ? Carbon\Carbon::parse($carrera->updated_at)->format('d-m-Y') : '' }} --}}

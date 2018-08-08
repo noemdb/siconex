@@ -10,8 +10,8 @@ $factory->define(App\Models\expedientes\Movimiento::class, function (Faker $fake
     $fupdated = $faker->dateTimeBetween($fcreated,Carbon::now());
 
     $expdiente_id = DB::table('expedientes')
-                ->select('expedientes.*','movimientos.id as movimientos_id')
-                ->leftJoin('movimientos', 'movimientos.expediente_id', '=', 'expedientes.id')
+                ->select('expedientes.*')
+                // ->leftJoin('movimientos', 'movimientos.expediente_id', '=', 'expedientes.id')
                 // ->whereNull('expedientes.id')
                 ->inRandomOrder()
                 ->first()->id;

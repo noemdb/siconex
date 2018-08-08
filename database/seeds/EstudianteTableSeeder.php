@@ -11,7 +11,7 @@ class EstudianteTableSeeder extends Seeder
      */
     public function run()
     {
-        for ($i=0; $i < 200; $i++) { 
+        for ($i=0; $i < 70; $i++) {
             factory(App\Models\expedientes\Estudiante::class)->times(1)->create();
         }
     }

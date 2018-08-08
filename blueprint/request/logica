@@ -4,3 +4,9 @@ php artisan make:request 'Expediente\CreateEstudianteRequest' && php artisan mak
 php artisan make:request 'Expediente\CreateAlmacenRequest' && php artisan make:request 'Expediente\UpdateAlmacenRequest'
 
 php artisan make:request 'Expediente\CreateCarreraRequest' && php artisan make:request 'Expediente\UpdateCarreraRequest'
+
+php artisan make:request 'Expediente\CreateDocumentoRequest' && php artisan make:request 'Expediente\UpdateDocumentoRequest'
+
+php artisan make:request 'Expediente\CreateEstadoRequest' && php artisan make:request 'Expediente\UpdateEstadoRequest'
+
+php artisan make:request 'Expediente\CreateExpedienteRequest' && php artisan make:request 'Expediente\UpdateExpedienteRequest'

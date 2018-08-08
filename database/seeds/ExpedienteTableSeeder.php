@@ -11,7 +11,7 @@ class ExpedienteTableSeeder extends Seeder
      */
     public function run()
     {
-        for ($i=0; $i < 150; $i++) { 
+        for ($i=0; $i < 50; $i++) {
             factory(App\Models\expedientes\Expediente::class)->times(1)->create();
         }
     }

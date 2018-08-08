@@ -18,7 +18,7 @@ class UsersController extends Controller
 {
 
     public function index()
-    {        
+    {
         return view('admin.users.charts');
     }
 
@@ -34,7 +34,7 @@ class UsersController extends Controller
             $fecha = Carbon::now()->subDays($range);
         }
 
-        $users = 
+        $users =
             User::select('is_active',DB::raw('count(is_active) as users_count'))
             ->Where('created_at', '<=', $fecha)
             // ->Where('created_at', '<=', $ffinal)
@@ -47,7 +47,7 @@ class UsersController extends Controller
 
         $labels = $users->pluck('is_active');
         $values = $users->pluck('users_count');
-        for ($i=0; $i < count($labels) ; $i++) { 
+        for ($i=0; $i < count($labels) ; $i++) {
             $colors[] = 'rgba('.rand(0,255).', '.rand(0,255).', '.rand(0,255).', 1)';
         }
 

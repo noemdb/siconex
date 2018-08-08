@@ -44,7 +44,7 @@ class AppServiceProvider extends ServiceProvider
 
             'chartpie'=>'fas fa-chart-pie',
             'chartbar'=>'fas fa-chart-bar',
-            'chartarea'=>'far fa-chart-area',
+            'chartarea'=>'fas fa-chart-area',
             'chartline'=>'fas fa-chart-line',
 
             'estudiante'=>'fas fa-user-edit',

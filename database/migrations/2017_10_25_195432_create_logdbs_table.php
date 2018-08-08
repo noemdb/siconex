@@ -26,7 +26,7 @@ class CreateLogdbsTable extends Migration
             $table->enum('tipo', ['primary','success', 'info', 'warning', 'danger','default'])->default('default');
             $table->string('model_class')->nullable();
             $table->string('model_id')->nullable();
-            $table->string('data')->nullable();
+            $table->text('data')->nullable();
             $table->string('ip')->nullable();
             $table->string('pathInfo')->nullable();
             $table->string('url')->nullable();

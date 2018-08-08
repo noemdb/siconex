@@ -24,10 +24,10 @@ class Movimiento extends Model
     {
         return $this->belongsTo('App\Models\expedientes\Expediente');
     }
-    public function almacen()
-    {
-        return $this->belongsTo('App\Models\expedientes\Almacen');
-    }
+    // public function almacen()
+    // {
+    //     return $this->belongsTo('App\Models\expedientes\Almacen');
+    // }
     public function nivel()
     {
         return $this->belongsTo('App\Models\expedientes\Nivel');

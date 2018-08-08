@@ -1,15 +1,15 @@
-@php ($chart = ['range'=>'Todos','id_chart'=>'almacensdocschart','urlapi'=>route('carreras.docs.chart'),'tipo'=>'pie','limit'=>8 ])
+@php ($chart = ['range'=>'Todos','id_chart'=>'documentosmonthchart','urlapi'=>route('documentos.months.chart'),'tipo'=>'line','limit'=>6 ])
 @section('scripts')
     @parent
     {{-- Llamado a la funcion responsable de inicilizar el Chart --}}
     <script> requestData('{{ $chart['range'] }}','{{ $chart['id_chart'] }}','{{ $chart['urlapi'] }}','{{ $chart['tipo'] }}','{{ $chart['limit'] }}'); </script>
 @endsection
 
-@component('admin.elements.card.panel')
-    @slot('class', 'primary')
+@component('expediente.elements.card.panel')
+    @slot('class', 'info')
     @slot('panelControls', 'true')
     @slot('id', $chart['id_chart'])
-    @slot('header', 'Documentos por Almacen')
+    @slot('header', 'Reg. documentos por Mes')
     @slot('iconTitle', $icon_menus['chartline'])
     @slot('body')
         @component('expediente.elements.chart.canvas')

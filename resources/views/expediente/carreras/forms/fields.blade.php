@@ -3,28 +3,23 @@
 @include('expediente.elements.messeges.oper_ok')
 
 @if(isset($estudiante->id))
-
-    {{ Form::hidden('estudiante_id', $estudiante->id) }}
-
+{{ Form::hidden('estudiante_id', $estudiante->id) }}
 @else
-
-    <div class="form-label-group pb-1">        
-        {!! Form::select('estudiante_id',$estudiantes,old('estudiante_id'),['class' => 'form-control','placeholder' => 'Estudiante']); !!}
-        {{-- <label for="is_active">{{ trans('validation.attributes.is_active') }}</label> --}}
-    </div>
-
+<div class="form-label-group pb-1">
+    {!! Form::select('estudiante_id',$estudiantes,old('estudiante_id'),['class' => 'form-control','placeholder' => 'Estudiante']); !!}
+    {{-- <label for="is_active">{{ trans('validation.attributes.is_active') }}</label> --}}
+</div>
 @endif
 
-
 <div class="form-label-group pb-1">
-    
+
     {!! Form::select('nombre',$carreras,old('nombre'),['class' => 'form-control','placeholder' => 'Carrera']); !!}
     {{-- <label for="rango">{{ trans('validation.attributes.rango') }}</label> --}}
 
 </div>
 
 <div class="form-label-group pb-1">
-    
+
     {!! Form::select('padminsion',['1'=>'1','2'=>'2'],old('padminsion'),['class' => 'form-control','placeholder' => 'Lapso Admisión']); !!}
     {{-- <label for="rango">{{ trans('validation.attributes.rango') }}</label> --}}
 

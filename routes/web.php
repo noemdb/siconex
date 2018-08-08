@@ -71,7 +71,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','is_admin'],'namespace'=>'
 
     //INI rutas para los json
     // require (__DIR__ . '/admin/json/index.php');
-    //FIN rutas para los json   
+    //FIN rutas para los json
 
 });
 
@@ -92,6 +92,11 @@ Route::group(['prefix'=>'expediente','middleware'=>['auth','is_expediente'],'nam
     require (__DIR__ . '/expediente/charts/estudiantes.php');
     require (__DIR__ . '/expediente/charts/almacens.php');
     require (__DIR__ . '/expediente/charts/carreras.php');
-    //FIN Charts modelos  
+    require (__DIR__ . '/expediente/charts/documentos.php');
+    require (__DIR__ . '/expediente/charts/estados.php');
+    require (__DIR__ . '/expediente/charts/expedientes.php');
+    require (__DIR__ . '/expediente/charts/movimientos.php');
+    require (__DIR__ . '/expediente/charts/nivels.php');
+    //FIN Charts modelos
 
 });

@@ -21,7 +21,7 @@ class CreateEstadosTable extends Migration
                   ->on('estudiantes')
                   ->onDelete('cascade')
                   ->onUpdate('cascade');
-            $table->enum('estado', ['Regular','Suspendido','Preinscrito','Egresado'])->default('Regular');            
+            $table->string('estado',255);
             $table->softDeletes();
             $table->timestamps();
         });

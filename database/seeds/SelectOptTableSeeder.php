@@ -11,7 +11,7 @@ class SelectOptTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
     	$arr_rol = ['CONTRA'=>'CONTRA','DIRCP'=>'DIRCP','CORCP'=>'CORCP','COMCP'=>'COMCP','ADMIN'=>'ADMIN','USUARIO'=>'USUARIO'];
     	foreach ($arr_rol as $key => $value) {
     		DB::table('select_opts')->insert([
@@ -119,8 +119,8 @@ class SelectOptTableSeeder extends Seeder
         'sidebar_models_tasks' => 'sidebar_models_tasks',
         'sidebar_models_alerts' => 'sidebar_models_alerts',
         'sidebar_models_logdbs' => 'sidebar_models_logdbs',
-        'sidebar_models_loginouts' => 'sidebar_models_loginouts',    
-        
+        'sidebar_models_loginouts' => 'sidebar_models_loginouts',
+
         //sidebar nivel 3
         'sidebar_models_users_crud' => 'sidebar_models_users_crud',
         'sidebar_models_users_chart' => 'sidebar_models_users_chart',
@@ -172,7 +172,7 @@ class SelectOptTableSeeder extends Seeder
             ]);
         }
 
-        $almacens = ['Almacen N1'=>'Almacen N1', 'Almacen N2'=>'Almacen N2', 'Almacen N3'=>'Almacen N3', 'Almacen N4'=>'Almacen N4', 'Almacen N5'=>'Almacen N5'];
+        $almacens = ['AN1'=>'AN1', 'AN2'=>'AN2', 'AN3'=>'AN3', 'AN4'=>'AN4', 'AN5'=>'AN5','AN6'=>'AN6', 'AN7'=>'AN7', 'AN8'=>'AN8', 'AN9'=>'AN9', 'AN10'=>'AN10'];
         foreach ($almacens as $key => $value) {
             DB::table('select_opts')->insert([
                 'table' => "almacens",
@@ -182,7 +182,29 @@ class SelectOptTableSeeder extends Seeder
                 'view' => "almacens.create",
             ]);
         }
-        
-        
+
+        $arr = ['Acta'=>'Acta', 'Solicitud'=>'Solicitud', 'Inscripción'=>'Inscripción', 'Notas'=>'Notas', 'Constancia'=>'Constancia'];
+        foreach ($arr as $key => $value) {
+            DB::table('select_opts')->insert([
+                'table' => "documentos",
+                'name' => "tipo",
+                'key' => $key,
+                'value' => $value,
+                'view' => "documentos.create",
+            ]);
+        }
+
+        $arr = ['Regular'=>'Regular','Suspendido'=>'Suspendido','Preinscrito'=>'Preinscrito','Egresado'=>'Egresado'];
+        foreach ($arr as $key => $value) {
+            DB::table('select_opts')->insert([
+                'table' => "estados",
+                'name' => "estado",
+                'key' => $key,
+                'value' => $value,
+                'view' => "estados.create",
+            ]);
+        }
+
+
     }
 }

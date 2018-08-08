@@ -9,19 +9,22 @@ $factory->define(App\Models\expedientes\Estado::class, function (Faker $faker) {
     $fcreated = $faker->dateTimeBetween('2017-01-01',Carbon::now());
     $fupdated = $faker->dateTimeBetween($fcreated,Carbon::now());
 
-    $arr_estado = ['Regular'=>'Regular','Suspendido'=>'Suspendido','Preinscrito'=>'Preinscrito','Egresado'=>'Egresado'];
+    $estudiante_id = DB::table('estudiantes')
+                ->select('estudiantes.*')
+                // ->whereNull('expedientes.id')
+                ->inRandomOrder()
+                ->first()->id;
+
+    $estado = DB::table('select_opts')
+                ->where('table','estados')
+                ->where('view','estados.create')
+                ->where('name','estado')
+                ->inRandomOrder()
+                ->first()->value;
 
     return [
-    	'estudiante_id' => function () { 
-        	return 
-        	DB::table('estudiantes')
-				->select('estudiantes.*','estados.id as estado_id')
-				->leftJoin('estados', 'estados.estudiante_id', '=', 'estudiantes.id')
-				->whereNull('estados.id')
-                ->inRandomOrder()
-				->first()->id;
-        },
-        'estado' => array_rand($arr_estado,1),
+    	'estudiante_id' => $estudiante_id,
+        'estado' => $estado,
         'created_at' => $fcreated,
         'updated_at' => $fupdated,
     ];

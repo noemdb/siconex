@@ -8,7 +8,7 @@
 </nav>
 <div class="tab-content" id="nav-tabContent">
   <div class="tab-pane fade show active" id="nav-general" role="tabpanel" aria-labelledby="nav-general-tab">
-    @includeIf('expediente.estudiantes.show.estudiante')
+    @include('expediente.estudiantes.show.estudiante')
     <a class="btn btn-warning w-100" href="{{ route('estudiantes.edit',$estudiante->id) }}" taske="button">
       Actualizar
       <i class="{{$icon_menus['estudiante'] or ''}}"></i>
@@ -22,15 +22,17 @@
   </div>
 
   <div class="tab-pane fade m-1 p-1" id="nav-carreras" role="tabpanel" aria-labelledby="nav-carreras-tab">
-    {{-- @isset($messeges) --}}
-      {{-- @includeIf('expediente.messeges.show.messeges') --}}
-    {{-- @endisset --}}
+    @php ($carreras = $estudiante->carreras)
+    @isset($carreras)
+      @include('expediente.carreras.show.carreras')
+    @endisset
   </div>
 
-  <div class="tab-pane fade m-1 p-1" id="nav-estados" role="tabpanel" aria-labelledby="nav-estados-tab">       
-    {{-- @isset($tasks) --}}
-      {{-- @includeIf('expediente.tasks.show.tasks') --}}
-    {{-- @endisset --}}
+  <div class="tab-pane fade m-1 p-1" id="nav-estados" role="tabpanel" aria-labelledby="nav-estados-tab">
+    @php ($estados = $estudiante->estados)
+    @isset($estados)
+      @includeIf('expediente.estados.show.estados')
+    @endisset
   </div>
 
 </div>

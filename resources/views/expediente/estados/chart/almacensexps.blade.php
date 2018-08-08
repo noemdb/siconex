@@ -1,4 +1,4 @@
-@php ($chart = ['range'=>'Todos','id_chart'=>'almacensexpschart','urlapi'=>route('carreras.exps.chart'),'tipo'=>'pie','limit'=>8 ])
+@php ($chart = ['range'=>'Todos','id_chart'=>'almacensexpschart','urlapi'=>route('estados.exps.chart'),'tipo'=>'pie','limit'=>8 ])
 @section('scripts')
     @parent
     {{-- Llamado a la funcion responsable de inicilizar el Chart --}}

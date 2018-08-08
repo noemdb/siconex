@@ -33,8 +33,7 @@ class EstudianteController extends Controller
      */
     public function index()
     {
-        $estudiantes = Estudiante::OrderBy('estudiantes.id','DESC')
-            ->get();
+        $estudiantes = Estudiante::OrderBy('estudiantes.id','DESC')->get();
 
         return view('expediente.estudiantes.index', compact('estudiantes'));
     }

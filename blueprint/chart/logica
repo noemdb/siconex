@@ -1,2 +1,6 @@
 php artisan make:controller 'Expediente\Chart\EstudiantesController'
 php artisan make:controller 'Expediente\Chart\AlmacensController'
+php artisan make:controller 'Expediente\Chart\CarrerasController'
+php artisan make:controller 'Expediente\Chart\DocumentosController'
+php artisan make:controller 'Expediente\Chart\EstadosController'
+php artisan make:controller 'Expediente\Chart\ExpedientesController'

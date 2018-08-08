@@ -10,7 +10,7 @@
  */
 
 // Create a function that will handle AJAX requests
-function requestData(range,canvas,urlapi,tipo,limit){
+function requestData(range,canvas,urlapi,tipo,limit,legend=true){
 
     $.ajax({
       type: "GET",
@@ -20,9 +20,9 @@ function requestData(range,canvas,urlapi,tipo,limit){
     .done(function( data ) {
 
         //INI asegurar dibujar en un canvas nuevo para evitar solapamiento de chart
-        $('#'+canvas).remove(); // elimina el canvas antiguo                   
+        $('#'+canvas).remove(); // elimina el canvas antiguo
         var newcanvas = document.createElement('canvas'); console.log(newcanvas); //crea
-        newcanvas.id  = canvas;  console.log(newcanvas); // 
+        newcanvas.id  = canvas;  console.log(newcanvas); //
         div = document.getElementById('div-'+canvas); console.log(div); //este div contiene el canvas para el chart
         div.appendChild(newcanvas); // asignando el canvas al div
         //FIN asegurar dibujar en un canvas nuevo para evitar solapamiento de chart
@@ -34,26 +34,27 @@ function requestData(range,canvas,urlapi,tipo,limit){
             responsive: true,
             scaleShowValues: true,
         }
-        
+
         if (tipo == 'line' || tipo == 'bar') {
             options = {
                 options,
+                legend: {display:legend},
                 elements: { line: { tension: 0.2 } },
                 scales:{
                         yAxes: [{ ticks: { beginAtZero: true, callback: function (value) { if (Number.isInteger(value)) { return value; } } } }],
                         xAxes: [{ ticks: { autoSkip: false } }]
                     }
-                    
+
                 }
         }
 
         if (tipo=='pie') {
             options = {
                 options,
-                legend: { position: 'left' },
+                legend: {position: 'left' },
             }
         }
-        
+
         var myChart = new Chart(context, {
             type: tipo,
             data: apidata,

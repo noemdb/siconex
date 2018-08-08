@@ -16,14 +16,14 @@ class Documento extends Model
      * @var array
      */
     protected $fillable = [
-        'expediente_id', 'descripcion', 'observacion', 'original', 'copia'
+        'expediente_id','tipo', 'descripcion', 'observacion', 'original', 'copia'
     ];
 
     /*INI relaciones entre modelos*/
-    public function estudiante()
+    public function expediente()
     {
-        return $this->belongsTo('App\Models\expedientes\Estudiante');
+        return $this->belongsTo('App\Models\expedientes\Expediente');
     }
     /*FIN relaciones entre modelos*/
-    
+
 }
