@@ -23,10 +23,12 @@
 
                         @include('expediente.carreras.show.carrera')
 
+                        {{-- @if($actualizar) --}}
                         <a class="btn btn-warning w-100" href="{{ route('carreras.edit',$carrera->id)}}" taske="button">
                             Actualizar
                             <i class="{{$icon_menus['carrera'] or ''}}"></i>
                         </a>
+                        {{-- @endif --}}
 
                     </div>
                 </div>

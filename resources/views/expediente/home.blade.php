@@ -1,4 +1,5 @@
 @extends('expediente.layouts.dashboard.app')
+{{-- @extends('expediente.layouts.app_sidebar') --}}
 
 
 @section('page_heading')
@@ -8,7 +9,6 @@
         </h1>
     {{-- </div> --}}
 @endsection
-
 
 @section('main')
 
@@ -27,7 +27,6 @@
     {{-- <link rel="stylesheet" href="{{ asset('css/timeline.css') }}"> --}}
 
 @endsection
-
 
 @section('scripts')
     @parent

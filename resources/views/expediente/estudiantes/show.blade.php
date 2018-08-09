@@ -45,17 +45,8 @@
 
                         <div class="col-sm-8">
 
-                            {{-- Partial con los tabs de usuario (perfiles, Estudiantes) --}}
-                            {{-- @php ($user = $estudiante->user)
-                            @isset($user->profile)
-                                @php ($profile = $user->profile)
-                            @endisset
-                            @isset($user->tasks)
-                                @php ($tasks = $user->tasks)
-                            @endisset --}}
-
-                            {{-- @include('expediente.estudiantes.show.tabs') --}}
                             @include('expediente.estudiantes.show.tabs')
+                            {{-- @include('expediente.estudiantes.show.tabs') --}}
 
                         </div>
                     </div>

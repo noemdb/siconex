@@ -161,7 +161,7 @@ class SelectOptTableSeeder extends Seeder
             ]);
         }
 
-        $carreras = ['Físcica'=>'Físcica', 'Quimica'=>'Quimica', 'Matemática'=>'Matemática', 'Educación'=>'Educación', 'Medicina'=>'Medicina', 'Ingeniería'=>'Ingeniería'];
+        $carreras = ['Físcica'=>'Físcica', 'Química'=>'Química', 'Matemática'=>'Matemática', 'Educación'=>'Educación', 'Medicina'=>'Medicina', 'Ingeniería'=>'Ingeniería'];
         foreach ($carreras as $key => $value) {
             DB::table('select_opts')->insert([
                 'table' => "carreras",

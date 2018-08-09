@@ -16,9 +16,17 @@
   </div>
 
   <div class="tab-pane fade m-1 p-1" id="nav-expediente" role="tabpanel" aria-labelledby="nav-expediente-tab">
-    {{-- @isset($messeges) --}}
-      {{-- @includeIf('expediente.messeges.show.messeges') --}}
-    {{-- @endisset --}}
+
+    @if($estudiante->expediente)
+      @php ($expediente = $estudiante->expediente)
+      @includeIf('expediente.expedientes.show.expediente')
+
+      <a class="btn btn-warning w-100" href="{{ route('estudiantes.edit',$expediente->id)}}" taske="button">
+        Actualizar
+        <i class="{{$icon_menus['expediente'] or ''}}"></i>
+      </a>
+    @endif
+
   </div>
 
   <div class="tab-pane fade m-1 p-1" id="nav-carreras" role="tabpanel" aria-labelledby="nav-carreras-tab">

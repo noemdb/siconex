@@ -24,10 +24,10 @@
   </div>
 
   <div class="tab-pane fade m-1 p-1" id="nav-movimiento" role="tabpanel" aria-labelledby="nav-movimiento-tab">
-    @php ($movimientos = $expediente->movimientos)
-    @isset($movimientos)
-      {{-- @include('expediente.movimientos.show.movimientos') --}}
-    @endisset
+    @if($movimientos = $expediente->movimientos)
+      @php ($movimientos = $expediente->movimientos)
+      @include('expediente.movimientos.show.movimientos')
+    @endif
   </div>
   
 </div>

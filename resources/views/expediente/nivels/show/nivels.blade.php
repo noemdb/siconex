@@ -8,11 +8,7 @@
                 <div class="card-header" id="heading_task_{{ $nivel->id or '' }}">
                     <h5 class="mb-0">
                         <button class="btn btn-link btn-sm nounderline" style="text-decoration: none" data-toggle="collapse" data-target="#accordion_task_{{ $nivel->id or '' }}" aria-expanded="true" aria-conttasks="accordion_task_{{ $nivel->id or '' }}">
-                            @if(isset($nivel->created_at))
-                                [{{ (isset($nivel->created_at)) ? Carbon\Carbon::parse($nivel->created_at)->format('Ym') : '' }}]
-                            @endif
-                            [{{ $nivel->tipo or '' }}]
-                            {{ $nivel->truncdescripcion or '' }}
+                            {{ $nivel->truncdescripcion or '' }} [{{ $nivel->codigo or '' }}] 
                         </button>
                     </h5>
                 </div>

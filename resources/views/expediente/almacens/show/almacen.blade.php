@@ -1,7 +1,7 @@
 @isset($almacen)
 
 
-    <div class="card bd-callout bd-callout-{{ $almacen->tipo or '' }} p-2 m-2">
+    <div class="card bd-callout bd-callout-{{ $almacen->tipo or '' }} p-2 m-2 d-block">
 
       <div class="card-body pt-1">
 
@@ -58,10 +58,8 @@
 
         </table>
 
-
       </div>
+
     </div>
-
-
 
 @endisset

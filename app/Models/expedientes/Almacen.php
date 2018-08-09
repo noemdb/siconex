@@ -22,11 +22,11 @@ class Almacen extends Model
     /*INI relaciones entre modelos*/
     public function nivels()
     {
-        return $this->hasOne('App\Models\expedientes\Nivel');
+        return $this->hasMany('App\Models\expedientes\Nivel');
     }
-    public function movimientos()
-    {
-        return $this->hasOne('App\Models\expedientes\Movimiento');
-    }
+    // public function movimientos()
+    // {
+    //     return $this->hasMany('App\Models\expedientes\Movimiento');
+    // }
     /*FIN relaciones entre modelos*/
 }

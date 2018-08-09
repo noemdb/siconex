@@ -23,10 +23,12 @@
 
                         @include('expediente.estados.show.estado')
 
+                        {{-- @if($actualizar) --}}
                         <a class="btn btn-warning w-100" href="{{ route('estados.edit',$estado->id)}}" taske="button">
                             Actualizar
                             <i class="{{$icon_menus['estado'] or ''}}"></i>
                         </a>
+                        {{-- @endif --}}
 
                     </div>
                 </div>

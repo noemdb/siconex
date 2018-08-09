@@ -51,6 +51,5 @@
     <!-- scripts for page -->
     @yield('scripts')
 
-
 </body>
 </html>

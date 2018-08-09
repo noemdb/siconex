@@ -6,7 +6,7 @@
 
     <main taske="main" class="col-md-10 ml-sm-auto col-lg-10 px-2">
 
-        <div class="card mt-2 bd-callout bd-callout-info">
+        <div class="card mt-2 bd-callout bd-callout-info" style="display:block  !important;">
 
             <div class="card-header">
 
@@ -26,8 +26,6 @@
 
             </div>
 
-
-
             <div class="card-body p-1">
 
                 <div class="container p-1">
@@ -36,8 +34,8 @@
 
                         <div class="col-sm-12">
 
-                            @include('expediente.almacens.show.almacen')
-                            {{-- @include('expediente.almacens.show.tabs') --}}
+                            {{-- @include('expediente.almacens.show.almacen') --}}
+                            @include('expediente.almacens.show.tabs')
 
                         </div>
                     </div>
