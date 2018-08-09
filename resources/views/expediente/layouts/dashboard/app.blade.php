@@ -2,7 +2,7 @@
 
 @section('body')
 
-    
+
         {{-- @include('admin.layouts.dashboard.navbar.app') --}}
 
         {{-- INI navbar --}}
@@ -45,7 +45,7 @@
 
                 {{-- INI sidebar --}}
                 {{-- <nav class="col-md-2 d-md-block bg-light sidebar"> --}}
-                
+
                 <nav id="sidebar" class="col-md-2 d-none d-md-block bg-light sidebar">
 
                     @include('expediente.layouts.dashboard.sidebar.app')
@@ -77,8 +77,8 @@
 
      @parent
      <script src="{{ asset("js/accordion.js") }}"></script>
-     
-     {{-- 
+
+     {{--
      <script type="text/javascript">
          $(document).ready(function () {
              $('#sidebarCollapse').on('click', function () {
@@ -86,7 +86,7 @@
                  $("#page-wrapper").toggleClass("active");
              });
          });
-     </script> 
+     </script>
      --}}
 
      {{-- <script src="{{ asset("js/admin.js") }}"></script> --}}

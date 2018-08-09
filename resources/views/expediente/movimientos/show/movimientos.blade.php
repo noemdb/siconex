@@ -1,5 +1,8 @@
 @isset($movimientos)
 
+    {{-- <h5>Últimos 10</h5> --}}
+    {{-- @php($movimientos=$movimientos->take(10) ) --}}
+
     <div id="accordion">
 
         @foreach($movimientos as $movimiento)
@@ -8,10 +11,7 @@
                 <div class="card-header" id="heading_task_{{ $movimiento->id or '' }}">
                     <h5 class="mb-0">
                         <button class="btn btn-link btn-sm nounderline" style="text-decoration: none" data-toggle="collapse" data-target="#accordion_task_{{ $movimiento->id or '' }}" aria-expanded="true" aria-conttasks="accordion_task_{{ $movimiento->id or '' }}">
-                            @if(isset($movimiento->created_at))
-                                [{{ (isset($movimiento->created_at)) ? Carbon\Carbon::parse($movimiento->created_at)->format('Ym') : '' }}]
-                            @endif
-                            [{{ $movimiento->tipo or '' }}]
+                            [{{ $movimiento->expediente->codigo or '' }}]
                             {{ $movimiento->truncdescripcion or '' }}
                         </button>
                     </h5>

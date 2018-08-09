@@ -39,4 +39,18 @@ class Movimiento extends Model
         return $this->belongsTo('App\Models\expedientes\Nivel');
     }
     /*FIN relaciones entre modelos*/
+
+    public function getTruncDescripcionAttribute()
+    {
+        $string = $this->descripcion;
+        $length = 4;
+        $ellipsis = "...";
+        $words = explode(' ', $string);
+        if (count($words) > $length){
+            return implode(' ', array_slice($words, 0, $length)) ." ". $ellipsis;
+        }
+        else{
+            return $string;
+        }
+    }
 }

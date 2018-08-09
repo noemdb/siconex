@@ -142,12 +142,13 @@ return [
     'form' => [
         'request' => [
             'estudiante_id'=>'El Estudiante es requerido',
-            'codigo'=>'El Codigo es requerido',
+            'codigo'=>'El Código es requerido',
             'expediente_id'=>'El Expediente es requerido',
             'nivel_id'=>'El Nivel es requerido',
             'descripcion'=>'La Descripción es requerida',
             'descripcionmax'=>'La Descripción no debe tener más de :max carácteres',
             'descripcionmin'=>'La Descripción no debe tener menos de :min carácteres',
+            'almacen_id'=>'El Almacen es requerido',
         ],
     ],
 

@@ -71,4 +71,50 @@ class MovimientosController extends Controller
         return json_encode($ChartDataSQL);
     }
 
+    public function MovimientosUsers(Request $request)
+    {
+
+        $range = ($request->input('range')!=null) ? $request->input('range') : 'Todos';
+        $limit = ($request->input('limit')!=null) ? $request->input('limit') : 8;
+
+        if($range=='Todos'){
+            $finicial = Carbon::now()->SubYear(1000);
+            $ffinal = Carbon::now()->AddYear(1000);
+        }else{
+            $finicial = Carbon::now()->subMonth($range);
+            $ffinal = Carbon::now();
+        }
+
+        $movimientos = Movimiento::select('users.username', DB::raw('count(users.username) as value'))
+            ->join('users', 'users.id', '=', 'movimientos.user_id')
+            ->Where('movimientos.created_at', '>=', $finicial)
+            ->Where('movimientos.created_at', '<=', $ffinal)
+            ->groupby('movimientos.user_id')
+            ->orderBy('movimientos.user_id', 'asc')
+            ->get()
+            ->take($limit);
+
+        $labels = $movimientos->pluck('username');
+        $values = $movimientos->pluck('value');
+
+        for ($i=0; $i < count($labels) ; $i++) {
+            $colors[] = 'rgba('.rand(0,255).', '.rand(0,255).', '.rand(0,255).', 1)';
+        }
+
+        $ChartDataSQL = [
+            'labels'=>$labels,
+            'datasets'=>[
+                [
+                    "label"=>"Movimientos",
+                    "backgroundColor"=>$colors,
+                    "borderColor"=>$colors,
+                    "borderWidth"=>2,
+                    "data"=>$values
+                ]
+            ]
+        ];
+
+        return json_encode($ChartDataSQL);
+    }
+
 }

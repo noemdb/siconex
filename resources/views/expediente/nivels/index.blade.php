@@ -7,14 +7,14 @@
         <div class="card mt-2 bd-callout bd-callout-primary">
             <div class="card-header">
                 <h3>
-                    Listados de movimientos registrados<br>
+                    Listados de niveles registrados<br>
                     <small class="text-default">
-                        <strong><span id="documento_counter">{{$movimientos->count()}}</span> movimientos</strong>
+                        <strong><span id="nivel_counter">{{$nivels->count()}}</span> niveles</strong>
                     </small>
 
                     {{-- INI Menu rapido --}}
                     <div class="btn-group float-right pt-2">
-                        @include('expediente.movimientos.menus.index')
+                        @include('expediente.nivels.menus.index')
                     </div>
                     {{-- FIN Menu rapido --}}
 
@@ -27,13 +27,13 @@
                 @include('expediente.elements.messeges.oper_ok')
 
                 {{-- Partial con el listado de los usuarios --}}
-                @include('expediente.movimientos.table.list')
+                @include('expediente.nivels.table.list')
 
             </div>
         </div>
     </main>
 
-    {!! Form::open(['route' => ['movimientos.destroy',':MOVIMIENTO_ID'], 'method' => 'DELETE', 'id'=>'form-delete', 'movimiento'=>'form']) !!}
+    {!! Form::open(['route' => ['nivels.destroy',':NIVEL_ID'], 'method' => 'DELETE', 'id'=>'form-delete', 'nivel'=>'form']) !!}
     {!! Form::close() !!}
 
 @endsection
@@ -42,7 +42,7 @@
     @parent
 
     {{-- INI script ajax json models --}}
-    <script src="{{ asset("js/models/expediente/movimientos/delete.js") }}"></script>
+    <script src="{{ asset("js/models/expediente/nivels/delete.js") }}"></script>
     {{-- FIN script ajax json models --}}
 
 @endsection
