@@ -16,6 +16,16 @@
         <h1 class="page-header">
                 {{-- Dashboard --}}
         </h1>
+
+        {{-- labels --}}
+        @includeIf('expediente.partials.labels')
+
+        {{-- labels --}}
+        @includeIf('expediente.partials.list')
+
+        {{-- labels --}}
+        @includeIf('expediente.partials.graphics')
+
     </main>
 
 @endsection

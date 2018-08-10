@@ -5,6 +5,13 @@ namespace App\Http\Controllers\Expediente;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
+use App\User;
+use App\Models\sys\Task;
+use App\Models\sys\Alert;
+
+
 class HomeController extends Controller
 {
     /**
@@ -24,6 +31,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('expediente.home');
+        $tasks = Task::OrderBy('created_at', 'desc')
+                    //->where('destino_user_id',\Auth::user()->id)
+                    ->get();
+
+        $alerts = Alert::OrderBy('created_at', 'desc')
+                    //->where('destino_user_id',\Auth::user()->id)
+                    ->get();
+
+        return view('expediente.home',compact('tasks','alerts'));
     }
 }

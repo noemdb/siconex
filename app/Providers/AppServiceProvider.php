@@ -41,6 +41,9 @@ class AppServiceProvider extends ServiceProvider
             'crud'=>'fas fa-align-justify',
             'tline'=>'fas fa-history',
             'info'=>'fas fa-info',
+            'close'=>'fas fa-times',
+            'minimizar'=>'fas fa-angle-down',
+            'maximizar'=>'fas fa-angle-up',
 
             'chartpie'=>'fas fa-chart-pie',
             'chartbar'=>'fas fa-chart-bar',
