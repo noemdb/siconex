@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Session;
 use App\Models\expedientes\Movimiento;
 use App\Models\expedientes\Expediente;
 use App\Models\expedientes\Almacen;
-use App\Models\expedientes\Nivel;
+use App\Models\expedientes\Area;
 use App\Models\sys\SelectOpt;
 
 use App\User;
@@ -55,14 +55,20 @@ class MovimientoController extends Controller
                 ->orderby('id','asc')
                 ->pluck('nombre', 'id');
 
-        $nivels = Nivel::select('codigo', 'id')
+        $areas = Area::select('codigo', 'id')
                 ->orderby('id','asc')
                 ->pluck('codigo', 'id');
                 // ->prepend('Seleccionar','');
 
+        $tipos = SelectOpt::select('select_opts.*')
+                    ->where('table','movimientos')
+                    ->where('view','movimientos.create')
+                    ->where('name','tipo')
+                    ->pluck('key', 'value');
+
         // dd($options);
 
-        return view('expediente.movimientos.create',compact('almacens','nivels','expedientes'));
+        return view('expediente.movimientos.create',compact('almacens','areas','expedientes','tipos'));
     }
 
     /**
@@ -115,12 +121,18 @@ class MovimientoController extends Controller
                 ->orderby('id','asc')
                 ->pluck('nombre', 'id');
 
-        $nivels = Nivel::select('codigo', 'id')
+        $areas = Area::select('codigo', 'id')
                 ->orderby('id','asc')
                 ->pluck('codigo', 'id');
                 // ->prepend('Seleccionar','');
 
-        return view('expediente.movimientos.edit',compact('movimiento','expedientes','almacens','nivels'));
+        $tipos = SelectOpt::select('select_opts.*')
+                    ->where('table','movimientos')
+                    ->where('view','movimientos.create')
+                    ->where('name','tipo')
+                    ->pluck('key', 'value');
+
+        return view('expediente.movimientos.edit',compact('movimiento','expedientes','almacens','areas','tipos'));
     }
 
     /**

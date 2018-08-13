@@ -16,7 +16,7 @@ class Movimiento extends Model
      * @var array
      */
     protected $fillable = [
-        'expediente_id','user_id','nivel_id', 'descripcion', 'observacion'
+        'expediente_id','user_id','area_id','tipo', 'descripcion', 'observacion'
     ];
 
     /*INI relaciones entre modelos*/
@@ -34,9 +34,9 @@ class Movimiento extends Model
     // {
     //     return $this->belongsTo('App\Models\expedientes\Almacen');
     // }
-    public function nivel()
+    public function area()
     {
-        return $this->belongsTo('App\Models\expedientes\Nivel');
+        return $this->belongsTo('App\Models\expedientes\Area');
     }
     /*FIN relaciones entre modelos*/
 
@@ -52,5 +52,24 @@ class Movimiento extends Model
         else{
             return $string;
         }
+    }
+
+    public function getClassAttribute()
+    {
+      switch ($this->tipo) {
+        case 'Almacenamiento':
+            $class = 'primary'; break;
+        case 'Retiro':
+            $class = 'danger'; break;
+        case 'Préstamo':
+            $class = 'info'; break;
+        case 'Traslado':
+            $class = 'secondary'; break;
+        case 'Desechar':
+            $class = 'success'; break;
+        default:
+            $class = 'default'; break;
+      }
+      return $class;
     }
 }

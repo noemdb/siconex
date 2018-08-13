@@ -47,7 +47,7 @@ class ExpedienteController extends Controller
     {
         $estudiantes = Estudiante::select('estudiantes.*')
                 ->leftJoin('expedientes', 'estudiantes.id', '=', 'expedientes.estudiante_id')
-                ->whereNull('expedientes.estudiante_id')
+                // ->whereNull('expedientes.estudiante_id')
                 ->orderby('estudiantes.ci','asc')
                 ->pluck('ci', 'id');
 

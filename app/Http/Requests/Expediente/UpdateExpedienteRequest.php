@@ -35,6 +35,7 @@ class UpdateExpedienteRequest extends FormRequest
     {
         return [
             'estudiante_id' => 'required',
+            'user_id' => 'required',
             'codigo' => 'required|unique:expedientes,codigo,'.$this->route->parameter('expediente'),
             'descripcion' => 'required',
         ];
@@ -43,6 +44,7 @@ class UpdateExpedienteRequest extends FormRequest
     public function messages()
     {
         return [
+            'user_id.required' => trans('validation.form.request.user_id'),
             'estudiante_id.required' => trans('validation.form.request.estudiante_id'),
             'codigo.required' => trans('validation.form.request.codigo'),
             'descripcion.required' => trans('validation.form.request.descripcion'),

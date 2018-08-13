@@ -19,7 +19,7 @@
 		Route::resource('models/crud/estados','Crud\EstadoController');
 		Route::resource('models/crud/expedientes','Crud\ExpedienteController');
 		Route::resource('models/crud/movimientos','Crud\MovimientoController');
-		Route::resource('models/crud/nivels','Crud\NivelController');
+		Route::resource('models/crud/areas','Crud\AreaController');
 	//FIN LOGICA DEL NEGOCIO
 
 // FIN resource

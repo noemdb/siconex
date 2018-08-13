@@ -2,6 +2,8 @@
 
 @include('expediente.elements.messeges.oper_ok')
 
+{{ Form::hidden('user_id',Auth::user()->id) }}
+
 @if(isset($estudiante->id))
     {{ Form::hidden('estudiante_id', $estudiante->id) }}
 @else
@@ -10,10 +12,21 @@
     </div>
 @endif
 
-<div class="form-label-group pb-1">
+<input type="hidden" name="codigo" id="codigo" value="{{ $expediente->codigo or ''}}">
+<div class="alert alert-secondary pb-1 mb-1" role="alert">
+    <span class="font-weight-normal p-0 m-0" style="color: #777;">
+        Código:
+    </span> <br>
+    <span class="font-weight-bold p-0 m-0" id="spancodigo">
+        {{ $expediente->codigo or 'Seleccione Estudiante'}}
+    </span>
+</div>
+
+
+{{-- <div class="form-label-group pb-1">
     {!! Form::text('codigo', old('codigo'), ['class' => 'form-control','placeholder'=>'Código','id'=>'codigo', 'readonly'=>'readonly']); !!}
     <label for="codigo">Código</label>
-</div>
+</div> --}}
 
 <div class="form-label-group pb-1">
     {!! Form::text('descripcion', old('descripcion'), ['class' => 'form-control','placeholder'=>'descripcion','id'=>'descripcion']); !!}
@@ -37,10 +50,16 @@
     <script type="text/javascript">
         $(document).ready(function(){
                 $("#estudiante_id").change(function(){
-                    var currentYear = (new Date).getFullYear();
-                    var codigo = currentYear+'-'+$("#estudiante_id option:selected").text();
+                    var lastValue = $('#estudiante_id option:last-child').val();
+                    var dt = new Date();
+                    var pre = dt.getMonth()+''+dt.getUTCDate()+''+dt.getSeconds();
+                    var codigo = pre+''+$("#estudiante_id option:selected").text()+''+lastValue;
+
+                    // var currentYear = (new Date).getFullYear();
+                    // var codigo = currentYear+'.'+$("#estudiante_id option:selected").text();
                     $('#codigo').val(codigo);
-                    console.log($('#codigo').val());
+                    $('#spancodigo').text(codigo);
+                    // console.log($('#codigo').val());
                 });
         });
     </script>

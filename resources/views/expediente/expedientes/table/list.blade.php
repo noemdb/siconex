@@ -5,8 +5,8 @@
         'codigo'=>'',
         'almacen'=>'',
         'descripcion'=>'d-none d-md-table-cell',
-        'observacion'=>'d-none d-md-table-cell',
-        'created_at'=>'d-none d-lg-table-cell',
+        'observacion'=>'d-none d-lg-table-cell',
+        'created_at'=>'d-none d-xl-table-cell',
         // 'updated_at'=>'d-none d-lg-table-cell',
         'btn_accion'=>'nosort text-center',
     ];
@@ -46,9 +46,9 @@
                     {{$expediente->codigo or ''}}
                 </td>
 
-                @php ($almacen = '')
+                {{-- @php ($almacen = '') --}}
                 @if($expediente->movimientos->count()>0)
-                    @php ($almacen = $expediente->movimientos->last()->nivel->almacen->nombre)
+                    @php ($almacen = $expediente->movimientos->last()->area->almacen->nombre)
                     {{-- @php ($almacen = $expediente->movimientos) --}}
                 @endif
                 <td  id="td-expedientes-almacen-{{$expediente->id or ''}}" class="text-center text-uppercase {{ $class['almacen'] or ''}}">
@@ -73,12 +73,51 @@
 
                 <td style="padding: 2px; vertical-align: middle;" id="btn-action-{{ $expediente->id }}" class="text-center">
 
-                    <div class="btn-group btn-group-sm">
+                    <div class="dropdown dropleft">
+                        <button class="btn btn-info dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="{{$icon_menus['opcion']}}"></i>
+                        </button>
+                        <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
 
-                        {{-- boton para mostrar en un modal de info de regsitro --}}
+                            <div class="btn-group btn-group-sm">
+
+                                <a title="Mostrar detalles" class="btn btn-info btn-xs" href="{{ route('expedientes.show',$expediente->id) }}">
+                                    <i class="{{$icon_menus['info']}}"></i>
+                                </a>
+                                <a title="Registrar Movimiento" class="btn btn-primary btn-xs" href="#{{-- {{ route('movimientos.createId',$expediente->id) }} --}}">
+                                    <i class="{{$icon_menus['movimiento']}}"></i>
+                                </a>
+                                <a title="Adicionar Documento" class="btn btn-success btn-xs" href="#{{-- {{ route('movimientos.createId',$expediente->id) }} --}}">
+                                    <i class="{{$icon_menus['documento']}}"></i>
+                                </a>
+
+                                <a title="Editar resgistro" class=" btn btn-warning btn-xs btn-edit-{{ $expediente->id }}" href="{{ route('expedientes.edit',$expediente->id) }}" id="btn-edituser_{{$expediente->id}}">
+                                    <i class="{{$icon_menus['editar']}}"></i>
+                                </a>
+
+                                <a title="Eliminar {{(isset($expediente->deleted_at) ? 'DEFINITIVAMENTE':'')}}" class="btn btn-danger btn-xs btn-delete btn btn-danger btn-xs" href="{{ route('expedientes.destroy',$expediente->id) }}" id="btn-delete-taskid_{{$expediente->id}}">
+                                    <i class="{{$icon_menus['eliminar']}}"></i>
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    {{-- <div class="btn-group btn-group-sm">
 
                         <a title="Mostrar detalles" class="btn btn-info btn-xs" href="{{ route('expedientes.show',$expediente->id) }}">
                             <i class="{{$icon_menus['info']}}"></i>
+                        </a>
+
+                        <a title="Crear Movimiento" class="btn btn-success btn-xs" href="#">
+                            <i class="{{$icon_menus['movimiento']}}"></i>
+                        </a>
+
+                        <a title="Adicionar Documento" class="btn btn-primary btn-xs" href="#">
+                            <i class="{{$icon_menus['documento']}}"></i>
                         </a>
 
                         <a title="Editar resgistro" class="btn btn-warning btn-xs btn-action-group-{{ $expediente->id }}" href="{{ route('expedientes.edit',$expediente->id) }}" id="btn-edituser_{{$expediente->id}}">
@@ -89,7 +128,7 @@
                             <i class="fas fa-trash"></i>
                         </a>
 
-                    </div>
+                    </div> --}}
 
                 </td>
 

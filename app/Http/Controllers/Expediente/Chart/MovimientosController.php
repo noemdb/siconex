@@ -53,6 +53,12 @@ class MovimientosController extends Controller
 
         for ($i=0; $i < count($labels) ; $i++) {
         	$colors[] = 'rgba('.rand(0,255).', '.rand(0,255).', '.rand(0,255).', 1)';
+            $bcolors = $colors;
+        }
+
+        if ($request->input('tipo')=='line') {
+            $colors = 'rgba(100, 200, 100,0.2)';
+            $bcolors = "rgba(100, 200, 100,1)";
         }
 
         $ChartDataSQL = [
@@ -61,7 +67,7 @@ class MovimientosController extends Controller
                 [
                     "label"=>"Movimientos",
                     "backgroundColor"=>$colors,
-                    "borderColor"=>$colors,
+                    "borderColor"=>$bcolors,
                     "borderWidth"=>2,
                     "data"=>$values
                 ]

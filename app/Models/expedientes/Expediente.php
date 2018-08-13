@@ -16,10 +16,14 @@ class Expediente extends Model
      * @var array
      */
     protected $fillable = [
-        'estudiante_id', 'codigo', 'descripcion', 'observacion'
+        'estudiante_id','user_id', 'codigo', 'descripcion', 'observacion'
     ];
 
     /*INI relaciones entre modelos*/
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
     public function documentos()
     {
         return $this->hasMany('App\Models\expedientes\Documento');

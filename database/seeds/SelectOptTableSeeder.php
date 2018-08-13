@@ -205,6 +205,17 @@ class SelectOptTableSeeder extends Seeder
             ]);
         }
 
+        $arr = ['Almacenamiento'=>'Almacenamiento', 'Retiro'=>'Retiro', 'Préstamo'=>'Préstamo', 'Traslado'=>'Traslado', 'Desechar'=>'Desechar'];
+        foreach ($arr as $key => $value) {
+            DB::table('select_opts')->insert([
+                'table' => "movimientos",
+                'name' => "tipo",
+                'key' => $key,
+                'value' => $value,
+                'view' => "movimientos.create",
+            ]);
+        }
+
 
     }
 }

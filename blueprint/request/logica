@@ -13,4 +13,4 @@ php artisan make:request 'Expediente\CreateExpedienteRequest' && php artisan mak
 
 php artisan make:request 'Expediente\CreateMovimientoRequest' && php artisan make:request 'Expediente\UpdateMovimientoRequest'
 
-php artisan make:request 'Expediente\CreateNivelRequest' && php artisan make:request 'Expediente\UpdateNivelRequest'
+php artisan make:request 'Expediente\CreateAreaRequest' && php artisan make:request 'Expediente\UpdateAreaRequest'

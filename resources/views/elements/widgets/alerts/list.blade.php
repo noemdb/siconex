@@ -2,7 +2,7 @@
 	@foreach($alerts as $alert)
 	    <li class="list-group-item text-overflow" title="{{ $alert->mensaje or 'default' }}">
 	        <span class="text-{{ $alert->tipo or 'default' }}">
-	            <i class="fa fa-bell fa-fw"></i> {{ $alert->user->username or 'default' }}
+	            <i class="fa {{$icon_menus['alert'] or ''}} fa-fw"></i> {{ $alert->user->username or 'default' }}
 	            <span class="pull-right text-muted small"> <em>{{ $alert->created_at->diffForHumans() }}</em></span>
 	        </span>
 	        <div class="text-{{ $alert->tipo or 'default' }} text-overflow">

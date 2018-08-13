@@ -141,6 +141,7 @@ return [
 
     'form' => [
         'request' => [
+            'user_id'=>'El Usuario es requerido',
             'estudiante_id'=>'El Estudiante es requerido',
             'codigo'=>'El Código es requerido',
             'expediente_id'=>'El Expediente es requerido',

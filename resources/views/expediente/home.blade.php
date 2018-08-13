@@ -18,13 +18,13 @@
         </h1>
 
         {{-- labels --}}
-        @includeIf('expediente.partials.labels')
+        @includeIf('expediente.home.partials.labels')
 
-        {{-- labels --}}
-        @includeIf('expediente.partials.list')
+        {{-- listas --}}
+        @includeIf('expediente.home.partials.list')
 
-        {{-- labels --}}
-        @includeIf('expediente.partials.graphics')
+        {{-- graficas --}}
+        @includeIf('expediente.home.partials.graphics')
 
     </main>
 

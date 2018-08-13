@@ -1,5 +1,5 @@
 tablas para la logica del sistema
- 
+
 General (Info de cabeceras)
 php artisan make:model 'Models\expedientes\Estudiante' -m -a
 php artisan make:model 'Models\expedientes\Expediente' -m -a
@@ -12,7 +12,7 @@ php artisan make:model 'Models\expedientes\Estado' -m -a
 
 Detalles del Expediente
 php artisan make:model 'Models\expedientes\Movimiento' -m -a
-php artisan make:model 'Models\expedientes\Nivel' -m -a
+php artisan make:model 'Models\expedientes\Area' -m -a
 php artisan make:model 'Models\expedientes\Ruta' -m -a
 
 Detalles del Almacenes

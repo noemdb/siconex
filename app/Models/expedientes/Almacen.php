@@ -20,9 +20,9 @@ class Almacen extends Model
     ];
 
     /*INI relaciones entre modelos*/
-    public function nivels()
+    public function areas()
     {
-        return $this->hasMany('App\Models\expedientes\Nivel');
+        return $this->hasMany('App\Models\expedientes\Area');
     }
     // public function movimientos()
     // {

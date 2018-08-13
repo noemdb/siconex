@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 
 // Modelos adicionadas
 use App\Models\expedientes\Almacen;
-use App\Models\expedientes\Nivel;
+use App\Models\expedientes\Area;
 use App\Models\expedientes\Ruta;
 use App\Models\expedientes\Movimiento;
 use App\Models\expedientes\Expediente;
@@ -83,8 +83,8 @@ class AlmacensController extends Controller
         }
 
         $dataSQL = Movimiento::select('almacens.nombre', DB::raw('count(movimientos.id) as value'))
-        	->join('nivels','nivels.id','=','movimientos.nivel_id')
-        	->join('almacens','almacens.id','=','nivels.almacen_id')
+        	->join('areas','areas.id','=','movimientos.area_id')
+        	->join('almacens','almacens.id','=','areas.almacen_id')
             ->Where('movimientos.created_at', '>=', $finicial)
             ->Where('movimientos.created_at', '<=', $ffinal)
             ->groupby('almacens.nombre')
@@ -130,8 +130,8 @@ class AlmacensController extends Controller
         }
 
         $dataSQL = Movimiento::select('almacens.nombre', DB::raw('count(movimientos.expediente_id) as value'))
-        	->join('nivels','nivels.id','=','movimientos.nivel_id')
-        	->join('almacens','almacens.id','=','nivels.almacen_id')
+        	->join('areas','areas.id','=','movimientos.area_id')
+        	->join('almacens','almacens.id','=','areas.almacen_id')
             ->Where('movimientos.created_at', '>=', $finicial)
             ->Where('movimientos.created_at', '<=', $ffinal)
             ->groupby('almacens.nombre')
@@ -184,8 +184,8 @@ class AlmacensController extends Controller
         $dataSQL = Documento::select('almacens.nombre', DB::raw('count(documentos.id) as value'))
         	->join('expedientes','expedientes.id','=','documentos.expediente_id')
         	->join('movimientos','expedientes.id','=','movimientos.expediente_id')
-        	->join('nivels','nivels.id','=','movimientos.nivel_id')
-        	->join('almacens','almacens.id','=','nivels.almacen_id')
+        	->join('areas','areas.id','=','movimientos.area_id')
+        	->join('almacens','almacens.id','=','areas.almacen_id')
             ->Where('expedientes.created_at', '>=', $finicial)
             ->Where('expedientes.created_at', '<=', $ffinal)
             ->groupby('almacens.nombre')

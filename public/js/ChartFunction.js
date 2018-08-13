@@ -15,7 +15,7 @@ function requestData(range,canvas,urlapi,tipo,limit,legend=true){
     $.ajax({
       type: "GET",
       url: urlapi, // This is the URL to the API
-      data: { range: range, limit: limit } // rango (rango de fechas), api(nombre de la api), limit(limite de registros)
+      data: { range: range, limit: limit, tipo: tipo } // rango (rango de fechas), api(nombre de la api), limit(limite de registros), tipo de grafica
     })
     .done(function( data ) {
 

@@ -9,7 +9,7 @@
     @slot('class', 'info')
     @slot('panelControls', 'true')
     @slot('id', $chart['id_chart'])
-    @slot('header', 'Reg. movimientos por Mes')
+    @slot('header', 'Reg. Movimientos por Mes')
     @slot('iconTitle', $icon_menus['chartline'])
     @slot('body')
         @component('expediente.elements.chart.canvas')

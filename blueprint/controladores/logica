@@ -6,4 +6,4 @@ php artisan make:controller 'Expediente\Crud\EstadoController' --resource
 php artisan make:controller 'Expediente\Crud\EstudianteController' --resource
 php artisan make:controller 'Expediente\Crud\ExpedienteController' --resource
 php artisan make:controller 'Expediente\Crud\MovimientoController' --resource
-php artisan make:controller 'Expediente\Crud\NivelController' --resource
+php artisan make:controller 'Expediente\Crud\AreaController' --resource

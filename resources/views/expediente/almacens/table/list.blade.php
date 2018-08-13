@@ -37,18 +37,18 @@
                 </td>
 
                 <td id="td-almacens-{{ $almacen->id or '' }}" class="{{ $class['nombre'] or ''}}">
-                    {{$almacen->nombre or ''}} 
+                    {{$almacen->nombre or ''}}
                 </td>
 
                 <td id="td-almacens-{{ $almacen->id or '' }}" class="{{ $class['responsable'] or ''}}">
-                    {{$almacen->responsable or ''}} 
+                    {{$almacen->responsable or ''}}
                 </td>
 
                 <td id="td-almacens-direccion-{{$almacen->direccion or ''}}" class="{{ $class['direccion'] or ''}}">
                     {{$almacen->direccion or ''}}
                 </td>
 
-                
+
                 {{-- <td  id="td-almacens-estado-{{$almacen->id or ''}}" class="text-center text-uppercase {{ $class['estado'] or ''}}">                     --}}
                     {{-- {{$estado->estado or ''}} --}}
                 {{-- </td> --}}
@@ -63,9 +63,36 @@
 
                 <td style="padding: 2px; vertical-align: middle;" id="btn-action-{{ $almacen->id }}" class="text-center">
 
-                    <div class="btn-group btn-group-sm">
+                    <div class="dropdown dropleft">
+                        <button class="btn btn-info dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="{{$icon_menus['opcion']}}"></i>
+                        </button>
+                        <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
 
-                        {{-- boton para mostrar en un modal de info de regsitro --}}
+                            <div class="btn-group btn-group-sm">
+
+                                <a title="Mostrar detalles" class="btn btn-info btn-xs" href="{{ route('almacens.show',$almacen->id) }}">
+                                    <i class="{{$icon_menus['info']}}"></i>
+                                </a>
+                                <a title="Registrar Area" class="btn btn-primary btn-xs" href="#">
+                                    <i class="{{$icon_menus['area']}}"></i>
+                                </a>
+
+                                <a title="Editar resgistro" class=" btn btn-warning btn-xs btn-edit-{{ $almacen->id }}" href="{{ route('almacens.edit',$almacen->id) }}" id="btn-edituser_{{$almacen->id}}">
+                                    <i class="{{$icon_menus['editar']}}"></i>
+                                </a>
+
+                                <a title="Eliminar {{(isset($almacen->deleted_at) ? 'DEFINITIVAMENTE':'')}}" class="btn btn-danger btn-xs btn-delete btn btn-danger btn-xs" href="{{ route('almacens.destroy',$almacen->id) }}" id="btn-delete-taskid_{{$almacen->id}}">
+                                    <i class="{{$icon_menus['eliminar']}}"></i>
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+{{--                     <div class="btn-group btn-group-sm">
 
                         <a title="Mostrar detalles" class="btn btn-info btn-xs" href="{{ route('almacens.show',$almacen->id) }}">
                             <i class="{{$icon_menus['info']}}"></i>
@@ -79,7 +106,7 @@
                             <i class="fas fa-trash"></i>
                         </a>
 
-                    </div>
+                    </div> --}}
 
                 </td>
 

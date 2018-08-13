@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Carbon;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
             'profile'=>'fas fa-id-card',
             'rol'=>'far fa-id-badge',
 
-            'alert'=>'far fa-bell',
+            'alert'=>'fas fa-bell',
             'task'=>'fas fa-tasks',
             'messege'=>'far fa-comments',
             'loginout'=>'fas fa-external-link-alt',
@@ -34,7 +35,9 @@ class AppServiceProvider extends ServiceProvider
             'selectopt'=>'fas fa-list',
 
             'editar'=>'fas fa-edit',
-            'nuevo'=>'fas fa-plus',
+            'eliminar'=>'fas fa-trash',
+            'open'=>'fas fa-plus',
+            'nuevo'=>'fas fa-plus-circle',
             'guardado'=>'fas fa-save',
             'mostrar'=>'fas fa-info',
             'btn_ctr'=>'fas fa-bullseye',
@@ -44,6 +47,8 @@ class AppServiceProvider extends ServiceProvider
             'close'=>'fas fa-times',
             'minimizar'=>'fas fa-angle-down',
             'maximizar'=>'fas fa-angle-up',
+            'opcion'=>'fas fa-sliders-h',
+
 
             'chartpie'=>'fas fa-chart-pie',
             'chartbar'=>'fas fa-chart-bar',
@@ -53,13 +58,16 @@ class AppServiceProvider extends ServiceProvider
             'estudiante'=>'fas fa-user-edit',
             'almacen'=>'fas fa-warehouse',
             'ruta'=>'fas fa-random',
-            'nivel'=>'fas fa-project-diagram',
-            'expediente'=>'far fa-folder',
-            'documento'=>'far fa-file-alt',
+            'area'=>'fas fa-project-diagram',
+            'expediente'=>'fas fa-folder',
+            'documento'=>'fas fa-file-alt',
             'carrera'=>'fas fa-grip-vertical',
             'movimiento'=>'fas fa-exchange-alt',
             'estado'=>'fas fa-door-closed'
         ]);
+
+        //Estableciendo el idioma para el helper Carbon
+        Carbon::setLocale(config('app.locale'));
     }
 
     /**

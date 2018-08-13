@@ -37,17 +37,17 @@
                 </td>
 
                 <td id="td-estudiantes-ci-{{ $estudiante->id or '' }}" class="{{ $class['ci'] or ''}}">
-                    {{$estudiante->ci or ''}} 
+                    {{$estudiante->ci or ''}}
                 </td>
 
                 <td id="td-estudiantes-fullname-{{ $estudiante->id or '' }}" class="{{ $class['fullname'] or ''}}">
-                    {{$estudiante->fullname or ''}} 
-                </td>                
+                    {{$estudiante->fullname or ''}}
+                </td>
 
                 <td id="td-estudiantes-email-{{$estudiante->email or ''}}" class="{{ $class['email'] or ''}}">
                     {{$estudiante->email or ''}}
                 </td>
-                
+
                 {{-- <td  id="td-estudiantes-estado-{{$estudiante->id or ''}}" class="text-center text-uppercase {{ $class['estado'] or ''}}">                     --}}
                     {{-- {{$estado->estado or ''}} --}}
                 {{-- </td> --}}
@@ -62,21 +62,38 @@
 
                 <td style="padding: 2px; vertical-align: middle;" id="btn-action-{{ $estudiante->id }}" class="text-center">
 
-                    <div class="btn-group btn-group-sm">
+                    <div class="dropdown dropleft">
+                        <button class="btn btn-info dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="{{$icon_menus['opcion']}}"></i>
+                        </button>
+                        <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
 
-                        {{-- boton para mostrar en un modal de info de regsitro --}}
+                            <div class="btn-group btn-group-sm">
 
-                        <a title="Mostrar detalles" class="btn btn-info btn-xs" href="{{ route('estudiantes.show',$estudiante->id) }}">
-                            <i class="{{$icon_menus['info']}}"></i>
-                        </a>
+                                <a title="Mostrar detalles" class="btn btn-info btn-xs" href="{{ route('estudiantes.show',$estudiante->id) }}">
+                                    <i class="{{$icon_menus['info']}}"></i>
+                                </a>
+                                <a title="Adicionar Expediente" class="btn btn-primary btn-xs" href="#{{-- {{ route('movimientos.createId',$expediente->id) }} --}}">
+                                    <i class="{{$icon_menus['expediente']}}"></i>
+                                </a>
+                                <a title="Adicionar Carrera" class="btn btn-success btn-xs" href="#{{-- {{ route('movimientos.createId',$expediente->id) }} --}}">
+                                    <i class="{{$icon_menus['carrera']}}"></i>
+                                </a>
+                                <a title="Cambiar Estado" class="btn btn-secondary btn-xs" href="#{{-- {{ route('movimientos.createId',$expediente->id) }} --}}">
+                                    <i class="{{$icon_menus['estado']}}"></i>
+                                </a>
 
-                        <a title="Editar resgistro" class="btn btn-warning btn-xs btn-action-group-{{ $estudiante->id }}" href="{{ route('estudiantes.edit',$estudiante->id) }}" id="btn-edituser_{{$estudiante->id}}">
-                            <i class="fas fa-pencil-alt"></i>
-                        </a>
+                                <a title="Editar resgistro" class=" btn btn-warning btn-xs btn-edit-{{ $estudiante->id }}" href="{{ route('estudiantes.edit',$estudiante->id) }}" id="btn-edituser_{{$estudiante->id}}">
+                                    <i class="{{$icon_menus['editar']}}"></i>
+                                </a>
 
-                        <a title="Eliminar {{(isset($estudiante->deleted_at) ? 'DEFINITIVAMENTE':'')}}" class="btn-delete btn btn-danger btn-xs" href="{{ route('estudiantes.destroy',$estudiante->id) }}" id="btn-delete-taskid_{{$estudiante->id}}">
-                            <i class="fas fa-trash"></i>
-                        </a>
+                                <a title="Eliminar {{(isset($estudiante->deleted_at) ? 'DEFINITIVAMENTE':'')}}" class="btn btn-danger btn-xs btn-delete btn btn-danger btn-xs" href="{{ route('estudiantes.destroy',$estudiante->id) }}" id="btn-delete-taskid_{{$estudiante->id}}">
+                                    <i class="{{$icon_menus['eliminar']}}"></i>
+                                </a>
+
+                            </div>
+
+                        </div>
 
                     </div>
 

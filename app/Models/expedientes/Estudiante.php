@@ -21,9 +21,10 @@ class Estudiante extends Model
     ];
 
     /*INI relaciones entre modelos*/
-    public function expediente()
+    public function expedientes()
     {
-        return $this->hasOne('App\Models\expedientes\Expediente');
+        // return $this->hasOne('App\Models\expedientes\Expediente');
+        return $this->hasMany('App\Models\expedientes\Expediente');
     }
     public function estados()
     {

@@ -23,20 +23,28 @@ $factory->define(App\Models\expedientes\Movimiento::class, function (Faker $fake
                 ->inRandomOrder()
                 ->first()->id;
 
-    $nivel_id = DB::table('nivels')
-                ->select('nivels.*','movimientos.id as movimientos_id')
-                ->leftJoin('movimientos', 'movimientos.nivel_id', '=', 'nivels.id')
-                // ->where('nivels.almacen_id',$almacen_id)
+    $area_id = DB::table('areas')
+                ->select('areas.*','movimientos.id as movimientos_id')
+                ->leftJoin('movimientos', 'movimientos.area_id', '=', 'areas.id')
+                // ->where('areas.almacen_id',$almacen_id)
                 // ->whereNull('expedientes.id')
                 ->inRandomOrder()
                 ->first()->id;
+
+    $tipo = DB::table('select_opts')
+                ->where('table','movimientos')
+                ->where('view','movimientos.create')
+                ->where('name','tipo')
+                ->inRandomOrder()
+                ->first()->value;
 
     return [
     	'expediente_id' => $expdiente_id,
         'user_id' => $user_id,
         // 'almacen_id' => $almacen_id,
-        'nivel_id' => $nivel_id,
+        'area_id' => $area_id,
 
+        'tipo' => $tipo,
         'descripcion' => $fakerES->sentence(10),
         'observacion' => $fakerES->sentence(10),
         'created_at' => $fcreated,

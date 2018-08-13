@@ -6,10 +6,18 @@
 
 @if(isset($movimiento->expediente_id))
     {{ Form::hidden('expediente_id', $movimiento->expediente_id) }}
-    <div class="form-label-group pb-1">
+    <div class="alert alert-secondary pb-1 mb-1" role="alert">
+        <span class="font-weight-normal p-0 m-0" style="color: #777;">
+            Expediente:
+        </span> <br>
+        <span class="font-weight-bold p-0 m-0">
+            {{ $movimiento->expediente->codigo or ''}}
+        </span>
+    </div>
+{{--     <div class="form-label-group pb-1">
         {!! Form::text('expcodigo', $movimiento->expediente->codigo, ['readonly'=>'readonly','class' => 'form-control','placeholder'=>'Expediente','id'=>'expcodigo','required']); !!}
         <label for="descripcion">Expediente</label>
-    </div>
+    </div> --}}
 @else
     <div class="form-label-group pb-1">
         {!! Form::select('expediente_id',$expedientes,old('expediente_id'),['class' => 'form-control','placeholder' => 'Expedientes']); !!}
@@ -17,18 +25,33 @@
     </div>
 @endif
 
-@if(isset($movimiento->nivel_id))
-    {{ Form::hidden('nivel_id', $movimiento->nivel_id) }}
-    <div class="form-label-group pb-1">
-        {!! Form::text('nivelcodigo', $movimiento->nivel->codigo, ['readonly'=>'readonly','class' => 'form-control','placeholder'=>'Nivel','id'=>'nivelcodigo','required']); !!}
-        <label for="descripcion">Nivel</label>
+@if(isset($movimiento->area_id))
+    {{ Form::hidden('area_id', $movimiento->area_id) }}
+
+    <div class="alert alert-secondary pb-1 mb-1" role="alert">
+        <span class="font-weight-normal p-0 m-0" style="color: #777;">
+            Área:
+        </span> <br>
+        <span class="font-weight-bold p-0 m-0">
+            {{ $movimiento->area->codigo or ''}}
+        </span>
     </div>
+
+    {{-- <div class="form-label-group pb-1">
+        {!! Form::text('nivelcodigo', $movimiento->area->codigo, ['readonly'=>'readonly','class' => 'form-control','placeholder'=>'Área','id'=>'nivelcodigo','required']); !!}
+        <label for="descripcion">Área</label>
+    </div> --}}
 @else
     <div class="form-label-group pb-1">
-        {!! Form::select('nivel_id',$nivels,old('nivel_id'),['class' => 'form-control','placeholder' => 'Niveles']); !!}
+        {!! Form::select('area_id',$areas,old('area_id'),['class' => 'form-control','placeholder' => 'Áreas']); !!}
         {{-- <label for="is_active">{{ trans('validation.attributes.is_active') }}</label> --}}
     </div>
 @endif
+
+<div class="form-label-group pb-1">
+    {!! Form::select('tipo',$tipos,old('tipo'),['class' => 'form-control','placeholder' => 'Tipo']); !!}
+</div>
+
 
 <div class="form-label-group pb-1">
     {!! Form::text('descripcion', old('descripcion'), ['class' => 'form-control','placeholder'=>'Descripción','id'=>'descripcion','required']); !!}

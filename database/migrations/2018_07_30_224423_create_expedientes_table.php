@@ -16,10 +16,18 @@ class CreateExpedientesTable extends Migration
         Schema::create('expedientes', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->integer('estudiante_id')->unsigned()->unique();
+            // $table->integer('estudiante_id')->unsigned()->unique();
+            $table->integer('estudiante_id')->unsigned();
             $table->foreign('estudiante_id')
                   ->references('id')
                   ->on('estudiantes')
+                  ->onDelete('cascade')
+                  ->onUpdate('cascade');
+
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')
+                  ->references('id')
+                  ->on('users')
                   ->onDelete('cascade')
                   ->onUpdate('cascade');
 

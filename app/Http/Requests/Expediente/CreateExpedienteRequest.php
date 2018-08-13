@@ -25,6 +25,7 @@ class CreateExpedienteRequest extends FormRequest
     {
         return [
             'estudiante_id' => 'required',
+            'user_id' => 'required',
             'codigo' => 'required|unique:expedientes,codigo',
             'descripcion' => 'required',
         ];
@@ -34,6 +35,7 @@ class CreateExpedienteRequest extends FormRequest
     {
         return [
             // 'estudiante_id.required' => 'El estudiante :attribute es obligatorio',
+            'user_id.required' => trans('validation.form.request.user_id'),
             'estudiante_id.required' => trans('validation.form.request.estudiante_id'),
             'codigo.required' => trans('validation.form.request.codigo'),
             'descripcion.required' => trans('validation.form.request.descripcion'),

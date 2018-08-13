@@ -40,4 +40,23 @@ class Documento extends Model
         }
     }
 
+    public function getClassAttribute()
+    {
+      switch ($this->tipo) {
+        case 'Acta':
+            $class = 'primary'; break;
+        case 'Solicitud':
+            $class = 'danger'; break;
+        case 'Inscripción':
+            $class = 'info'; break;
+        case 'Notas':
+            $class = 'secondary'; break;
+        case 'Constancia':
+            $class = 'success'; break;
+        default:
+            $class = 'default'; break;
+      }
+      return $class;
+    }
+
 }

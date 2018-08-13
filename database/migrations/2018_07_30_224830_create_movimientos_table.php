@@ -30,13 +30,14 @@ class CreateMovimientosTable extends Migration
                   ->onDelete('cascade')
                   ->onUpdate('cascade');
 
-            $table->integer('nivel_id')->unsigned();
-            $table->foreign('nivel_id')
+            $table->integer('area_id')->unsigned();
+            $table->foreign('area_id')
                   ->references('id')
-                  ->on('nivels')
+                  ->on('areas')
                   ->onDelete('cascade')
                   ->onUpdate('cascade');
 
+            $table->string('tipo',255)->nullable();
             $table->string('descripcion',255);
             $table->string('observacion',255)->nullable();
 

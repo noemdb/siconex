@@ -35,6 +35,12 @@
             </tr>
 
             <tr>
+                <th scope="col">Tipo</th>
+                <td class="text text-{{$movimiento->class or ''}}">
+                    {{$movimiento->tipo or ''}}
+                </td>
+            </tr>
+            <tr>
                 <th scope="col">Descripción</th>
                 <td>
                     {{$movimiento->descripcion or ''}}

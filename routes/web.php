@@ -96,7 +96,7 @@ Route::group(['prefix'=>'expediente','middleware'=>['auth','is_expediente'],'nam
     require (__DIR__ . '/expediente/charts/estados.php');
     require (__DIR__ . '/expediente/charts/expedientes.php');
     require (__DIR__ . '/expediente/charts/movimientos.php');
-    require (__DIR__ . '/expediente/charts/nivels.php');
+    require (__DIR__ . '/expediente/charts/areas.php');
     //FIN Charts modelos
 
 });

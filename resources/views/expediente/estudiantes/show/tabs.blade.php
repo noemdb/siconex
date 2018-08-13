@@ -17,14 +17,11 @@
 
   <div class="tab-pane fade m-1 p-1" id="nav-expediente" role="tabpanel" aria-labelledby="nav-expediente-tab">
 
-    @if($estudiante->expediente)
-      @php ($expediente = $estudiante->expediente)
-      @includeIf('expediente.expedientes.show.expediente')
+    @if($estudiante->expedientes)
+      @php ($expedientes = $estudiante->expedientes)
 
-      <a class="btn btn-warning w-100" href="{{ route('estudiantes.edit',$expediente->id)}}" taske="button">
-        Actualizar
-        <i class="{{$icon_menus['expediente'] or ''}}"></i>
-      </a>
+      @includeIf('expediente.expedientes.show.expedientes')
+
     @endif
 
   </div>

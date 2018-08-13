@@ -2,13 +2,16 @@
 
 @include('expediente.elements.messeges.oper_ok')
 
-@if(isset($estudiante->id))
-{{ Form::hidden('expediente_id', $expediente->id) }}
+@if(isset($documento->expediente_id))
+    {{ Form::hidden('expediente_id', $documento->expediente_id) }}
+    <div class="alert alert-secondary pb-1 mb-1 font-weight-bold" role="alert">
+        <font>Expediente:</font> {{ $documento->expediente->codigo or ''}}
+    </div>
 @else
-<div class="form-label-group pb-1">
-    {!! Form::select('expediente_id',$expedientes,old('expediente_id'),['class' => 'form-control','placeholder' => 'Expedientes']); !!}
-    {{-- <label for="is_active">{{ trans('validation.attributes.is_active') }}</label> --}}
-</div>
+    <div class="form-label-group pb-1">
+        {!! Form::select('expediente_id',$expedientes,old('expediente_id'),['class' => 'form-control','placeholder' => 'Expedientes']); !!}
+        {{-- <label for="is_active">{{ trans('validation.attributes.is_active') }}</label> --}}
+    </div>
 @endif
 
 

@@ -81,6 +81,15 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\sys\Setting');
     }
+
+    public function expedientes()
+    {
+        return $this->hasMany('App\Models\expedientes\Expediente');
+    }
+    public function movimientos()
+    {
+        return $this->hasMany('App\Models\expedientes\Movimiento');
+    }
     ////////////////////INI logica del negocio///////////////////////////
     // public function poas()
     // {
@@ -98,7 +107,7 @@ class User extends Authenticatable
 
     //is admin
     public function isAdmin()
-    {        
+    {
         $fecha = Carbon::now();
         $is_admin = $this->rols->where('rango', 'ADMIN')
                 ->Where('finicial', '<=', $fecha)
@@ -108,12 +117,12 @@ class User extends Authenticatable
             return true;
         }
         else{
-            return false;            
+            return false;
         }
     }
 
     public function IsExpediente()
-    {        
+    {
         $fecha = Carbon::now();
         $IsExpediente = $this->rols->where('rango', 'ADMIN')
                 ->whereIn('rol', ['ADMINISTRADOR','SUPERVISOR','AUDITOR','USUARIO'])
@@ -124,13 +133,13 @@ class User extends Authenticatable
             return true;
         }
         else{
-            return false;            
+            return false;
         }
     }
 
     public static function getUsernameId($id)
     {
-      
+
         $user = User::Where('id',$id)->first();
         if(isset($user)){
             return $user->username;
@@ -138,7 +147,7 @@ class User extends Authenticatable
         else{
             return '...';
         }
-      
+
     }
 
 }

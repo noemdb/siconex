@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
         $this->call(EstadoTableSeeder::class);
 
         $this->call(AlmacenTableSeeder::class);
-        $this->call(NivelTableSeeder::class);
+        $this->call(AreaTableSeeder::class);
 
         $this->call(ExpedienteTableSeeder::class);
         $this->call(DocumentoTableSeeder::class);

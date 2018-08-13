@@ -3,7 +3,7 @@
         'N'=>'',
         'expediente_id'=>'',
         'user_id'=>'d-none d-lg-table-cell',
-        'nivel_id'=>'',
+        'area_id'=>'',
         'almacen'=>'',
         'descripcion'=>'d-none d-md-table-cell',
         'observacion'=>'d-none d-lg-table-cell',
@@ -19,7 +19,7 @@
             <th class="{{ $class['N'] or ''}}">N</th>
             <th class="{{ $class['expediente_id'] or ''}}">Expediente</th>
             <th class="{{ $class['user_id'] or ''}}">Usuario</th>
-            <th class="{{ $class['nivel_id'] or ''}}">Nivel</th>
+            <th class="{{ $class['area_id'] or ''}}">Área</th>
             <th class="{{ $class['almacen'] or ''}}">Almacen</th>
             <th class="{{ $class['descripcion'] or ''}}">Descripción</th>
             <th class="{{ $class['observacion'] or ''}}">Observación</th>
@@ -34,7 +34,7 @@
         @foreach($movimientos as $movimiento)
 
             {{-- @php ($estado = $movimiento->estados->last()) --}}
-            <tr data-movimiento="{{$movimiento->id}}" data-movimiento="{{$movimiento->id or ''}}" class="{{-- text-{{ $estado->class or '' }} --}} p-0 m-0">
+            <tr data-movimiento="{{$movimiento->id}}" data-movimiento="{{$movimiento->id or ''}}" class="text-{{ $movimiento->class or '' }} p-0 m-0">
 
                 <td class="{{ $class['N'] or ''}}">
                     {{ ($loop->index + 1) }}
@@ -47,11 +47,11 @@
                 <td id="td-movimientos-user_id-{{ $movimiento->id or '' }}" class="{{ $class['user_id'] or ''}}">
                     {{$movimiento->user->username or ''}}
                 </td>
-                <td id="td-movimientos-nivel_id-{{ $movimiento->id or '' }}" class="{{ $class['nivel_id'] or ''}}">
-                    {{$movimiento->nivel_id or ''}}
+                <td id="td-movimientos-area_id-{{ $movimiento->id or '' }}" class="{{ $class['area_id'] or ''}}">
+                    {{$movimiento->area->codigo or ''}}
                 </td>
                 <td id="td-movimientos-almacen-{{ $movimiento->id or '' }}" class="{{ $class['almacen'] or ''}}">
-                    {{$movimiento->nivel->almacen->nombre or ''}}
+                    {{$movimiento->area->almacen->nombre or ''}}
                 </td>
 
                 <td id="td-movimientos-descripcion-{{$movimiento->descripcion or ''}}" class="{{ $class['descripcion'] or ''}}">
