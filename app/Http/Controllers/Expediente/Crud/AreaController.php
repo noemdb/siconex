@@ -51,6 +51,19 @@ class AreaController extends Controller
         return view('expediente.areas.create',compact('almacens'));
     }
 
+    public function CreateWithid($almacen_id)
+    {
+        $almacen = Almacen::Select('almacens.id','almacens.nombre')
+                ->where('id',$almacen_id)
+                ->orderby('nombre','asc')
+                ->first();
+                // ->pluck('nombre', 'id');
+
+        // dd($almacen);
+
+        return view('expediente.areas.create',compact('almacen'));
+    }
+
     /**
      * Store a newly created resource in storage.
      *

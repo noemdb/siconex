@@ -74,7 +74,7 @@
                                 <a title="Mostrar detalles" class="btn btn-info btn-xs" href="{{ route('almacens.show',$almacen->id) }}">
                                     <i class="{{$icon_menus['info']}}"></i>
                                 </a>
-                                <a title="Registrar Area" class="btn btn-primary btn-xs" href="#">
+                                <a title="Registrar Area" class="btn btn-primary btn-xs" href="{{ route('areas.createwithid',$almacen->id) }}">
                                     <i class="{{$icon_menus['area']}}"></i>
                                 </a>
 

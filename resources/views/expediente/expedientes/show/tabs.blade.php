@@ -3,6 +3,7 @@
     <a class="nav-item nav-link active pr-2" id="nav-general-tab" data-toggle="tab" href="#nav-general" role="tab" aria-controls="nav-general" aria-selected="true">General</a>
     <a class="nav-item nav-link pr-2" id="nav-documento-tab" data-toggle="tab" href="#nav-documento" role="tab" aria-controls="nav-documento" aria-selected="false">Documentos</a>
     <a class="nav-item nav-link pr-2" id="nav-movimiento-tab" data-toggle="tab" href="#nav-movimiento" role="tab" aria-controls="nav-movimiento" aria-selected="false">Movimientos</a>
+    <a class="nav-link" id="ltime-tab" data-toggle="tab" href="#ltime" role="ltime" aria-controls="ltime" aria-selected="false">Línea de Tiempo</a>
   </div>
 </nav>
 
@@ -29,5 +30,9 @@
       @include('expediente.movimientos.show.movimientos')
     @endif
   </div>
-  
+
+  <div class="tab-pane fade pt-2" id="ltime" role="tabpanel" aria-labelledby="ltime-tab">
+      @include('expediente.elements.widgets.tline')
+  </div>
+
 </div>

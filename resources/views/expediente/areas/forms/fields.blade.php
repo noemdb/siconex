@@ -2,15 +2,23 @@
 
 @include('expediente.elements.messeges.oper_ok')
 
-@if(isset($area->almacen_id))
-    {{ Form::hidden('almacen_id', $area->almacen_id) }}
+{{-- {{$almacen or 'no hay id'}} --}}
+
+@if(isset($area->almacen_id) || isset($almacen->id))
+{{-- @if(isset($area->almacen_id)) --}}
+
+    @isset($area->almacen->id)
+        @php($almacen = $area->almacen)
+    @endisset
+
+    {{ Form::hidden('almacen_id', $almacen->id) }}
 
     <div class="alert alert-secondary pb-1 mb-1" role="alert">
         <span class="font-weight-normal p-0 m-0" style="color: #777;">
             Almacen:
         </span> <br>
         <span class="font-weight-bold p-0 m-0">
-            {{ $area->almacen->nombre or ''}}
+            {{ $almacen->nombre or ''}}
         </span>
     </div>
 
@@ -21,7 +29,6 @@
 @else
     <div class="form-label-group pb-1">
         {!! Form::select('almacen_id',$almacens,old('almacen_id'),['class' => 'form-control','placeholder' => 'Almacen', 'id'=>'almacen_id']); !!}
-        {{-- <label for="is_active">{{ trans('validation.attributes.is_active') }}</label> --}}
     </div>
 @endif
 

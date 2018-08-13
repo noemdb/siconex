@@ -85,7 +85,7 @@ Route::group(['prefix'=>'expediente','middleware'=>['auth','is_expediente'],'nam
     //INI CRUD modelos
     require (__DIR__ . '/expediente/crud/resource.php');
     // require (__DIR__ . '/admin/crud/showfull.php');
-    // require (__DIR__ . '/admin/crud/createwithid.php');
+    require (__DIR__ . '/expediente/crud/createwithid.php');
     //FIN CRUD modelos
 
     //INI Charts modelos
