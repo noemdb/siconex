@@ -4,33 +4,41 @@
 
 {{-- {{$almacen or 'no hay id'}} --}}
 
-@if(isset($area->almacen_id) || isset($almacen->id))
+{{-- @if(isset($area->almacen_id) || isset($almacen->id)) --}}
 {{-- @if(isset($area->almacen_id)) --}}
 
-    @isset($area->almacen->id)
-        @php($almacen = $area->almacen)
-    @endisset
+    {{-- @isset($area->almacen->id) --}}
+        {{-- @php($almacen = $area->almacen) --}}
+    {{-- @endisset --}}
 
-    {{ Form::hidden('almacen_id', $almacen->id) }}
+    {{-- {{ Form::hidden('almacen_id', $almacen->id) }} --}}
 
-    <div class="alert alert-secondary pb-1 mb-1" role="alert">
-        <span class="font-weight-normal p-0 m-0" style="color: #777;">
-            Almacen:
-        </span> <br>
-        <span class="font-weight-bold p-0 m-0">
-            {{ $almacen->nombre or ''}}
-        </span>
-    </div>
+    {{-- <div class="alert alert-secondary pb-1 mb-1" role="alert"> --}}
+        {{-- <span class="font-weight-normal p-0 m-0" style="color: #777;"> --}}
+            {{-- Almacen: --}}
+        {{-- </span> <br> --}}
+        {{-- <span class="font-weight-bold p-0 m-0"> --}}
+            {{-- {{ $almacen->nombre or ''}} --}}
+        {{-- </span> --}}
+    {{-- </div> --}}
+    {{-- <script type="text/javascript"> --}}
+        {{-- $select = $('#select'); --}}
+        {{-- $select.trigger('change'); --}}
+    {{-- </script> --}}
 
     {{-- <div class="form-label-group pb-1">
         {!! Form::text('almacen_name', $area->almacen->nombre, ['readonly'=>'readonly','class' => 'form-control','placeholder'=>'Nivel','id'=>'almacen_name']); !!}
         <label for="almacen_name">Almacen</label>
     </div> --}}
-@else
-    <div class="form-label-group pb-1">
-        {!! Form::select('almacen_id',$almacens,old('almacen_id'),['class' => 'form-control','placeholder' => 'Almacen', 'id'=>'almacen_id']); !!}
-    </div>
-@endif
+{{-- @else --}}
+    {{-- < div class="form-label-group pb-1">--}}
+        {{-- {!! Form::select('almacen_id',$almacens,old('almacen_id'),['class' => 'form-control','placeholder' => 'Almacen', 'id'=>'almacen_id']); !!} --}}
+    {{-- </div> --}}
+{{-- @endif --}}
+
+<div class="form-label-group pb-1">
+    {!! Form::select('almacen_id',$almacens,old('almacen_id'),['class' => 'form-control', 'id'=>'almacen_id']); !!}
+</div>
 
 <input type="hidden" name="codigo" id="codigo" value="{{ $area->codigo or ''}}">
 <div class="alert alert-secondary pb-1 mb-1" role="alert">

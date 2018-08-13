@@ -46,22 +46,27 @@ class AreaController extends Controller
     {
         $almacens = Almacen::select('nombre', 'id')
                 ->orderby('id','asc')
-                ->pluck('nombre', 'id');
+                ->pluck('nombre', 'id')
+                ->prepend('Seleccione Almacen','');
 
         return view('expediente.areas.create',compact('almacens'));
     }
 
     public function CreateWithid($almacen_id)
     {
-        $almacen = Almacen::Select('almacens.id','almacens.nombre')
+        $almacens = Almacen::Select('almacens.id','almacens.nombre')
                 ->where('id',$almacen_id)
                 ->orderby('nombre','asc')
-                ->first();
-                // ->pluck('nombre', 'id');
+                // ->first();
+                ->pluck('nombre', 'id')
+                ->prepend('Seleccione Almacen','');
+
+        $area = new Area;
+        $area->codigo = Carbon::;
 
         // dd($almacen);
 
-        return view('expediente.areas.create',compact('almacen'));
+        return view('expediente.areas.create',compact('almacens'));
     }
 
     /**
@@ -106,8 +111,10 @@ class AreaController extends Controller
     {
         $area = Area::findOrFail($id);
         $almacens = Almacen::select('nombre', 'id')
+                ->where('id',$area->almacen_id)
                 ->orderby('id','asc')
                 ->pluck('nombre', 'id');
+                // ->prepend('Seleccione Almacen','');
         return view('expediente.areas.edit',compact('area','almacens'));
     }
 
