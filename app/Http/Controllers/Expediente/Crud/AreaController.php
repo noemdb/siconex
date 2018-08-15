@@ -58,15 +58,13 @@ class AreaController extends Controller
                 ->where('id',$almacen_id)
                 ->orderby('nombre','asc')
                 // ->first();
-                ->pluck('nombre', 'id')
-                ->prepend('Seleccione Almacen','');
+                ->pluck('nombre', 'id');
+                // ->prepend('Seleccione Almacen','');
 
         $area = new Area;
-        $area->codigo = Carbon::;
+        $area->codigo = Carbon::now()->format('mYs').$almacens[$almacen_id];
 
-        // dd($almacen);
-
-        return view('expediente.areas.create',compact('almacens'));
+        return view('expediente.areas.create',compact('almacens','area'));
     }
 
     /**

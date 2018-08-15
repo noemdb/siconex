@@ -1,6 +1,6 @@
 <div class="card bd-callout bd-callout-{{ $class_form_create_task or 'form' }}">
   <div class="card-header font-weight-bold">
-    Formulario para el registro de un nuevo Nivel.
+    Formulario para el registro de un nueva Área.
   </div>
   <div class="card-body">
 

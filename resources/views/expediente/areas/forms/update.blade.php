@@ -1,6 +1,6 @@
 <div class="card bd-callout bd-callout-{{ Session::get('class_oper') or "" }}">
   <div class="card-header font-weight-bold">
-    Formulario para la actualización del Nivel <strong class="text-primary">{{ $area->codigo or '' }}</strong>
+    Formulario para la actualización del Área <strong class="text-primary">{{ $area->codigo or '' }}</strong>
   </div>
   <div class="card-body p-1">
 
@@ -13,7 +13,7 @@
             <button type="submit" class="btn-user-update btn btn-primary btn-block" value="update" data-id="update" id="btn-update-area-{{$area->id}}">
 
                 <i class="{{$icon_menus['guardado']}}"></i>
-                Actualizar Nivel
+                Actualizar Área
 
             </button>
 
