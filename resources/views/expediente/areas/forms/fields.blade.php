@@ -9,13 +9,13 @@
 
     @else
 
-        <input type="hidden" name="almacen_id" id="almacen_id" value="{{ $almacens['id'] or ''}}">
+        <input type="hidden" name="almacen_id" id="almacen_id" value="{{ $almacen_id or ''}}">
         <div class="alert alert-secondary pb-1 mb-1" role="alert">
             <span class="font-weight-normal p-0 m-0" style="color: #777;">
                 Almacen:
             </span> <br>
             <span class="font-weight-bold p-0 m-0" id="spanalmacens">
-                {{ $almacens or ''}}
+                {{$almacens[$almacen_id] or 'error'}}
             </span>
         </div>    
         

@@ -52,6 +52,7 @@ class AreaController extends Controller
         return view('expediente.areas.create',compact('almacens'));
     }
 
+    // Funcion para crear registro cuando se envia el id
     public function CreateWithid($almacen_id)
     {
         $almacens = Almacen::Select('almacens.id','almacens.nombre')
@@ -64,7 +65,7 @@ class AreaController extends Controller
         $area = new Area;
         $area->codigo = Carbon::now()->format('mYs').$almacens[$almacen_id];
 
-        return view('expediente.areas.create',compact('almacens','area'));
+        return view('expediente.areas.create',compact('almacens','area','almacen_id'));
     }
 
     /**

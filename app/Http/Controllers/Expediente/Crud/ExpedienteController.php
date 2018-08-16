@@ -53,6 +53,23 @@ class ExpedienteController extends Controller
 
         return view('expediente.expedientes.create',compact('estudiantes'));
     }
+
+    // Funcion para crear registro cuando se envia el id
+    public function CreateWithid($estudiante_id)
+    {
+        $estudiantes = Estudiante::Select('id','ci')
+                ->where('id',$estudiante_id)
+                ->orderby('ci','asc')
+                // ->first();
+                ->pluck('ci', 'id');
+                // ->prepend('Seleccione Almacen','');
+
+        $expediente = new Expediente;
+        $expediente->codigo = Carbon::now()->format('mYs').$estudiantes[$estudiante_id];
+
+        return view('expediente.expedientes.create',compact('estudiantes','estudiante_id','expediente'));
+    }
+
     /**
      * Store a newly created resource in storage.
      *

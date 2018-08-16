@@ -73,7 +73,7 @@
                                 <a title="Mostrar detalles" class="btn btn-info btn-xs" href="{{ route('estudiantes.show',$estudiante->id) }}">
                                     <i class="{{$icon_menus['info']}}"></i>
                                 </a>
-                                <a title="Adicionar Expediente" class="btn btn-primary btn-xs" href="#{{-- {{ route('movimientos.createId',$expediente->id) }} --}}">
+                                <a title="Adicionar Expediente" class="btn btn-primary btn-xs" href="{{ route('expedientes.createwithid',$estudiante->id) }}">
                                     <i class="{{$icon_menus['expediente']}}"></i>
                                 </a>
                                 <a title="Adicionar Carrera" class="btn btn-success btn-xs" href="#{{-- {{ route('movimientos.createId',$expediente->id) }} --}}">

@@ -4,13 +4,34 @@
 
 {{ Form::hidden('user_id',Auth::user()->id) }}
 
-@if(isset($estudiante->id))
+<div class="form-label-group pb-1">
+    @if(count($estudiantes)>1)
+
+        {!! Form::select('estudiante_id',$estudiantes,old('estudiante_id'),['class' => 'form-control','placeholder' => 'Estudiante', 'id'=>'estudiante_id']); !!}
+
+    @else
+
+        <input type="hidden" name="estudiante_id" id="estudiante_id" value="{{ $estudiante_id or ''}}">
+        <div class="alert alert-secondary pb-1 mb-1" role="alert">
+            <span class="font-weight-normal p-0 m-0" style="color: #777;">
+                Estudiante:
+            </span> <br>
+            <span class="font-weight-bold p-0 m-0" id="spancodigo">
+                {{ $estudiantes[$estudiante_id] or 'Error'}}
+            </span>
+        </div>   
+        
+    @endif
+    
+</div>
+
+{{-- @if(isset($estudiante->id))
     {{ Form::hidden('estudiante_id', $estudiante->id) }}
 @else
     <div class="form-label-group pb-1">
         {!! Form::select('estudiante_id',$estudiantes,old('estudiante_id'),['class' => 'form-control','placeholder' => 'Estudiante', 'id'=>'estudiante_id']); !!}
     </div>
-@endif
+@endif --}}
 
 <input type="hidden" name="codigo" id="codigo" value="{{ $expediente->codigo or ''}}">
 <div class="alert alert-secondary pb-1 mb-1" role="alert">
