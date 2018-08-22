@@ -25,25 +25,22 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 // Route::get('/home', 'HomeController@index')->name('home');
 
+Route::group(['prefix'=>'common','middleware'=>['auth'],'namespace'=>'Common'], function(){
+    //INI Route iniciales
+    require (__DIR__ . '/common/iniciales.php');
+    //FIN Route iniciales
+
+    require (__DIR__ . '/common/crud/resource.php');
+
+    // require (__DIR__ . '/common/charts/tasks.php');
+    // require (__DIR__ . '/common/charts/alerts.php');
+    // require (__DIR__ . '/common/charts/messeges.php');
+
+});
+
 //INI establecer setting para los usuarios
 // require (__DIR__ . '/settings/users.php');
 //FIN establecer setting para los usuarios
-
-//INI rutas para Poa
-// Route::group(['prefix'=>'poa','middleware'=>['auth','is_admin','is_poa'],'namespace'=>'Poa'], function(){
-
-//     //INI Route iniciales
-//     require (__DIR__ . '/poa/iniciales.php');
-//     //FIN Route iniciales
-
-//     //INI CRUD modelos
-//     require (__DIR__ . '/poa/crud/resource.php');
-//     require (__DIR__ . '/poa/crud/showfull.php');
-//     require (__DIR__ . '/poa/crud/createwithid.php');
-//     //FIN CRUD modelos
-
-// });
-//FIN rutas para Poa
 
 //rutas para admin
 Route::group(['prefix'=>'admin','middleware'=>['auth','is_admin'],'namespace'=>'Admin'], function(){
@@ -62,9 +59,9 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','is_admin'],'namespace'=>'
     require (__DIR__ . '/admin/charts/users.php');
     require (__DIR__ . '/admin/charts/profiles.php');
     require (__DIR__ . '/admin/charts/rols.php');
-    require (__DIR__ . '/admin/charts/tasks.php');
-    require (__DIR__ . '/admin/charts/alerts.php');
-    require (__DIR__ . '/admin/charts/messeges.php');
+    // require (__DIR__ . '/admin/charts/tasks.php');
+    // require (__DIR__ . '/admin/charts/alerts.php');
+    // require (__DIR__ . '/admin/charts/messeges.php');
     require (__DIR__ . '/admin/charts/loginouts.php');
     require (__DIR__ . '/admin/charts/logdbs.php');
     //FIN Charts modelos

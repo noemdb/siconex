@@ -4,9 +4,9 @@
 	        <span class="text-{{$data->class}} font-weight-bold">
 	        	<i class="{{$icon or ''}}"></i>
 	        	<span title="Almacen">
-	        		[{{ $data->nivel->almacen->nombre or '' }}]
+	        		[{{ $data->area->almacen->nombre or '' }}]
 	        	</span><span title="Nivel">
-	        		[{{ $data->nivel->codigo or '' }}]
+	        		[{{ $data->area->codigo or '' }}]
 	        	</span>
 	            <span class="pull-right text-muted small"> <em>{{ $data->created_at->diffForHumans() }}</em></span>
 	        </span>

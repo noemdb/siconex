@@ -11,4 +11,4 @@
 		</li>
 	@endforeach
 </ul>
-<a href="#">Mas...</a>
+<a href="{{ route('alerts.index') }}">Mas...</a>
