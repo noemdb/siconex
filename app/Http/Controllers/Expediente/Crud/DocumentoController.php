@@ -54,6 +54,24 @@ class DocumentoController extends Controller
 
         return view('expediente.documentos.create',compact('tipos','expedientes'));
     }
+    
+    // Funcion para crear registro cuando se envia el id
+    public function CreateWithExpId($expediente_id)
+    {
+        $tipos = SelectOpt::select('select_opts.*')
+                    ->where('table','documentos')
+                    ->where('view','documentos.create')
+                    ->where('name','tipo')
+                    ->pluck('key', 'value');
+
+        $expedientes = Expediente::select('expedientes.*')
+                ->where('id',$expediente_id)
+                ->orderby('expedientes.id','asc')
+                ->pluck('codigo', 'id');
+                // ->prepend('Seleccionar','');
+
+        return view('expediente.documentos.create',compact('tipos','expedientes','expediente_id'));
+    }
 
     /**
      * Store a newly created resource in storage.

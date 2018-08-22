@@ -28,9 +28,9 @@
             </tr>
 
             <tr>
-                <th scope="col">Nivel</th>
+                <th scope="col">Área</th>
                 <td scope="col">
-                    {{$movimiento->nivel->codigo or ''}}
+                    {{$movimiento->area->codigo or ''}}
                 </td>
             </tr>
 

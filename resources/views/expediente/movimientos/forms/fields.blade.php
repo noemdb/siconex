@@ -4,49 +4,49 @@
 
 {{ Form::hidden('user_id',Auth::user()->id) }}
 
-@if(isset($movimiento->expediente_id))
-    {{ Form::hidden('expediente_id', $movimiento->expediente_id) }}
-    <div class="alert alert-secondary pb-1 mb-1" role="alert">
-        <span class="font-weight-normal p-0 m-0" style="color: #777;">
-            Expediente:
-        </span> <br>
-        <span class="font-weight-bold p-0 m-0">
-            {{ $movimiento->expediente->codigo or ''}}
-        </span>
-    </div>
-{{--     <div class="form-label-group pb-1">
-        {!! Form::text('expcodigo', $movimiento->expediente->codigo, ['readonly'=>'readonly','class' => 'form-control','placeholder'=>'Expediente','id'=>'expcodigo','required']); !!}
-        <label for="descripcion">Expediente</label>
-    </div> --}}
-@else
-    <div class="form-label-group pb-1">
-        {!! Form::select('expediente_id',$expedientes,old('expediente_id'),['class' => 'form-control','placeholder' => 'Expedientes']); !!}
-        {{-- <label for="is_active">{{ trans('validation.attributes.is_active') }}</label> --}}
-    </div>
-@endif
+<div class="form-label-group pb-1">
 
-@if(isset($movimiento->area_id))
-    {{ Form::hidden('area_id', $movimiento->area_id) }}
+    @if(count($expedientes)>1)
 
-    <div class="alert alert-secondary pb-1 mb-1" role="alert">
-        <span class="font-weight-normal p-0 m-0" style="color: #777;">
-            Área:
-        </span> <br>
-        <span class="font-weight-bold p-0 m-0">
-            {{ $movimiento->area->codigo or ''}}
-        </span>
-    </div>
+        {!! Form::select('expediente_id',$expedientes,old('expediente_id'),['class' => 'form-control', 'id'=>'expediente_id']); !!}
 
-    {{-- <div class="form-label-group pb-1">
-        {!! Form::text('nivelcodigo', $movimiento->area->codigo, ['readonly'=>'readonly','class' => 'form-control','placeholder'=>'Área','id'=>'nivelcodigo','required']); !!}
-        <label for="descripcion">Área</label>
-    </div> --}}
-@else
-    <div class="form-label-group pb-1">
-        {!! Form::select('area_id',$areas,old('area_id'),['class' => 'form-control','placeholder' => 'Áreas']); !!}
-        {{-- <label for="is_active">{{ trans('validation.attributes.is_active') }}</label> --}}
-    </div>
-@endif
+    @else
+
+        <input type="hidden" name="expediente_id" id="expediente_id" value="{{ $expediente_id or ''}}">
+        <div class="alert alert-secondary pb-1 mb-1" role="alert">
+            <span class="font-weight-normal p-0 m-0" style="color: #777;">
+                Expediente:
+            </span> <br>
+            <span class="font-weight-bold p-0 m-0" id="spanalmacens">
+                {{$expedientes[$expediente_id] or 'error'}}
+            </span>
+        </div>    
+        
+    @endif
+    
+</div>
+
+<div class="form-label-group pb-1">
+    
+    @if(count($areas)>1)
+
+        {!! Form::select('area_id',$areas,old('area_id'),['class' => 'form-control', 'id'=>'area_id','placeholder' => 'Aréas']); !!}
+
+    @else
+
+        <input type="hidden" name="area_id" id="area_id" value="{{ $area_id or ''}}">
+        <div class="alert alert-secondary pb-1 mb-1" role="alert">
+            <span class="font-weight-normal p-0 m-0" style="color: #777;">
+                Area:
+            </span> <br>
+            <span class="font-weight-bold p-0 m-0" id="spanalmacens">
+                {{$areas[$area_id] or 'error'}}
+            </span>
+        </div>    
+        
+    @endif
+    
+</div>
 
 <div class="form-label-group pb-1">
     {!! Form::select('tipo',$tipos,old('tipo'),['class' => 'form-control','placeholder' => 'Tipo']); !!}

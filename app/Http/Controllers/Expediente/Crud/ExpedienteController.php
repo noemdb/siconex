@@ -55,19 +55,19 @@ class ExpedienteController extends Controller
     }
 
     // Funcion para crear registro cuando se envia el id
-    public function CreateWithid($estudiante_id)
+    public function CreateWithEstuId($estudiante_id)
     {
-        $estudiantes = Estudiante::Select('id','ci')
-                ->where('id',$estudiante_id)
-                ->orderby('ci','asc')
-                // ->first();
-                ->pluck('ci', 'id');
-                // ->prepend('Seleccione Almacen','');
+        $estudiantes = Estudiante::select('estudiantes.*')
+            //->leftJoin('expedientes', 'estudiantes.id', '=', 'expedientes.estudiante_id')
+            ->where('id',$estudiante_id)
+            // ->whereNull('expedientes.estudiante_id')
+            ->orderby('estudiantes.ci','asc')
+            ->pluck('ci', 'id');
 
         $expediente = new Expediente;
         $expediente->codigo = Carbon::now()->format('mYs').$estudiantes[$estudiante_id];
 
-        return view('expediente.expedientes.create',compact('estudiantes','estudiante_id','expediente'));
+        return view('expediente.expedientes.create',compact('estudiantes','expediente','estudiante_id'));
     }
 
     /**

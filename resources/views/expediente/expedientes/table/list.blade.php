@@ -84,10 +84,10 @@
                                 <a title="Mostrar detalles" class="btn btn-info btn-xs" href="{{ route('expedientes.show',$expediente->id) }}">
                                     <i class="{{$icon_menus['info']}}"></i>
                                 </a>
-                                <a title="Registrar Movimiento" class="btn btn-primary btn-xs" href="#{{-- {{ route('movimientos.createId',$expediente->id) }} --}}">
+                                <a title="Registrar Movimiento" class="btn btn-primary btn-xs" href="{{ route('movimientos.createwithexpid',$expediente->id) }}">
                                     <i class="{{$icon_menus['movimiento']}}"></i>
                                 </a>
-                                <a title="Adicionar Documento" class="btn btn-success btn-xs" href="#{{-- {{ route('movimientos.createId',$expediente->id) }} --}}">
+                                <a title="Adicionar Documento" class="btn btn-success btn-xs" href="{{ route('documentos.createwithexpid',$expediente->id) }}">
                                     <i class="{{$icon_menus['documento']}}"></i>
                                 </a>
 

@@ -56,9 +56,38 @@
 
                 <td style="padding: 2px; vertical-align: middle;" id="btn-action-{{ $area->id }}" class="text-center">
 
-                    <div class="btn-group btn-group-sm">
 
-                        {{-- boton para mostrar en un modal de info de regsitro --}}
+                    <div class="dropdown dropleft">
+                        <button class="btn btn-info dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="{{$icon_menus['opcion']}}"></i>
+                        </button>
+                        <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
+
+                            <div class="btn-group btn-group-sm">
+
+                                <a title="Mostrar detalles" class="btn btn-info btn-xs" href="{{ route('areas.show',$area->id) }}">
+                                    <i class="{{$icon_menus['info']}}"></i>
+                                </a>
+                                <a title="Registrar Movimiento" class="btn btn-primary btn-xs" href="{{ route('movimientos.createwithareaid',$area->id) }}">
+                                    <i class="{{$icon_menus['movimiento']}}"></i>
+                                </a>
+
+                                <a title="Editar resgistro" class="btn btn-warning btn-xs btn-action-group-{{ $area->id }}" href="{{ route('areas.edit',$area->id) }}" id="btn-edituser_{{$area->id}}">
+                                    <i class="fas fa-pencil-alt"></i>
+                                </a>
+
+                                <a title="Eliminar {{(isset($area->deleted_at) ? 'DEFINITIVAMENTE':'')}}" class="btn-delete btn btn-danger btn-xs" href="{{ route('areas.destroy',$area->id) }}" id="btn-delete-taskid_{{$area->id}}">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    {{-- boton para mostrar en un modal de info de regsitro --}}
+                    {{-- <div class="btn-group btn-group-sm">                        
 
                         <a title="Mostrar detalles" class="btn btn-info btn-xs" href="{{ route('areas.show',$area->id) }}">
                             <i class="{{$icon_menus['info']}}"></i>
@@ -72,7 +101,7 @@
                             <i class="fas fa-trash"></i>
                         </a>
 
-                    </div>
+                    </div> --}}
 
                 </td>
 

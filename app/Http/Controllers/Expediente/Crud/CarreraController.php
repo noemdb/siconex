@@ -55,6 +55,25 @@ class CarreraController extends Controller
         return view('expediente.carreras.create',compact('carreras','estudiantes'));
     }
 
+    // Funcion para crear registro cuando se envia el id
+    public function CreateWithEstuId($estudiante_id)
+    {
+        $carreras = SelectOpt::select('select_opts.*')
+                    ->where('table','carreras')
+                    ->where('view','carreras.create')
+                    ->where('name','nombre')
+                    ->pluck('key', 'value');
+
+        $estudiantes = Estudiante::select('estudiantes.*')
+            //->leftJoin('expedientes', 'estudiantes.id', '=', 'expedientes.estudiante_id')
+            ->where('id',$estudiante_id)
+            // ->whereNull('expedientes.estudiante_id')
+            ->orderby('estudiantes.ci','asc')
+            ->pluck('ci', 'id');        
+
+        return view('expediente.carreras.create',compact('carreras','estudiantes','estudiante_id'));
+    }
+
     /**
      * Store a newly created resource in storage.
      *

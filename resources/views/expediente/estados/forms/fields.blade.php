@@ -2,14 +2,27 @@
 
 @include('expediente.elements.messeges.oper_ok')
 
-@if(isset($estudiante->id))
-{{ Form::hidden('estudiante_id', $estudiante->id) }}
-@else
 <div class="form-label-group pb-1">
-    {!! Form::select('estudiante_id',$estudiantes,old('estudiante_id'),['class' => 'form-control','placeholder' => 'Estudiante']); !!}
-    {{-- <label for="is_active">{{ trans('validation.attributes.is_active') }}</label> --}}
+    @if(count($estudiantes)>1)
+
+        {!! Form::select('estudiante_id',$estudiantes,old('estudiante_id'),['class' => 'form-control', 'id'=>'estudiante_id']); !!}
+
+    @else
+
+        <input type="hidden" name="estudiante_id" id="estudiante_id" value="{{ $estudiante_id or ''}}">
+        <div class="alert alert-secondary pb-1 mb-1" role="alert">
+            <span class="font-weight-normal p-0 m-0" style="color: #777;">
+                Estudiante:
+            </span> <br>
+            <span class="font-weight-bold p-0 m-0" id="spanalmacens">
+                {{$estudiantes[$estudiante_id] or 'error'}}
+                {{-- [{{$estudiantes[$estudiante_id] or 'error'}}] --}}
+            </span>
+        </div>    
+        
+    @endif
+    
 </div>
-@endif
 
 <div class="form-label-group pb-1">
 

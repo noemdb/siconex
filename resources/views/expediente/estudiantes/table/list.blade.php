@@ -73,13 +73,13 @@
                                 <a title="Mostrar detalles" class="btn btn-info btn-xs" href="{{ route('estudiantes.show',$estudiante->id) }}">
                                     <i class="{{$icon_menus['info']}}"></i>
                                 </a>
-                                <a title="Adicionar Expediente" class="btn btn-primary btn-xs" href="{{ route('expedientes.createwithid',$estudiante->id) }}">
+                                <a title="Adicionar Expediente" class="btn btn-primary btn-xs" href="{{ route('expedientes.createwithestuid',$estudiante->id) }}">
                                     <i class="{{$icon_menus['expediente']}}"></i>
                                 </a>
-                                <a title="Adicionar Carrera" class="btn btn-success btn-xs" href="#{{-- {{ route('movimientos.createId',$expediente->id) }} --}}">
+                                <a title="Adicionar Carrera" class="btn btn-success btn-xs" href="{{ route('carreras.createwithestuid',$estudiante->id) }}">
                                     <i class="{{$icon_menus['carrera']}}"></i>
                                 </a>
-                                <a title="Cambiar Estado" class="btn btn-secondary btn-xs" href="#{{-- {{ route('movimientos.createId',$expediente->id) }} --}}">
+                                <a title="Cambiar Estados" class="btn btn-secondary btn-xs" href="{{ route('estados.createwithestuid',$estudiante->id) }}">
                                     <i class="{{$icon_menus['estado']}}"></i>
                                 </a>
 

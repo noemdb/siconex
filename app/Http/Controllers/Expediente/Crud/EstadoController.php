@@ -55,6 +55,25 @@ class EstadoController extends Controller
         return view('expediente.estados.create',compact('estados','estudiantes'));
     }
 
+    // Funcion para crear registro cuando se envia el id
+    public function CreateWithEstuId($estudiante_id)
+    {
+        $estados = SelectOpt::select('select_opts.*')
+                    ->where('table','estados')
+                    ->where('view','estados.create')
+                    ->where('name','estado')
+                    ->pluck('key', 'value');
+
+        $estudiantes = Estudiante::select('estudiantes.*')
+            //->leftJoin('expedientes', 'estudiantes.id', '=', 'expedientes.estudiante_id')
+            ->where('id',$estudiante_id)
+            // ->whereNull('expedientes.estudiante_id')
+            ->orderby('estudiantes.ci','asc')
+            ->pluck('ci', 'id');        
+
+        return view('expediente.estados.create',compact('estados','estudiantes','estudiante_id'));
+    }
+
     /**
      * Store a newly created resource in storage.
      *

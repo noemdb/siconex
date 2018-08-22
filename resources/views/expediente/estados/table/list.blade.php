@@ -26,7 +26,7 @@
         @foreach($estados as $estado)
 
             {{-- @php ($estado = $estado->estados->last()) --}}
-            <tr data-estado="{{$estado->id}}" class="{{-- text-{{ $estado->class or '' }} --}} p-0 m-0">
+            <tr data-estado="{{$estado->id}}" class="text-{{ $estado->class or '' }} p-0 m-0">
 
                 <td class="{{ $class['N'] or ''}}">
                     {{ ($loop->index + 1) }}

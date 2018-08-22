@@ -2,7 +2,29 @@
 
 @include('expediente.elements.messeges.oper_ok')
 
-@if(isset($documento->expediente_id))
+<div class="form-label-group pb-1">
+
+    @if(count($expedientes)>1)
+
+        {!! Form::select('expediente_id',$expedientes,old('expediente_id'),['class' => 'form-control', 'id'=>'expediente_id']); !!}
+
+    @else
+
+        <input type="hidden" name="expediente_id" id="expediente_id" value="{{ $expediente_id or ''}}">
+        <div class="alert alert-secondary pb-1 mb-1" role="alert">
+            <span class="font-weight-normal p-0 m-0" style="color: #777;">
+                Expediente:
+            </span> <br>
+            <span class="font-weight-bold p-0 m-0" id="spanalmacens">
+                {{$expedientes[$expediente_id] or 'error'}}
+            </span>
+        </div>    
+        
+    @endif
+    
+</div>
+
+{{-- @if(isset($documento->expediente_id))
     {{ Form::hidden('expediente_id', $documento->expediente_id) }}
     <div class="alert alert-secondary pb-1 mb-1 font-weight-bold" role="alert">
         <font>Expediente:</font> {{ $documento->expediente->codigo or ''}}
@@ -10,10 +32,8 @@
 @else
     <div class="form-label-group pb-1">
         {!! Form::select('expediente_id',$expedientes,old('expediente_id'),['class' => 'form-control','placeholder' => 'Expedientes']); !!}
-        {{-- <label for="is_active">{{ trans('validation.attributes.is_active') }}</label> --}}
     </div>
-@endif
-
+@endif --}}
 
 <div class="form-label-group pb-1">
 

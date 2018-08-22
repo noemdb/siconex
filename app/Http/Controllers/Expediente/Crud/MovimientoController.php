@@ -66,10 +66,61 @@ class MovimientoController extends Controller
                     ->where('name','tipo')
                     ->pluck('key', 'value');
 
-        // dd($options);
-
         return view('expediente.movimientos.create',compact('almacens','areas','expedientes','tipos'));
     }
+
+    // Funcion para crear registro cuando se envia el id
+    public function CreateWithAreaId($area_id)
+    {
+        $expedientes = Expediente::select('expedientes.*')
+                ->orderby('expedientes.id','asc')
+                ->pluck('codigo', 'id');
+
+        $almacens = Almacen::select('nombre', 'id')
+                ->orderby('id','asc')
+                ->pluck('nombre', 'id');
+
+        $areas = Area::select('codigo', 'id')
+                ->orderby('id','asc')
+                ->where('id',$area_id)
+                ->pluck('codigo', 'id');
+                // ->prepend('Seleccionar','');
+
+        $tipos = SelectOpt::select('select_opts.*')
+                    ->where('table','movimientos')
+                    ->where('view','movimientos.create')
+                    ->where('name','tipo')
+                    ->pluck('key', 'value');
+
+        return view('expediente.movimientos.create',compact('almacens','areas','expedientes','tipos','area_id'));
+    }
+
+    public function CreateWithExpId($expediente_id)
+    {
+        $expedientes = Expediente::select('expedientes.*')
+                ->where('id',$expediente_id)
+                ->orderby('expedientes.id','asc')
+                ->pluck('codigo', 'id');
+
+        $almacens = Almacen::select('nombre', 'id')
+                ->orderby('id','asc')
+                ->pluck('nombre', 'id');
+
+        $areas = Area::select('codigo', 'id')
+                ->orderby('id','asc')
+                // ->where('id',$area_id)
+                ->pluck('codigo', 'id');
+                // ->prepend('Seleccionar','');
+
+        $tipos = SelectOpt::select('select_opts.*')
+                    ->where('table','movimientos')
+                    ->where('view','movimientos.create')
+                    ->where('name','tipo')
+                    ->pluck('key', 'value');
+
+        return view('expediente.movimientos.create',compact('almacens','areas','expedientes','tipos','expediente_id'));
+    }
+
 
     /**
      * Store a newly created resource in storage.

@@ -10,7 +10,7 @@
 
                 <h2>
 
-                    Nuevo Nivel
+                    Nueva Área
 
                         {{-- INI Menu rapido --}}
                     <div class="btn-group float-right pt-2">
