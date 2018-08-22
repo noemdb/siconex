@@ -49,7 +49,9 @@ class AreaController extends Controller
                 ->pluck('nombre', 'id')
                 ->prepend('Seleccione Almacen','');
 
-        return view('expediente.areas.create',compact('almacens'));
+        $view = 'areas.index';
+
+        return view('expediente.areas.create',compact('almacens','view'));
     }
 
     // Funcion para crear registro cuando se envia el id
@@ -65,7 +67,7 @@ class AreaController extends Controller
         $area = new Area;
         $area->codigo = Carbon::now()->format('mYs').$almacens[$almacen_id];
 
-        return view('expediente.areas.create',compact('almacens','area','almacen_id'));
+        return view('expediente.areas.create',compact('almacens','area','almacen_id','view'));
     }
 
     /**

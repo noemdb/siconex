@@ -36,6 +36,9 @@
 
                         <div class="col-sm-12">
 
+                            {{-- Mensaje session-flash sobre operaciones con base de datos --}}
+                            @include('expediente.elements.messeges.oper_ok')
+
                             {{-- @include('expediente.areas.show.area') --}}
                             @include('expediente.areas.show.tabs')
 

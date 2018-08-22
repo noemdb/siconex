@@ -11,9 +11,9 @@ class SettingTableSeeder extends Seeder
      */
     public function run()
     {
-        for ($i=0; $i < 20; $i++) { 
-            factory(App\Models\sys\Setting::class)->times(1)->create();
-        }
+        // for ($i=0; $i < 20; $i++) { 
+            // factory(App\Models\sys\Setting::class)->times(1)->create();
+        // }
 
         $arr_admin = 
         [
