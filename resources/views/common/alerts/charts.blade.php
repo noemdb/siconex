@@ -1,4 +1,4 @@
-@extends('admin.layouts.dashboard.app')
+@extends('common.layouts.dashboard.app')
 
 @section('main')
 
@@ -20,13 +20,13 @@
                 
                 <div class="col-lg-6 col-md-6 col-sm-12">
 
-                    @include('admin.alerts.chart.alertsmonthchart')
+                    @include('common.alerts.chart.alertsmonthchart')
                   
                 </div>
 
                 <div class="col-lg-6 col-md-6 col-sm-12">
 
-                  @include('admin.alerts.chart.alertstypeschart')                    
+                  @include('common.alerts.chart.alertstypeschart')                    
 
                 </div>
 
@@ -42,13 +42,13 @@
                 
                 <div class="col-lg-6 col-md-6 col-sm-12">
 
-                  @include('admin.alerts.chart.alertsuserschart')
+                  @include('common.alerts.chart.alertsuserschart')
                   
                 </div>
 
                 <div class="col-lg-6 col-md-6 col-sm-12">
 
-                    {{-- @include('admin.rols.chart.rolsrangeschart') --}}
+                    {{-- @include('common.rols.chart.rolsrangeschart') --}}
 
                 </div>
 

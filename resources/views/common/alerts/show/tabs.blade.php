@@ -6,7 +6,7 @@
 </nav>
 <div class="tab-content" id="nav-tabContent">
   <div class="tab-pane fade show active" id="nav-general" role="tabpanel" aria-labelledby="nav-general-tab">
-    @includeIf('admin.alerts.show.alert')
+    @includeIf('common.alerts.show.alert')
     <a class="btn btn-warning w-100" href="{{ route('alerts.edit',$alert->id) }}" taske="button">
       Actualizar
       <i class="{{$icon_menus['alert'] or ''}}"></i>
@@ -32,7 +32,7 @@
           <div class="tab-content" id="nav-tabContent">
 
             <div class="tab-pane fade show active m-1 p-1" id="nav-guser" role="tabpanel" aria-labelledby="nav-guser-tab">
-              @include('admin.users.show.user')
+              @include('common.users.show.user')
               <a class="btn btn-info w-100" href="{{ route('users.show',$user->id) }}" taske="button">
                 Mostrar
                 <i class="{{$icon_menus['user'] or ''}}"></i>
@@ -41,7 +41,7 @@
 
             <div class="tab-pane fade m-1 p-1" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
               @isset($profile)
-                @include('admin.profiles.show.profile')
+                @include('common.profiles.show.profile')
                 <a class="btn btn-info w-100" href="{{ route('profiles.show',$profile->id) }}" taske="button">
                   Actualizar
                   <i class="{{$icon_menus['profile'] or ''}}"></i>
@@ -51,13 +51,13 @@
 
             <div class="tab-pane fade m-1 p-1" id="nav-messege" role="tabpanel" aria-labelledby="nav-messege-tab">
               @isset($messeges)
-                @includeIf('admin.messeges.show.messeges')
+                @includeIf('common.messeges.show.messeges')
               @endisset
             </div>
 
             <div class="tab-pane fade m-1 p-1" id="nav-tasks" role="tabpanel" aria-labelledby="nav-tasks-tab">       
               @isset($tasks)
-                @includeIf('admin.tasks.show.tasks')
+                @includeIf('common.tasks.show.tasks')
               @endisset
             </div>
 

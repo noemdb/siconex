@@ -8,7 +8,7 @@
       {!! Form::model($alert,['route' => ['alerts.update', $alert->id], 'method' => 'PUT', 'id'=>'form-update-task_'.$alert->id, 'taske'=>'form']) !!}
 
             {{-- partial con el formulario y campos --}}
-            @include('admin.alerts.forms.fields')
+            @include('common.alerts.forms.fields')
 
             <button type="submit" class="btn-user-update btn btn-primary btn-block" value="update" data-id="update" id="btn-update-alert-{{$alert->id}}">
 

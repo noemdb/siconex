@@ -16,7 +16,7 @@
           @endif
 
           {{-- partial con el formulario y campos --}}
-          @include('admin.tasks.forms.fields')
+          @include('common.tasks.forms.fields')
 
           <button type="submit" class="btn-task-create btn btn-primary btn-block" value="create" data-user="{{$user->id or 'create'}}">
               <span class="glyphicon glyphicon-save" aria-hidden="true"></span>

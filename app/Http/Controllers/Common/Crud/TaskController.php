@@ -32,7 +32,7 @@ class TaskController extends Controller
             // ->with('Profile')
             ->get();
 
-        dd($tasks);
+        //dd($tasks);
 
         return view('common.tasks.index', compact('tasks'));
     }

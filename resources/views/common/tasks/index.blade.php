@@ -1,4 +1,4 @@
-@extends('admin.layouts.dashboard.app')
+@extends('common.layouts.dashboard.app')
 
 @section('main')
 
@@ -15,7 +15,7 @@
                     {{-- INI Menu rapido --}}
                     <div class="btn-group float-right pt-2">
 
-                        @include('admin.tasks.menus.index')
+                        @include('common.tasks.menus.index')
 
                     </div>
                     {{-- FIN Menu rapido --}}
@@ -26,10 +26,10 @@
             <div class="card-body p-1">
 
                 {{-- Mensaje session-flash sobre operaciones con base de datos --}}
-                @include('admin.elements.messeges.oper_ok')
+                {{-- @include('common.elements.messeges.oper_ok') --}}
 
                 {{-- Partial con el listado de los usuarios --}}
-                @include('admin.tasks.table.list')
+                @include('common.tasks.table.list')
 
             </div>
         </div>

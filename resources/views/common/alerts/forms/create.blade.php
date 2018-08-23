@@ -8,7 +8,7 @@
       {!! Form::open(['route' => 'alerts.store', 'method' => 'POST', 'id'=>'form-alert-create-'. (isset($user->id)? $user->id : 'create')]) !!}    
 
           {{-- partial con el formulario y campos --}}
-          @include('admin.alerts.forms.fields')
+          @include('common.alerts.forms.fields')
 
           <button type="submit" class="btn-alert-create btn btn-primary btn-block" value="create" data-user="{{$user->id or 'create'}}">
               <span class="glyphicon glyphicon-save" aria-hidden="true"></span>

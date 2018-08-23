@@ -5,14 +5,14 @@
     <script> requestData('{{ $chart['range'] }}','{{ $chart['id_chart'] }}','{{ $chart['urlapi'] }}','{{ $chart['tipo'] }}','{{ $chart['limit'] }}'); </script>
 @endsection
 
-@component('admin.elements.card.panel')
+@component('common.elements.card.panel')
     @slot('class', 'success')
     @slot('panelControls', 'true')
     @slot('id', $chart['id_chart'])
     @slot('header', 'Tareas por Tipo')
     @slot('iconTitle', $icon_menus['chartline'])
     @slot('body')
-        @component('admin.elements.canvas.chart')
+        @component('common.elements.canvas.chart')
             @slot('class', 'borderRBL')                  
             @slot('nav') 
                 <nav class="nav nav-tabs ranges" id="nav-tab" role="tablist" data-canvas="{{ $chart['id_chart'] or ''}}" data-urlapi="{{ $chart['urlapi'] or ''}}" data-tipo="{{ $chart['tipo'] or ''}}" data-limit="{{ $chart['limit'] or ''}}">

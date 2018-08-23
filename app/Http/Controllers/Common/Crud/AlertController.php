@@ -63,7 +63,7 @@ class AlertController extends Controller
 
         // dd($user_list,$estado_list,$tipo_list);
 
-        return view('admin.alerts.create',compact('user_list','tipo_list','estado_list'));
+        return view('common.alerts.create',compact('user_list','tipo_list','estado_list'));
     }
 
     /**
@@ -98,7 +98,7 @@ class AlertController extends Controller
 
         // dd($task);
 
-        return view('admin.alerts.show',compact('alert'));
+        return view('common.alerts.show',compact('alert'));
     }
 
     /**
@@ -132,7 +132,7 @@ class AlertController extends Controller
 
         // dd($user_list,$estado_list,$tipo_list);
 
-        return view('admin.alerts.edit',compact('alert','user_list','tipo_list','estado_list'));
+        return view('common.alerts.edit',compact('alert','user_list','tipo_list','estado_list'));
 
     }
 

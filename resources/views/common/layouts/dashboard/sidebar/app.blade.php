@@ -5,7 +5,7 @@
       {{-- INI Inicio --}}
       <li class="nav-item">
 
-          <a class="nav-link" href="{{ route('expediente.home') }}">
+          <a class="nav-link" href="{{ route('common.home') }}">
             <span data-feather="home"></span>
             Inicio {{-- <span class="sr-only">(current)</span> --}}
           </a>
@@ -17,7 +17,7 @@
 
         <ul class="nav flex-column">
 
-            @include('expediente.layouts.dashboard.sidebar.partials.expedientes')
+            @include('common.layouts.dashboard.sidebar.partials.common')
 
         </ul>
 

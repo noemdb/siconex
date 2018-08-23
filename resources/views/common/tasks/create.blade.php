@@ -1,4 +1,4 @@
-@extends('admin.layouts.dashboard.app')
+@extends('common.layouts.dashboard.app')
 
 @section('main')
 
@@ -10,12 +10,12 @@
 
                 <h2>
 
-                    Nuevo Tarea
+                    Nueva Tarea
 
                         {{-- INI Menu rapido --}}
                     <div class="btn-group float-right pt-2">
 
-                        @include('admin.tasks.menus.create')
+                        @include('common.tasks.menus.create')
 
                     </div>
                     {{-- FIN Menu rapido --}}
@@ -26,7 +26,7 @@
 
             <div class="card-body">
 
-                @include('admin.tasks.forms.create')
+                @include('common.tasks.forms.create')
 
             </div>
 

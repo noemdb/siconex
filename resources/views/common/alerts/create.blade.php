@@ -1,4 +1,4 @@
-@extends('admin.layouts.dashboard.app')
+@extends('common.layouts.dashboard.app')
 
 @section('main')
 
@@ -15,7 +15,7 @@
                         {{-- INI Menu rapido --}}
                     <div class="btn-group float-right pt-2">
 
-                        @include('admin.alerts.menus.create')
+                        @include('common.alerts.menus.create')
 
                     </div>
                     {{-- FIN Menu rapido --}}
@@ -26,7 +26,7 @@
 
             <div class="card-body">
 
-                @include('admin.alerts.forms.create')
+                @include('common.alerts.forms.create')
 
             </div>
 

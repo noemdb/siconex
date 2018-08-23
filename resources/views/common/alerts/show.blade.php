@@ -1,16 +1,13 @@
-@extends('admin.layouts.dashboard.app')
+@extends('common.layouts.dashboard.app')
 
 {{-- @section('page_heading','Listado de Usuarios') --}}
 
 @section('main')
 
-    @php ($user = $alert->user)
-    @isset($user->profile)
-        @php ($profile = $user->profile)
-    @endisset
-    @isset($user->tasks)
-        @php ($tasks = $user->tasks)
-    @endisset
+    @php ($user = (isset($alert->user)) ? $alert->user: false)
+    @php ($profile = (isset($user->profile)) ? $user->profile: false)
+    @php ($messeges = (isset($user->messeges)) ? $user->messeges: false)
+    @php ($task = (isset($user->task)) ? $user->task: false)
 
     <main taske="main" class="col-md-10 ml-sm-auto col-lg-10 px-2">
 
@@ -25,7 +22,7 @@
                     {{-- INI Menu rapido --}}
                     <div class="btn-group float-right pt-2">
 
-                        @include('admin.alerts.menus.show')
+                        @includeIf('common.alerts.menus.show')
 
                     </div>
                     {{-- FIN Menu rapido --}}
@@ -54,7 +51,7 @@
 
                             {{-- Partial con los tabs de usuario (perfiles, Alertas) --}}
 
-                            @include('admin.alerts.show.tabs')
+                            @includeIf('common.alerts.show.tabs')
 
                         </div>
                     </div>

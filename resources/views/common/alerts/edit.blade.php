@@ -1,4 +1,4 @@
-@extends('admin.layouts.dashboard.app')
+@extends('common.layouts.dashboard.app')
 {{-- @section('page_heading','Listado de Usuarios') --}}
 @section('main')
 
@@ -15,7 +15,7 @@
                         {{-- INI Menu rapido --}}
                     <div class="btn-group float-right pt-2">
 
-                        @include('admin.alerts.menus.edit')
+                        @include('common.alerts.menus.edit')
 
                     </div>
                     {{-- FIN Menu rapido --}}
@@ -26,7 +26,7 @@
 
             <div class="card-body p-1">
 
-                @include('admin.alerts.forms.update')
+                @include('common.alerts.forms.update')
 
             </div>
 

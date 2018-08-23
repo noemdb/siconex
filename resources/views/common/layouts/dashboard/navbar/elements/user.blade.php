@@ -9,7 +9,7 @@
 <ul class="dropdown-menu dropdown-user">
 
     <li class="sidebar-profile">
-        @include('admin.layouts.dashboard.sidebar.elements.profile')
+        @include('common.layouts.dashboard.sidebar.elements.profile')
     </li>
     <li class="divider"></li>
     <li>

@@ -80,13 +80,9 @@ class Alert extends Model
   public function getClassAttribute()
   {      
     switch ($this->estado) {
-      case 'Regular':
+      case 'Enviada':
           $class = 'primary'; break;
-      case 'Suspendido':
-          $class = 'danger'; break;
-      case 'Preinscrito':
-          $class = 'info'; break;
-      case 'Egresado':
+      case 'Entregada':
           $class = 'success'; break;          
       default:
           $class = 'secondary'; break;

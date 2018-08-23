@@ -59,15 +59,15 @@ class User extends Authenticatable
     }
     public function tasks()
     {
-        return $this->hasMany('App\Models\sys\Task');
+        return $this->hasMany('App\Models\common\Task');
     }
     public function messeges()
     {
-        return $this->hasMany('App\Models\sys\Messege');
+        return $this->hasMany('App\Models\common\Messege');
     }
     public function alerts()
     {
-        return $this->hasMany('App\Models\sys\Alert');
+        return $this->hasMany('App\Models\common\Alert');
     }
     public function loginouts()
     {

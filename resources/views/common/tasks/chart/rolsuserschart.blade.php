@@ -5,14 +5,14 @@
     <script> requestData('{{ $chart['range'] }}','{{ $chart['id_chart'] }}','{{ $chart['urlapi'] }}','{{ $chart['tipo'] }}','{{ $chart['limit'] }}'); </script>
 @endsection
 
-@component('admin.elements.card.panel')
+@component('common.elements.card.panel')
     @slot('class', 'info')
     @slot('panelControls', 'true')
     @slot('id', $chart['id_chart'])
     @slot('header', 'Roles y Usuarios')
     @slot('iconTitle', $icon_menus['chartpie'])
     @slot('body')
-        @component('admin.elements.canvas.chart')
+        @component('common.elements.canvas.chart')
             @slot('class', 'borderRBL')                  
             @slot('nav') 
                 <strong>Todos los registros</strong>                     

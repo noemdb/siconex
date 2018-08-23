@@ -16,14 +16,12 @@
                 <div id="accordion_task_{{ $task->id or '' }}" class="collapse" aria-labelledby="heading_task_{{ $task->id or '' }}" data-parent="#accordion">
                     <div class="card-body">
 
-                        @include('admin.tasks.show.task')
+                        @includeIf('common.tasks.show.task')
 
-                        {{-- 
                         <a class="btn btn-warning w-100" href="{{ route('tasks.edit',$task->id)}}" taske="button">
                             Actualizar
                             <i class="{{$icon_menus['task'] or ''}}"></i>
-                        </a> 
-                        --}}
+                        </a>                       
 
                     </div>
                 </div>

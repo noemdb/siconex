@@ -8,7 +8,7 @@
       {!! Form::model($task,['route' => ['tasks.update', $task->id], 'method' => 'PUT', 'id'=>'form-update-task_'.$task->id, 'taske'=>'form']) !!}
 
             {{-- partial con el formulario y campos --}}
-            @include('admin.tasks.forms.fields')
+            @include('common.tasks.forms.fields')
 
             <button type="submit" class="btn-user-update btn btn-primary btn-block" value="update" data-id="update" id="btn-update-task-{{$task->id}}">
 

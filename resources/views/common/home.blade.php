@@ -1,5 +1,5 @@
 @extends('common.layouts.dashboard.app')
-{{-- @extends('expediente.layouts.app_sidebar') --}}
+{{-- @extends('common.layouts.app_sidebar') --}}
 
 
 @section('page_heading')
@@ -18,13 +18,13 @@
         </h1>
 
         {{-- labels --}}
-        {{-- @includeIf('expediente.home.partials.labels') --}}
+        {{-- @includeIf('common.home.partials.labels') --}}
 
         {{-- listas --}}
-        {{-- @includeIf('expediente.home.partials.list') --}}
+        {{-- @includeIf('common.home.partials.list') --}}
 
         {{-- graficas --}}
-        {{-- @includeIf('expediente.home.partials.graphics') --}}
+        {{-- @includeIf('common.home.partials.graphics') --}}
 
     </main>
 

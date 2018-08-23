@@ -1,5 +1,5 @@
 {{-- INI Almacenes --}}
-@component('expediente.layouts.dashboard.sidebar.elements.models')
+@component('common.layouts.dashboard.sidebar.elements.models')
     @slot('nombre', 'Almacenes')
     @slot('nrcreate', 'almacens.create')
     @slot('nrcrud', 'almacens.index')
@@ -9,7 +9,7 @@
 {{-- FIN Almacenes --}}
 
 {{-- INI Areas --}}
-@component('expediente.layouts.dashboard.sidebar.elements.models')
+@component('common.layouts.dashboard.sidebar.elements.models')
     @slot('nombre', 'Areas')
     @slot('nrcreate', 'areas.create')
     @slot('nrcrud', 'areas.index')
@@ -19,7 +19,7 @@
 {{-- FIN Areas --}}
 
 {{-- INI Estudiantes --}}
-@component('expediente.layouts.dashboard.sidebar.elements.models')
+@component('common.layouts.dashboard.sidebar.elements.models')
     @slot('nombre', 'Estudiantes')
     @slot('nrcreate', 'estudiantes.create')
     @slot('nrcrud', 'estudiantes.index')
@@ -29,7 +29,7 @@
 {{-- FIN Estudiantes --}}
 
 {{-- INI Carreras --}}
-@component('expediente.layouts.dashboard.sidebar.elements.models')
+@component('common.layouts.dashboard.sidebar.elements.models')
     @slot('nombre', 'Carreras')
     @slot('nrcreate', 'carreras.create')
     @slot('nrcrud', 'carreras.index')
@@ -39,7 +39,7 @@
 {{-- FIN Carreras --}}
 
 {{-- INI estados --}}
-@component('expediente.layouts.dashboard.sidebar.elements.models')
+@component('common.layouts.dashboard.sidebar.elements.models')
     @slot('nombre', 'Estados')
     @slot('nrcreate', 'estados.create')
     @slot('nrcrud', 'estados.index')
@@ -49,7 +49,7 @@
 {{-- FIN estados --}}
 
 {{-- INI expediente --}}
-@component('expediente.layouts.dashboard.sidebar.elements.models')
+@component('common.layouts.dashboard.sidebar.elements.models')
     @slot('nombre', 'Expedientes')
     @slot('nrcreate', 'expedientes.create')
     @slot('nrcrud', 'expedientes.index')
@@ -59,7 +59,7 @@
 {{-- FIN expediente --}}
 
 {{-- INI Documentos --}}
-@component('expediente.layouts.dashboard.sidebar.elements.models')
+@component('common.layouts.dashboard.sidebar.elements.models')
     @slot('nombre', 'Documentos')
     @slot('nrcreate', 'documentos.create')
     @slot('nrcrud', 'documentos.index')
@@ -69,7 +69,7 @@
 {{-- FIN Documentos --}}
 
 {{-- INI Movimientos --}}
-@component('expediente.layouts.dashboard.sidebar.elements.models')
+@component('common.layouts.dashboard.sidebar.elements.models')
     @slot('nombre', 'Movimientos')
     @slot('nrcreate', 'movimientos.create')
     @slot('nrcrud', 'movimientos.index')

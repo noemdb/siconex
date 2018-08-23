@@ -1,9 +1,9 @@
-@extends('expediente.layouts.app')
+@extends('common.layouts.app')
 
 @section('body')
 
 
-        {{-- @include('admin.layouts.dashboard.navbar.app') --}}
+        {{-- @include('common.layouts.dashboard.navbar.app') --}}
 
         {{-- INI navbar --}}
         <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 navbar-expand-md">
@@ -48,7 +48,7 @@
                 {{-- INI sidebar --}}
                 <nav id="sidebar" class="col-md-2 {{-- d-none --}} d-md-block bg-light p-0 m-0 show">
 
-                    @include('expediente.layouts.dashboard.sidebar.app')
+                    @include('common.layouts.dashboard.sidebar.app')
 
                 </nav>
 
@@ -67,7 +67,7 @@
 
      <link href="{{ asset('css/accordion.css') }}" rel="stylesheet">
 
-     {{-- <link href="{{ asset('css/admin.css') }}" rel="stylesheet"> --}}
+     {{-- <link href="{{ asset('css/common.css') }}" rel="stylesheet"> --}}
 
 @endsection
 

@@ -1,6 +1,6 @@
-@include('admin.elements.forms.errors')
+@include('common.elements.forms.errors')
 
-@include('admin.elements.messeges.oper_ok')
+@include('common.elements.messeges.oper_ok')
 
 <div class="form-label-group pb-1">
     
