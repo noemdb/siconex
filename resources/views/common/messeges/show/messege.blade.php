@@ -1,6 +1,6 @@
 @isset($messege)
 
-    <div class="card bd-callout bd-callout-{{ $messege->class or '' }} p-2 m-2">
+    <div class="card bd-callout bd-callout-{{ $messege->TipClass or '' }} p-2 m-2">
 
       <div class="card-body pt-1">
 
@@ -35,14 +35,14 @@
 
             <tr>
                 <th scope="row">Tipo</th>
-                <td id="text-alerts-tipo-{{ $messege->id  or ''}}" class="text-uppercase text-{{ $messege->class or '' }}">
+                <td id="text-alerts-tipo-{{ $messege->id  or ''}}" class="text-uppercase text-{{ $messege->TipClass or '' }}">
                     {{$messege->tipo or ''}}  
                 </td>
             </tr>
 
             <tr>
                 <th scope="row">Estado</th>
-                <td id="text-alerts-estado-{{ $messege->id  or ''}}" class="text-uppercase">
+                <td id="text-alerts-estado-{{ $messege->id  or ''}}" class="text-uppercase text-{{$messege->class or 'secondary'}}">
                     {{$messege->estado or ''}}  
                 </td>
             </tr>

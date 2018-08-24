@@ -89,13 +89,13 @@ class Task extends Model
   public function getClassAttribute()
   {      
     switch ($this->estado) {
-      case 'Regular':
+      case 'INICIADA':
           $class = 'primary'; break;
-      case 'Suspendido':
+      case 'REPROGRAMADA':
           $class = 'danger'; break;
-      case 'Preinscrito':
-          $class = 'info'; break;
-      case 'Egresado':
+      // case 'FINALIZADA':
+      //     $class = 'info'; break;
+      case 'FINALIZADA':
           $class = 'success'; break;          
       default:
           $class = 'secondary'; break;

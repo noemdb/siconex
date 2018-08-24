@@ -31,7 +31,7 @@
 
             @php ($user = $task->user)
 
-            <tr data-task="{{$task->id}}" data-user="{{$user->id or ''}}" class="table-{{ $task->tipo or '' }} p-0 m-0">
+            <tr data-task="{{$task->id}}" data-user="{{$user->id or ''}}" class="text-{{ $task->tipo or '' }} p-0 m-0">
 
                 <td class="{{$class_N}}">
                     {{ ($loop->index + 1) }}

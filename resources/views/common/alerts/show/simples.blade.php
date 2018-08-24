@@ -1,4 +1,6 @@
 @isset($alerts)
+<h4>Últimas 5 </h4>
+@php ($alerts = $alerts->take(5))
 
     <div id="accordion">
 

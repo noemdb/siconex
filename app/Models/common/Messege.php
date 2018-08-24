@@ -88,4 +88,22 @@ class Messege extends Model
     }
     return $class;
   }
+
+  public function getTipClassAttribute()
+  {      
+    switch ($this->tipo) {
+      case 'Conversación':
+          $class = 'primary'; break;
+      case 'Información':
+          $class = 'danger'; break;
+      case 'Alerta':
+          $class = 'info'; break;
+      case 'Solicitud':
+          $class = 'success'; break;          
+      default:
+          $class = 'secondary'; break;
+    }
+    return $class;
+  }
+
 }

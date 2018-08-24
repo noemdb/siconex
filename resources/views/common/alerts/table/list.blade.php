@@ -29,7 +29,7 @@
 
             @php ($user = $alert->user)
 
-            <tr data-alert="{{$alert->id}}" data-user="{{$user->id or ''}}" class="table-{{ $alert->tipo or '' }} p-0 m-0">
+            <tr data-alert="{{$alert->id}}" data-user="{{$user->id or ''}}" class="text-{{ $alert->tipo or '' }} p-0 m-0">
 
                 <td>
                     {{ ($loop->index + 1) }}

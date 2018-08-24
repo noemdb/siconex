@@ -1,33 +1,33 @@
 @component('elements.buttons.default')
     @slot('title', 'Crear nuevo Mensaje')
     @slot('class_bt', 'primary')
-    @slot('route', '#')
+    @slot('route', route('messenges.create'))
     @slot('icon', $icon_menus['nuevo'])
 @endcomponent
 
 @component('elements.menus.dropdown')
     @slot('title', 'CRUD relacionados')
-    @slot('class', 'info')
+    @slot('class', 'info dropleft')
     @slot('icon', $icon_menus['crud'])
     @slot('dropdown')
         {{-- @component('elements.buttons.dropdown')
+            @slot('title', 'CRUD Alertas')
+            @slot('class_bt', 'info')
+            @slot('route', route('messenges.index'))
+            @slot('icon', $icon_menus['messenge'])
+        @endcomponent --}}
+        @component('elements.buttons.dropdown')
+            @slot('title', 'CRUD Tareas')
+            @slot('class_bt', 'info')
+            @slot('route', route('tasks.index'))
+            @slot('icon', $icon_menus['task'])
+        @endcomponent        
+        @component('elements.buttons.dropdown')
             @slot('title', 'CRUD Mensajes')
             @slot('class_bt', 'info')
             @slot('route', route('messeges.index'))
-            @slot('icon', $icon_menus['messeges'])
-        @endcomponent --}}
-        @component('elements.buttons.dropdown')
-            @slot('title', 'CRUD Usuarios')
-            @slot('class_bt', 'info')
-            @slot('route', route('users.index'))
-            @slot('icon', $icon_menus['user'])
+            @slot('icon', $icon_menus['messege'])
         @endcomponent
-        @component('elements.buttons.dropdown')
-            @slot('title', 'CRUD Perfiles')
-            @slot('class_bt', 'info')
-            @slot('route', route('profiles.index'))
-            @slot('icon', $icon_menus['profile'])
-        @endcomponent        
     @endslot
 @endcomponent
 

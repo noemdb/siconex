@@ -4,11 +4,11 @@
 
         @foreach($messeges as $messege)
 
-            <div class="card">
+            <div class="card border-{{$messege->class or 'secondary'}} border-top-0 border-right-0 border-bottom-0">
                 <div class="card-header" id="heading_task_{{ $messege->id or '' }}">
                     <h5 class="mb-0">
                         <button class="btn btn-link btn-sm" data-toggle="collapse" data-target="#accordion_messege_{{ $messege->id or '' }}" aria-expanded="true" aria-conttasks="accordion_task_{{ $alert->id or '' }}">
-                            <span class="text text-{{ $messege->class or '' }}">{{ $messege->truncmensaje }}</span>
+                            <span class="text text-{{ $messege->TipClass or '' }}">{{ $messege->truncmensaje }}</span>
                         </button>
                     </h5>
                 </div>

@@ -7,7 +7,7 @@
     @php ($user = (isset($alert->user)) ? $alert->user: false)
     @php ($profile = (isset($user->profile)) ? $user->profile: false)
     @php ($messeges = (isset($user->messeges)) ? $user->messeges: false)
-    @php ($task = (isset($user->task)) ? $user->task: false)
+    @php ($tasks = (isset($user->tasks)) ? $user->tasks: false)
 
     <main taske="main" class="col-md-10 ml-sm-auto col-lg-10 px-2">
 
@@ -30,8 +30,6 @@
                 </h2>
 
             </div>
-
-
 
             <div class="card-body p-1">
 
