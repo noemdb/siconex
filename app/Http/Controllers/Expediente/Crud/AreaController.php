@@ -112,7 +112,7 @@ class AreaController extends Controller
     {
         $area = Area::findOrFail($id);
         $almacens = Almacen::select('nombre', 'id')
-                ->where('id',$area->almacen_id)
+                // ->where('id',$area->almacen_id)
                 ->orderby('id','asc')
                 ->pluck('nombre', 'id');
                 // ->prepend('Seleccione Almacen','');
