@@ -28,11 +28,12 @@ class AppServiceProvider extends ServiceProvider
 
             'alert'=>'fas fa-bell',
             'task'=>'fas fa-tasks',
-            'messege'=>'far fa-comments',
+            'messege'=>'fas fa-comments',
             'loginout'=>'fas fa-external-link-alt',
             'logdb'=>'fas fa-database',
             'setting'=>'fas fa-sliders-h',
             'selectopt'=>'fas fa-list',
+            'tma'=>'fas fa-boxes',
 
             'editar'=>'fas fa-edit',
             'eliminar'=>'fas fa-trash',

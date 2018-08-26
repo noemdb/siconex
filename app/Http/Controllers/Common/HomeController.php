@@ -40,7 +40,7 @@ class HomeController extends Controller
                     //->where('destino_user_id',\Auth::user()->id)
                     ->get();
 
-        dd($tasks,$alerts,$messeges);
+        // dd($tasks,$alerts,$messeges);
 
         return view('common.home',compact('tasks','alerts','messeges'));
     }

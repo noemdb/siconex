@@ -2,11 +2,11 @@
 <div class="container">
     {{-- INI graphics --}}
     <div class="row">
-
         <div class="col-lg-6 col-md-6 col-sm-12">
             {{-- <div class="card mt-2 bd-callout bd-callout-info"> --}}
 
-               @include('expediente.movimientos.chart.movimientosmonthsline')
+               {{-- @include('expediente.expedientes.chart.expedientesmonths') --}}
+               @include('common.tasks.chart.tasksuserschart')
 
             {{-- </div> --}}
 
@@ -15,7 +15,7 @@
         <div class="col-lg-6 col-md-6 col-sm-12">
             {{-- <div class="card mt-2 bd-callout bd-callout-info"> --}}
 
-               @include('expediente.movimientos.chart.movimientosusers')
+               @include('common.tasks.chart.tasksmonthchart')
 
             {{-- </div> --}}
 
@@ -24,8 +24,8 @@
         <div class="col-lg-6 col-md-6 col-sm-12">
             {{-- <div class="card mt-2 bd-callout bd-callout-info"> --}}
 
-               @include('expediente.expedientes.chart.expedientesmonths')
-
+               @include('common.alerts.chart.alertsuserschart')
+               
             {{-- </div> --}}
 
         </div>
@@ -33,7 +33,7 @@
         <div class="col-lg-6 col-md-6 col-sm-12">
             {{-- <div class="card mt-2 bd-callout bd-callout-info"> --}}
 
-               @include('expediente.estudiantes.chart.estudiantesestados')
+               @include('common.alerts.chart.alertsmonthchart')
 
             {{-- </div> --}}
 

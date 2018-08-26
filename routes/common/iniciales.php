@@ -8,7 +8,7 @@
 |
 */
 
-Route::get('/common', 'HomeController@index')->name('common.home');
+Route::get('/', 'HomeController@index')->name('common.home');
 
 
  ?>

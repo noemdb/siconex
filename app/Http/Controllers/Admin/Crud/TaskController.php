@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Session;
 
 //models
 use App\User;
-use App\Models\sys\Task;
+use App\Models\common\Task;
 // use App\Models\sys\Profile;
 // use App\Models\sys\Rol;
 use App\Models\sys\SelectOpt;

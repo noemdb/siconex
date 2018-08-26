@@ -32,9 +32,9 @@ Route::group(['prefix'=>'common','middleware'=>['auth'],'namespace'=>'Common'], 
 
     require (__DIR__ . '/common/crud/resource.php');
 
-    // require (__DIR__ . '/common/charts/tasks.php');
-    // require (__DIR__ . '/common/charts/alerts.php');
-    // require (__DIR__ . '/common/charts/messeges.php');
+    require (__DIR__ . '/common/charts/tasks.php');
+    require (__DIR__ . '/common/charts/alerts.php');
+    require (__DIR__ . '/common/charts/messeges.php');
 
 });
 

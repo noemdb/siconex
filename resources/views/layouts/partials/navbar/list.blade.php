@@ -14,6 +14,13 @@
     Sistema
 </a>
 
+{{-- <a class="dropdown-item" href="{{ route('poa.home') }}"> --}}
+<a class="dropdown-item" href="{{ route('common.home') }}" title="Control de Taréas, Mensajes y Alertas">
+    <i class="{{ $icon_menus['tma'] }} text-info"></i>
+    Módulo TMA
+</a>
+
+
 
 {{-- <a class="dropdown-item" href="{{ route('poa.home') }}"> --}}
 <a class="dropdown-item" href="{{ route('expediente.home') }}" title="Control de Expedientes">

@@ -59,7 +59,7 @@ class Messege extends Model
           ->where('estado', 'like', '%'.$estado.'%')
           ->where('user_id',$value)
           ->groupBy('user_id')
-            ->get([
+          ->get([
               DB::raw('COUNT(*) as value')
           ]);
 
@@ -74,15 +74,11 @@ class Messege extends Model
 
   public function getClassAttribute()
   {      
-    switch ($this->tipo) {
-      case 'Conversación':
+    switch ($this->estado) {
+      case 'Enviado':
           $class = 'primary'; break;
-      case 'Información':
-          $class = 'info'; break;
-      case 'Solicitud':
-          $class = 'success'; break;
-      case 'Alerta':
-          $class = 'warning'; break;          
+      case 'Entregado':
+          $class = 'success'; break;         
       default:
           $class = 'secondary'; break;
     }

@@ -1,4 +1,4 @@
-{{-- INI Almacenes --}}
+{{-- INI Tareas --}}
 @component('common.layouts.dashboard.sidebar.elements.models')
     @slot('nombre', 'Tareas')
     @slot('nrcreate', 'tasks.create')
@@ -6,9 +6,9 @@
     {{-- @slot('nrchart', 'tasks.chart') --}}
     @slot('icon', $icon_menus['task'])
 @endcomponent
-{{-- FIN Almacenes --}}
+{{-- FIN Tareas --}}
 
-{{-- INI Areas --}}
+{{-- INI Alertas --}}
 @component('common.layouts.dashboard.sidebar.elements.models')
     @slot('nombre', 'Alertas')
     @slot('nrcreate', 'alerts.create')
@@ -16,14 +16,14 @@
     {{-- @slot('nrchart', 'alerts.chart') --}}
     @slot('icon', $icon_menus['alert'])
 @endcomponent
-{{-- FIN Areas --}}
+{{-- FIN Alertas --}}
 
-{{-- INI Estudiantes --}}
-@component('common.layouts.dashboard.sidebar.elements.models')
-    @slot('nombre', 'Mensajes')
-    @slot('nrcreate', 'messeges.create')
-    @slot('nrcrud', 'messeges.index')
+{{-- INI Mensajes --}}
+{{-- @component('common.layouts.dashboard.sidebar.elements.models') --}}
+    {{-- @slot('nombre', 'Mensajes') --}}
+    {{-- @slot('nrcreate', 'messeges.create') --}}
+    {{-- @slot('nrcrud', 'messeges.index') --}}
     {{-- @slot('nrchart', 'estudiantes.chart') --}}
-    @slot('icon', $icon_menus['messege'])
-@endcomponent
-{{-- FIN Estudiantes --}}
+    {{-- @slot('icon', $icon_menus['messege']) --}}
+{{-- @endcomponent --}}
+{{-- FIN Mensajes --}}
