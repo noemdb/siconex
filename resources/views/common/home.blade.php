@@ -4,7 +4,7 @@
 @section('main')
 
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-        <h1 class="page-header">
+        <h1 class="font-weight-bold">
                 Dashboard
         </h1>
 

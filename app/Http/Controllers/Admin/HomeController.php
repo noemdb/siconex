@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Models\common\Task;
+use App\Models\common\Alert;
+use App\Models\common\Messege;
+
 class HomeController extends Controller
 {
     /**
@@ -24,6 +28,20 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.home');
+        $tasks = Task::OrderBy('created_at', 'desc')
+                    //->where('destino_user_id',\Auth::user()->id)
+                    ->get();
+
+        $alerts = Alert::OrderBy('created_at', 'desc')
+                    //->where('destino_user_id',\Auth::user()->id)
+                    ->get();
+
+        $messeges = Messege::OrderBy('created_at', 'desc')
+                    //->where('destino_user_id',\Auth::user()->id)
+                    ->get();
+
+        // dd($tasks,$alerts,$messeges);
+
+        return view('admin.home',compact('tasks','alerts','messeges'));
     }
 }
