@@ -8,6 +8,8 @@
         </h1>
 
         {{-- labels --}}
+        @includeIf('admin.home.partials.labels')
+
         @includeIf('common.home.partials.admin.labels')
 
         {{-- listas --}}
@@ -38,7 +40,7 @@
         swal({
           type: 'success',
           title: 'Excelente! Bienvenido',
-          html: '<i class="{{ $icon_menus['brand'] }} text-warning"></i> Administración del Sistema',
+          html: '<i class="{{ $icon_menus['sistema'] }} text-warning"></i> Administración del Sistema',
         })
     </script>
 

@@ -150,4 +150,17 @@ class User extends Authenticatable
 
     }
 
+    public function getClassAttribute()
+    {      
+      switch ($this->is_active) {
+        case 'Activo':
+            $class = 'primary'; break;
+        case 'Desactivo':
+            $class = 'danger'; break;         
+        default:
+            $class = 'secondary'; break;
+      }
+      return $class;
+    }
+
 }

@@ -8,7 +8,7 @@
         {{-- INI navbar --}}
         <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 navbar-expand-md">
         
-            <a class="navbar-brand col-sm-3 col-md-2 m-0 p-0" href="#">
+            <a class="navbar-brand col-sm-3 col-md-2 m-0 p-0" href="{{ route('home') }}">
                 <img class="{{-- mb-4 --}}" src="{{ asset('images/brand/xs/4.png') }}" alt="" width="48" height="48">
                 {{ config('app.name', 'Laravel') }}
             </a>
@@ -25,10 +25,10 @@
                 {{-- <a class="nav-link text-primary" href="#">
                     <i class="{{ $icon_menus['messege'] or '' }} "></i>
                 </a> --}}
-                <a class="nav-link text-info" href="#">
+                <a class="nav-link text-info" href="{{ route('alerts.index') }}">
                     <i class="{{ $icon_menus['alert'] or '' }} "></i>
                 </a>
-                <a class="nav-link text-success" href="#">
+                <a class="nav-link text-success" href="{{ route('tasks.index') }}">
                     <i class="{{ $icon_menus['task'] or '' }} "></i>
                 </a>
             </div>

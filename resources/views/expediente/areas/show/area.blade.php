@@ -28,12 +28,12 @@
                 </td>
             </tr>
 
-            <tr>
+            {{-- <tr>
                 <th scope="col">Descripción</th>
                 <td>
                     {{$area->descripcion or ''}}
                 </td>
-            </tr>
+            </tr> --}}
 
             <tr>
                 <th scope="row">Creado</th>

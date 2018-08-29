@@ -25,10 +25,10 @@
                 {{-- <a class="nav-link text-primary" href="#">
                     <i class="{{ $icon_menus['messege'] or '' }} "></i>
                 </a> --}}
-                <a class="nav-link text-info" href="#">
+                <a class="nav-link text-info" href="{{ route('alerts.index') }}">
                     <i class="{{ $icon_menus['alert'] or '' }} "></i>
                 </a>
-                <a class="nav-link text-success" href="#">
+                <a class="nav-link text-success" href="{{ route('tasks.index') }}">
                     <i class="{{ $icon_menus['task'] or '' }} "></i>
                 </a>
             </div>
