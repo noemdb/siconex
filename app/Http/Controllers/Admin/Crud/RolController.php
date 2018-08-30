@@ -29,8 +29,8 @@ class RolController extends Controller
     public function index()
     {
         $rols = Rol::OrderBy('id','DESC')
-            ->with('User')
-            ->with('Profile')
+            // ->with('User')
+            // ->with('Profile')
             ->get();
 
         return view('admin.rols.index', compact('rols'));

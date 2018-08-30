@@ -2,14 +2,6 @@
 {{-- @extends('expediente.layouts.app_sidebar') --}}
 
 
-@section('page_heading')
-    {{-- <div class="col-lg-12"> --}}
-        <h1 class="page-header">
-            Dashboard
-        </h1>
-    {{-- </div> --}}
-@endsection
-
 @section('main')
 
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">

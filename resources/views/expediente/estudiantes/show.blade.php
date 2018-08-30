@@ -35,7 +35,7 @@
                     <div class="row">
 
                         
-                        <div class="col-sm-4 text-center">
+                        <div class="col-sm-3 text-center">
 
                             {{-- <img alt="{{$estudiante->id or ''}}" class="img-thumbnail img-rounded" src="{{ (isset($estudiante->urlimg)) ? asset($estudiante->url_img) : asset('images/avatar/user_default.png') }}"> --}}
                             <img alt="{{$estudiante->id or ''}}" class="img-thumbnail img-rounded" src="{{ asset('images/avatar/user_default.png') }}">
@@ -43,7 +43,7 @@
                         </div> 
                        
 
-                        <div class="col-sm-8">
+                        <div class="col-sm-9">
 
                             @include('expediente.estudiantes.show.tabs')
                             {{-- @include('expediente.estudiantes.show.tabs') --}}
