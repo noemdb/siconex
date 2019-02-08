@@ -1,0 +1,11 @@
+instalacion sistema laravel (clonando en repositorio github)
+
+
+git clone https://github.com/noemdb/siconex.git
+cd siconex
+composer update
+composer dump-autoload
+php artisan vendor:publish --all
+php artisan key:generate
+php artisan config:cache
+php artisan migrate:fresh --seed
