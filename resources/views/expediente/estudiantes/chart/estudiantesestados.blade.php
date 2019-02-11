@@ -5,11 +5,12 @@
     <script> requestData('{{ $chart['range'] }}','{{ $chart['id_chart'] }}','{{ $chart['urlapi'] }}','{{ $chart['tipo'] }}','{{ $chart['limit'] }}'); </script>
 @endsection
 
-@component('admin.elements.card.panel')
+@component('expediente.elements.card.panel')
     @slot('class', 'primary')
     @slot('panelControls', 'true')
     @slot('id', $chart['id_chart'])
     @slot('header', 'Estudiantes por Estados')
+    @slot('subtitle', 'Estudiantes registrados por Estados')
     @slot('iconTitle', $icon_menus['chartline'])
     @slot('body')
         @component('admin.elements.canvas.chart')

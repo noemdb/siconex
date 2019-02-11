@@ -9,6 +9,10 @@
             <i class="{{ $iconTitle or '' }} text-{{ $class or 'default' }}"></i>
             <strong class="text-{{ $class or 'default' }}">{{ $header }}</strong>
 
+            @isset($subtitle)                
+                <small class="text-muted d-block">{{$subtitle or ''}}</small>
+            @endisset
+
             @isset($panelControls)
                 <div class="float-right">
                     <a id="minimizer-{{ $id or '1' }}" data-id="collapse-{{ $id or '1' }}" class="text text-info p-1" data-toggle="collapse">

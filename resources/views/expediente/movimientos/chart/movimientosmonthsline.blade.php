@@ -10,6 +10,7 @@
     @slot('panelControls', 'true')
     @slot('id', $chart['id_chart'])
     @slot('header', 'Reg. Movimientos por Mes')
+    @slot('subtitle', 'Registro de los movimientos de los expedientes estudiantiles por mes')
     @slot('iconTitle', $icon_menus['chartline'])
     @slot('body')
         @component('expediente.elements.chart.canvas')

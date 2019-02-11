@@ -10,6 +10,7 @@
     @slot('panelControls', 'true')
     @slot('id', $chart['id_chart'])
     @slot('header', 'Expedientes por Estados')
+    @slot('subtitle', 'Expedientes Estudiantiles por Estados')
     @slot('iconTitle', $icon_menus['chartline'])
     @slot('body')
         @component('admin.elements.canvas.chart')
